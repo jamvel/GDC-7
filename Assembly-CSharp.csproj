@@ -189,6 +189,7 @@
      <Compile Include="Assets\Imports\Standard Assets\Vehicles\Car\Scripts\SkidTrail.cs" />
      <Compile Include="Assets\Imports\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
      <Compile Include="Assets\Imports\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
+     <Compile Include="Assets\Prototype\Player\CameraColliders.cs" />
      <Compile Include="Assets\Prototype\Player\CameraFollow.cs" />
      <Compile Include="Assets\Prototype\Player\Player.cs" />
      <Compile Include="Assets\Prototype\Player\PlayerController.cs" />
