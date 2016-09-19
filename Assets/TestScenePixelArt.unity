@@ -491,7 +491,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433230, guid: 3abe220729b5b468287500af2f75307c, type: 2}
       propertyPath: jumpVelocity
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3abe220729b5b468287500af2f75307c, type: 2}
