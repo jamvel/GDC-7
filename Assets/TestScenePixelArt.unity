@@ -551,6 +551,14 @@ Prefab:
       propertyPath: eastWall
       value: 
       objectReference: {fileID: 1100835296}
+    - target: {fileID: 11497246, guid: 7aabd80980c7b4ed4b1b5ec8d010ef26, type: 2}
+      propertyPath: hCameraSnapOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497246, guid: 7aabd80980c7b4ed4b1b5ec8d010ef26, type: 2}
+      propertyPath: vCameraSnapOffset
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7aabd80980c7b4ed4b1b5ec8d010ef26, type: 2}
   m_IsPrefabParent: 0
