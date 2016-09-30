@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	public float speed = 10f;
 	public float jumpVelocity = 10f;
-	public LayerMask playerMask;
+    public LayerMask playerMask;
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
 
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 		//Horizontal Movement
 		Move (Input.GetAxisRaw ("Horizontal"));
 		if(Input.GetButtonDown("Jump")){ //vertical
-			if(isGround){
+            if (isGround){
 				playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
 		}
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 		if(!airControl && !isGround){
 			return;
 		}
-		Vector2 moveVelocity = playerRigidBody.velocity;
+        Vector2 moveVelocity = playerRigidBody.velocity;
 		moveVelocity.x = horizontalInput * speed;
 		playerRigidBody.velocity = moveVelocity;
 	}
