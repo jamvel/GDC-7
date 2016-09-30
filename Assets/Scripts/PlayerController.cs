@@ -11,18 +11,29 @@ public class PlayerController : MonoBehaviour {
 	private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
 	private bool isGround = false;
+    private Animator animator;
 
-	void Start(){
+    void Start(){
 		playerTransform = this.GetComponent<Transform> ();
 		tagLeftTransform = tagGroundLeft.GetComponent<Transform> ();
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
-	}
+        animator = this.GetComponent<Animator>();
+    }
 
 	void Update(){
-		//Horizontal Movement
-		Move (Input.GetAxisRaw ("Horizontal"));
-		if(Input.GetButtonDown("Jump")){ //vertical
+
+        
+        //Horizontal Movement
+        Move (Input.GetAxisRaw ("Horizontal"));
+        var horizontal = Input.GetAxis("Horizontal");
+        if (horizontal > 0){
+            animator.SetInteger("Direction", 1);
+        }else if (horizontal < 0){
+            animator.SetInteger("Direction", 0);
+        }
+
+        if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
 				playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}

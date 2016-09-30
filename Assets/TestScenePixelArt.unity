@@ -281,6 +281,27 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 459888, guid: 3abe220729b5b468287500af2f75307c, type: 2}
   m_PrefabInternal: {fileID: 1755473415}
+--- !u!1 &811838622 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 182500, guid: 3abe220729b5b468287500af2f75307c, type: 2}
+  m_PrefabInternal: {fileID: 1755473415}
+--- !u!95 &811838627
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811838622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 074fb96b1d2b68f4ebdfc66be6d32d32, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &938787544
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +573,7 @@ Transform:
   m_GameObject: {fileID: 1158001003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.978, y: -0.691, z: 0}
-  m_LocalScale: {x: 0.22196622, y: 0.22196622, z: 0.22196622}
+  m_LocalScale: {x: 0.22196622, y: 0.4, z: 0.22196622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -744,7 +765,7 @@ GameObject:
   - 212: {fileID: 1327244188}
   - 61: {fileID: 1327244187}
   m_Layer: 0
-  m_Name: Spr_1 (2)
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -805,7 +826,7 @@ Transform:
   m_GameObject: {fileID: 1327244186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.15, y: -1.749, z: 0}
-  m_LocalScale: {x: 2.331707, y: 0.22196622, z: 0.22196622}
+  m_LocalScale: {x: 2.331707, y: 0.4, z: 0.22196622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -986,7 +1007,7 @@ Transform:
   m_GameObject: {fileID: 1744837187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.46065, y: -1.246, z: 0}
-  m_LocalScale: {x: 0.22196622, y: 0.22196622, z: 0.22196622}
+  m_LocalScale: {x: 0.22196622, y: 0.4, z: 0.22196622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1042,6 +1063,11 @@ Prefab:
       propertyPath: Bars
       value: 
       objectReference: {fileID: 1197219692}
+    - target: {fileID: 21240926, guid: 3abe220729b5b468287500af2f75307c, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300018, guid: 33e17ebad89d88d41b5e2ce2748f8e52,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3abe220729b5b468287500af2f75307c, type: 2}
   m_IsPrefabParent: 0
