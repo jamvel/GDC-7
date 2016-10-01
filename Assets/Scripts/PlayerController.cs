@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour {
     public LayerMask playerMask;
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
+    public AudioClip[] effects;
 
-	private Transform playerTransform,tagLeftTransform, tagRightTransform;
+    private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
 	private bool isGround = false;
     private Animator animator;
@@ -24,10 +25,12 @@ public class PlayerController : MonoBehaviour {
 	void Update(){
         //Horizontal Movement
         var horizontal = Input.GetAxis("Horizontal");
-        Move (horizontal);
+        Move(horizontal);
         if (horizontal > 0){
+            AudioSource.PlayClipAtPoint(effects[0], transform.position);
             animator.SetInteger("Direction", 1);
         }else if (horizontal < 0){
+            AudioSource.PlayClipAtPoint(effects[0], transform.position);
             animator.SetInteger("Direction", 2);
         }else{
             animator.SetInteger("Direction", 3);
@@ -54,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void Move(float horizontalInput){
 		if(!airControl && !isGround){
-			return;
+            return;
 		}
         Vector2 moveVelocity = playerRigidBody.velocity;
 		moveVelocity.x = horizontalInput * speed;
