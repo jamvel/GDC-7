@@ -22,17 +22,17 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void Update(){
-
-        
         //Horizontal Movement
-        Move (Input.GetAxisRaw ("Horizontal"));
         var horizontal = Input.GetAxis("Horizontal");
+        Move (horizontal);
         if (horizontal > 0){
             animator.SetInteger("Direction", 1);
         }else if (horizontal < 0){
-            animator.SetInteger("Direction", 0);
+            animator.SetInteger("Direction", 2);
+        }else{
+            animator.SetInteger("Direction", 3);
         }
-
+        
         if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
 				playerRigidBody.velocity = jumpVelocity * Vector2.up;
