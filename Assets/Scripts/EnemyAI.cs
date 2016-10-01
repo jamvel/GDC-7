@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     public Transform targetTransform;
 
     //how many times per second to update path
-    public float updateRate = 2f;
+    public float updateRate = 5f;
 
     //caching
     private Seeker seeker;
@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
 
     //AI speed per sec
     //not be be frame rate dependent 
-    public float speed = 300f;
+    public float speed = 1000f;
     public ForceMode2D fMode;
 
     [HideInInspector]
@@ -34,15 +34,19 @@ public class EnemyAI : MonoBehaviour
     //waypoint currently moving towards
     private int currentDistance = 0;
 
-    void Start()
-    {
+    //boolean to use after player dies
+    private bool searchingPlayer = false;
+
+    void Start(){
         seeker = GetComponent<Seeker>();
         rigidBody = GetComponent<Rigidbody2D>();
 
         //assign target body -> player
-        if (targetTransform == null)
-        {
-            Debug.LogError("No Player Found");
+        if (targetTransform == null){
+            if (!searchingPlayer) {
+                searchingPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
@@ -52,13 +56,29 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
 
+    IEnumerator SearchForPlayer() {
+        GameObject sResult = GameObject.FindGameObjectWithTag("Player");
+        if(sResult == null) {
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(SearchForPlayer());
+        }else {
+            targetTransform = sResult.transform;
+            searchingPlayer = false;
+            StartCoroutine(UpdatePath());
+            yield return false;
+        }
+    }
+
+
+
     //no need to update with each frame
     //updated 2 times per second
-    IEnumerator UpdatePath()
-    {
-        if (targetTransform == null)
-        {
-            //TODO: insert player search here
+    IEnumerator UpdatePath(){
+        if (targetTransform == null){
+            if (!searchingPlayer){
+                searchingPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             yield return false;
         }
 
@@ -68,44 +88,40 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
 
-    public void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
+    public void OnPathComplete(Path p){
+        if (!p.error){
             path = p;
             currentDistance = 0;
 
-        }
-        else
-        {
+        }else{
             Debug.Log("Path Error found " + p.error);
         }
     }
 
-    void FixedUpdate()
-    {
-        if (targetTransform == null)
-        {
-            //TODO : Insert playerSearch here 
+    void FixedUpdate(){
+        if (targetTransform == null){
+            if (!searchingPlayer){
+                searchingPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
             return;
         }
 
         //TODO: call lookAt function here
-        if (path == null)
-        {
+        if (path == null){
             return;
         }
 
-        if (currentDistance >= path.vectorPath.Count)
-        {
-            if (pathEnded)
-            {
+        if (currentDistance >= path.vectorPath.Count){
+            if (pathEnded){
                 return;
             }
+
             Debug.Log("End of Path Reached");
             pathEnded = true;
             return;
         }
+
         pathEnded = false;
 
         //Direction to next waypoint
@@ -115,20 +131,17 @@ public class EnemyAI : MonoBehaviour
         //Moving the enemy to the direction specified
         rigidBody.AddForce(dir, fMode);
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentDistance]);
-        if (dist < nextDistance)
-        {
+        if (dist < nextDistance){
             currentDistance++;
             return;
         }
     }
 
-    void lookAt()
-    {
+    void lookAt(){
 
     }
 
-    void moveToPlayer()
-    {
+    void moveToPlayer(){
 
     }
 }
