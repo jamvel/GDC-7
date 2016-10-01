@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour {
     public LayerMask playerMask;
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
+
     public AudioClip[] effects;
+    public AudioSource source;
 
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour {
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
+        source = gameObject.AddComponent<AudioSource>();
+        source.clip = effects[0];
     }
 
 	void Update(){
@@ -27,11 +31,11 @@ public class PlayerController : MonoBehaviour {
         var horizontal = Input.GetAxis("Horizontal");
         Move(horizontal);
         if (horizontal > 0){
-            AudioSource.PlayClipAtPoint(effects[0], transform.position);
             animator.SetInteger("Direction", 1);
+            WalkSound();
         }else if (horizontal < 0){
-            AudioSource.PlayClipAtPoint(effects[0], transform.position);
             animator.SetInteger("Direction", 2);
+            WalkSound();
         }else{
             animator.SetInteger("Direction", 3);
         }
@@ -63,4 +67,12 @@ public class PlayerController : MonoBehaviour {
 		moveVelocity.x = horizontalInput * speed;
 		playerRigidBody.velocity = moveVelocity;
 	}
+
+    public void WalkSound(){
+        if (isGround){
+            if (!source.isPlaying){
+                source.Play();
+            }
+        }
+    }
 }
