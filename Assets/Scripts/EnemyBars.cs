@@ -19,8 +19,8 @@ public class EnemyBars : MonoBehaviour{
 
     void OnGUI(){
         Vector2 targetPos;
-        targetPos = Camera.main.WorldToScreenPoint(transform.position);
-        GUI.Box(new Rect(targetPos.x, targetPos.y, healthBarLength, 20), curHealth + "/" + maxHealth);
+        targetPos = GameObject.FindGameObjectWithTag("Enemy").transform.localPosition;
+        GUI.Box(new Rect(targetPos.x, -targetPos.y, healthBarLength, 20), curHealth + "/" + maxHealth);
     }
 
     public void AddjustCurrentHealth(int adj){

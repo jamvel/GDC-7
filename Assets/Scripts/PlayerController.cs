@@ -42,7 +42,8 @@ public class PlayerController : MonoBehaviour {
         
         if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
-				playerRigidBody.velocity = jumpVelocity * Vector2.up;
+                AudioSource.PlayClipAtPoint(effects[1], transform.position);
+                playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
 		}
 
