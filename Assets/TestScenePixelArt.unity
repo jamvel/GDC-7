@@ -312,6 +312,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats:
     Health: 100
+--- !u!114 &286648405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286648396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a209dc4b2f74a554787c168f8f779e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curHealth: 100
+  healthBarLength: 10
+--- !u!114 &286648406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286648396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a209dc4b2f74a554787c168f8f779e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curHealth: 100
+  healthBarLength: 0
 --- !u!1 &406661535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1525,18 @@ Prefab:
     - target: {fileID: 11433230, guid: 3abe220729b5b468287500af2f75307c, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471564, guid: 3abe220729b5b468287500af2f75307c, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 478672, guid: 3abe220729b5b468287500af2f75307c, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459888, guid: 3abe220729b5b468287500af2f75307c, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11433230, guid: 3abe220729b5b468287500af2f75307c, type: 2}
