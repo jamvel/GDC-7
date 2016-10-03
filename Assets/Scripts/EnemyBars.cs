@@ -6,7 +6,6 @@ public class EnemyBars : MonoBehaviour{
     public int curHealth = 100;
 
     public float healthBarLength;
-
     // Use this for initialization
     void Start(){
         healthBarLength = Screen.width / 6;

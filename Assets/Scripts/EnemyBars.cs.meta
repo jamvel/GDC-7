@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: a209dc4b2f74a554787c168f8f779e37
-timeCreated: 1475423614
+timeCreated: 1475505958
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - CubeRenderer: {fileID: 23000013362939664, guid: 578f8377ad135dc4f9b072b4cc610e61,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
