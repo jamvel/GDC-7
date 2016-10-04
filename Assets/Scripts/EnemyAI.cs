@@ -130,6 +130,8 @@ public class EnemyAI : MonoBehaviour
 
         //Moving the enemy to the direction specified
         rigidBody.AddForce(dir, fMode);
+        //distance to player
+        //modify this part for range shooting
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentDistance]);
         if (dist < nextDistance){
             currentDistance++;
