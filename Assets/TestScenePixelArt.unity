@@ -972,9 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1c18ef6d725304eba6739ca86c63d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar:
-  - {fileID: 1779162784}
-  - {fileID: 61131035}
+  healthBar: {fileID: 1779162784}
   manaBar: {fileID: 965830610}
 --- !u!1 &1209532878
 GameObject:
