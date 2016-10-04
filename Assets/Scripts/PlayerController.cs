@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
             animator.SetInteger("Direction", 2);
             WalkSound();
         }else{
-            animator.SetInteger("Direction", 3);
+            animator.SetInteger("Direction", 0);
         }
         
         if (Input.GetButtonDown("Jump")){ //vertical
