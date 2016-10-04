@@ -16,8 +16,7 @@ public class PlayerBars : MonoBehaviour {
     void Damage(int dam){
         health = health - dam/*20*/;
         healthBar.value = health;
-        if (health <= 0)
-        {
+        if (health <= 0){
             //die
         }
     }
@@ -47,6 +46,6 @@ public class PlayerBars : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	
-	}
+        Damage(1);
+    }
 }
