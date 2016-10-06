@@ -30,14 +30,19 @@ public class PlayerController : MonoBehaviour {
         //Horizontal Movement
         var horizontal = Input.GetAxis("Horizontal");
         Move(horizontal);
-        if (horizontal > 0){
+        if (horizontal > 0){//walk right
             animator.SetInteger("Direction", 1);
             WalkSound();
-        }else if (horizontal < 0){
+        }else if (horizontal < 0){//walk left
             animator.SetInteger("Direction", 2);
             WalkSound();
-        }else{
-            animator.SetInteger("Direction", 0);
+        }else{//not moving
+            if(animator.GetInteger("Direction") == 1) {
+                animator.SetInteger("Direction", 0);
+            }
+            else if(animator.GetInteger("Direction") == 2) {
+                animator.SetInteger("Direction", 3);
+            }
         }
         
         if (Input.GetButtonDown("Jump")){ //vertical
