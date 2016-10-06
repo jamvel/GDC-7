@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour {
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
 	private bool isGround = false;
+    private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
+
 
     void Start(){
 		playerTransform = this.GetComponent<Transform> ();
@@ -31,16 +33,18 @@ public class PlayerController : MonoBehaviour {
         var horizontal = Input.GetAxis("Horizontal");
         Move(horizontal);
         if (horizontal > 0){//walk right
+            direct = true;
             animator.SetInteger("Direction", 1);
             WalkSound();
         }else if (horizontal < 0){//walk left
+            direct = false;
             animator.SetInteger("Direction", 2);
             WalkSound();
         }else{//not moving
-            if(animator.GetInteger("Direction") == 1) {
+            if (direct){//look right
                 animator.SetInteger("Direction", 0);
             }
-            else if(animator.GetInteger("Direction") == 2) {
+            else if (!direct) {//look left
                 animator.SetInteger("Direction", 3);
             }
         }
