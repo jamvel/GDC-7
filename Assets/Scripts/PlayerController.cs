@@ -43,8 +43,7 @@ public class PlayerController : MonoBehaviour {
         }else{//not moving
             if (direct){//look right
                 animator.SetInteger("Direction", 0);
-            }
-            else if (!direct) {//look left
+            }else if (!direct) {//look left
                 animator.SetInteger("Direction", 3);
             }
         }

@@ -52,7 +52,6 @@ public class EnemyAI : MonoBehaviour
 
         //start a new patch to the target position, return result to the OnPathComplete method
         seeker.StartPath(transform.position, targetTransform.position, OnPathComplete);
-
         StartCoroutine(UpdatePath());
     }
 
@@ -94,7 +93,7 @@ public class EnemyAI : MonoBehaviour
             currentDistance = 0;
 
         }else{
-            Debug.Log("Path Error found " + p.error);
+            //Debug.Log("Path Error found " + p.error);
         }
     }
 
@@ -117,21 +116,28 @@ public class EnemyAI : MonoBehaviour
                 return;
             }
 
-            Debug.Log("End of Path Reached");
+            //Debug.Log("End of Path Reached");
             pathEnded = true;
             return;
         }
-
         pathEnded = false;
 
         //Direction to next waypoint
         Vector3 dir = (path.vectorPath[currentDistance] - transform.position).normalized;
         dir *= speed * Time.fixedDeltaTime;
-
+        
         //Moving the enemy to the direction specified
         rigidBody.AddForce(dir, fMode);
+
         //distance to player
         //modify this part for range shooting
+
+        float distanceToPlayer = Vector3.Distance(transform.position, targetTransform.position);
+        //Debug.Log("Player Location" + targetTransform.position);
+        //Debug.Log("Enemy Location" + transform.position);
+        Debug.Log("Distance To Player" + distanceToPlayer);
+
+
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentDistance]);
         if (dist < nextDistance){
             currentDistance++;
@@ -144,6 +150,12 @@ public class EnemyAI : MonoBehaviour
     }
 
     void moveToPlayer(){
+
+    }
+
+    bool stopAtDistace(int distance) {
+
+        return true;
 
     }
 }
