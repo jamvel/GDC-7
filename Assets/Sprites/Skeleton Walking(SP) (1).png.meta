@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 4dea10d5c7b26fc40b488321cf47c391
+timeCreated: 1475942385
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Skeleton Walking(SP) (1)_0
+    21300002: Skeleton Walking(SP) (1)_1
+    21300004: Skeleton Walking(SP) (1)_2
+    21300006: Skeleton Walking(SP) (1)_3
+    21300008: Skeleton Walking(SP) (1)_4
+    21300010: Skeleton Walking(SP) (1)_5
+    21300012: Skeleton Walking(SP) (1)_6
+    21300014: Skeleton Walking(SP) (1)_7
+    21300016: Skeleton Walking(SP) (1)_8
+    21300018: Skeleton Walking(SP) (1)_9
+    21300020: Skeleton Walking(SP) (1)_10
+    21300022: Skeleton Walking(SP) (1)_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 67
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 67
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 67
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 67
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 67
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_5
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 67
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_7
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 3
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 3
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 3
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 3
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Skeleton Walking(SP) (1)_11
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 3
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

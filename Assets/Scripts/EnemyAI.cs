@@ -36,10 +36,14 @@ public class EnemyAI : MonoBehaviour
 
     //boolean to use after player dies
     private bool searchingPlayer = false;
+    private bool sDirect = true;
+    private Animator animator;
+    private Collision coll;
 
     void Start(){
         seeker = GetComponent<Seeker>();
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = this.GetComponent<Animator>();
 
         //assign target body -> player
         if (targetTransform == null){
@@ -131,11 +135,32 @@ public class EnemyAI : MonoBehaviour
 
         //distance to player
         //modify this part for range shooting
-
         float distanceToPlayer = Vector3.Distance(transform.position, targetTransform.position);
         //Debug.Log("Player Location" + targetTransform.position);
         //Debug.Log("Enemy Location" + transform.position);
         Debug.Log("Distance To Player" + distanceToPlayer);
+
+        //if (OnCollision(coll)){
+            //jump enemy
+        //}
+
+        var relativePoint = transform.InverseTransformPoint(targetTransform.position);
+        if (relativePoint.x < 0.0){//walk left
+            sDirect = true;
+            animator.SetInteger("Sdirection", 2);
+            // WalkSound();
+        }else if (relativePoint.x > 0.0){//walk right
+            sDirect = false;
+            animator.SetInteger("Sdirection", 1);
+            // WalkSound();
+        }else{//not moving
+            if (sDirect){//look right
+                animator.SetInteger("Sdirection", 0);
+            }else if (!sDirect){//look left
+                animator.SetInteger("Sdirection", 3);
+            }
+        }
+
 
 
         float dist = Vector3.Distance(transform.position, path.vectorPath[currentDistance]);
@@ -150,6 +175,15 @@ public class EnemyAI : MonoBehaviour
     }
 
     void moveToPlayer(){
+
+    }
+
+    bool OnCollision(Collision collision){
+        if (collision.gameObject.tag == "Platform"){
+            return true;
+        }else{
+            return false;
+        }
 
     }
 
