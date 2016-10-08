@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
 
-    public AudioClip[] effects;
-    public AudioSource source;
+    //public AudioClip[] effects;
+    //public AudioSource source;
 
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour {
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
-        source = gameObject.AddComponent<AudioSource>();
-        source.clip = effects[0];
+        //source = gameObject.AddComponent<AudioSource>();
+        //source.clip = effects[0];
     }
 
 	void Update(){
@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour {
         if (horizontal > 0){//walk right
             direct = true;
             animator.SetInteger("Direction", 1);
-            WalkSound();
+           // WalkSound();
         }else if (horizontal < 0){//walk left
             direct = false;
             animator.SetInteger("Direction", 2);
-            WalkSound();
+           // WalkSound();
         }else{//not moving
             if (direct){//look right
                 animator.SetInteger("Direction", 0);
@@ -50,9 +50,13 @@ public class PlayerController : MonoBehaviour {
         
         if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
-                AudioSource.PlayClipAtPoint(effects[1], transform.position);
+                //AudioSource.PlayClipAtPoint(effects[1], transform.position);
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
+		}
+
+		if(Input.GetButtonDown("Fire1")){
+			Debug.Log ("attack");
 		}
 
 	}
@@ -77,11 +81,11 @@ public class PlayerController : MonoBehaviour {
 		playerRigidBody.velocity = moveVelocity;
 	}
 
-    public void WalkSound(){
+   /* public void WalkSound(){
         if (isGround){
             if (!source.isPlaying){
                 source.Play();
             }
         }
-    }
+    }*/
 }

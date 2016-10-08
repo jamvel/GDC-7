@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SampleScenes/Scenes/AircraftPropeller4Axis.unity
   - enabled: 0
-    path: Assets/SampleScenes/Scenes/AircraftPropellerAI.unity
-  - enabled: 0
     path: Assets/SampleScenes/Scenes/Car.unity
+  - enabled: 0
+    path: Assets/SampleScenes/Scenes/AircraftPropellerAI.unity
   - enabled: 0
     path: Assets/SampleScenes/Scenes/CarAIWaypointBased.unity
   - enabled: 0
@@ -31,3 +31,5 @@ EditorBuildSettings:
     path: Assets/SampleScenes/Scenes/RollerBall.unity
   - enabled: 0
     path: Assets/Prototype/Player/PlayerMovement.unity
+  - enabled: 0
+    path: Assets/Scenes/Scene_1.unity

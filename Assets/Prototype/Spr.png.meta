@@ -31,7 +31,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -48,11 +48,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 64
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Spr_0
+    - serializedVersion: 2
+      name: Spr_0
       rect:
         serializedVersion: 2
         x: 402
@@ -62,12 +65,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -94.5, y: 345}
-        - {x: -94.5, y: -345}
-        - {x: 94.5, y: -345}
-        - {x: 94.5, y: 345}
-    - name: Spr_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Spr_1
       rect:
         serializedVersion: 2
         x: 971
@@ -78,6 +79,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
