@@ -1,195 +1,58 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Pathfinding;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Seeker))]
+/*
+ * Enemy AI class
+ * This class targets the player only if the player is on the platform that user is on
+ * Otherwise if the enemy is not on the platform the enemy will move from one bound to another
+ * 
+ */
+public class EnemyAI : MonoBehaviour {
+    public Transform target;
 
-public class EnemyAI : MonoBehaviour
-{
-    //what to follow ---> player
-    public Transform targetTransform;
-
-    //how many times per second to update path
     public float updateRate = 5f;
-
-    //caching
-    private Seeker seeker;
-    private Rigidbody2D rigidBody;
-
-    //calculated path
-    public Path path;
-
-    //AI speed per sec
-    //not be be frame rate dependent 
-    public float speed = 1000f;
-    public ForceMode2D fMode;
+    public float speed = 15f;
+    public float range = 15f;
+    public float range2 = 10f;
+    public float stop = 0;
+    public float rotationSpeed = 1;
+    private float distanceToPlayer = 0;
 
     [HideInInspector]
     public bool pathEnded = false;
 
-    //max distance from AI to waypoint, for it to continue to the next waypoint
-    public float nextDistance = 3;
-
-    //waypoint currently moving towards
-    private int currentDistance = 0;
-
-    //boolean to use after player dies
+    private Rigidbody2D rigidBody;
     private bool searchingPlayer = false;
-    private bool sDirect = true;
+    private bool directionLookingAt = true;
     private Animator animator;
-    private Collision coll;
 
     void Start(){
-        seeker = GetComponent<Seeker>();
-        rigidBody = GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
-
-        //assign target body -> player
-        if (targetTransform == null){
-            if (!searchingPlayer) {
+        rigidBody = GetComponent<Rigidbody2D>();
+        target = GameObject.FindWithTag("Player").transform;
+       
+        //moving the enemy to the player
+        if(target == null) {
+            if(!searchingPlayer) {
                 searchingPlayer = true;
-                StartCoroutine(SearchForPlayer());
+                //start looking for player here 
             }
             return;
         }
-
-        //start a new patch to the target position, return result to the OnPathComplete method
-        seeker.StartPath(transform.position, targetTransform.position, OnPathComplete);
-        StartCoroutine(UpdatePath());
     }
 
-    IEnumerator SearchForPlayer() {
-        GameObject sResult = GameObject.FindGameObjectWithTag("Player");
-        if(sResult == null) {
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine(SearchForPlayer());
-        }else {
-            targetTransform = sResult.transform;
-            searchingPlayer = false;
-            StartCoroutine(UpdatePath());
-            yield return false;
+    void Update() {
+        //rotate to look at the player
+
+        distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        if ((distanceToPlayer <= range2) && (distanceToPlayer >= range)){
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position), rotationSpeed * Time.deltaTime);
+        }else if (distanceToPlayer <= range && distanceToPlayer > stop){
+            //move towards the player
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position), rotationSpeed * Time.deltaTime);
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }else if (distanceToPlayer <= stop){
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position), rotationSpeed * Time.deltaTime);
         }
-    }
-
-
-
-    //no need to update with each frame
-    //updated 2 times per second
-    IEnumerator UpdatePath(){
-        if (targetTransform == null){
-            if (!searchingPlayer){
-                searchingPlayer = true;
-                StartCoroutine(SearchForPlayer());
-            }
-            yield return false;
-        }
-
-        //start a new patch to the target position, return result to the OnPathComplete method
-        seeker.StartPath(transform.position, targetTransform.position, OnPathComplete);
-        yield return new WaitForSeconds(1f / updateRate);
-        StartCoroutine(UpdatePath());
-    }
-
-    public void OnPathComplete(Path p){
-        if (!p.error){
-            path = p;
-            currentDistance = 0;
-
-        }else{
-            //Debug.Log("Path Error found " + p.error);
-        }
-    }
-
-    void FixedUpdate(){
-        if (targetTransform == null){
-            if (!searchingPlayer){
-                searchingPlayer = true;
-                StartCoroutine(SearchForPlayer());
-            }
-            return;
-        }
-
-        //TODO: call lookAt function here
-        if (path == null){
-            return;
-        }
-
-        if (currentDistance >= path.vectorPath.Count){
-            if (pathEnded){
-                return;
-            }
-
-            //Debug.Log("End of Path Reached");
-            pathEnded = true;
-            return;
-        }
-        pathEnded = false;
-
-        //Direction to next waypoint
-        Vector3 dir = (path.vectorPath[currentDistance] - transform.position).normalized;
-        dir *= speed * Time.fixedDeltaTime;
-        
-        //Moving the enemy to the direction specified
-        rigidBody.AddForce(dir, fMode);
-
-        //distance to player
-        //modify this part for range shooting
-        float distanceToPlayer = Vector3.Distance(transform.position, targetTransform.position);
-        //Debug.Log("Player Location" + targetTransform.position);
-        //Debug.Log("Enemy Location" + transform.position);
-        Debug.Log("Distance To Player" + distanceToPlayer);
-
-        //if (OnCollision(coll)){
-            //jump enemy
-        //}
-
-        var relativePoint = transform.InverseTransformPoint(targetTransform.position);
-        if (relativePoint.x < 0.0){//walk left
-            sDirect = true;
-            animator.SetInteger("Sdirection", 2);
-            // WalkSound();
-        }else if (relativePoint.x > 0.0){//walk right
-            sDirect = false;
-            animator.SetInteger("Sdirection", 1);
-            // WalkSound();
-        }else{//not moving
-            if (sDirect){//look right
-                animator.SetInteger("Sdirection", 0);
-            }else if (!sDirect){//look left
-                animator.SetInteger("Sdirection", 3);
-            }
-        }
-
-
-
-        float dist = Vector3.Distance(transform.position, path.vectorPath[currentDistance]);
-        if (dist < nextDistance){
-            currentDistance++;
-            return;
-        }
-    }
-
-    void lookAt(){
-
-    }
-
-    void moveToPlayer(){
-
-    }
-
-    bool OnCollision(Collision collision){
-        if (collision.gameObject.tag == "Platform"){
-            return true;
-        }else{
-            return false;
-        }
-
-    }
-
-    bool stopAtDistace(int distance) {
-
-        return true;
-
     }
 }
