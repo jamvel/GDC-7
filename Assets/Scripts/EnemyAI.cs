@@ -10,10 +10,10 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
-    public LayerMask playerMask;
+    public Transform rightBound;
+    public Transform leftBound;
 
-    private Transform rightBound;
-    private Transform leftBound;
+    public LayerMask playerMask;
 
     public float updateRate = 5f;
     public float speed = 15f;
@@ -42,9 +42,9 @@ public class EnemyAI : MonoBehaviour
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
-
-        rightBound = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Right_Bound");
-        leftBound  = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Left_Bound");
+        
+        //rightBound = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Right_Bound");
+        //leftBound  = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Left_Bound");
 
         //rightBound = transform.FindChild("Right_Bound");
         //leftBound = transform.FindChild("Left_Bound");
@@ -56,14 +56,12 @@ public class EnemyAI : MonoBehaviour
 
         float leftDistance = transform.position.x - leftBound.position.x;
         float rightDistance = transform.position.x - rightBound.position.x;
-
+        float result = (leftDistance - rightDistance)/2;
 
         Debug.Log("Position" + transform.position.x);
         Debug.Log("Left Direction: " + leftBound.position.x);
         Debug.Log("Right Direction: " + rightBound.position.x);
-
-
-
+        Debug.Log("Result: " + result);
 
         //moving the enemy to the player
         //can be removed
@@ -73,7 +71,6 @@ public class EnemyAI : MonoBehaviour
             {
                 searchingPlayer = true;
                 //start looking for player here 
-                /*
                 if (SearchForPlayer())
                 {
                     searchingPlayer = true;
@@ -82,7 +79,6 @@ public class EnemyAI : MonoBehaviour
                 {
                     searchingPlayer = false;
                 }
-                */
             }
             return;
         }
@@ -91,24 +87,34 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         //rotate to look at the player
-        //if (SearchForPlayer())
-        //{ //player is in the same platform as skeleton
-        //    searchingPlayer = true;
-        //}
-        //else
-        //{ // player is on a different platform from user
-            //searchingPlayer = false;
+        if (SearchForPlayer())
+        { //player is in the same platform as skeleton
+            searchingPlayer = true;
+        }
+        else
+        { // player is on a different platform from user
+            searchingPlayer = false;
 
             //check which boundary is closest to the enemy to start from there
             float leftDistance = transform.position.x - leftBound.position.x;
             float rightDistance = transform.position.x - rightBound.position.x;
+            float result = (leftDistance - rightDistance) / 2;
+
+//            if(leftBound.position.x < result < ) {
+
+//            }else if() {
+
+//            }
+
+            //Debug.Log("Left Direction: " + leftDistance);
+            //Debug.Log("Right Direction: " + rightDistance);
+
 
             if (transform.position.x == leftBound.position.x){
                 moveEnemy(rightBound);
             } else if (transform.position.x == rightBound.position.x){
                 moveEnemy(leftBound);
-                
-
+        
             } else if (leftDistance < rightDistance){
                 moveEnemy(leftBound);
             } else if (leftDistance > rightDistance){
@@ -123,7 +129,7 @@ public class EnemyAI : MonoBehaviour
                 moveEnemy(leftBound);
             }
             */
-        //}
+        }
 
         /*
 
