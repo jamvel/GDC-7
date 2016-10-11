@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	public float hCameraSnapOffset = 2.5f;
 	public float vCameraSnapOffset = 2.5f;
 	public float dampTime = 0.15f;
+	public float verticalOffset = 0f;
 	public bool lockCamera = false;
 	public Transform target,tagAnchor;
 	public Transform westWall,eastWall;
@@ -124,6 +125,11 @@ public class CameraFollow : MonoBehaviour {
 		 * North Camera Object 
 		 * 
 		 */
+		northCameraObject = new GameObject ("NorthCameraObject");
+		northCameraObject.layer = LayerMask.NameToLayer ("Camera");
+		northCameraObject.transform.parent = parentObject.transform;
+		northCameraObject.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width / 2, Screen.height, 0));
+
 
 
 		/**
@@ -154,6 +160,7 @@ public class CameraFollow : MonoBehaviour {
 			if (target) {
 				Vector3 point = Camera.main.WorldToViewportPoint (target.position);
 				Vector3 delta = target.position - Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, point.z));
+				delta.y += verticalOffset;
 				Vector3 destination = transform.position + delta;
 				transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, dampTime);
 			}
@@ -162,6 +169,7 @@ public class CameraFollow : MonoBehaviour {
 			if(anchorType == true){
 				Vector3 point = Camera.main.WorldToViewportPoint (target.position);
 				Vector3 delta = target.position - Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, point.z));
+				delta.y += verticalOffset;
 				Vector3 destination = new Vector3 (transform.position.x, transform.position.y + delta.y, transform.position.z);
 				transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, dampTime);
 				if(HAnchorSide() == true){ //west anchor

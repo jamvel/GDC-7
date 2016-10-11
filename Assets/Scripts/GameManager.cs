@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	/*
@@ -21,9 +22,8 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 	}
 
-
-
-
-
-
+	void Start(){
+		//SceneManager.LoadScene("Menu_Scene"); //Load Menu Scene
+	}
+		
 }
