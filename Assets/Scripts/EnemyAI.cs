@@ -7,7 +7,8 @@ using System.Collections;
  * Otherwise if the enemy is not on the platform the enemy will move from one bound to another
  * 
  */
-public class EnemyAI : MonoBehaviour {
+public class EnemyAI : MonoBehaviour
+{
     public Transform target;
     public LayerMask playerMask;
 
@@ -36,52 +37,93 @@ public class EnemyAI : MonoBehaviour {
     private Vector2 leftCastRange;
     private Vector2 rightCastRange;
 
-    void Start(){
+    void Start()
+    {
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
-        rightBound = transform.FindChild("Right_Bound");
-        leftBound = transform.FindChild("Left_Bound");
+
+        rightBound = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Right_Bound");
+        leftBound  = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Left_Bound");
+
+        //rightBound = transform.FindChild("Right_Bound");
+        //leftBound = transform.FindChild("Left_Bound");
+
         startCoordinates = GetComponent<Transform>().position;
-        
-        leftCastRange = new Vector2(startCoordinates.x - range , startCoordinates.y);
+
+        leftCastRange = new Vector2(startCoordinates.x - range, startCoordinates.y);
         rightCastRange = new Vector2(startCoordinates.x - range, startCoordinates.y); ;
+
+        float leftDistance = transform.position.x - leftBound.position.x;
+        float rightDistance = transform.position.x - rightBound.position.x;
+
+
+        Debug.Log("Position" + transform.position.x);
+        Debug.Log("Left Direction: " + leftBound.position.x);
+        Debug.Log("Right Direction: " + rightBound.position.x);
+
+
+
 
         //moving the enemy to the player
         //can be removed
-        if (target == null) {
-            if(!searchingPlayer) {
+        if (target == null)
+        {
+            if (!searchingPlayer)
+            {
                 searchingPlayer = true;
                 //start looking for player here 
-                if(SearchForPlayer()) {
+                /*
+                if (SearchForPlayer())
+                {
                     searchingPlayer = true;
-                }else {
+                }
+                else
+                {
                     searchingPlayer = false;
                 }
+                */
             }
             return;
         }
     }
 
-    void Update() {
+    void Update()
+    {
         //rotate to look at the player
-        if(SearchForPlayer()) { //player is in the same platform as skeleton
-            searchingPlayer = true;
-        }else { // player is on a different platform from user
-            searchingPlayer = false;
-            
+        //if (SearchForPlayer())
+        //{ //player is in the same platform as skeleton
+        //    searchingPlayer = true;
+        //}
+        //else
+        //{ // player is on a different platform from user
+            //searchingPlayer = false;
+
             //check which boundary is closest to the enemy to start from there
-            float leftDistance = Vector2.Distance(transform.position, leftBound.position);
-            float rightDistance = Vector2.Distance(transform.position, rightBound.position);
-            
-            if (leftDistance > rightDistance) {
+            float leftDistance = transform.position.x - leftBound.position.x;
+            float rightDistance = transform.position.x - rightBound.position.x;
+
+            if (transform.position.x == leftBound.position.x){
+                moveEnemy(rightBound);
+            } else if (transform.position.x == rightBound.position.x){
                 moveEnemy(leftBound);
-            }else {
+                
+
+            } else if (leftDistance < rightDistance){
+                moveEnemy(leftBound);
+            } else if (leftDistance > rightDistance){
                 moveEnemy(rightBound);
             }
+            
 
-
-        }
+            /*
+            if((transform.position.x == leftBound.position.x)|| (leftDistance < rightDistance)) {
+                moveEnemy(rightBound);
+            } else if((transform.position.x == rightBound.position.x)|| (leftDistance > rightDistance)) {
+                moveEnemy(leftBound);
+            }
+            */
+        //}
 
         /*
 
@@ -101,17 +143,22 @@ public class EnemyAI : MonoBehaviour {
     }
 
     //check if player is in the same platform as the enemy
-    public bool SearchForPlayer() {
-        if (Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask)){ //Bound of platform check
+    public bool SearchForPlayer()
+    {
+        if (Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask))
+        { //Bound of platform check
             Debug.DrawLine(transform.position, rightBound.position, Color.magenta);
             Debug.DrawLine(transform.position, leftBound.position, Color.magenta);
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
 
-    public void moveEnemy(Transform objective) {
+    public void moveEnemy(Transform objective)
+    {
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
