@@ -41,6 +41,7 @@ public class EnemyAI1 : MonoBehaviour
     private Collision coll;
 
     void Start(){
+
         seeker = GetComponent<Seeker>();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();

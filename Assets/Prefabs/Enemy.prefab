@@ -19,10 +19,25 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012369671922}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: tag_ground_left
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000010477827076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012167080822}
+  m_Layer: 12
+  m_Name: Left_Bound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -34,7 +49,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011672856036}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: tag_anchor
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -51,7 +66,7 @@ GameObject:
   - 224: {fileID: 224000013958119594}
   - 114: {fileID: 114000013739646058}
   - 223: {fileID: 223000010780201614}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Enemy Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +83,7 @@ GameObject:
   - 224: {fileID: 224000013841319466}
   - 222: {fileID: 222000010404496324}
   - 114: {fileID: 114000012113567806}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +98,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010119406048}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: tag_ground_right
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -100,7 +115,7 @@ GameObject:
   - 224: {fileID: 224000011991303862}
   - 222: {fileID: 222000013078345320}
   - 114: {fileID: 114000010539618964}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,8 +130,23 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 224000014178685772}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000012306157308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010954270852}
+  m_Layer: 12
+  m_Name: Right_Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +167,8 @@ GameObject:
   - 114: {fileID: 114000014245242614}
   - 114: {fileID: 114000012094933242}
   - 114: {fileID: 114000010786789314}
-  m_Layer: 8
+  - 114: {fileID: 114000011489428332}
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -157,6 +188,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000013182469994}
   m_RootOrder: 2
+--- !u!4 &4000010954270852
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012306157308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.497, y: -0.106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013182469994}
+  m_RootOrder: 4
 --- !u!4 &4000011672856036
 Transform:
   m_ObjectHideFlags: 1
@@ -170,6 +214,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000013182469994}
   m_RootOrder: 1
+--- !u!4 &4000012167080822
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010477827076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.901, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013182469994}
+  m_RootOrder: 5
 --- !u!4 &4000012369671922
 Transform:
   m_ObjectHideFlags: 1
@@ -190,7 +247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013001838082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalPosition: {x: 0.43, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -198,6 +255,8 @@ Transform:
   - {fileID: 4000011672856036}
   - {fileID: 4000010119406048}
   - {fileID: 224000013958119594}
+  - {fileID: 4000010954270852}
+  - {fileID: 4000012167080822}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &50000014236264750
@@ -240,7 +299,7 @@ Animator:
   m_GameObject: {fileID: 1000013001838082}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 074fb96b1d2b68f4ebdfc66be6d32d32, type: 2}
+  m_Controller: {fileID: 9100000, guid: 29fef28f9dafdf04faf5480058490e4c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -288,6 +347,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats:
     Health: 100
+--- !u!114 &114000011489428332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013001838082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c44949f53d539f4c8fb4d4e7b711c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rightBound: {fileID: 0}
+  leftBound: {fileID: 0}
+  updateRate: 5
+  speed: 1
+  range: 15
+  range2: 10
+  stop: 0
+  rotationSpeed: 1
+  pathEnded: 0
 --- !u!114 &114000012094933242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,14 +476,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013001838082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5921890a1fbdfcd46a88046d826c90d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
   updateRate: 5
-  speed: 1000
+  speed: 15
   fMode: 0
   pathEnded: 0
   nextDistance: 3
@@ -436,7 +516,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: 33e17ebad89d88d41b5e2ce2748f8e52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4dea10d5c7b26fc40b488321cf47c391, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
