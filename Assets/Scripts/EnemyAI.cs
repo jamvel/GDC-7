@@ -106,22 +106,16 @@ public class EnemyAI : MonoBehaviour
                 //look at the player
                 //do not move
                 isChasing = false;
-                Debug.Log("Enemy Should only look at player");
-                Debug.Log("Distance to Player " + distanceToPlayer);
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
             } else if((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
                 isChasing = true;
-                Debug.Log("Enemy should start chasing the player");
-                Debug.Log("Distance to Player " + distanceToPlayer);
                 moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
                 //start attacking
                 isChasing = false;
                 animatorSetting();
-                Debug.Log("Player should come to a stop");
-                Debug.Log("Distance to Player " + distanceToPlayer);
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
                 attack();
             }else {
@@ -212,31 +206,29 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void animatorSetting() {
-        if(!searchingPlayer) {
-            //patrolling the platform
+        if(!searchingPlayer) {//patrolling the platform
             //player is not in sight
-            if (walkingToLeftBound) {
+            if (walkingToLeftBound) {//walking left
                 animator.SetInteger("Sdirection", 2);
-            } else {
+            } else {//walking right
                 animator.SetInteger("Sdirection", 1);
             }
-        }else {
-            //going to chase the player
-            //1st come to a stand still then chase, look at the player then chase after
+        }else {//going to do actions as regards to the player position
             var relativePoint = transform.InverseTransformPoint(target.position);
             if (isChasing) {//chasing enemy
-                if (relativePoint.x < 0.0) {
+                if (relativePoint.x < 0.0) {//chasing to the left
                     animator.SetInteger("Sdirection", 2);
-                } else {
+                } else {//chaing to the right
                     animator.SetInteger("Sdirection", 1);
                 }
             }else {//looking at enemy // soon to attack
-                if(isAttacking) {
-                    Debug.Log("Enemy Attack");
-                }else {
-                    if (relativePoint.x > 0.0) {
+                if(isAttacking) {//attacking 
+                    animator.SetBool("IsAttack", true);
+                }else {//looking at player
+                    animator.SetBool("IsAttack", false);
+                    if (relativePoint.x > 0.0) {//looking at the right
                         animator.SetInteger("Sdirection", 0);
-                    } else {
+                    } else {//looking at the left
                         animator.SetInteger("Sdirection", 3);
                     }
                 }
