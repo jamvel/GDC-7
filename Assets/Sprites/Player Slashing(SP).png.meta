@@ -1,9 +1,41 @@
 fileFormatVersion: 2
 guid: 4c05edff77c1a450fa85f68cb8c67cfe
-timeCreated: 1476283346
+timeCreated: 1476290212
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Player Slashing(SP)_0
+    21300002: Player Slashing(SP)_1
+    21300004: Player Slashing(SP)_2
+    21300006: Player Slashing(SP)_3
+    21300008: Player Slashing(SP)_4
+    21300010: Player Slashing(SP)_5
+    21300012: Player Slashing(SP)_6
+    21300014: Player Slashing(SP)_7
+    21300016: Player Slashing(SP)_8
+    21300018: Player Slashing(SP)_9
+    21300020: Player Slashing(SP)_10
+    21300022: Player Slashing(SP)_11
+    21300024: Player Slashing(SP)_12
+    21300026: Player Slashing(SP)_13
+    21300028: Player Slashing(SP)_14
+    21300030: Player Slashing(SP)_15
+    21300032: Player Slashing(SP)_16
+    21300034: Player Slashing(SP)_17
+    21300036: Player Slashing(SP)_18
+    21300038: Player Slashing(SP)_19
+    21300040: Player Slashing(SP)_20
+    21300042: Player Slashing(SP)_21
+    21300044: Player Slashing(SP)_22
+    21300046: Player Slashing(SP)_23
+    21300048: Player Slashing(SP)_24
+    21300050: Player Slashing(SP)_25
+    21300052: Player Slashing(SP)_26
+    21300054: Player Slashing(SP)_27
+    21300056: Player Slashing(SP)_28
+    21300058: Player Slashing(SP)_29
+    21300060: Player Slashing(SP)_30
+    21300062: Player Slashing(SP)_31
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +83,423 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player Slashing(SP)_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 64
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 64
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 64
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 64
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 64
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 64
+        width: 26
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 64
+        width: 21
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 64
+        width: 28
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_8
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 64
+        width: 33
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_9
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 64
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_10
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 64
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_11
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 64
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_12
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 64
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 64
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_14
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 63
+        width: 20
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_15
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 64
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_17
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_18
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_19
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_20
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_21
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 0
+        width: 26
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_22
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 21
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_23
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 28
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_24
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 33
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_25
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 0
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_26
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_27
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 0
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_28
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 0
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_29
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_30
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 20
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Slashing(SP)_31
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 0
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
