@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     public float range2 = 15f;
     public float stop = 0;
     public float rotationSpeed = 1;
+    public float precisionOfEnemyToBounds = 0.26f;
 
     private float distanceToPlayer = 0;
 
@@ -29,6 +30,7 @@ public class EnemyAI : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private bool searchingPlayer = false;
+    private bool walkingToLeftBound = true;
 
     private bool directionLookingAt = true;
     private Animator animator;
@@ -65,74 +67,70 @@ public class EnemyAI : MonoBehaviour
 
         //moving the enemy to the player
         //can be removed
-        if (target == null)
-        {
-            if (!searchingPlayer)
-            {
+        if (target == null){
+            if (!searchingPlayer){
                 searchingPlayer = true;
                 //start looking for player here 
-                if (SearchForPlayer())
-                {
+                if (SearchForPlayer()){//go towards player
                     searchingPlayer = true;
-                }
-                else
-                {
-                    searchingPlayer = false;
+                }else{//go towards closest edge
+
+                    //check which boundary is closest to the enemy to start from there
+                    if ((leftBound.position.x < transform.position.x) && (transform.position.x < result)) {
+                        //go to the left most bound
+                        Debug.Log("Starting with the left most side");
+                        walkingToLeftBound = true;
+                    } else if ((rightBound.position.x > transform.position.x) && (transform.position.x > result)) {
+                        //go to the right most bound
+                        Debug.Log("Starting with the right most side");
+                        walkingToLeftBound = false;
+                    } else {//transform is not in the bounds
+                        //out of bounds
+                        //start searching for new bounds
+                        //get new bounds
+                        Debug.Log("Target is out of Bounds");
+                        return;
+                    }
                 }
             }
+            Debug.Log("Target not found");
             return;
         }
     }
 
-    void Update()
-    {
+
+    void Update() {
         //rotate to look at the player
-        if (SearchForPlayer())
-        { //player is in the same platform as skeleton
+        if (SearchForPlayer()){ //player is in the same platform as skeleton
             searchingPlayer = true;
-        }
-        else
-        { // player is on a different platform from user
+            //move towards the player
+        }else{ // player is on a different platform from user
             searchingPlayer = false;
-
-            //check which boundary is closest to the enemy to start from there
-            float leftDistance = transform.position.x - leftBound.position.x;
-            float rightDistance = transform.position.x - rightBound.position.x;
-            float result = (leftDistance - rightDistance) / 2;
-
-//            if(leftBound.position.x < result < ) {
-
-//            }else if() {
-
-//            }
-
-            //Debug.Log("Left Direction: " + leftDistance);
-            //Debug.Log("Right Direction: " + rightDistance);
-
-
-            if (transform.position.x == leftBound.position.x){
-                moveEnemy(rightBound);
-            } else if (transform.position.x == rightBound.position.x){
-                moveEnemy(leftBound);
-        
-            } else if (leftDistance < rightDistance){
-                moveEnemy(leftBound);
-            } else if (leftDistance > rightDistance){
-                moveEnemy(rightBound);
+            //walk to the bound indicated
+            if(walkingToLeftBound) {
+                if(checkBoundDistance(leftBound)) {
+                    //start walking to the right
+                    walkingToLeftBound = false;
+                    moveEnemy(rightBound);
+                } else {
+                    //keep walking the same direction
+                    walkingToLeftBound = true;
+                    moveEnemy(leftBound);
+                }
+            } else {
+                if(checkBoundDistance(rightBound)) {
+                    //start walking to the left
+                    walkingToLeftBound = true;
+                    moveEnemy(leftBound);
+                } else {
+                    //keep walking the same direction
+                    walkingToLeftBound = false;
+                    moveEnemy(rightBound);
+                }
             }
-            
-
-            /*
-            if((transform.position.x == leftBound.position.x)|| (leftDistance < rightDistance)) {
-                moveEnemy(rightBound);
-            } else if((transform.position.x == rightBound.position.x)|| (leftDistance > rightDistance)) {
-                moveEnemy(leftBound);
-            }
-            */
         }
 
         /*
-
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
         //range = 10
         //range2 = 15
@@ -146,26 +144,34 @@ public class EnemyAI : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.position - transform.position), rotationSpeed * Time.deltaTime);
         }
         */
+
     }
 
     //check if player is in the same platform as the enemy
-    public bool SearchForPlayer()
-    {
-        if (Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask))
-        { //Bound of platform check
+    public bool SearchForPlayer(){
+        if (Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask)){ //Bound of platform check
             Debug.DrawLine(transform.position, rightBound.position, Color.magenta);
             Debug.DrawLine(transform.position, leftBound.position, Color.magenta);
             return true;
-        }
-        else
-        {
+        }else{
             return false;
         }
     }
 
-    public void moveEnemy(Transform objective)
-    {
+    public void moveEnemy(Transform objective){
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+    }
+
+    public bool checkBoundDistance(Transform bound) {
+        if((Vector2.Distance(bound.position,transform.position)) <= precisionOfEnemyToBounds) {
+            Debug.Log("Enemy is < 0.005 away from the bound");
+            return true;
+        }else {
+            Debug.Log("Enemy is far from the bound");
+            Debug.Log("Current x location: " + transform.position.x);
+            Debug.Log("Distance: " + Vector2.Distance(bound.position, transform.position));
+            return false;
+        }
     }
 }
