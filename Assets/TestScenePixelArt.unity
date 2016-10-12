@@ -283,13 +283,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 444178076}
   - 212: {fileID: 444178075}
+  - 114: {fileID: 444178068}
   - 50: {fileID: 444178074}
   - 61: {fileID: 444178073}
   - 95: {fileID: 444178072}
-  - 114: {fileID: 444178071}
   - 114: {fileID: 444178070}
   - 114: {fileID: 444178069}
-  - 114: {fileID: 444178068}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
@@ -315,13 +314,11 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
-  updateRate: 5
   speed: 1
-  range: 15
-  range2: 10
-  stop: 0
-  rotationSpeed: 0
-  precisionOfEnemyToBounds: 0.5
+  inChasingDistance: 1
+  inSightDistance: 3
+  stop: 0.4
+  precisionOfEnemyToBounds: 0.26
 --- !u!114 &444178069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,24 +361,6 @@ MonoBehaviour:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
---- !u!114 &444178071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000014245242614, guid: 99c3cf81513da46ec85f71f895489966,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 444178067}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5921890a1fbdfcd46a88046d826c90d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTransform: {fileID: 613746950}
-  updateRate: 5
-  speed: 15
-  fMode: 0
-  pathEnded: 0
-  nextDistance: 3
 --- !u!95 &444178072
 Animator:
   serializedVersion: 3
