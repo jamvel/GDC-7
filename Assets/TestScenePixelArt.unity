@@ -133,7 +133,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453946, guid: befa8d15d5b5448e78d2b8899991e7fe, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.58
+      value: -6.68
       objectReference: {fileID: 0}
     - target: {fileID: 453946, guid: befa8d15d5b5448e78d2b8899991e7fe, type: 2}
       propertyPath: m_LocalPosition.y
@@ -991,7 +991,7 @@ GameObject:
   - 4: {fileID: 1239214105}
   - 212: {fileID: 1239214104}
   m_Layer: 0
-  m_Name: 14642790_1293027327383186_2090748258_n (1)
+  m_Name: Background(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1829,6 +1829,11 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 074fb96b1d2b68f4ebdfc66be6d32d32, type: 2}
+    - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: playerMask.m_Bits
+      value: 1025
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26f9c5c92c39d443eadc3bedef69f576, type: 2}
   m_IsPrefabParent: 0
@@ -1992,7 +1997,7 @@ GameObject:
   - 4: {fileID: 1861194726}
   - 212: {fileID: 1861194725}
   m_Layer: 0
-  m_Name: 14642790_1293027327383186_2090748258_n
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
