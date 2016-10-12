@@ -56,10 +56,13 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if(Input.GetButtonDown("Fire1")){
-			Debug.Log ("attack");
+            animator.SetBool("IsAttack", true);
+            Debug.Log ("attack");
 		}
-
-	}
+        //not sure when to include the statement below
+        //to go back to the walking animation
+        //animator.SetBool("IsAttack", false);
+    }
 
 	void FixedUpdate (){
 		Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
