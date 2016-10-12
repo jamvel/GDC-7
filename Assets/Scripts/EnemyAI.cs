@@ -78,11 +78,9 @@ public class EnemyAI : MonoBehaviour
                     //check which boundary is closest to the enemy to start from there
                     if ((leftBound.position.x < transform.position.x) && (transform.position.x < result)) {
                         //go to the left most bound
-                        Debug.Log("Starting with the left most side");
                         walkingToLeftBound = true;
                     } else if ((rightBound.position.x > transform.position.x) && (transform.position.x > result)) {
                         //go to the right most bound
-                        Debug.Log("Starting with the right most side");
                         walkingToLeftBound = false;
                     } else {//transform is not in the bounds
                         //out of bounds
@@ -103,31 +101,11 @@ public class EnemyAI : MonoBehaviour
         //rotate to look at the player
         if (SearchForPlayer()){ //player is in the same platform as skeleton
             searchingPlayer = true;
+            animatorSetting();
             //move towards the player
-        }else{ // player is on a different platform from user
+        }else{ // player is on a different platform from user --- patrol function
             searchingPlayer = false;
-            //walk to the bound indicated
-            if(walkingToLeftBound) {
-                if(checkBoundDistance(leftBound)) {
-                    //start walking to the right
-                    walkingToLeftBound = false;
-                    moveEnemy(rightBound);
-                } else {
-                    //keep walking the same direction
-                    walkingToLeftBound = true;
-                    moveEnemy(leftBound);
-                }
-            } else {
-                if(checkBoundDistance(rightBound)) {
-                    //start walking to the left
-                    walkingToLeftBound = true;
-                    moveEnemy(leftBound);
-                } else {
-                    //keep walking the same direction
-                    walkingToLeftBound = false;
-                    moveEnemy(rightBound);
-                }
-            }
+            patrol();
         }
 
         /*
@@ -160,18 +138,61 @@ public class EnemyAI : MonoBehaviour
 
     public void moveEnemy(Transform objective){
         float step = speed * Time.deltaTime;
+        animatorSetting();
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
 
     public bool checkBoundDistance(Transform bound) {
         if((Vector2.Distance(bound.position,transform.position)) <= precisionOfEnemyToBounds) {
-            Debug.Log("Enemy is < 0.005 away from the bound");
             return true;
         }else {
-            Debug.Log("Enemy is far from the bound");
-            Debug.Log("Current x location: " + transform.position.x);
-            Debug.Log("Distance: " + Vector2.Distance(bound.position, transform.position));
             return false;
+        }
+    }
+
+    public void patrol() {
+        //walk to the bound indicated
+        if (walkingToLeftBound) {
+            if (checkBoundDistance(leftBound)) {
+                //start walking to the right
+                walkingToLeftBound = false;
+                moveEnemy(rightBound);
+            } else {
+                //keep walking the same direction
+                walkingToLeftBound = true;
+                moveEnemy(leftBound);
+            }
+        } else {
+            if (checkBoundDistance(rightBound)) {
+                //start walking to the left
+                walkingToLeftBound = true;
+                moveEnemy(leftBound);
+            } else {
+                //keep walking the same direction
+                walkingToLeftBound = false;
+                moveEnemy(rightBound);
+            }
+        }
+    }
+
+    public void animatorSetting() {
+        if(!searchingPlayer) {
+            //patrolling the platform
+            //player is not in sight
+            if (walkingToLeftBound) {
+                animator.SetInteger("Sdirection", 2);
+            } else {
+                animator.SetInteger("Sdirection", 1);
+            }
+        }else {
+            //going to chase the player
+            //1st come to a stand still then chase
+            if (walkingToLeftBound) {
+                animator.SetInteger("Sdirection", 3);
+            } else {
+                animator.SetInteger("Sdirection", 0);
+            }
+
         }
     }
 }
