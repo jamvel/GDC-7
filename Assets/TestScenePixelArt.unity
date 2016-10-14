@@ -277,13 +277,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d435f60b1ba96b8488fab87697bfc814, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.234
-  m_Pitch: 1
+  m_Volume: 0.747
+  m_Pitch: -0.38
   Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 0
-  DopplerLevel: 1
+  DopplerLevel: 2.38
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -311,7 +311,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.481
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1948,7 +1948,7 @@ Prefab:
     - target: {fileID: 82000012363012188, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
       propertyPath: Mute
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
