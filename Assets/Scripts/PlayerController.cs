@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour {
 
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
-	private bool isGround = false;
+    private float time;
+    private bool isGround = false;
     private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
 
@@ -76,7 +77,8 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire1")){
             animator.SetBool("IsAttack", true);
-			if (enableAudio && !sword.isPlaying){
+            time = Time.time;
+            if (enableAudio && !sword.isPlaying){
                 sword.Play();
             }
             Debug.Log ("attack");
@@ -85,10 +87,11 @@ public class PlayerController : MonoBehaviour {
         //not sure when to include the statement below
         //to go back to the walking animation
         //animator.SetBool("IsAttack", false);
+
     }
 
-	void FixedUpdate (){
-		Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
+    void FixedUpdate (){
+        Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
 		Debug.DrawLine(playerTransform.position,tagRightTransform.position);
 		if(Physics2D.Linecast(playerTransform.position,tagLeftTransform.position,playerMask) || 
 			Physics2D.Linecast(playerTransform.position,tagRightTransform.position,playerMask)){ //Ground Check

@@ -426,6 +426,9 @@ MonoBehaviour:
   enemyStopDistance: 0.45
   stop: 0.4
   precisionOfEnemyToBounds: 0.26
+  effects:
+  - {fileID: 8300000, guid: e5abf21eb2741734f98b23fb2addd833, type: 3}
+  enableAudio: 1
 --- !u!114 &444178069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1959,7 +1962,7 @@ Prefab:
         type: 2}
       propertyPath: effects.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 214203bfef0a8964188404aea89c2b9a, type: 3}
+      objectReference: {fileID: 8300000, guid: 6c6e38eb518e0124196c372bb89d5f79, type: 3}
     - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
       propertyPath: effects.Array.data[2]
