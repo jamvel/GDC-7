@@ -1,49 +1,45 @@
 fileFormatVersion: 2
-guid: e26ab71ba0c3f184993f444133c85cc6
-timeCreated: 1476274559
+guid: 85a1708bc8c3f4844b718a2493b764a5
+timeCreated: 1476463271
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Skeleton Combat(SP)_0
-    21300002: Skeleton Combat(SP)_1
-    21300004: Skeleton Combat(SP)_2
-    21300006: Skeleton Combat(SP)_3
-    21300008: Skeleton Combat(SP)_4
-    21300010: Skeleton Combat(SP)_5
-    21300012: Skeleton Combat(SP)_6
-    21300014: Skeleton Combat(SP)_7
-    21300016: Skeleton Combat(SP)_8
-    21300018: Skeleton Combat(SP)_9
-    21300020: Skeleton Combat(SP)_10
-    21300022: Skeleton Combat(SP)_11
-    21300024: Skeleton Combat(SP)_12
-    21300026: Skeleton Combat(SP)_13
-    21300028: Skeleton Combat(SP)_14
-    21300030: Skeleton Combat(SP)_15
-    21300032: Skeleton Combat(SP)_16
-    21300034: Skeleton Combat(SP)_17
-    21300036: Skeleton Combat(SP)_18
-    21300038: Skeleton Combat(SP)_19
-    21300040: Skeleton Combat(SP)_20
-    21300042: Skeleton Combat(SP)_21
-    21300044: Skeleton Combat(SP)_22
-    21300046: Skeleton Combat(SP)_23
-    21300048: Skeleton Combat(SP)_24
-    21300050: Skeleton Combat(SP)_25
-    21300052: Skeleton Combat(SP)_26
-    21300054: Skeleton Combat(SP)_27
-    21300056: Skeleton Combat(SP)_28
-    21300058: Skeleton Combat(SP)_29
-    21300060: Skeleton Combat(SP)_30
-    21300062: Skeleton Combat(SP)_31
-    21300064: Skeleton Combat(SP)_32
-    21300066: Skeleton Combat(SP)_33
-    21300068: Skeleton Combat(SP)_34
-    21300070: Skeleton Combat(SP)_35
-    21300072: Skeleton Combat(SP)_36
-    21300074: Skeleton Combat(SP)_37
-    21300076: Skeleton Combat(SP)_38
-    21300078: Skeleton Combat(SP)_39
+    21300000: Skeleton Combat(SP) (1)_0
+    21300002: Skeleton Combat(SP) (1)_1
+    21300004: Skeleton Combat(SP) (1)_2
+    21300006: Skeleton Combat(SP) (1)_3
+    21300008: Skeleton Combat(SP) (1)_4
+    21300010: Skeleton Combat(SP) (1)_5
+    21300012: Skeleton Combat(SP) (1)_6
+    21300014: Skeleton Combat(SP) (1)_7
+    21300016: Skeleton Combat(SP) (1)_8
+    21300018: Skeleton Combat(SP) (1)_9
+    21300020: Skeleton Combat(SP) (1)_10
+    21300022: Skeleton Combat(SP) (1)_11
+    21300024: Skeleton Combat(SP) (1)_12
+    21300026: Skeleton Combat(SP) (1)_13
+    21300028: Skeleton Combat(SP) (1)_14
+    21300030: Skeleton Combat(SP) (1)_15
+    21300032: Skeleton Combat(SP) (1)_16
+    21300034: Skeleton Combat(SP) (1)_17
+    21300036: Skeleton Combat(SP) (1)_18
+    21300038: Skeleton Combat(SP) (1)_19
+    21300040: Skeleton Combat(SP) (1)_20
+    21300042: Skeleton Combat(SP) (1)_21
+    21300044: Skeleton Combat(SP) (1)_22
+    21300046: Skeleton Combat(SP) (1)_23
+    21300048: Skeleton Combat(SP) (1)_24
+    21300050: Skeleton Combat(SP) (1)_25
+    21300052: Skeleton Combat(SP) (1)_26
+    21300054: Skeleton Combat(SP) (1)_27
+    21300056: Skeleton Combat(SP) (1)_28
+    21300058: Skeleton Combat(SP) (1)_29
+    21300060: Skeleton Combat(SP) (1)_30
+    21300062: Skeleton Combat(SP) (1)_31
+    21300064: Skeleton Combat(SP) (1)_32
+    21300066: Skeleton Combat(SP) (1)_33
+    21300068: Skeleton Combat(SP) (1)_34
+    21300070: Skeleton Combat(SP) (1)_35
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -93,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_0
+      name: Skeleton Combat(SP) (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -106,7 +102,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_1
+      name: Skeleton Combat(SP) (1)_1
       rect:
         serializedVersion: 2
         x: 64
@@ -119,7 +115,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_2
+      name: Skeleton Combat(SP) (1)_2
       rect:
         serializedVersion: 2
         x: 128
@@ -132,7 +128,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_3
+      name: Skeleton Combat(SP) (1)_3
       rect:
         serializedVersion: 2
         x: 192
@@ -145,7 +141,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_4
+      name: Skeleton Combat(SP) (1)_4
       rect:
         serializedVersion: 2
         x: 256
@@ -158,7 +154,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_5
+      name: Skeleton Combat(SP) (1)_5
       rect:
         serializedVersion: 2
         x: 320
@@ -171,7 +167,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_6
+      name: Skeleton Combat(SP) (1)_6
       rect:
         serializedVersion: 2
         x: 384
@@ -184,7 +180,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_7
+      name: Skeleton Combat(SP) (1)_7
       rect:
         serializedVersion: 2
         x: 448
@@ -197,7 +193,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_8
+      name: Skeleton Combat(SP) (1)_8
       rect:
         serializedVersion: 2
         x: 512
@@ -210,7 +206,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_9
+      name: Skeleton Combat(SP) (1)_9
       rect:
         serializedVersion: 2
         x: 0
@@ -223,7 +219,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_10
+      name: Skeleton Combat(SP) (1)_10
       rect:
         serializedVersion: 2
         x: 64
@@ -236,7 +232,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_11
+      name: Skeleton Combat(SP) (1)_11
       rect:
         serializedVersion: 2
         x: 128
@@ -249,7 +245,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_12
+      name: Skeleton Combat(SP) (1)_12
       rect:
         serializedVersion: 2
         x: 192
@@ -262,7 +258,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_13
+      name: Skeleton Combat(SP) (1)_13
       rect:
         serializedVersion: 2
         x: 256
@@ -275,7 +271,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_14
+      name: Skeleton Combat(SP) (1)_14
       rect:
         serializedVersion: 2
         x: 320
@@ -288,7 +284,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_15
+      name: Skeleton Combat(SP) (1)_15
       rect:
         serializedVersion: 2
         x: 384
@@ -301,7 +297,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_16
+      name: Skeleton Combat(SP) (1)_16
       rect:
         serializedVersion: 2
         x: 448
@@ -314,7 +310,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_17
+      name: Skeleton Combat(SP) (1)_17
       rect:
         serializedVersion: 2
         x: 512
@@ -327,7 +323,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_18
+      name: Skeleton Combat(SP) (1)_18
       rect:
         serializedVersion: 2
         x: 0
@@ -340,7 +336,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_19
+      name: Skeleton Combat(SP) (1)_19
       rect:
         serializedVersion: 2
         x: 64
@@ -353,7 +349,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_20
+      name: Skeleton Combat(SP) (1)_20
       rect:
         serializedVersion: 2
         x: 128
@@ -366,7 +362,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_21
+      name: Skeleton Combat(SP) (1)_21
       rect:
         serializedVersion: 2
         x: 192
@@ -379,7 +375,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_22
+      name: Skeleton Combat(SP) (1)_22
       rect:
         serializedVersion: 2
         x: 256
@@ -392,7 +388,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_23
+      name: Skeleton Combat(SP) (1)_23
       rect:
         serializedVersion: 2
         x: 320
@@ -405,7 +401,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_24
+      name: Skeleton Combat(SP) (1)_24
       rect:
         serializedVersion: 2
         x: 384
@@ -418,7 +414,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_25
+      name: Skeleton Combat(SP) (1)_25
       rect:
         serializedVersion: 2
         x: 448
@@ -431,7 +427,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_26
+      name: Skeleton Combat(SP) (1)_26
       rect:
         serializedVersion: 2
         x: 512
@@ -444,7 +440,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_27
+      name: Skeleton Combat(SP) (1)_27
       rect:
         serializedVersion: 2
         x: 0
@@ -457,7 +453,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_28
+      name: Skeleton Combat(SP) (1)_28
       rect:
         serializedVersion: 2
         x: 64
@@ -470,7 +466,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_29
+      name: Skeleton Combat(SP) (1)_29
       rect:
         serializedVersion: 2
         x: 128
@@ -483,7 +479,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_30
+      name: Skeleton Combat(SP) (1)_30
       rect:
         serializedVersion: 2
         x: 192
@@ -496,7 +492,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_31
+      name: Skeleton Combat(SP) (1)_31
       rect:
         serializedVersion: 2
         x: 256
@@ -509,7 +505,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_32
+      name: Skeleton Combat(SP) (1)_32
       rect:
         serializedVersion: 2
         x: 320
@@ -522,7 +518,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_33
+      name: Skeleton Combat(SP) (1)_33
       rect:
         serializedVersion: 2
         x: 384
@@ -535,7 +531,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_34
+      name: Skeleton Combat(SP) (1)_34
       rect:
         serializedVersion: 2
         x: 448
@@ -548,7 +544,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skeleton Combat(SP)_35
+      name: Skeleton Combat(SP) (1)_35
       rect:
         serializedVersion: 2
         x: 512

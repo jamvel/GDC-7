@@ -1,41 +1,31 @@
 fileFormatVersion: 2
-guid: 4c05edff77c1a450fa85f68cb8c67cfe
-timeCreated: 1476374791
+guid: 8ccd7765a116cbb4d9142b8f50c25eea
+timeCreated: 1476463140
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player Slashing(SP)_0
-    21300002: Player Slashing(SP)_1
-    21300004: Player Slashing(SP)_2
-    21300006: Player Slashing(SP)_3
-    21300008: Player Slashing(SP)_4
-    21300010: Player Slashing(SP)_5
-    21300012: Player Slashing(SP)_6
-    21300014: Player Slashing(SP)_7
-    21300016: Player Slashing(SP)_8
-    21300018: Player Slashing(SP)_9
-    21300020: Player Slashing(SP)_10
-    21300022: Player Slashing(SP)_11
-    21300024: Player Slashing(SP)_12
-    21300026: Player Slashing(SP)_13
-    21300028: Player Slashing(SP)_14
-    21300030: Player Slashing(SP)_15
-    21300032: Player Slashing(SP)_16
-    21300034: Player Slashing(SP)_17
-    21300036: Player Slashing(SP)_18
-    21300038: Player Slashing(SP)_19
-    21300040: Player Slashing(SP)_20
-    21300042: Player Slashing(SP)_21
-    21300044: Player Slashing(SP)_22
-    21300046: Player Slashing(SP)_23
-    21300048: Player Slashing(SP)_24
-    21300050: Player Slashing(SP)_25
-    21300052: Player Slashing(SP)_26
-    21300054: Player Slashing(SP)_27
-    21300056: Player Slashing(SP)_28
-    21300058: Player Slashing(SP)_29
-    21300060: Player Slashing(SP)_30
-    21300062: Player Slashing(SP)_31
+    21300000: Player Jumping(SP)_0
+    21300002: Player Jumping(SP)_1
+    21300004: Player Jumping(SP)_2
+    21300006: Player Jumping(SP)_3
+    21300008: Player Jumping(SP)_4
+    21300010: Player Jumping(SP)_5
+    21300012: Player Jumping(SP)_6
+    21300014: Player Jumping(SP)_7
+    21300016: Player Jumping(SP)_8
+    21300018: Player Jumping(SP)_9
+    21300020: Player Jumping(SP)_10
+    21300022: Player Jumping(SP)_11
+    21300024: Player Jumping(SP)_12
+    21300026: Player Jumping(SP)_13
+    21300028: Player Jumping(SP)_14
+    21300030: Player Jumping(SP)_15
+    21300032: Player Jumping(SP)_16
+    21300034: Player Jumping(SP)_17
+    21300036: Player Jumping(SP)_18
+    21300038: Player Jumping(SP)_19
+    21300040: Player Jumping(SP)_20
+    21300042: Player Jumping(SP)_21
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -85,7 +75,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Slashing(SP)_0
+      name: Player Jumping(SP)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -98,7 +88,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_1
+      name: Player Jumping(SP)_1
       rect:
         serializedVersion: 2
         x: 64
@@ -111,7 +101,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_2
+      name: Player Jumping(SP)_2
       rect:
         serializedVersion: 2
         x: 128
@@ -124,7 +114,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_3
+      name: Player Jumping(SP)_3
       rect:
         serializedVersion: 2
         x: 192
@@ -137,7 +127,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_4
+      name: Player Jumping(SP)_4
       rect:
         serializedVersion: 2
         x: 256
@@ -150,7 +140,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_5
+      name: Player Jumping(SP)_5
       rect:
         serializedVersion: 2
         x: 320
@@ -163,7 +153,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_6
+      name: Player Jumping(SP)_6
       rect:
         serializedVersion: 2
         x: 384
@@ -176,7 +166,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_7
+      name: Player Jumping(SP)_7
       rect:
         serializedVersion: 2
         x: 448
@@ -189,7 +179,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_8
+      name: Player Jumping(SP)_8
       rect:
         serializedVersion: 2
         x: 512
@@ -202,7 +192,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_9
+      name: Player Jumping(SP)_9
       rect:
         serializedVersion: 2
         x: 576
@@ -215,7 +205,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_10
+      name: Player Jumping(SP)_10
       rect:
         serializedVersion: 2
         x: 640
@@ -228,72 +218,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_11
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_12
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_13
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_14
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_15
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_16
+      name: Player Jumping(SP)_11
       rect:
         serializedVersion: 2
         x: 0
@@ -306,7 +231,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_17
+      name: Player Jumping(SP)_12
       rect:
         serializedVersion: 2
         x: 64
@@ -319,7 +244,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_18
+      name: Player Jumping(SP)_13
       rect:
         serializedVersion: 2
         x: 128
@@ -332,7 +257,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_19
+      name: Player Jumping(SP)_14
       rect:
         serializedVersion: 2
         x: 192
@@ -345,7 +270,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_20
+      name: Player Jumping(SP)_15
       rect:
         serializedVersion: 2
         x: 256
@@ -358,7 +283,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_21
+      name: Player Jumping(SP)_16
       rect:
         serializedVersion: 2
         x: 320
@@ -371,7 +296,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_22
+      name: Player Jumping(SP)_17
       rect:
         serializedVersion: 2
         x: 384
@@ -384,7 +309,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_23
+      name: Player Jumping(SP)_18
       rect:
         serializedVersion: 2
         x: 448
@@ -397,7 +322,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_24
+      name: Player Jumping(SP)_19
       rect:
         serializedVersion: 2
         x: 512
@@ -410,7 +335,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_25
+      name: Player Jumping(SP)_20
       rect:
         serializedVersion: 2
         x: 576
@@ -423,75 +348,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player Slashing(SP)_26
+      name: Player Jumping(SP)_21
       rect:
         serializedVersion: 2
         x: 640
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_27
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_28
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_29
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_30
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player Slashing(SP)_31
-      rect:
-        serializedVersion: 2
-        x: 960
         y: 0
         width: 64
         height: 64

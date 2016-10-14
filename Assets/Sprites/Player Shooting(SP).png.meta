@@ -1,27 +1,27 @@
 fileFormatVersion: 2
-guid: 33e17ebad89d88d41b5e2ce2748f8e52
-timeCreated: 1475320189
+guid: e168ae2e3de72e642a11a61f58fd88f5
+timeCreated: 1476463192
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Character Sheet 1_0
-    21300002: Character Sheet 1_1
-    21300004: Character Sheet 1_2
-    21300006: Character Sheet 1_3
-    21300008: Character Sheet 1_4
-    21300010: Character Sheet 1_5
-    21300012: Character Sheet 1_6
-    21300014: Character Sheet 1_7
-    21300016: Character Sheet 1_8
-    21300018: Character Sheet 1_9
-    21300020: Character Sheet 1_10
-    21300022: Character Sheet 1_11
-    21300024: Character Sheet 1_12
-    21300026: Character Sheet 1_13
-    21300028: Character Sheet 1_14
-    21300030: Character Sheet 1_15
-    21300032: Character Sheet 1_16
-    21300034: Character Sheet 1_17
+    21300000: Player Shooting(SP)_0
+    21300002: Player Shooting(SP)_1
+    21300004: Player Shooting(SP)_2
+    21300006: Player Shooting(SP)_3
+    21300008: Player Shooting(SP)_4
+    21300010: Player Shooting(SP)_5
+    21300012: Player Shooting(SP)_6
+    21300014: Player Shooting(SP)_7
+    21300016: Player Shooting(SP)_8
+    21300018: Player Shooting(SP)_9
+    21300020: Player Shooting(SP)_10
+    21300022: Player Shooting(SP)_11
+    21300024: Player Shooting(SP)_12
+    21300026: Player Shooting(SP)_13
+    21300028: Player Shooting(SP)_14
+    21300030: Player Shooting(SP)_15
+    21300032: Player Shooting(SP)_16
+    21300034: Player Shooting(SP)_17
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -71,234 +71,234 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character Sheet 1_0
+      name: Player Shooting(SP)_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 64
-        width: 27
-        height: 54
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_1
+      name: Player Shooting(SP)_1
       rect:
         serializedVersion: 2
-        x: 83
+        x: 64
         y: 64
-        width: 27
-        height: 54
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_2
+      name: Player Shooting(SP)_2
       rect:
         serializedVersion: 2
-        x: 147
+        x: 128
         y: 64
-        width: 27
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_3
+      name: Player Shooting(SP)_3
       rect:
         serializedVersion: 2
-        x: 211
-        y: 65
-        width: 27
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_4
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 65
-        width: 27
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_5
-      rect:
-        serializedVersion: 2
-        x: 341
-        y: 65
-        width: 26
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_6
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 65
-        width: 26
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_7
-      rect:
-        serializedVersion: 2
-        x: 469
+        x: 192
         y: 64
-        width: 26
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_8
+      name: Player Shooting(SP)_4
       rect:
         serializedVersion: 2
-        x: 531
+        x: 256
         y: 64
-        width: 27
-        height: 54
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_9
+      name: Player Shooting(SP)_5
       rect:
         serializedVersion: 2
-        x: 21
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_9
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 27
-        height: 54
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_10
+      name: Player Shooting(SP)_10
       rect:
         serializedVersion: 2
-        x: 84
+        x: 64
         y: 0
-        width: 26
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_11
+      name: Player Shooting(SP)_11
       rect:
         serializedVersion: 2
-        x: 148
-        y: 1
-        width: 26
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_12
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 1
-        width: 26
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_13
-      rect:
-        serializedVersion: 2
-        x: 277
-        y: 1
-        width: 27
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_14
-      rect:
-        serializedVersion: 2
-        x: 341
-        y: 1
-        width: 27
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Character Sheet 1_15
-      rect:
-        serializedVersion: 2
-        x: 405
+        x: 128
         y: 0
-        width: 27
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_16
+      name: Player Shooting(SP)_12
       rect:
         serializedVersion: 2
-        x: 469
+        x: 192
         y: 0
-        width: 27
-        height: 54
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Sheet 1_17
+      name: Player Shooting(SP)_13
       rect:
         serializedVersion: 2
-        x: 533
+        x: 256
         y: 0
-        width: 27
-        height: 54
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Shooting(SP)_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
