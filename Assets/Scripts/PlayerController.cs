@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour {
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
 
-    public AudioClip[] effects;
-    public AudioSource walk, sword;
+	public AudioClip[] effects;
+    private AudioSource walk, sword;
+	public bool enableAudio = true;
 
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
@@ -24,11 +25,17 @@ public class PlayerController : MonoBehaviour {
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
-        walk = gameObject.AddComponent<AudioSource>();
-        walk.clip = effects[0];
-        walk.volume = 0.5f;
-        sword = gameObject.AddComponent<AudioSource>();
-        sword.clip = effects[2];
+
+		if(effects.Length > 0 && enableAudio == true){
+			walk = gameObject.AddComponent<AudioSource>();
+			walk.clip = effects[0];
+			walk.volume = 0.5f;
+			sword = gameObject.AddComponent<AudioSource>();
+			sword.clip = effects[2];
+		}else if(effects.Length == 0){
+			enableAudio = false;
+		}
+        
     }
 
 	void Update(){
@@ -51,20 +58,25 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if ((walk.isPlaying && horizontal == 0) || (walk.isPlaying && !isGround) || sword.isPlaying){
-            walk.Stop(); //stop walking sound if stopped moving or in air
-        }
+		if(enableAudio){
+			if ((walk.isPlaying && horizontal == 0) || (walk.isPlaying && !isGround) || sword.isPlaying){
+				walk.Stop(); //stop walking sound if stopped moving or in air
+			}
+		}
+
 
         if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
-                AudioSource.PlayClipAtPoint(effects[1], transform.position);
+				if(enableAudio){
+					AudioSource.PlayClipAtPoint(effects[1], transform.position);
+				}
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
 		}
 
 		if(Input.GetButtonDown("Fire1")){
             animator.SetBool("IsAttack", true);
-            if (!sword.isPlaying){
+			if (enableAudio && !sword.isPlaying){
                 sword.Play();
             }
             Debug.Log ("attack");
@@ -96,10 +108,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
    public void WalkSound(){
-        if (isGround){
-            if (!walk.isPlaying){
-                walk.Play();
-            }
-        }
+		if(enableAudio){
+			if (isGround){
+				if (!walk.isPlaying){
+					walk.Play();
+				}
+			}
+		}
     }
 }
