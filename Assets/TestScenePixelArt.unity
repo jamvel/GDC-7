@@ -1788,6 +1788,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: effects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011617042442, guid: 26f9c5c92c39d443eadc3bedef69f576, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.03
@@ -1833,6 +1838,31 @@ Prefab:
         type: 2}
       propertyPath: playerMask.m_Bits
       value: 1025
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012363012188, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: Mute
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: effects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 40e5e65dc1deeab429962fdc05dbcc9b, type: 3}
+    - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: effects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 214203bfef0a8964188404aea89c2b9a, type: 3}
+    - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: effects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: be1cb0a8f6329cc4aa4dab50cc35f02c, type: 3}
+    - target: {fileID: 82000012363012188, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: BypassEffects
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26f9c5c92c39d443eadc3bedef69f576, type: 2}
