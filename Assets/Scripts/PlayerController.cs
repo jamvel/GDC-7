@@ -71,9 +71,12 @@ public class PlayerController : MonoBehaviour {
 				if(enableAudio){
 					AudioSource.PlayClipAtPoint(effects[1], transform.position);
 				}
+                animator.SetBool("IsJump", true);
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
-		}
+		}else {
+            animator.SetBool("IsJump", false);
+        }
 
 		if(Input.GetButtonDown("Fire1")){
             animator.SetBool("IsAttack", true);
@@ -82,7 +85,9 @@ public class PlayerController : MonoBehaviour {
                 sword.Play();
             }
             Debug.Log ("attack");
-		}
+		}else {
+            animator.SetBool("IsAttack", false);
+        }
 
         //not sure when to include the statement below
         //to go back to the walking animation
