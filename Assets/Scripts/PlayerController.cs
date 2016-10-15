@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject fireball; //prefab to fireball
 	public Vector2 fireballVector;
-	public GameObject emmiterParentFireball; //parent of emmiters
-	private GameObject emmiterFireball; //actual emmiter
+	public GameObject emmiterFireball; //actual emmiter
 
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
@@ -32,8 +31,6 @@ public class PlayerController : MonoBehaviour {
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
-		emmiterFireball = emmiterParentFireball.transform.Find ("emmiter_fireball").gameObject; //get emmiter, emmiter stores dir vector of projectile
-
 
 		if(effects.Length > 0 && enableAudio == true){
 			walk = gameObject.AddComponent<AudioSource>();
