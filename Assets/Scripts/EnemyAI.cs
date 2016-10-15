@@ -59,10 +59,10 @@ public class EnemyAI : MonoBehaviour
         float rightDistance = transform.position.x - rightBound.position.x;
         float result = (leftDistance - rightDistance)/2;
 
-        Debug.Log("Position" + transform.position.x);
-        Debug.Log("Left Direction: " + leftBound.position.x);
-        Debug.Log("Right Direction: " + rightBound.position.x);
-        Debug.Log("Result: " + result);
+        //Debug.Log("Position" + transform.position.x);
+        //Debug.Log("Left Direction: " + leftBound.position.x);
+        //Debug.Log("Right Direction: " + rightBound.position.x);
+        //Debug.Log("Result: " + result);
 
         //moving the enemy to the player
         //can be removed
@@ -176,8 +176,8 @@ public class EnemyAI : MonoBehaviour
     //check if player is in the same platform as the enemy
     public bool SearchForPlayer(){
         if (Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask)){ //Bound of platform check
-            Debug.DrawLine(transform.position, rightBound.position, Color.magenta);
-            Debug.DrawLine(transform.position, leftBound.position, Color.magenta);
+            //Debug.DrawLine(transform.position, rightBound.position, Color.magenta);
+            //Debug.DrawLine(transform.position, leftBound.position, Color.magenta);
             return true;
         }else{
             return false;

@@ -86,7 +86,7 @@ public class FloatingEnemyAI : MonoBehaviour {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
         //Debug.Log("Player Location" + targetTransform.position);
         //Debug.Log("Enemy Location" + transform.position);
-        Debug.Log("Distance To Player" + distanceToPlayer);
+        //Debug.Log("Distance To Player" + distanceToPlayer);
 
         var relativePoint = transform.InverseTransformPoint(target.position);
         if (relativePoint.x < 0.0) {//walk left
