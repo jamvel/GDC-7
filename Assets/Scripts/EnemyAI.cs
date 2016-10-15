@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rigidBody;
     private bool searchingPlayer = false;
     private bool walkingToLeftBound = true;
-
+    private bool walking = true;
     private bool isChasing = false;
     private bool isAttacking = false;
 
@@ -108,7 +108,7 @@ public class EnemyAI : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
 		if(enableAudio){
-			if (skelwalk.isPlaying && !isChasing){
+			if (skelwalk.isPlaying && (!walking)){
 				skelwalk.Stop(); //stop walking sound if stopped moving
 			}
 		}
@@ -118,6 +118,7 @@ public class EnemyAI : MonoBehaviour
             searchingPlayer = true;
             animatorSetting();
             if (distanceToPlayer > inSightDistance) {//out of range
+                walking = true;
                 searchingPlayer = false;
                 isAttacking = false;
                 isChasing = false;
@@ -125,15 +126,18 @@ public class EnemyAI : MonoBehaviour
             } else if ((distanceToPlayer <= inSightDistance) && (distanceToPlayer > inChasingDistance)) {
                 //look at the player
                 //do not move
+                walking = false;
                 isChasing = false;
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
             } else if((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
+                walking = true;
                 isChasing = true;
                 moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
                 //start attacking
+                walking = false;
                 isChasing = false;
                 animatorSetting();
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
@@ -200,20 +204,24 @@ public class EnemyAI : MonoBehaviour
         if (walkingToLeftBound) {
             if (checkBoundDistance(leftBound)) {
                 //start walking to the right
+                walking = true;
                 walkingToLeftBound = false;
                 moveEnemy(rightBound);
             } else {
                 //keep walking the same direction
+                walking = true;
                 walkingToLeftBound = true;
                 moveEnemy(leftBound);
             }
         } else {
             if (checkBoundDistance(rightBound)) {
                 //start walking to the left
+                walking = true;
                 walkingToLeftBound = true;
                 moveEnemy(leftBound);
             } else {
                 //keep walking the same direction
+                walking = true;
                 walkingToLeftBound = false;
                 moveEnemy(rightBound);
             }
