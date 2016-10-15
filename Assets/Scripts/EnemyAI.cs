@@ -24,6 +24,10 @@ public class EnemyAI : MonoBehaviour
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.26f;
 
+	public AudioClip[] effects;
+	private AudioSource skelwalk;
+	public bool enableAudio = true;
+
     private float distanceToPlayer = 0;
     
     private Rigidbody2D rigidBody;
@@ -88,11 +92,27 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("Target not found");
             return;
         }
+
+		if(effects.Length > 0 && enableAudio == true){
+			skelwalk = gameObject.AddComponent<AudioSource>();
+			skelwalk.clip = effects[0];
+            skelwalk.spatialBlend = 1;
+        }
+        else if(effects.Length == 0){
+			enableAudio = false;
+		}
     }
 
 
     void Update() {
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
+
+		if(enableAudio){
+			if (skelwalk.isPlaying && !isChasing){
+				skelwalk.Stop(); //stop walking sound if stopped moving
+			}
+		}
+
         if (SearchForPlayer()){ //player is in the same platform as skeleton
             //move towards the player
             searchingPlayer = true;
@@ -161,6 +181,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void moveEnemy(Transform objective){
+        WalkSound();
         float step = speed * Time.deltaTime;
         animatorSetting();
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
@@ -235,4 +256,12 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+		
+	public void WalkSound(){
+		if(enableAudio){
+			if (!skelwalk.isPlaying){
+				skelwalk.Play();
+			}
+		}
+	}
 }
