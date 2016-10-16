@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour {
                 sword.Play();
             }
             Debug.Log ("attack");
-		}else {
+		}else{
             animator.SetBool("IsAttack", false);
         }
 
