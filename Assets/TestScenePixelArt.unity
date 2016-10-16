@@ -565,6 +565,11 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011482376932, guid: e87d5536b233af14a8488369b05794a1,
+        type: 2}
+      propertyPath: effects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd89a4512df198940852d9fa66f83119, type: 3}
     m_RemovedComponents:
     - {fileID: 114000011339532306, guid: e87d5536b233af14a8488369b05794a1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e87d5536b233af14a8488369b05794a1, type: 2}
