@@ -2088,7 +2088,7 @@ Prefab:
     - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
       propertyPath: effects.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000011617042442, guid: 26f9c5c92c39d443eadc3bedef69f576, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2150,7 +2150,7 @@ Prefab:
         type: 2}
       propertyPath: effects.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 6c6e38eb518e0124196c372bb89d5f79, type: 3}
+      objectReference: {fileID: 8300000, guid: 1eabd21600c79e24ca85e8a5f357fa0f, type: 3}
     - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
       propertyPath: effects.Array.data[2]
@@ -2203,6 +2203,11 @@ Prefab:
       propertyPath: emmiterFireball
       value: 
       objectReference: {fileID: 1675951586}
+    - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: effects.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 87779586d1dd8054d90f1b71b316ed73, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26f9c5c92c39d443eadc3bedef69f576, type: 2}
   m_IsPrefabParent: 0

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D playerRigidBody;
     private float time;
     private bool isGround = false;
+    private bool toLand = false;
     private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
 
@@ -46,6 +47,16 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
         //Horizontal Movement
+        if(!isGround){
+            toLand = true;
+        }
+
+        if (toLand && isGround){
+            if (enableAudio){
+                AudioSource.PlayClipAtPoint(effects[3], transform.position);
+            }
+            toLand = false;
+        }
         var horizontal = Input.GetAxis("Horizontal");
         Move(horizontal);
         if (horizontal > 0){//walk right
