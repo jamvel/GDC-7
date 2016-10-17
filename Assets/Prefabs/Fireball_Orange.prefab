@@ -24,7 +24,7 @@ GameObject:
   - 61: {fileID: 61000012632698962}
   - 114: {fileID: 114000013910950206}
   - 50: {fileID: 50000012753410428}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fireball_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b633a57ab83345aaaf62d7b456ed9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityVector: {x: 1, y: 0}
+  velocityVector: {x: -1, y: 0}
 --- !u!212 &212000012965167024
 SpriteRenderer:
   m_ObjectHideFlags: 1
