@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask playerMask;
 
     //public float updateRate = 5f;
-    public float speed = 15f;
+    public float speed = 0.8f;
     public float inChasingDistance = 1f;
     public float inSightDistance = 2f;
     public float enemyStopDistance = 0.45f; 
@@ -128,11 +128,13 @@ public class EnemyAI : MonoBehaviour
                 //do not move
                 walking = false;
                 isChasing = false;
+                isAttacking = false;
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
             } else if((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
                 walking = true;
                 isChasing = true;
+                isAttacking = false;
                 moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
@@ -149,9 +151,7 @@ public class EnemyAI : MonoBehaviour
 
 
             /*
-
-
-                if (distanceToPlayer > inSightDistance) {//out of range
+            if (distanceToPlayer > inSightDistance) {//out of range
                 patrol();
             } else if ((distanceToPlayer <= inSightDistance) && (distanceToPlayer >= inChasingDistance)) {
                 //look at the player
@@ -231,6 +231,7 @@ public class EnemyAI : MonoBehaviour
     public void attack() {
         isAttacking = true;
         animatorSetting();
+        //deal damage to player
         isAttacking = false;
     }
 
