@@ -111,9 +111,12 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire2")){
 			Debug.Log ("Projectile Fire");
-			fireball.GetComponent<Projectile> ().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector> ().directionVector; //speed + dir
+            animator.SetBool("IsShoot", true);
+            fireball.GetComponent<Projectile> ().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector> ().directionVector; //speed + dir
 			Instantiate (fireball, emmiterFireball.GetComponent<Transform> ().position, emmiterFireball.GetComponent<Transform>().rotation);
-		}
+		}else {
+            animator.SetBool("IsShoot", false);
+        }
     }
 
     void FixedUpdate (){
