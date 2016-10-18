@@ -325,7 +325,7 @@ AudioSource:
   m_Volume: 0.747
   m_Pitch: -0.38
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   Priority: 0
   DopplerLevel: 2.38
@@ -2666,7 +2666,7 @@ Prefab:
     - target: {fileID: 82000012363012188, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
       propertyPath: Mute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000013343491946, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
@@ -2692,7 +2692,7 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 7388d879a3ba6e24ebaec88eb0150d19, type: 3}
+      objectReference: {fileID: 8300000, guid: 4150da724c8080a4b8880e715f1c841d, type: 3}
     - target: {fileID: 212000012115592104, guid: 26f9c5c92c39d443eadc3bedef69f576,
         type: 2}
       propertyPath: m_Sprite
@@ -2739,6 +2739,11 @@ Prefab:
         type: 2}
       propertyPath: jumpVelocity
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012363012188, guid: 26f9c5c92c39d443eadc3bedef69f576,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.108
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26f9c5c92c39d443eadc3bedef69f576, type: 2}
