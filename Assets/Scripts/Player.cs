@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerBars : MonoBehaviour {
+public class Player : MonoBehaviour {
     public static int health = 100;
     public static int mana = 100;
     public Slider healthBar;
