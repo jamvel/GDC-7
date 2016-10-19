@@ -135,7 +135,7 @@ public class EnemyAI : MonoBehaviour
                 walking = true;
                 isChasing = true;
                 isAttacking = false;
-                moveEnemy(target);
+                //moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
                 //start attacking
@@ -206,24 +206,24 @@ public class EnemyAI : MonoBehaviour
                 //start walking to the right
                 walking = true;
                 walkingToLeftBound = false;
-                moveEnemy(rightBound);
+                //moveEnemy(rightBound);
             } else {
                 //keep walking the same direction
                 walking = true;
                 walkingToLeftBound = true;
-                moveEnemy(leftBound);
+                //moveEnemy(leftBound);
             }
         } else {
             if (checkBoundDistance(rightBound)) {
                 //start walking to the left
                 walking = true;
                 walkingToLeftBound = true;
-                moveEnemy(leftBound);
+                //moveEnemy(leftBound);
             } else {
                 //keep walking the same direction
                 walking = true;
                 walkingToLeftBound = false;
-                moveEnemy(rightBound);
+                //moveEnemy(rightBound);
             }
         }
     }
