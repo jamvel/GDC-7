@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
 	public AudioClip[] effects;
     private AudioSource walk; //sword
+    public Slider audioChange;
     public bool enableAudio = true;
 
 	public GameObject fireball; //prefab to fireball
@@ -33,8 +35,9 @@ public class PlayerController : MonoBehaviour {
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
+        can.GetComponent<Canvas>().enabled = false;
 
-		if(effects.Length > 0 && enableAudio == true){
+        if (effects.Length > 0 && enableAudio == true){
 			walk = gameObject.AddComponent<AudioSource>();
 			walk.clip = effects[0];
 			walk.volume = 0.5f;
@@ -121,11 +124,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)){ //vertical
             if (paused){
                 paused = false;
+                can.GetComponent<Canvas>().enabled = false;
                 Time.timeScale = 1;
-                AudioListener.volume = 1;
-            }
-            else{
+                AudioListener.volume = audioChange.value;
+            }else{
                 paused = true;
+                can.GetComponent<Canvas>().enabled = true;
                 Time.timeScale = 0;
                 AudioListener.volume = 0;
             }

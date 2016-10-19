@@ -6,20 +6,15 @@ public class ButtonManager : MonoBehaviour {
 
     private bool paused = false;
 
+    void Update(){
+
+    }
+
     public void exitButton(){
         Application.Quit();
     }
 
     public void pauseButton(){
-        if(paused){
-            paused = false;
-            Time.timeScale = 1;
-            AudioListener.volume = 1;
-        }
-        else{
-            paused = true;
-            Time.timeScale = 0;
-            AudioListener.volume = 0;
-        }
+
     }
 }
