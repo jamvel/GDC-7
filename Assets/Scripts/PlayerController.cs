@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public bool airControl = true;
 
 	public AudioClip[] effects;
-    private AudioSource walk, sword;
-	public bool enableAudio = true;
+    private AudioSource walk; //sword
+    public bool enableAudio = true;
 
 	public GameObject fireball; //prefab to fireball
 	public Vector2 fireballVector;
@@ -19,12 +19,13 @@ public class PlayerController : MonoBehaviour {
 
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
-    private float time;
     private bool isGround = false;
     private bool toLand = false;
     private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
 
+    public Canvas can;
+    private bool paused = false;
 
     void Start(){
 		playerTransform = this.GetComponent<Transform> ();
@@ -37,9 +38,10 @@ public class PlayerController : MonoBehaviour {
 			walk = gameObject.AddComponent<AudioSource>();
 			walk.clip = effects[0];
 			walk.volume = 0.5f;
-			sword = gameObject.AddComponent<AudioSource>();
-			sword.clip = effects[2];
-		}else if(effects.Length == 0){
+			//sword = gameObject.AddComponent<AudioSource>();
+			//sword.clip = effects[2];
+        }
+        else if(effects.Length == 0){
 			enableAudio = false;
 		}
         
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 
         if (toLand && isGround){
             if (enableAudio){
-                AudioSource.PlayClipAtPoint(effects[3], transform.position);
+                AudioSource.PlayClipAtPoint(effects[2], transform.position,0.85f);
             }
             toLand = false;
         }
@@ -76,11 +78,10 @@ public class PlayerController : MonoBehaviour {
         }
 
 		if(enableAudio){
-			if ((walk.isPlaying && horizontal == 0) || (walk.isPlaying && !isGround) || sword.isPlaying){
+			if ((walk.isPlaying && horizontal == 0) || (walk.isPlaying && !isGround) /*|| sword.isPlaying*/){
 				walk.Stop(); //stop walking sound if stopped moving or in air
 			}
 		}
-
 
         if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
@@ -96,10 +97,9 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire1")){
             animator.SetBool("IsAttack", true);
-            time = Time.time;
-            if (enableAudio && !sword.isPlaying){
+            /*if (enableAudio && !sword.isPlaying){
                 sword.Play();
-            }
+            }*/
             Debug.Log ("attack");
 		}else{
             animator.SetBool("IsAttack", false);
@@ -116,6 +116,19 @@ public class PlayerController : MonoBehaviour {
 			Instantiate (fireball, emmiterFireball.GetComponent<Transform> ().position, emmiterFireball.GetComponent<Transform>().rotation);
 		}else {
             animator.SetBool("IsShoot", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)){ //vertical
+            if (paused){
+                paused = false;
+                Time.timeScale = 1;
+                AudioListener.volume = 1;
+            }
+            else{
+                paused = true;
+                Time.timeScale = 0;
+                AudioListener.volume = 0;
+            }
         }
     }
 
