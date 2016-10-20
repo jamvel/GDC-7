@@ -812,6 +812,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f347333001d9d643b7667cec3b967e4, type: 3}
   - {fileID: 8300000, guid: 6a6b29eeaf0cda64eb7eb2d3cea7b4bd, type: 3}
   - {fileID: 8300000, guid: 159887c1168aabf42a577ebbba29bb08, type: 3}
+  - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
   audioChange: {fileID: 876426996}
   enableAudio: 1
   fireball: {fileID: 1000013017164654, guid: bdfee4ab6a1fe45ed907ec92fd269d98, type: 2}
@@ -1197,6 +1198,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000011482376932, guid: e87d5536b233af14a8488369b05794a1,
+        type: 2}
+      propertyPath: effects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013765351768, guid: e87d5536b233af14a8488369b05794a1, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.567
@@ -1353,6 +1359,11 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: bcacf39fa58fa400e840cffe085e5ddd, type: 2}
+    - target: {fileID: 114000011482376932, guid: e87d5536b233af14a8488369b05794a1,
+        type: 2}
+      propertyPath: effects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
     m_RemovedComponents:
     - {fileID: 114000011339532306, guid: e87d5536b233af14a8488369b05794a1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e87d5536b233af14a8488369b05794a1, type: 2}

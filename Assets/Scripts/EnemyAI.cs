@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     public float precisionOfEnemyToBounds = 0.26f;
 
 	public AudioClip[] effects;
-	private AudioSource skelwalk;
+	private AudioSource skelwalk, skelsword;
 	public bool enableAudio = true;
 
     private float distanceToPlayer = 0;
@@ -97,6 +97,8 @@ public class EnemyAI : MonoBehaviour
 			skelwalk = gameObject.AddComponent<AudioSource>();
 			skelwalk.clip = effects[0];
             skelwalk.spatialBlend = 1;
+            skelsword = gameObject.AddComponent<AudioSource>();
+            skelsword.clip = effects[1];
         }
         else if(effects.Length == 0){
 			enableAudio = false;
@@ -231,6 +233,9 @@ public class EnemyAI : MonoBehaviour
     public void attack() {
         isAttacking = true;
         animatorSetting();
+        if (enableAudio && !skelsword.isPlaying){
+            skelsword.Play();
+        }
         //deal damage to player
         isAttacking = false;
     }

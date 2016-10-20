@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public bool airControl = true;
 
 	public AudioClip[] effects;
-    private AudioSource walk; //sword
+    private AudioSource walk, sword; 
     public Slider audioChange;
     public bool enableAudio = true;
 
@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour {
 			walk = gameObject.AddComponent<AudioSource>();
 			walk.clip = effects[0];
 			walk.volume = 0.5f;
-			//sword = gameObject.AddComponent<AudioSource>();
-			//sword.clip = effects[2];
+			sword = gameObject.AddComponent<AudioSource>();
+			sword.clip = effects[3];
         }
         else if(effects.Length == 0){
 			enableAudio = false;
@@ -100,9 +100,9 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire1")){
             animator.SetBool("IsAttack", true);
-            /*if (enableAudio && !sword.isPlaying){
+            if (enableAudio && !sword.isPlaying){
                 sword.Play();
-            }*/
+            }
             Debug.Log ("attack");
 		}else{
             animator.SetBool("IsAttack", false);
