@@ -7,7 +7,7 @@ using System.Collections;
  * Otherwise if the enemy is not on the platform the enemy will move from one bound to another
  * 
  */
-public class FlyingEnemyAI : MonoBehaviour {
+public class FlyingEnemyAI1 : MonoBehaviour {
     public Transform target;
 
     public Transform topRightBound;

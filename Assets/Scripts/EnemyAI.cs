@@ -137,7 +137,7 @@ public class EnemyAI : MonoBehaviour
                 walking = true;
                 isChasing = true;
                 isAttacking = false;
-                //moveEnemy(target);
+                moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
                 //start attacking

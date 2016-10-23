@@ -7,15 +7,13 @@ using System.Collections;
  * Otherwise if the enemy is not on the platform the enemy will move from one bound to another
  * 
  */
-public class FlyingEnemyAI : MonoBehaviour {
+public class FlyingEnemyAI2 : MonoBehaviour {
     public Transform target;
 
     public Transform topRightBound;
     public Transform topLeftBound;
     public Transform bottomRightBound;
     public Transform bottomLeftBound;
-
-    public float width = 5; //Your square width
 
     public float radius = 1f;
     public float speed = 0.8f;
@@ -24,17 +22,17 @@ public class FlyingEnemyAI : MonoBehaviour {
 
     private float xAxis;
     private float yAxis;
+    //private float time;
     private float distanceToPlayer;
 
     private Rigidbody2D rigidBody;
     private bool walkingToLeftBound = true;
     private bool walkingToTopBound = true;
     private bool isAttacking = false;
-    
+
     private Animator animator;
 
     private Vector2 startCoordinates;
-    private Vector2 targetPos;
 
     void Start() {
         animator = this.GetComponent<Animator>();
@@ -64,7 +62,7 @@ public class FlyingEnemyAI : MonoBehaviour {
         var relativePoint = transform.InverseTransformPoint(target.position);
         distanceToPlayer = Vector2.Distance(target.position, transform.position);
 
-        if(inAttackRange()) {
+        if (inAttackRange()) {
             //start shooting at the enemy / dash to the player
             //dash to player
             moveEnemy(target);
@@ -88,7 +86,7 @@ public class FlyingEnemyAI : MonoBehaviour {
             }
         }
         */
-        
+
 
     }
 
@@ -96,21 +94,16 @@ public class FlyingEnemyAI : MonoBehaviour {
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
-    
+
     public void randomMovement() {
-        float rx = Random.Range(-1, 1);
-        float rz = Random.Range(-1, 1);
 
-        //targetPos = Vector2.MoveTowards()
-
-        //targetPos = Vector2(transform.position.x+(rx* width), someYValue, transform.position.z+(rx* width));
     }
 
     public bool inAttackRange() {
-        if(distanceToPlayer < rangeToAttack ) {
+        if (distanceToPlayer < rangeToAttack) {
             //can start attacking
             return true;
-        }else {
+        } else {
             //keep patrolling
             //bouncing between bounds
             return false;
