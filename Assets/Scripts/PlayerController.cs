@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 
 	public AudioClip[] effects;
     private AudioSource walk, sword; 
-    public Slider audioChange;
     public bool enableAudio = true;
 
 	public GameObject fireball; //prefab to fireball
@@ -26,16 +25,12 @@ public class PlayerController : MonoBehaviour {
     private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
 
-    public Canvas can;
-    private bool paused = false;
-
     void Start(){
 		playerTransform = this.GetComponent<Transform> ();
 		tagLeftTransform = tagGroundLeft.GetComponent<Transform> ();
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
-        can.GetComponent<Canvas>().enabled = false;
 
         if (effects.Length > 0 && enableAudio == true){
 			walk = gameObject.AddComponent<AudioSource>();
@@ -120,20 +115,6 @@ public class PlayerController : MonoBehaviour {
 		}else {
             animator.SetBool("IsShoot", false);
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape)){ //vertical
-            if (paused){
-                paused = false;
-                can.GetComponent<Canvas>().enabled = false;
-                Time.timeScale = 1;
-                AudioListener.volume = audioChange.value;
-            }else{
-                paused = true;
-                can.GetComponent<Canvas>().enabled = true;
-                Time.timeScale = 0;
-                AudioListener.volume = 0;
-            }
-        }
     }
 
     void FixedUpdate (){
@@ -155,6 +136,10 @@ public class PlayerController : MonoBehaviour {
 		moveVelocity.x = horizontalInput * speed;
 		playerRigidBody.velocity = moveVelocity;
 	}
+
+    public void playerDeath() {
+        playerRigidBody.velocity = new Vector2(0, 0);
+    }
 
    public void WalkSound(){
 		if(enableAudio){
