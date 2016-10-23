@@ -14,9 +14,7 @@ public class FlyingEnemyAI : MonoBehaviour {
     public Transform topLeftBound;
     public Transform bottomRightBound;
     public Transform bottomLeftBound;
-
-    public float width = 5; //Your square width
-
+    
     public float radius = 1f;
     public float speed = 0.8f;
     public float rangeToAttack;
@@ -24,6 +22,7 @@ public class FlyingEnemyAI : MonoBehaviour {
 
     private float xAxis;
     private float yAxis;
+    //private float time;
     private float distanceToPlayer;
 
     private Rigidbody2D rigidBody;
@@ -34,7 +33,6 @@ public class FlyingEnemyAI : MonoBehaviour {
     private Animator animator;
 
     private Vector2 startCoordinates;
-    private Vector2 targetPos;
 
     void Start() {
         animator = this.GetComponent<Animator>();
@@ -98,12 +96,7 @@ public class FlyingEnemyAI : MonoBehaviour {
     }
     
     public void randomMovement() {
-        float rx = Random.Range(-1, 1);
-        float rz = Random.Range(-1, 1);
 
-        //targetPos = Vector2.MoveTowards()
-
-        //targetPos = Vector2(transform.position.x+(rx* width), someYValue, transform.position.z+(rx* width));
     }
 
     public bool inAttackRange() {

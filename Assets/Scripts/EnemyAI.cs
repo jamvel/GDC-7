@@ -208,24 +208,24 @@ public class EnemyAI : MonoBehaviour
                 //start walking to the right
                 walking = true;
                 walkingToLeftBound = false;
-                //moveEnemy(rightBound);
+                moveEnemy(rightBound);
             } else {
                 //keep walking the same direction
                 walking = true;
                 walkingToLeftBound = true;
-                //moveEnemy(leftBound);
+                moveEnemy(leftBound);
             }
         } else {
             if (checkBoundDistance(rightBound)) {
                 //start walking to the left
                 walking = true;
                 walkingToLeftBound = true;
-                //moveEnemy(leftBound);
+                moveEnemy(leftBound);
             } else {
                 //keep walking the same direction
                 walking = true;
                 walkingToLeftBound = false;
-                //moveEnemy(rightBound);
+                moveEnemy(rightBound);
             }
         }
     }
