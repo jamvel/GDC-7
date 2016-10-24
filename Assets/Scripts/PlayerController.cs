@@ -90,10 +90,20 @@ public class PlayerController : MonoBehaviour {
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
 		}else {
-            if(!isGround) {
+            if ((Physics2D.Linecast(playerTransform.position, tagLeftTransform.position, playerMask))){
+                if ((Physics2D.Linecast(playerTransform.position, tagRightTransform.position, playerMask))) { //Ground Check
+                    animator.SetBool("IsJump", false);
+                } else {
+                    animator.SetBool("IsJump", false);
+                }
+            } else if ((Physics2D.Linecast(playerTransform.position, tagRightTransform.position, playerMask))) { //Ground Check
+                    if ((Physics2D.Linecast(playerTransform.position, tagLeftTransform.position, playerMask))) {
+                        animator.SetBool("IsJump", false);
+                    } else {
+                        animator.SetBool("IsJump", false);
+                    }
+            }else {
                 animator.SetBool("IsJump", true);
-            } else {
-                animator.SetBool("IsJump", false);
             }
         }
 
@@ -121,7 +131,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void FixedUpdate (){
+
+    public void FixedUpdate (){
         Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
 		Debug.DrawLine(playerTransform.position,tagRightTransform.position);
 		if(Physics2D.Linecast(playerTransform.position,tagLeftTransform.position,playerMask) || 

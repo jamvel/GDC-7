@@ -102,7 +102,6 @@ public class EnemyAI : MonoBehaviour
 
 
     void Update() {
-
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
         if(enableAudio){
 			if (skelwalk.isPlaying && (!walking)){
