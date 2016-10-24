@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
     }
 
     private IEnumerator changeSpriteColor() {
-        Color original = sr.color;
+        Color original = new Color(255,255,255,255);
         sr.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         sr.color = original;

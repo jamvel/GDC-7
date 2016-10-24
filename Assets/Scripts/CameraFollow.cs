@@ -9,18 +9,18 @@ public class CameraFollow : MonoBehaviour {
 	public float dampTime = 0.15f;
 	public float verticalOffset = 0f;
 	public bool lockCamera = false;
-	public Transform target,tagAnchor;
+    public Transform target;
 	public Transform westWall,eastWall;
 
 	[HideInInspector]public bool isAnchored = false;
-	[HideInInspector]public Collider2D tempCollider;
 
+    private Transform tagAnchor;
 	private Vector3 velocity = Vector3.zero;
 	private GameObject parentObject,westCameraObject,eastCameraObject,northCameraObject,southCameraObject;
 	private GameObject anchors,westAnchor, eastAnchor, northAnchor, southAnchor;
 	private Rigidbody2D rb;
 	private BoxCollider2D westCameraBoxCollider,eastCameraBoxCollider,northCameraBoxCollider, southCameraBoxCollider;
-	private Vector2 anchorPosition,relativePosition;
+	private Vector2 relativePosition;
 	private bool anchorType;// true - horizontal , false - vertical
 
 	void Awake(){
@@ -36,6 +36,7 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	void Start(){
+        tagAnchor = target.transform.Find("tag_anchor");
 		tagAnchor.position = new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY);
 
 		/*
