@@ -90,7 +90,11 @@ public class PlayerController : MonoBehaviour {
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
 		}else {
-            animator.SetBool("IsJump", false);
+            if(!isGround) {
+                animator.SetBool("IsJump", true);
+            } else {
+                animator.SetBool("IsJump", false);
+            }
         }
 
 		if(Input.GetButtonDown("Fire1")){
@@ -141,7 +145,7 @@ public class PlayerController : MonoBehaviour {
         playerRigidBody.velocity = new Vector2(0, 0);
     }
 
-   public void WalkSound(){
+    public void WalkSound(){
 		if(enableAudio){
 			if (isGround){
 				if (!walk.isPlaying){
