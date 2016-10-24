@@ -684,6 +684,7 @@ MonoBehaviour:
   inChasingDistance: 1.25
   inSightDistance: 1.75
   enemyStopDistance: 0.375
+  attackLag: 1
   stop: 0.4
   precisionOfEnemyToBounds: 0.26
   effects:

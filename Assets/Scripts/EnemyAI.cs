@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     public float speed = 0.8f;
     public float inChasingDistance = 1f;
     public float inSightDistance = 2f;
-    public float enemyStopDistance = 0.45f; 
+    public float enemyStopDistance = 0.45f;
 
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.26f;
@@ -58,11 +58,6 @@ public class EnemyAI : MonoBehaviour
         float leftDistance = transform.position.x - leftBound.position.x;
         float rightDistance = transform.position.x - rightBound.position.x;
         float result = (leftDistance - rightDistance)/2;
-
-        //Debug.Log("Position" + transform.position.x);
-        //Debug.Log("Left Direction: " + leftBound.position.x);
-        //Debug.Log("Right Direction: " + rightBound.position.x);
-        //Debug.Log("Result: " + result);
 
         //moving the enemy to the player
         //can be removed
@@ -107,9 +102,9 @@ public class EnemyAI : MonoBehaviour
 
 
     void Update() {
-        distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
-		if(enableAudio){
+        distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        if(enableAudio){
 			if (skelwalk.isPlaying && (!walking)){
 				skelwalk.Stop(); //stop walking sound if stopped moving
 			}
@@ -146,29 +141,9 @@ public class EnemyAI : MonoBehaviour
                 animatorSetting();
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
                 attack();
-            }else {
+            } else {
                 Debug.Log(("Undefined State"));
             }
-
-
-
-            /*
-            if (distanceToPlayer > inSightDistance) {//out of range
-                patrol();
-            } else if ((distanceToPlayer <= inSightDistance) && (distanceToPlayer >= inChasingDistance)) {
-                //look at the player
-                //and start moving towards the player
-                isChasing = true;
-                moveEnemy(target);
-            } else {// if ((distanceToPlayer < inChasingDistance) && (distanceToPlayer <= stop)) {
-                //come to a stop     
-                //start attacking
-                isChasing = false;
-                animatorSetting();
-                transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
-                attack();
-            } 
-            */
         } else { // player is on a different platform from user --- patrol function
             searchingPlayer = false;
             patrol();
@@ -236,8 +211,10 @@ public class EnemyAI : MonoBehaviour
         if (enableAudio && !skelsword.isPlaying){
             skelsword.Play();
         }
+
+        //yield return new WaitForSeconds(attackLag);
         //deal damage to player
-        isAttacking = false;
+//        isAttacking = false;
     }
 
     public void animatorSetting() {
