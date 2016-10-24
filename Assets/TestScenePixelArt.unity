@@ -190,6 +190,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 495600080}
   m_RootOrder: 1
+--- !u!1 &115508879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 115508880}
+  m_Layer: 12
+  m_Name: Sword Swinging
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115508880
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115508879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 2001829107}
+  m_Father: {fileID: 495600080}
+  m_RootOrder: 4
 --- !u!1001 &143677618
 Prefab:
   m_ObjectHideFlags: 0
@@ -711,6 +740,7 @@ Transform:
   - {fileID: 105276287}
   - {fileID: 1746524597}
   - {fileID: 948606824}
+  - {fileID: 115508880}
   m_Father: {fileID: 0}
   m_RootOrder: 12
 --- !u!1 &495874182
@@ -1003,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &584018513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1238,6 +1268,11 @@ MonoBehaviour:
   currentHealth: 100
   mana: 100
   UI_Canvas: {fileID: 779149672}
+  grunts:
+  - {fileID: 8300000, guid: fee35c0b3b62d2c48a997287c291c720, type: 3}
+  - {fileID: 8300000, guid: 0e414818915b94f4796edab5000345cd, type: 3}
+  - {fileID: 8300000, guid: 4b2f8f7d8922d3c44aa2a53a6b15c781, type: 3}
+  grunt: {fileID: 0}
 --- !u!4 &613746950
 Transform:
   m_ObjectHideFlags: 0
@@ -1353,7 +1388,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1842605799}
   m_HandleRect: {fileID: 0}
@@ -1533,7 +1568,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1516613064}
   m_HandleRect: {fileID: 0}
@@ -2197,7 +2232,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 291573045}
   m_HandleRect: {fileID: 0}
@@ -2379,7 +2414,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2071474950}
   m_HandleRect: {fileID: 0}
@@ -3089,6 +3124,8 @@ MonoBehaviour:
   currentHealth: 100
   mana: 100
   UI_Canvas: {fileID: 0}
+  grunts: []
+  grunt: {fileID: 0}
 --- !u!1 &1218774071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,8 +3648,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1324518214}
   m_RootOrder: 0
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3907,10 +3944,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1515916147}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0.683, y: -0.063, z: -136.95801}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3117629, w: 0.95015997}
+  m_LocalPosition: {x: 0.324, y: 0.273, z: 0}
+  m_LocalScale: {x: 0.99299574, y: 0.801125, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.331}
   m_Children: []
   m_Father: {fileID: 1396836514}
   m_RootOrder: 0
@@ -3921,11 +3958,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1515916147}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.5500001}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.026509851, y: 0.42833114, z: 0.5500001}
+  m_Center: {x: -0.48675478, y: 0.31882256, z: 0}
 --- !u!1 &1516613063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4746,7 +4783,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 938787545}
   m_HandleRect: {fileID: 0}
@@ -5152,6 +5189,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1928881674}
+--- !u!1 &2001829106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2001829107}
+  - 61: {fileID: 2001829108}
+  m_Layer: 12
+  m_Name: SwordPiece
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2001829107
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001829106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 115508880}
+  m_RootOrder: 0
+--- !u!61 &2001829108
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001829106}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &2022118296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5229,7 +5309,7 @@ RectTransform:
   m_Father: {fileID: 443390888}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
