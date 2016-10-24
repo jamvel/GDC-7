@@ -334,6 +334,49 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: befa8d15d5b5448e78d2b8899991e7fe, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &179126908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 179126909}
+  - 61: {fileID: 179126910}
+  m_Layer: 12
+  m_Name: SwordPiece
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179126909
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179126908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -113.174}
+  m_Children: []
+  m_Father: {fileID: 495600080}
+  m_RootOrder: 4
+--- !u!61 &179126910
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179126908}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &179464336
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +888,7 @@ Transform:
   - {fileID: 105276287}
   - {fileID: 1746524597}
   - {fileID: 948606824}
+  - {fileID: 179126909}
   m_Father: {fileID: 0}
   m_RootOrder: 12
 --- !u!1 &495874182
@@ -927,19 +971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25dda770fa13a943b7cb029c3c6c31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 613746950}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  topRightBound: {fileID: 1452490890}
-  topLeftBound: {fileID: 955711646}
-  bottomRightBound: {fileID: 1738582559}
-  bottomLeftBound: {fileID: 585256115}
-  movementSpeed: 0.8
-  projectileRange: 4
-  dashRange: 2
-  enemyStopDistance: 0.36
-  precisionOfEnemyToBounds: 0.26
 --- !u!50 &495874187
 Rigidbody2D:
   serializedVersion: 2

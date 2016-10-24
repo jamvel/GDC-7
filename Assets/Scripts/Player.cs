@@ -39,12 +39,10 @@ public class Player : MonoBehaviour {
     }
     
     public void updateHealthBar(Damage dmg) { //updates current health and health bar
-
-        if (!grunt.isPlaying){
-            i = Random.Range(0, 2);
-            grunt.clip = grunts[i];
-            grunt.Play();
-        }
+        i = Random.Range(0, 2);
+        grunt.clip = grunts[i];
+        grunt.Play();
+        
         if (dmg.isRight) {
             tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
             Debug.Log("Enemy hit the player from the right");
