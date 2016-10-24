@@ -44,10 +44,10 @@ public class Sequencer : MonoBehaviour {
                 shoot();
             }
             on = true;
-            Debug.Log("Going Up");
+            //Debug.Log("Going Up");
         } else {//wait
             on = false;
-            Debug.Log("Waiting");
+            //Debug.Log("Waiting");
         }
         animator.SetBool("On", on);
     }
@@ -55,14 +55,14 @@ public class Sequencer : MonoBehaviour {
     void shoot() {
         //create direction to give to the projectiles and damage ....   
         if(x) { //if projectile is going up/down
-            Debug.Log("Shooting North/ South");
+            //Debug.Log("Shooting North/ South");
         }else { //projectile is going left/right
-            Debug.Log("Shooting Left/ Right");
+            //Debug.Log("Shooting Left/ Right");
             //rigidBody.velocity = new Vector2(speedOfProjectile, rigidBody.velocity.y);
             arrow.GetComponent<Projectile>().velocityVector = arrowVector + emmiterArrow.GetComponent<EmmiterVector>().directionVector; //speed + dir
             Instantiate(arrow, emmiterArrow.GetComponent<Transform>().position, emmiterArrow.GetComponent<Transform>().rotation);
         }
         
-        Debug.Log("Shooting");
+        //Debug.Log("Shooting");
     }
 }

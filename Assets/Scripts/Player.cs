@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
     }
     
     public void updateHealthBar(Damage dmg) { //updates current health and health bar
+
         if (!grunt.isPlaying){
             i = Random.Range(0, 2);
             grunt.clip = grunts[i];
