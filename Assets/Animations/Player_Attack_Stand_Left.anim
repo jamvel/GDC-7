@@ -17,110 +17,88 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 50.475002}
-        outSlope: {x: 0, y: 0, z: 50.475002}
+        value: {x: 0, y: 0, z: -51.170002}
+        inSlope: {x: 0, y: 0, z: 158.52216}
+        outSlope: {x: 0, y: 0, z: 158.52216}
         tangentMode: 0
       - time: 0.46666667
-        value: {x: 0, y: 0, z: 23.555}
-        inSlope: {x: 0, y: 0, z: 121.05747}
-        outSlope: {x: 0, y: 0, z: 121.05747}
+        value: {x: 0, y: 0, z: 22.807001}
+        inSlope: {x: 0, y: 0, z: 219.86353}
+        outSlope: {x: 0, y: 0, z: 219.86353}
         tangentMode: 0
       - time: 0.53333336
-        value: {x: 0, y: 0, z: 36.331}
-        inSlope: {x: 0, y: 0, z: 230.3775}
-        outSlope: {x: 0, y: 0, z: 230.3775}
+        value: {x: 0, y: 0, z: 41.554}
+        inSlope: {x: 0, y: 0, z: 264.27747}
+        outSlope: {x: 0, y: 0, z: 264.27747}
         tangentMode: 0
       - time: 0.6
-        value: {x: 0, y: 0, z: 54.272003}
-        inSlope: {x: 0, y: 0, z: 305.15256}
-        outSlope: {x: 0, y: 0, z: 305.15256}
+        value: {x: 0, y: 0, z: 58.044003}
+        inSlope: {x: 0, y: 0, z: 252.28502}
+        outSlope: {x: 0, y: 0, z: 252.28502}
         tangentMode: 0
       - time: 0.6666667
-        value: {x: 0, y: 0, z: 77.018005}
-        inSlope: {x: 0, y: 0, z: 333.91504}
-        outSlope: {x: 0, y: 0, z: 333.91504}
+        value: {x: 0, y: 0, z: 75.192}
+        inSlope: {x: 0, y: 0, z: 347.71503}
+        outSlope: {x: 0, y: 0, z: 347.71503}
         tangentMode: 0
       - time: 0.73333335
-        value: {x: 0, y: 0, z: 98.79401}
-        inSlope: {x: 0, y: 0, z: 464.2951}
-        outSlope: {x: 0, y: 0, z: 464.2951}
+        value: {x: 0, y: 0, z: 104.406006}
+        inSlope: {x: 0, y: 0, z: 482.81253}
+        outSlope: {x: 0, y: 0, z: 482.81253}
         tangentMode: 0
       - time: 0.8
-        value: {x: 0, y: 0, z: 138.92401}
-        inSlope: {x: 0, y: 0, z: 601.95013}
-        outSlope: {x: 0, y: 0, z: 601.95013}
+        value: {x: 0, y: 0, z: 139.567}
+        inSlope: {x: 0, y: 0, z: 527.415}
+        outSlope: {x: 0, y: 0, z: 527.415}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
   m_PositionCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0.75857145, y: 0.49714285, z: 0}
-        outSlope: {x: 0.75857145, y: 0.49714285, z: 0}
+        value: {x: 0.32399988, y: 0.273, z: 0}
+        inSlope: {x: 0.008571701, y: -0.023571445, z: 0}
+        outSlope: {x: 0.008571701, y: -0.023571445, z: 0}
         tangentMode: 0
       - time: 0.46666667
-        value: {x: 0.354, y: 0.232, z: 0}
-        inSlope: {x: 0.1542858, y: 0.5560714, z: 0}
-        outSlope: {x: 0.1542858, y: 0.5560714, z: 0}
+        value: {x: 0.328, y: 0.262, z: 0}
+        inSlope: {x: -0.648214, y: 0.835714, z: 0}
+        outSlope: {x: -0.648214, y: 0.835714, z: 0}
         tangentMode: 0
       - time: 0.53333336
-        value: {x: 0.324, y: 0.273, z: 0}
-        inSlope: {x: -1.3124999, y: 1.1775, z: 0}
-        outSlope: {x: -1.3124999, y: 1.1775, z: 0}
+        value: {x: 0.241, y: 0.375, z: 0}
+        inSlope: {x: -2.205, y: 1.7399998, z: 0}
+        outSlope: {x: -2.205, y: 1.7399998, z: 0}
         tangentMode: 0
       - time: 0.6
-        value: {x: 0.179, y: 0.389, z: 0}
-        inSlope: {x: -1.7325001, y: 0.94499993, z: 0}
-        outSlope: {x: -1.7325001, y: 0.94499993, z: 0}
+        value: {x: 0.034, y: 0.494, z: 0}
+        inSlope: {x: -2.6925, y: 0.48750004, z: 0}
+        outSlope: {x: -2.6925, y: 0.48750004, z: 0}
         tangentMode: 0
       - time: 0.6666667
-        value: {x: 0.093, y: 0.399, z: 0}
-        inSlope: {x: -1.7700002, y: -0.17250001, z: 0}
-        outSlope: {x: -1.7700002, y: -0.17250001, z: 0}
+        value: {x: -0.118, y: 0.44, z: 0}
+        inSlope: {x: -2.9400003, y: -1.3649999, z: 0}
+        outSlope: {x: -2.9400003, y: -1.3649999, z: 0}
         tangentMode: 0
       - time: 0.73333335
-        value: {x: -0.057, y: 0.366, z: 0}
-        inSlope: {x: -3.3075, y: -1.17, z: 0}
-        outSlope: {x: -3.3075, y: -1.17, z: 0}
+        value: {x: -0.358, y: 0.312, z: 0}
+        inSlope: {x: -3.4425004, y: -3.4800003, z: 0}
+        outSlope: {x: -3.4425004, y: -3.4800003, z: 0}
         tangentMode: 0
       - time: 0.8
-        value: {x: -0.348, y: 0.243, z: 0}
-        inSlope: {x: -4.365, y: -1.845, z: 0}
-        outSlope: {x: -4.365, y: -1.845, z: 0}
+        value: {x: -0.577, y: -0.024, z: 0}
+        inSlope: {x: -3.2850003, y: -5.0400004, z: 0}
+        outSlope: {x: -3.2850003, y: -5.0400004, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Sword Swinging/SwordPiece1
-  m_ScaleCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: {x: 1, y: 1, z: 1}
-        inSlope: {x: 0, y: -0.41868427, z: 0}
-        outSlope: {x: 0, y: -0.41868427, z: 0}
-        tangentMode: 0
-      - time: 0.46666667
-        value: {x: 1, y: 0.804614, z: 1}
-        inSlope: {x: -0.060036544, y: -0.20934214, z: 0}
-        outSlope: {x: -0.060036544, y: -0.20934214, z: 0}
-        tangentMode: 0
-      - time: 0.6
-        value: {x: 0.98399025, y: 0.804614, z: 1}
-        inSlope: {x: -0.12007309, y: 0, z: 0}
-        outSlope: {x: -0.12007309, y: 0, z: 0}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
+  m_ScaleCurves: []
   m_FloatCurves:
   - curve:
       serializedVersion: 2
@@ -215,12 +193,17 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
+      - time: 0.93333334
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -232,6 +215,16 @@ AnimationClip:
         tangentMode: 31
       - time: 0.46666667
         value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 0.8666667
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 0.93333334
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -239,147 +232,207 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsTrigger
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: -1.021637
+        outSlope: -1.021637
+        tangentMode: 10
+      - time: 0.46666667
+        value: -0.47676393
+        inSlope: -0.47301522
+        outSlope: -0.47301522
+        tangentMode: 10
+      - time: 0.53333336
+        value: -0.4717235
+        inSlope: 0.045891017
+        outSlope: 0.045891017
+        tangentMode: 10
+      - time: 0.6
+        value: -0.47064513
+        inSlope: -0.008392856
+        outSlope: -0.008392856
+        tangentMode: 10
+      - time: 0.6666667
+        value: -0.47284254
+        inSlope: -0.071195446
+        outSlope: -0.071195446
+        tangentMode: 10
+      - time: 0.73333335
+        value: -0.48013785
+        inSlope: -0.018183365
+        outSlope: -0.018183365
+        tangentMode: 10
+      - time: 0.8
+        value: -0.475267
+        inSlope: 1.8187828
+        outSlope: 1.8187828
+        tangentMode: 10
+      - time: 0.93333334
+        value: 0
+        inSlope: 3.5645027
+        outSlope: 3.5645027
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Offset.x
+    path: SwordPiece
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0.52655816
+        outSlope: 0.52655816
+        tangentMode: 10
+      - time: 0.46666667
+        value: 0.24572715
+        inSlope: 0.07828474
+        outSlope: 0.07828474
+        tangentMode: 10
+      - time: 0.53333336
+        value: 0.22106123
+        inSlope: -0.7587127
+        outSlope: -0.7587127
+        tangentMode: 10
+      - time: 0.6
+        value: 0.14456545
+        inSlope: -1.28396
+        outSlope: -1.28396
+        tangentMode: 10
+      - time: 0.6666667
+        value: 0.049866572
+        inSlope: -1.0608017
+        outSlope: -1.0608017
+        tangentMode: 10
+      - time: 0.73333335
+        value: 0.0031252215
+        inSlope: -1.1438959
+        outSlope: -1.1438959
+        tangentMode: 10
+      - time: 0.8
+        value: -0.10265287
+        inSlope: -0.40838745
+        outSlope: -0.40838745
+        tangentMode: 10
+      - time: 0.93333334
+        value: 0
+        inSlope: 0.76989657
+        outSlope: 0.76989657
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Offset.y
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -2.0709496
-        outSlope: -2.0709496
+        inSlope: -2.043385
+        outSlope: -2.043385
         tangentMode: 10
       - time: 0.46666667
-        value: 0.03355685
-        inSlope: -1.0883273
-        outSlope: -1.0883273
+        value: 0.04642027
+        inSlope: -1.0108228
+        outSlope: -1.0108228
         tangentMode: 10
       - time: 0.53333336
-        value: 0.026509851
-        inSlope: -0.052852422
-        outSlope: -0.052852422
+        value: 0.047869574
+        inSlope: 0.0114730885
+        outSlope: 0.0114730885
         tangentMode: 10
       - time: 0.6
-        value: 0.026509857
-        inSlope: 0.00000008381904
-        outSlope: 0.00000008381904
+        value: 0.047950014
+        inSlope: -0.026339183
+        outSlope: -0.026339183
+        tangentMode: 10
+      - time: 0.6666667
+        value: 0.044357684
+        inSlope: -0.12122677
+        outSlope: -0.12122677
+        tangentMode: 10
+      - time: 0.73333335
+        value: 0.031786446
+        inSlope: -0.0022690669
+        outSlope: -0.0022690669
+        tangentMode: 10
+      - time: 0.8
+        value: 0.04405514
+        inSlope: 3.6768086
+        outSlope: 3.6768086
+        tangentMode: 10
+      - time: 0.93333334
+        value: 1
+        inSlope: 7.1695867
+        outSlope: 7.1695867
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Size.x
-    path: Sword Swinging/SwordPiece1
-    classID: 65
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: -1.0354809
-        outSlope: -1.0354809
-        tangentMode: 10
-      - time: 0.46666667
-        value: -0.4832244
-        inSlope: -0.5442183
-        outSlope: -0.5442183
-        tangentMode: 10
-      - time: 0.53333336
-        value: -0.48675478
-        inSlope: -0.026470263
-        outSlope: -0.026470263
-        tangentMode: 10
-      - time: 0.6
-        value: -0.48675376
-        inSlope: 0.000015199185
-        outSlope: 0.000015199185
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Center.x
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -1.2956911
-        outSlope: -1.2956911
+        inSlope: -1.2305729
+        outSlope: -1.2305729
         tangentMode: 10
       - time: 0.46666667
-        value: 0.39534414
-        inSlope: -0.40044317
-        outSlope: -0.40044317
+        value: 0.4257326
+        inSlope: -0.68235934
+        outSlope: -0.68235934
         tangentMode: 10
       - time: 0.53333336
-        value: 0.42833114
-        inSlope: 0.061646447
-        outSlope: 0.061646447
+        value: 0.41678956
+        inSlope: -0.27280232
+        outSlope: -0.27280232
         tangentMode: 10
       - time: 0.6
-        value: 0.40356368
-        inSlope: -0.3715119
-        outSlope: -0.3715119
+        value: 0.38935897
+        inSlope: -0.40721053
+        outSlope: -0.40721053
+        tangentMode: 10
+      - time: 0.6666667
+        value: 0.36249483
+        inSlope: 0.4336283
+        outSlope: 0.4336283
+        tangentMode: 10
+      - time: 0.73333335
+        value: 0.44717607
+        inSlope: 0.43242577
+        outSlope: 0.43242577
+        tangentMode: 10
+      - time: 0.8
+        value: 0.4201516
+        inSlope: 1.971748
+        outSlope: 1.971748
+        tangentMode: 10
+      - time: 0.93333334
+        value: 1
+        inSlope: 4.348863
+        outSlope: 4.348863
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Size.y
-    path: Sword Swinging/SwordPiece1
-    classID: 65
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0.64784443
-        outSlope: 0.64784443
-        tangentMode: 10
-      - time: 0.46666667
-        value: 0.3023274
-        inSlope: 0.44763595
-        outSlope: 0.44763595
-        tangentMode: 10
-      - time: 0.53333336
-        value: 0.31882256
-        inSlope: 0.21659371
-        outSlope: 0.21659371
-        tangentMode: 10
-      - time: 0.6
-        value: 0.33120656
-        inSlope: 0.18575998
-        outSlope: 0.18575998
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Center.y
-    path: Sword Swinging/SwordPiece1
-    classID: 65
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      - time: 0.46666667
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: Sword Swinging
+    path: SwordPiece
     classID: 61
     script: {fileID: 0}
   m_PPtrCurves:
@@ -423,62 +476,50 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 1290549933
+    - path: 2266699330
       attribute: 1
       script: {fileID: 0}
       classID: 4
       customType: 0
       isPPtrCurve: 0
-    - path: 1290549933
+    - path: 2266699330
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 1290549933
-      attribute: 3
-      script: {fileID: 0}
-      classID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - path: 1290549933
+    - path: 2266699330
       attribute: 3305885265
       script: {fileID: 0}
-      classID: 65
+      classID: 61
       customType: 0
       isPPtrCurve: 0
-    - path: 1290549933
+    - path: 2266699330
       attribute: 2693561734
       script: {fileID: 0}
-      classID: 65
+      classID: 61
       customType: 0
       isPPtrCurve: 0
-    - path: 1290549933
+    - path: 2266699330
+      attribute: 413499720
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2266699330
+      attribute: 1872933342
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2266699330
       attribute: 4197328169
       script: {fileID: 0}
-      classID: 65
+      classID: 61
       customType: 0
       isPPtrCurve: 0
-    - path: 1290549933
-      attribute: 605858901
-      script: {fileID: 0}
-      classID: 65
-      customType: 0
-      isPPtrCurve: 0
-    - path: 1290549933
+    - path: 2266699330
       attribute: 2368279999
-      script: {fileID: 0}
-      classID: 65
-      customType: 0
-      isPPtrCurve: 0
-    - path: 1290549933
-      attribute: 1394318531
-      script: {fileID: 0}
-      classID: 65
-      customType: 0
-      isPPtrCurve: 0
-    - path: 3655586630
-      attribute: 3305885265
       script: {fileID: 0}
       classID: 61
       customType: 0
@@ -648,12 +689,17 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
+      - time: 0.93333334
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -665,6 +711,16 @@ AnimationClip:
         tangentMode: 31
       - time: 0.46666667
         value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 0.8666667
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 0.93333334
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -672,128 +728,208 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsTrigger
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: -1.021637
+        outSlope: -1.021637
+        tangentMode: 10
+      - time: 0.46666667
+        value: -0.47676393
+        inSlope: -0.47301522
+        outSlope: -0.47301522
+        tangentMode: 10
+      - time: 0.53333336
+        value: -0.4717235
+        inSlope: 0.045891017
+        outSlope: 0.045891017
+        tangentMode: 10
+      - time: 0.6
+        value: -0.47064513
+        inSlope: -0.008392856
+        outSlope: -0.008392856
+        tangentMode: 10
+      - time: 0.6666667
+        value: -0.47284254
+        inSlope: -0.071195446
+        outSlope: -0.071195446
+        tangentMode: 10
+      - time: 0.73333335
+        value: -0.48013785
+        inSlope: -0.018183365
+        outSlope: -0.018183365
+        tangentMode: 10
+      - time: 0.8
+        value: -0.475267
+        inSlope: 1.8187828
+        outSlope: 1.8187828
+        tangentMode: 10
+      - time: 0.93333334
+        value: 0
+        inSlope: 3.5645027
+        outSlope: 3.5645027
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Offset.x
+    path: SwordPiece
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0.52655816
+        outSlope: 0.52655816
+        tangentMode: 10
+      - time: 0.46666667
+        value: 0.24572715
+        inSlope: 0.07828474
+        outSlope: 0.07828474
+        tangentMode: 10
+      - time: 0.53333336
+        value: 0.22106123
+        inSlope: -0.7587127
+        outSlope: -0.7587127
+        tangentMode: 10
+      - time: 0.6
+        value: 0.14456545
+        inSlope: -1.28396
+        outSlope: -1.28396
+        tangentMode: 10
+      - time: 0.6666667
+        value: 0.049866572
+        inSlope: -1.0608017
+        outSlope: -1.0608017
+        tangentMode: 10
+      - time: 0.73333335
+        value: 0.0031252215
+        inSlope: -1.1438959
+        outSlope: -1.1438959
+        tangentMode: 10
+      - time: 0.8
+        value: -0.10265287
+        inSlope: -0.40838745
+        outSlope: -0.40838745
+        tangentMode: 10
+      - time: 0.93333334
+        value: 0
+        inSlope: 0.76989657
+        outSlope: 0.76989657
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Offset.y
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -2.0709496
-        outSlope: -2.0709496
+        inSlope: -2.043385
+        outSlope: -2.043385
         tangentMode: 10
       - time: 0.46666667
-        value: 0.03355685
-        inSlope: -1.0883273
-        outSlope: -1.0883273
+        value: 0.04642027
+        inSlope: -1.0108228
+        outSlope: -1.0108228
         tangentMode: 10
       - time: 0.53333336
-        value: 0.026509851
-        inSlope: -0.052852422
-        outSlope: -0.052852422
+        value: 0.047869574
+        inSlope: 0.0114730885
+        outSlope: 0.0114730885
         tangentMode: 10
       - time: 0.6
-        value: 0.026509857
-        inSlope: 0.00000008381904
-        outSlope: 0.00000008381904
+        value: 0.047950014
+        inSlope: -0.026339183
+        outSlope: -0.026339183
+        tangentMode: 10
+      - time: 0.6666667
+        value: 0.044357684
+        inSlope: -0.12122677
+        outSlope: -0.12122677
+        tangentMode: 10
+      - time: 0.73333335
+        value: 0.031786446
+        inSlope: -0.0022690669
+        outSlope: -0.0022690669
+        tangentMode: 10
+      - time: 0.8
+        value: 0.04405514
+        inSlope: 3.6768086
+        outSlope: 3.6768086
+        tangentMode: 10
+      - time: 0.93333334
+        value: 1
+        inSlope: 7.1695867
+        outSlope: 7.1695867
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Size.x
-    path: Sword Swinging/SwordPiece1
-    classID: 65
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: -1.0354809
-        outSlope: -1.0354809
-        tangentMode: 10
-      - time: 0.46666667
-        value: -0.4832244
-        inSlope: -0.5442183
-        outSlope: -0.5442183
-        tangentMode: 10
-      - time: 0.53333336
-        value: -0.48675478
-        inSlope: -0.026470263
-        outSlope: -0.026470263
-        tangentMode: 10
-      - time: 0.6
-        value: -0.48675376
-        inSlope: 0.000015199185
-        outSlope: 0.000015199185
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Center.x
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -1.2956911
-        outSlope: -1.2956911
+        inSlope: -1.2305729
+        outSlope: -1.2305729
         tangentMode: 10
       - time: 0.46666667
-        value: 0.39534414
-        inSlope: -0.40044317
-        outSlope: -0.40044317
+        value: 0.4257326
+        inSlope: -0.68235934
+        outSlope: -0.68235934
         tangentMode: 10
       - time: 0.53333336
-        value: 0.42833114
-        inSlope: 0.061646447
-        outSlope: 0.061646447
+        value: 0.41678956
+        inSlope: -0.27280232
+        outSlope: -0.27280232
         tangentMode: 10
       - time: 0.6
-        value: 0.40356368
-        inSlope: -0.3715119
-        outSlope: -0.3715119
+        value: 0.38935897
+        inSlope: -0.40721053
+        outSlope: -0.40721053
+        tangentMode: 10
+      - time: 0.6666667
+        value: 0.36249483
+        inSlope: 0.4336283
+        outSlope: 0.4336283
+        tangentMode: 10
+      - time: 0.73333335
+        value: 0.44717607
+        inSlope: 0.43242577
+        outSlope: 0.43242577
+        tangentMode: 10
+      - time: 0.8
+        value: 0.4201516
+        inSlope: 1.971748
+        outSlope: 1.971748
+        tangentMode: 10
+      - time: 0.93333334
+        value: 1
+        inSlope: 4.348863
+        outSlope: 4.348863
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Size.y
-    path: Sword Swinging/SwordPiece1
-    classID: 65
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0.64784443
-        outSlope: 0.64784443
-        tangentMode: 10
-      - time: 0.46666667
-        value: 0.3023274
-        inSlope: 0.44763595
-        outSlope: 0.44763595
-        tangentMode: 10
-      - time: 0.53333336
-        value: 0.31882256
-        inSlope: 0.21659371
-        outSlope: 0.21659371
-        tangentMode: 10
-      - time: 0.6
-        value: 0.33120656
-        inSlope: 0.18575998
-        outSlope: 0.18575998
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Center.y
-    path: Sword Swinging/SwordPiece1
-    classID: 65
+    path: SwordPiece
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -837,7 +973,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -882,142 +1018,142 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 50.475002
-        outSlope: 50.475002
+        value: -51.170002
+        inSlope: 158.52216
+        outSlope: 158.52216
         tangentMode: 10
       - time: 0.46666667
-        value: 23.555
-        inSlope: 121.05747
-        outSlope: 121.05747
+        value: 22.807001
+        inSlope: 219.86353
+        outSlope: 219.86353
         tangentMode: 10
       - time: 0.53333336
-        value: 36.331
-        inSlope: 230.3775
-        outSlope: 230.3775
+        value: 41.554
+        inSlope: 264.27747
+        outSlope: 264.27747
         tangentMode: 10
       - time: 0.6
-        value: 54.272003
-        inSlope: 305.15256
-        outSlope: 305.15256
+        value: 58.044003
+        inSlope: 252.28502
+        outSlope: 252.28502
         tangentMode: 10
       - time: 0.6666667
-        value: 77.018005
-        inSlope: 333.91504
-        outSlope: 333.91504
+        value: 75.192
+        inSlope: 347.71503
+        outSlope: 347.71503
         tangentMode: 10
       - time: 0.73333335
-        value: 98.79401
-        inSlope: 464.2951
-        outSlope: 464.2951
+        value: 104.406006
+        inSlope: 482.81253
+        outSlope: 482.81253
         tangentMode: 10
       - time: 0.8
-        value: 138.92401
-        inSlope: 601.95013
-        outSlope: 601.95013
+        value: 139.567
+        inSlope: 527.415
+        outSlope: 527.415
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 0.75857145
-        outSlope: 0.75857145
+        value: 0.32399988
+        inSlope: 0.008571701
+        outSlope: 0.008571701
         tangentMode: 10
       - time: 0.46666667
-        value: 0.354
-        inSlope: 0.1542858
-        outSlope: 0.1542858
+        value: 0.328
+        inSlope: -0.648214
+        outSlope: -0.648214
         tangentMode: 10
       - time: 0.53333336
-        value: 0.324
-        inSlope: -1.3124999
-        outSlope: -1.3124999
+        value: 0.241
+        inSlope: -2.205
+        outSlope: -2.205
         tangentMode: 10
       - time: 0.6
-        value: 0.179
-        inSlope: -1.7325001
-        outSlope: -1.7325001
+        value: 0.034
+        inSlope: -2.6925
+        outSlope: -2.6925
         tangentMode: 10
       - time: 0.6666667
-        value: 0.093
-        inSlope: -1.7700002
-        outSlope: -1.7700002
+        value: -0.118
+        inSlope: -2.9400003
+        outSlope: -2.9400003
         tangentMode: 10
       - time: 0.73333335
-        value: -0.057
-        inSlope: -3.3075
-        outSlope: -3.3075
+        value: -0.358
+        inSlope: -3.4425004
+        outSlope: -3.4425004
         tangentMode: 10
       - time: 0.8
-        value: -0.348
-        inSlope: -4.365
-        outSlope: -4.365
+        value: -0.577
+        inSlope: -3.2850003
+        outSlope: -3.2850003
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 0.49714285
-        outSlope: 0.49714285
+        value: 0.273
+        inSlope: -0.023571445
+        outSlope: -0.023571445
         tangentMode: 10
       - time: 0.46666667
-        value: 0.232
-        inSlope: 0.5560714
-        outSlope: 0.5560714
+        value: 0.262
+        inSlope: 0.835714
+        outSlope: 0.835714
         tangentMode: 10
       - time: 0.53333336
-        value: 0.273
-        inSlope: 1.1775
-        outSlope: 1.1775
+        value: 0.375
+        inSlope: 1.7399998
+        outSlope: 1.7399998
         tangentMode: 10
       - time: 0.6
-        value: 0.389
-        inSlope: 0.94499993
-        outSlope: 0.94499993
+        value: 0.494
+        inSlope: 0.48750004
+        outSlope: 0.48750004
         tangentMode: 10
       - time: 0.6666667
-        value: 0.399
-        inSlope: -0.17250001
-        outSlope: -0.17250001
+        value: 0.44
+        inSlope: -1.3649999
+        outSlope: -1.3649999
         tangentMode: 10
       - time: 0.73333335
-        value: 0.366
-        inSlope: -1.17
-        outSlope: -1.17
+        value: 0.312
+        inSlope: -3.4800003
+        outSlope: -3.4800003
         tangentMode: 10
       - time: 0.8
-        value: 0.243
-        inSlope: -1.845
-        outSlope: -1.845
+        value: -0.024
+        inSlope: -5.0400004
+        outSlope: -5.0400004
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1062,103 +1198,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.46666667
-        value: 1
-        inSlope: -0.060036544
-        outSlope: -0.060036544
-        tangentMode: 10
-      - time: 0.6
-        value: 0.98399025
-        inSlope: -0.12007309
-        outSlope: -0.12007309
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.x
-    path: Sword Swinging/SwordPiece1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -0.41868427
-        outSlope: -0.41868427
-        tangentMode: 10
-      - time: 0.46666667
-        value: 0.804614
-        inSlope: -0.20934214
-        outSlope: -0.20934214
-        tangentMode: 10
-      - time: 0.6
-        value: 0.804614
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.y
-    path: Sword Swinging/SwordPiece1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.46666667
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.6
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalScale.z
-    path: Sword Swinging/SwordPiece1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      - time: 0.46666667
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: Sword Swinging
-    classID: 61
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
@@ -1168,7 +1209,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1178,7 +1219,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1188,7 +1229,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Sword Swinging/SwordPiece1
+    path: SwordPiece
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

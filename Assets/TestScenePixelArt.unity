@@ -292,35 +292,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 495600080}
   m_RootOrder: 1
---- !u!1 &115508879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 115508880}
-  m_Layer: 12
-  m_Name: Sword Swinging
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &115508880
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 115508879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 2001829107}
-  m_Father: {fileID: 495600080}
-  m_RootOrder: 4
 --- !u!1001 &143677618
 Prefab:
   m_ObjectHideFlags: 0
@@ -874,7 +845,6 @@ Transform:
   - {fileID: 105276287}
   - {fileID: 1746524597}
   - {fileID: 948606824}
-  - {fileID: 115508880}
   m_Father: {fileID: 0}
   m_RootOrder: 12
 --- !u!1 &495874182
@@ -1425,7 +1395,7 @@ Transform:
   - {fileID: 1675951587}
   - {fileID: 256390352}
   - {fileID: 1091794904}
-  - {fileID: 1396836514}
+  - {fileID: 1515916148}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!1 &639607115
@@ -4186,50 +4156,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 495874189}
   m_RootOrder: 0
---- !u!1 &1396836513
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1396836514}
-  - 61: {fileID: 1396836515}
-  m_Layer: 8
-  m_Name: Sword Swinging
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1396836514
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1396836513}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1515916148}
-  m_Father: {fileID: 613746950}
-  m_RootOrder: 6
---- !u!61 &1396836515
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1396836513}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
 --- !u!1 &1420691527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,9 +4326,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1515916148}
-  - 65: {fileID: 1515916149}
+  - 61: {fileID: 1515916149}
   m_Layer: 8
-  m_Name: SwordPiece1
+  m_Name: SwordPiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4414,25 +4340,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1515916147}
-  m_LocalRotation: {x: 0, y: 0, z: 0.3117629, w: 0.95015997}
-  m_LocalPosition: {x: 0.324, y: 0.273, z: 0}
-  m_LocalScale: {x: 0.99299574, y: 0.801125, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.331}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3117629, w: 0.95015997}
+  m_LocalPosition: {x: 0.32399988, y: 0.273, z: 0}
+  m_LocalScale: {x: 0.99299574, y: 0.80112505, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -51.170002}
   m_Children: []
-  m_Father: {fileID: 1396836514}
-  m_RootOrder: 0
---- !u!65 &1515916149
-BoxCollider:
+  m_Father: {fileID: 613746950}
+  m_RootOrder: 6
+--- !u!61 &1515916149
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1515916147}
+  m_Enabled: 0
+  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.026509851, y: 0.42833114, z: 0.5500001}
-  m_Center: {x: -0.48675478, y: 0.31882256, z: 0}
+  m_Size: {x: 1, y: 1}
 --- !u!1 &1516613063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,7 +4889,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -0.175, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
   m_Children: []
   m_Father: {fileID: 613746950}
   m_RootOrder: 3
@@ -5941,49 +5869,6 @@ MonoBehaviour:
   arrow: {fileID: 0}
   arrowVector: {x: 0, y: 0}
   emmiterArrow: {fileID: 0}
---- !u!1 &2001829106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2001829107}
-  - 61: {fileID: 2001829108}
-  m_Layer: 12
-  m_Name: SwordPiece
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2001829107
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2001829106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 115508880}
-  m_RootOrder: 0
---- !u!61 &2001829108
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2001829106}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
 --- !u!1 &2022118296
 GameObject:
   m_ObjectHideFlags: 0
