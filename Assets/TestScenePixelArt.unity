@@ -611,7 +611,7 @@ RectTransform:
   m_Father: {fileID: 62399706}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -744,7 +744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &495600074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,6 +906,7 @@ GameObject:
   - 95: {fileID: 495874184}
   - 114: {fileID: 495874183}
   - 114: {fileID: 495874186}
+  - 114: {fileID: 495874190}
   m_Layer: 12
   m_Name: Flying Enemy
   m_TagString: Enemy
@@ -966,7 +967,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495874182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a25dda770fa13a943b7cb029c3c6c31e, type: 3}
   m_Name: 
@@ -980,12 +981,19 @@ MonoBehaviour:
   bottomRightBound: {fileID: 1738582559}
   bottomLeftBound: {fileID: 585256115}
   fireball: {fileID: 0}
-  SpawnPoint: {fileID: 0}
+  fireballVector: {x: 0, y: 0}
+  emmiterFireball: {fileID: 0}
   movementSpeed: 0.8
   projectileRange: 3
   dashRange: 1
   enemyStopDistance: 0.3
+  changeDirectionInSeconds: 5
   precisionOfEnemyToBounds: 0.26
+  possiblePositions:
+  - {x: -1.5, y: 1}
+  - {x: 2, y: 1}
+  - {x: -1.5, y: -1}
+  - {x: 2, y: -1}
   fireRate: 0
 --- !u!50 &495874187
 Rigidbody2D:
@@ -1059,6 +1067,40 @@ Transform:
   - {fileID: 1738582559}
   m_Father: {fileID: 0}
   m_RootOrder: 13
+--- !u!114 &495874190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495874182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65934690142e1d946976fbaff0f167e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 613746950}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  topRightBound: {fileID: 1452490890}
+  topLeftBound: {fileID: 955711646}
+  bottomRightBound: {fileID: 1738582559}
+  bottomLeftBound: {fileID: 585256115}
+  fireball: {fileID: 1000013017164654, guid: bdfee4ab6a1fe45ed907ec92fd269d98, type: 2}
+  fireballVector: {x: 0, y: 0}
+  emmiterFireball: {fileID: 1675951586}
+  possiblePositions:
+  - {x: -1, y: 1}
+  - {x: 2, y: 1}
+  - {x: 2, y: -1}
+  - {x: -1.5, y: -1}
+  movementSpeed: 0.8
+  projectileRange: 0
+  dashRange: 0
+  enemyStopDistance: 0.26
+  changeDirectionInSeconds: 1.5
+  precisionOfEnemyToBounds: 0.26
+  fireRate: 0
 --- !u!1 &568358909
 GameObject:
   m_ObjectHideFlags: 0

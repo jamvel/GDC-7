@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class FlyingEnemyAIScript : MonoBehaviour {
+
     public Transform target;
     public LayerMask playerMask;
+
     public Transform topRightBound;
     public Transform topLeftBound;
     public Transform bottomRightBound;
@@ -13,13 +15,13 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     public Vector2 fireballVector;
     public GameObject emmiterFireball; //actual emmiter
 
-    public float damp;
-
     public float movementSpeed = 0.8f;
     public float projectileRange;
     public float dashRange;
     public float enemyStopDistance;
+    public float changeDirectionInSeconds = 2f;
     public float precisionOfEnemyToBounds = 0.26f;
+    public Vector2[] possiblePositions;
 
     public float fireRate;
 
@@ -29,15 +31,25 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     private bool isChasing;
     private bool isAttacking;
 
+    private bool isWalkingRight;
+    private bool isWalkingLeft;
+    private bool isWalkingUp;
+    private bool isWalkingDown;
+
+    private float time;
+
+
     private Animator animator;
     private float nextFire;
+    private Vector2 previousPosition;
+    private Vector2 currentPosition;
 
     // Use this for initialization
     void Start () {
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
-
+        time = 0;
     }
 
     // Update is called once per frame
@@ -79,6 +91,7 @@ public class FlyingEnemyAIScript : MonoBehaviour {
             //patrol and throw bolts
             if (distanceToPlayer > projectileRange) {
                 //keep roaming
+                Debug.Log("Move to point");
                 randomMovement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
@@ -87,7 +100,7 @@ public class FlyingEnemyAIScript : MonoBehaviour {
         }
     }
 
-        //player is in ghost bounds
+    //player is in ghost bounds
     public bool SearchForPlayer() {
         if ((Physics2D.Linecast(transform.position, topLeftBound.position, playerMask)) || (Physics2D.Linecast(transform.position, topRightBound.position, playerMask)) ||
             (Physics2D.Linecast(transform.position, bottomLeftBound.position, playerMask)) || (Physics2D.Linecast(transform.position, bottomRightBound.position, playerMask)) ||
@@ -105,7 +118,76 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     }
 
     public void randomMovement() {
+        time += Time.deltaTime;
+        if (time > changeDirectionInSeconds) {//every second possibly change direction
+            time = 0;
+            previousPosition = currentPosition;
+            currentPosition = nextPoint();
+            do {
+                currentPosition = nextPoint();
+                moveEnemy(currentPosition);
+            } while (currentPosition == previousPosition);
 
+        } else {
+            moveEnemy(currentPosition);
+        }
+    }
+
+    public void moveEnemy(Vector2 pos) {
+        float step = movementSpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, pos, step);
+    }
+
+    /*
+    if(transform.position == A.position) {
+        //go to B, or C or startPosition
+    }else if(transform.position == B.position) {
+        //go to C, or A or startPosition
+    }else if(transform.position == C.position){
+        //go to A, or B or startPosition
+    }else {
+        //go to A, or B or C
+    }
+    */
+
+    /*
+    if (isWalkingLeft) {//is walking left
+        if(isWalkingDown) {
+            if (checkBoundDistance(bottomLeftBound)) {
+                //start walking to the right
+                isWalkingDown = true;
+                isWalkingLeft = true;
+                isWalkingRight = false;
+                isWalkingUp = false;
+        //        moveEnemy(bottomLeftBound);
+            } else {
+                //keep walking the same direction
+        //        walking = true;
+        //        walkingToLeftBound = true;
+        //        moveEnemy(leftBound);
+            }
+        } else {
+
+        }
+
+    }
+    //check bound limit
+        //if out of bounds go back to bounds
+
+    //change direction --> random
+}
+*/
+
+    public Vector2 nextPoint() {
+        return possiblePositions[Random.Range(0, possiblePositions.Length)];
+    }
+
+    public bool checkBoundDistance(Transform bound) {
+        if ((Vector2.Distance(bound.position, transform.position)) <= precisionOfEnemyToBounds) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void shootProjectile() {
@@ -143,51 +225,14 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     }
 
     public void rotateGhost() {
-        //check when to rotate the ghost ...
-
         var lookPos = target.position - transform.position;
         //lookPos.y = 0;
         var rotation = Quaternion.LookRotation(lookPos);
         rotation.y = 0;
         rotation.x = 0;
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
-        rotation.y = 0;
-        rotation.x = 0;
-        //transform.LookAt(target);
-        //var lookPos = target.position - transform.position;
-        //var rotation = Quaternion.LookRotation(lookPos);
-        //lookPos.x = transform.localRotation.x;
-        //lookPos.y = Mathf.PI/2.0f;
-        //lookPos.z = transform.localRotation.z;
-        //transform.localRotation = Quaternion.Euler(lookPos);
-
-
-        //var lookPos = target.position - transform.position;
-        //Debug.Log("Look Position: " + lookPos.x);
-        //transform.Rotate(Vector3.forward * -lookPos.x);
-
-        //0 to -90
-        //if ((transform.rotation.z >= 0) && (transform.rotation.z < -90 )) {
-
-        //} else {
-
-        //}
-
-        //make enemy rotate to flying enemy
-
-        //var lookPos = target.position - transform.position;
-        //lookPos.y = 0;
-        //var rotation = Quaternion.LookRotation(lookPos);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damp);
-
-        //if (target) {
-        //    var rotationAngle = Quaternion.LookRotation(target.position - transform.position); // we get the angle has to be rotated
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, rotationAngle, Time.deltaTime * damp); // we rotate the rotationAngle 
-        //}
-
-
-
-
+        //rotation.y = 0;
+        //rotation.x = 0;
     }
 
 
