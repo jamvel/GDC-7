@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour {
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;
 			}
 		}else {
+
             if ((Physics2D.Linecast(playerTransform.position, tagLeftTransform.position, playerMask))){
                 if ((Physics2D.Linecast(playerTransform.position, tagRightTransform.position, playerMask))) { //Ground Check
                     animator.SetBool("IsJump", false);

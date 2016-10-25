@@ -9,8 +9,11 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     public Transform bottomRightBound;
     public Transform bottomLeftBound;
 
-    public GameObject fireball;
-    public GameObject SpawnPoint;
+    public GameObject fireball; //prefab to fireball
+    public Vector2 fireballVector;
+    public GameObject emmiterFireball; //actual emmiter
+
+    public float damp;
 
     public float movementSpeed = 0.8f;
     public float projectileRange;
@@ -40,7 +43,9 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         distanceToPlayer = Vector2.Distance(target.position, transform.position);
-        lookAt();
+        
+
+        animatorSetting();
         if (SearchForPlayer()) {//player is in moving bounds of the enemy
             if (distanceToPlayer > projectileRange) {
                 //out of range
@@ -53,7 +58,8 @@ public class FlyingEnemyAIScript : MonoBehaviour {
                 //shoot projectiles
                 isChasing = false;
                 isAttacking = false;
-                shootProjectile();
+                //dont move and shoot projectile
+                //shootProjectile();
             } else if ((distanceToPlayer <= dashRange) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
                 //and dash into him
@@ -76,7 +82,7 @@ public class FlyingEnemyAIScript : MonoBehaviour {
                 randomMovement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
-                shootProjectile();
+                //shootProjectile();
             }
         }
     }
@@ -106,6 +112,9 @@ public class FlyingEnemyAIScript : MonoBehaviour {
         if (Time.time > nextFire) {
             nextFire = Time.time + fireRate;
 
+            fireball.GetComponent<Projectile>().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector>().directionVector; //speed + dir
+            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, emmiterFireball.GetComponent<Transform>().rotation);
+            
             //Shoot = Instantiate(fireball, transform.position, transform.rotation);
             //Shoot.AddForce(transform.forward * 5000);
 
@@ -114,13 +123,78 @@ public class FlyingEnemyAIScript : MonoBehaviour {
         }
     }
 
+    /*
+    void FireEnemyBullet() {
+        GameObject player = GameObject.Find("Player");
+        if (player != null) {
+
+            GameObject bullet = (GameObject)Instantiate(fireball);
+            bullet.transform.position = transform.position;
+
+            Vector2 direction = player.transform.position - bullet.transform.position;
+           // bullet.GetComponent<FlyingEnemyAIScript>().SetDirection(direction);
+        }
+    }
+    */
+
     public void dashToPlayer(Transform objective) {
         float step = movementSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
 
-    public void lookAt() {
+    public void rotateGhost() {
+        //check when to rotate the ghost ...
+
+        var lookPos = target.position - transform.position;
+        //lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        rotation.y = 0;
+        rotation.x = 0;
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
+        rotation.y = 0;
+        rotation.x = 0;
+        //transform.LookAt(target);
+        //var lookPos = target.position - transform.position;
+        //var rotation = Quaternion.LookRotation(lookPos);
+        //lookPos.x = transform.localRotation.x;
+        //lookPos.y = Mathf.PI/2.0f;
+        //lookPos.z = transform.localRotation.z;
+        //transform.localRotation = Quaternion.Euler(lookPos);
+
+
+        //var lookPos = target.position - transform.position;
+        //Debug.Log("Look Position: " + lookPos.x);
+        //transform.Rotate(Vector3.forward * -lookPos.x);
+
+        //0 to -90
+        //if ((transform.rotation.z >= 0) && (transform.rotation.z < -90 )) {
+
+        //} else {
+
+        //}
+
+        //make enemy rotate to flying enemy
+
+        //var lookPos = target.position - transform.position;
+        //lookPos.y = 0;
+        //var rotation = Quaternion.LookRotation(lookPos);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damp);
+
+        //if (target) {
+        //    var rotationAngle = Quaternion.LookRotation(target.position - transform.position); // we get the angle has to be rotated
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, rotationAngle, Time.deltaTime * damp); // we rotate the rotationAngle 
+        //}
+
+
+
+
+    }
+
+
+
+    public void animatorSetting() {
         var relativePoint = transform.InverseTransformPoint(target.position);
+        rotateGhost();
         if (isChasing) {//chasing enemy
             if (relativePoint.x < 0.0) {//chasing to the left
                 animator.SetInteger("Gdirection", 2);
@@ -140,4 +214,5 @@ public class FlyingEnemyAIScript : MonoBehaviour {
             }
         }
     }
+    
 }
