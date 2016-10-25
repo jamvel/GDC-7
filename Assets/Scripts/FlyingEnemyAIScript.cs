@@ -56,7 +56,6 @@ public class FlyingEnemyAIScript : MonoBehaviour {
     void Update () {
         distanceToPlayer = Vector2.Distance(target.position, transform.position);
         
-
         animatorSetting();
         if (SearchForPlayer()) {//player is in moving bounds of the enemy
             if (distanceToPlayer > projectileRange) {

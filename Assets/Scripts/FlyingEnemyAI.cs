@@ -44,6 +44,7 @@ public class FlyingEnemyAI : MonoBehaviour {
     private float nextFire;
     private Vector2 previousPosition;
     private Vector2 currentPosition;
+    private Vector2 tempPosition;
 
     void Start() {
         animator = this.GetComponent<Animator>();
@@ -112,25 +113,53 @@ public class FlyingEnemyAI : MonoBehaviour {
     }
 
 
+    //need to check that it is not out of bounds, if it is out of bounds send back to box
+    //need to check if it stayed in the same position for a certain period of time
     public void randomMovement() {
         time += Time.deltaTime;
-        if (time > changeDirectionInSeconds) {//every second possibly change direction
-            time = 0;
-            previousPosition = currentPosition;
-            do {
-                currentPosition = nextPoint();
-            } while (currentPosition == previousPosition);
-        } else {
-            //if(transform.position) {
+        var bound = outOfBounds();
+        if (bound == 4) {
+            if (time > changeDirectionInSeconds) {//every second possibly change direction
+                time = 0;
+                previousPosition = currentPosition;
+                do {
+                    currentPosition = nextPoint();
+                } while (currentPosition == previousPosition);
+            } else {
                 moveEnemy(currentPosition);
-            //}
-
+            }
+        }else if(bound == 0) {//go the bottom bound
+            moveEnemy(bottomRightBound.position);
+        } else if(bound == 1) {//go to the top bound
+            moveEnemy(topRightBound.position);
+        } else if(bound == 2) {//go to the right bound
+            moveEnemy(topRightBound.position);
+        } else if(bound == 3) {//go to the left bound
+            moveEnemy(topLeftBound.position);
         }
-
     }
 
     public Vector2 nextPoint() {
         return possiblePositions[Random.Range(0, possiblePositions.Length)];
+    }
+
+    public int outOfBounds() {
+        var top = topLeftBound.position.y;
+        var bottom = bottomRightBound.position.y;
+        var left = topLeftBound.position.x;
+        var right = topRightBound.position.x;
+
+        if (transform.position.y >= top ) {//out from the top bound
+            return 0;
+        }else if(transform.position.y <= bottom) {//out from the bottom bound
+            return 1;
+        }else if (transform.position.x >= right) {//out from the right bound
+            return 2;
+        }else if (transform.position.x <= left) {//out from the left bound
+            return 3;
+        }else {//in bounds
+            return 4;
+        }
     }
 
     public void shootProjectile() {
@@ -192,16 +221,6 @@ public class FlyingEnemyAI : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, objective, step);
     }
     
-    public void patrol() {
-        float rx = Random.Range(-1, 1);
-        float rz = Random.Range(-1, 1);
-
-        //targetPos = Vector2.MoveTowards()
-
-        //targetPos = Vector2(transform.position.x+(rx* width), someYValue, transform.position.z+(rx* width));
-    }
-
-
     /*
     public bool inAttackRange() {
         if(distanceToPlayer < rangeToAttackProjectile ) {

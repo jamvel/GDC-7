@@ -17,7 +17,7 @@ public class Sequencer : MonoBehaviour {
 
     public GameObject arrow;
     public Vector2 arrowVector;
-    public GameObject emmiterArrow;
+    private EmmiterVector emmiterArrow;
 
     private bool on = false; //check if object should be on
     private Animator animator;
@@ -30,6 +30,7 @@ public class Sequencer : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         animator.SetBool("On", false);
         InvokeRepeating("sequence", waitSeconds, waitRate);
+        emmiterArrow = this.GetComponent<EmmiterVector>();
     }
 
     void sequence() {
@@ -59,6 +60,7 @@ public class Sequencer : MonoBehaviour {
         }else { //projectile is going left/right
             //Debug.Log("Shooting Left/ Right");
             //rigidBody.velocity = new Vector2(speedOfProjectile, rigidBody.velocity.y);
+
             arrow.GetComponent<Projectile>().velocityVector = arrowVector + emmiterArrow.GetComponent<EmmiterVector>().directionVector; //speed + dir
             Instantiate(arrow, emmiterArrow.GetComponent<Transform>().position, emmiterArrow.GetComponent<Transform>().rotation);
         }
