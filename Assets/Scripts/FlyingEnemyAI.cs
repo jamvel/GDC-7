@@ -92,7 +92,7 @@ public class FlyingEnemyAI : MonoBehaviour {
             //patrol and throw bolts
             if (distanceToPlayer > projectileRange) {
                 //keep roaming
-                Debug.Log("Moving to point: " + currentPosition.x+", "+currentPosition.y);
+                //Debug.Log("Moving to point: " + currentPosition.x+", "+currentPosition.y);
                 randomMovement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
@@ -112,6 +112,8 @@ public class FlyingEnemyAI : MonoBehaviour {
         }
     }
 
+
+    //new : remove random, use predefined path, and interrpurt in 1 sec and go to next point from current position
 
     //need to check that it is not out of bounds, if it is out of bounds send back to box
     //need to check if it stayed in the same position for a certain period of time
