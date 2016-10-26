@@ -14,6 +14,8 @@ public class Sequencer : MonoBehaviour {
     public int numberOfProjectiles = 1; // number of projectiles
     public float speedOfProjectile = 1f; //speed of projectile
     public bool x = false; //x axis or y axis
+    public AudioClip[] tools;
+    public AudioSource tool;
 
     public GameObject arrow;
     public Vector2 arrowVector;
@@ -31,6 +33,7 @@ public class Sequencer : MonoBehaviour {
         animator.SetBool("On", false);
         InvokeRepeating("sequence", waitSeconds, waitRate);
         emmiterArrow = this.GetComponent<EmmiterVector>();
+        tool = gameObject.AddComponent<AudioSource>();
     }
 
     void sequence() {
@@ -50,6 +53,10 @@ public class Sequencer : MonoBehaviour {
             on = false;
             //Debug.Log("Waiting");
         }
+        tool.clip = tools[0];
+        tool.spatialBlend = 1;
+        tool.volume = 0.5f;
+        tool.Play();
         animator.SetBool("On", on);
     }
 
