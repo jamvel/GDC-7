@@ -1432,7 +1432,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
   enableAudio: 1
   fireball: {fileID: 1000013017164654, guid: bdfee4ab6a1fe45ed907ec92fd269d98, type: 2}
-  fireballVector: {x: 0, y: 0}
   emmiterFireball: {fileID: 1675951586}
 --- !u!50 &599307354
 Rigidbody2D:
@@ -4559,7 +4558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1468802099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4571,6 +4570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9f24fbad5d04b6eae371c684cdcf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magnitude: 0
   directionVector: {x: -1, y: 0}
 --- !u!212 &1468802100
 SpriteRenderer:
@@ -5241,6 +5241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9f24fbad5d04b6eae371c684cdcf5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magnitude: 3
   directionVector: {x: 1, y: 0}
 --- !u!1 &1738582558
 GameObject:

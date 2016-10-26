@@ -2,5 +2,6 @@
 using System.Collections;
 
 public class EmmiterVector : MonoBehaviour {
-	public Vector2 directionVector;
+    public float magnitude;
+    public Vector2 directionVector;
 }
