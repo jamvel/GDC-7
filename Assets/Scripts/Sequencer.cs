@@ -45,6 +45,9 @@ public class Sequencer : MonoBehaviour {
         if (currentInterval == intervalNumber) { //shoot / go up
             if(numberOfProjectiles >= 1) {
                 //call shoot function
+                tool.clip = tools[0];
+                tool.spatialBlend = 1;
+                tool.Play();
                 shoot();
             }
             on = true;
@@ -55,7 +58,7 @@ public class Sequencer : MonoBehaviour {
         }
         tool.clip = tools[0];
         tool.spatialBlend = 1;
-        tool.volume = 0.5f;
+        tool.volume = 0.3f;
         tool.Play();
         animator.SetBool("On", on);
     }

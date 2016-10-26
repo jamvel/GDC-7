@@ -4779,7 +4779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1468802099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4858,7 +4858,7 @@ MonoBehaviour:
   speedOfProjectile: 1
   x: 0
   tools:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: affe9bbcd52d52944b3c905d5276562d, type: 3}
   tool: {fileID: 0}
   arrow: {fileID: 1000013301154060, guid: 69ab46290cdbadc4c8cd5e23da613445, type: 2}
   arrowVector: {x: -5, y: 0}
