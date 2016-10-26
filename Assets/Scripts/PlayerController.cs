@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour {
     public bool enableAudio = true;
 
 	public GameObject fireball; //prefab to fireball
-	public Vector2 fireballVector;
 	public GameObject emmiterFireball; //actual emmiter
 
+    private EmmiterVector ev_fireball;
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
     private bool isGround = false;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 		tagRightTransform = tagGroundRight.GetComponent<Transform> ();
 		playerRigidBody = this.GetComponent<Rigidbody2D> ();
         animator = this.GetComponent<Animator>();
+        ev_fireball = emmiterFireball.GetComponent<EmmiterVector>();
 
         if (effects.Length > 0 && enableAudio == true){
 			walk = gameObject.AddComponent<AudioSource>();
@@ -123,12 +124,24 @@ public class PlayerController : MonoBehaviour {
         //animator.SetBool("IsAttack", false);
 
 		if(Input.GetButtonDown("Fire2")){
-			Debug.Log ("Projectile Fire");
-            animator.SetBool("IsShoot", true);
-            fireball.GetComponent<Projectile> ().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector> ().directionVector; //speed + dir
-			Instantiate (fireball, emmiterFireball.GetComponent<Transform> ().position, emmiterFireball.GetComponent<Transform>().rotation);
+			//Debug.Log ("Projectile Fire");
+            //animator.SetBool("IsShoot", true);
+            //fireball.GetComponent<Projectile> ().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+            //Debug.Log(ev_fireball.magnitude* ev_fireball.directionVector);
+            if (direct) {
+                ev_fireball.directionVector = new Vector2(1, 0);
+                fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.identity);
+            }
+            else {
+                ev_fireball.directionVector = new Vector2(-1, 0);
+                fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
+            }
 		}else {
-            animator.SetBool("IsShoot", false);
+            //animator.SetBool("IsShoot", false);
         }
     }
 

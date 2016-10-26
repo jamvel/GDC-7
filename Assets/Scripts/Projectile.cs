@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		rb.velocity = velocityVector;
-
 	}
 
 	void OnBecameInvisible() {
