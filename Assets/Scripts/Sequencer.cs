@@ -58,7 +58,7 @@ public class Sequencer : MonoBehaviour {
         }
         tool.clip = tools[0];
         tool.spatialBlend = 1;
-        tool.volume = 0.3f;
+        tool.volume = 0.125f;
         tool.Play();
         animator.SetBool("On", on);
     }

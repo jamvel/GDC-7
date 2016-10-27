@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 
         if (toLand && isGround){
             if (enableAudio){
-                AudioSource.PlayClipAtPoint(effects[2], transform.position,0.85f);
+                AudioSource.PlayClipAtPoint(effects[2], transform.position,0.25f);
             }
             toLand = false;
         }
