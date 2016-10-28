@@ -719,7 +719,7 @@ RectTransform:
   m_Father: {fileID: 62399706}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -922,7 +922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &495600074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,10 +1008,9 @@ MonoBehaviour:
     m_Bits: 256
   speed: 1
   inChasingDistance: 1.25
-  inSightDistance: 1.75
-  enemyStopDistance: 0.375
+  enemyStopDistance: 0.44
   stop: 0.4
-  precisionOfEnemyToBounds: 0.26
+  precisionOfEnemyToBounds: 0.35
   effects:
   - {fileID: 8300000, guid: dd89a4512df198940852d9fa66f83119, type: 3}
   - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
@@ -1091,7 +1090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &495874183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,7 +1181,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495874182}
   m_UseAutoMass: 1
-  m_Mass: 0.2362989
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -2287,7 +2286,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 825623529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.06, y: 1.425, z: 0}
+  m_LocalPosition: {x: -3.44, y: 1.425, z: 0}
   m_LocalScale: {x: 1.7581234, y: 2.5, z: 4.50519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4956,7 +4955,7 @@ RectTransform:
   m_Father: {fileID: 1792212454}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6652,7 +6651,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022188160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.21, y: 1.425, z: 0}
+  m_LocalPosition: {x: 3.45, y: 1.425, z: 0}
   m_LocalScale: {x: 1.7581234, y: 2.5, z: 4.50519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

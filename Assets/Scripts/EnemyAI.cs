@@ -15,11 +15,9 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask playerMask;
 
-    //public float updateRate = 5f;
     public float speed = 0.8f;
     public float inChasingDistance = 1f;
-    public float inSightDistance = 2f;
-    public float enemyStopDistance = 0.45f;
+    public float enemyStopDistance = 0.44f;
 
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.26f;
@@ -40,13 +38,18 @@ public class EnemyAI : MonoBehaviour
     private Animator animator;
 
     private Vector2 startCoordinates;
+    private Vector2 higherLeftBound;
+    private Vector2 higherRightBound;
     
     void Start()
     {
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
-        
+
+        higherLeftBound = new Vector2 (leftBound.position.x, leftBound.position.y+1);
+        higherRightBound = new Vector2(leftBound.position.x, leftBound.position.y+1);
+
         //rightBound = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Right_Bound");
         //leftBound  = GameObject.FindGameObjectWithTag("Platform").transform.FindChild("Left_Bound");
 
@@ -58,35 +61,6 @@ public class EnemyAI : MonoBehaviour
         float leftDistance = transform.position.x - leftBound.position.x;
         float rightDistance = transform.position.x - rightBound.position.x;
         float result = (leftDistance - rightDistance)/2;
-
-        //moving the enemy to the player
-        //can be removed
-        if (target == null){
-            if (!searchingPlayer){
-                searchingPlayer = true;
-                //start looking for player here 
-                if (SearchForPlayer()){//go towards player
-                    searchingPlayer = true;
-                }else{//go towards closest edge
-                    //check which boundary is closest to the enemy to start from there
-                    if ((leftBound.position.x < transform.position.x) && (transform.position.x < result)) {
-                        //go to the left most bound
-                        walkingToLeftBound = true;
-                    } else if ((rightBound.position.x > transform.position.x) && (transform.position.x > result)) {
-                        //go to the right most bound
-                        walkingToLeftBound = false;
-                    } else {//transform is not in the bounds
-                        //out of bounds
-                        //start searching for new bounds
-                        //get new bounds
-                        Debug.Log("Target is out of Bounds");
-                        return;
-                    }
-                }
-            }
-            Debug.Log("Target not found");
-            return;
-        }
 
 		if(effects.Length > 0 && enableAudio == true){
 			skelwalk = gameObject.AddComponent<AudioSource>();
@@ -103,7 +77,9 @@ public class EnemyAI : MonoBehaviour
 
     void Update() {
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        if(enableAudio){
+        isAttacking = false;
+        isChasing = false;
+        if (enableAudio){
 			if (skelwalk.isPlaying && (!walking)){
 				skelwalk.Stop(); //stop walking sound if stopped moving
 			}
@@ -113,20 +89,14 @@ public class EnemyAI : MonoBehaviour
             //move towards the player
             searchingPlayer = true;
             animatorSetting();
-            if (distanceToPlayer > inSightDistance) {//out of range
+
+            if (distanceToPlayer > inChasingDistance) {//out of range
                 walking = true;
                 searchingPlayer = false;
                 isAttacking = false;
                 isChasing = false;
                 patrol();
-            } else if ((distanceToPlayer <= inSightDistance) && (distanceToPlayer > inChasingDistance)) {
-                //look at the player
-                //do not move
-                walking = false;
-                isChasing = false;
-                isAttacking = false;
-                transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
-            } else if((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
+             } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
                 walking = true;
                 isChasing = true;
@@ -137,7 +107,7 @@ public class EnemyAI : MonoBehaviour
                 //start attacking
                 walking = false;
                 isChasing = false;
-                animatorSetting();
+                isAttacking = true;
                 transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
                 attack();
             } else {
@@ -145,15 +115,54 @@ public class EnemyAI : MonoBehaviour
             }
         } else { // player is on a different platform from user --- patrol function
             searchingPlayer = false;
+            walking = true;
+            isChasing = false;
+            isAttacking = false;
             patrol();
         }
+        animatorSetting();
     }
+
+
+    /*
+if (distanceToPlayer > inSightDistance) {//out of range
+    walking = true;
+    searchingPlayer = false;
+    isAttacking = false;
+    isChasing = false;
+    patrol();
+} else if ((distanceToPlayer <= inSightDistance) && (distanceToPlayer > inChasingDistance)) {
+    //look at the player
+    //do not move
+    walking = false;
+    isChasing = false;
+    isAttacking = false;
+    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
+} else if((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
+    //start running after the enemy
+    walking = true;
+    isChasing = true;
+    isAttacking = false;
+    moveEnemy(target);
+} else if (distanceToPlayer <= enemyStopDistance) {
+    //come to a stop     
+    //start attacking
+    walking = false;
+    isChasing = false;
+    animatorSetting();
+    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
+    attack();
+} else {
+    Debug.Log(("Undefined State"));
+}
+*/
+
 
     //check if player is in the same platform as the enemy
     public bool SearchForPlayer(){
-        if (Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask)){ //Bound of platform check
-            //Debug.DrawLine(transform.position, rightBound.position, Color.magenta);
-            //Debug.DrawLine(transform.position, leftBound.position, Color.magenta);
+        //make linecast more accurate by shooting more lines
+        if ((Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask))||
+            (Physics2D.Linecast(transform.position, higherLeftBound, playerMask) || Physics2D.Linecast(transform.position, higherRightBound, playerMask))) { //Bound of platform check
             return true;
         }else{
             return false;
@@ -205,15 +214,12 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void attack() {
-        isAttacking = true;
-        animatorSetting();
+        //isAttacking = true;
+        //animatorSetting();
         if (enableAudio && !skelsword.isPlaying){
             skelsword.Play();
         }
-
-        //yield return new WaitForSeconds(attackLag);
         //deal damage to player
-//        isAttacking = false;
     }
 
     public void animatorSetting() {
