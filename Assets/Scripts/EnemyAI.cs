@@ -102,15 +102,11 @@ public class EnemyAI : MonoBehaviour
                 //start running after the enemy
                 walking = true;
                 isChasing = true;
-                if(isAttacking) {
-                    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
-
-                    //wait then move
-                    //          if(animation.IsPlaying("Ghost_Attack_Right")) {
-                    //              animation.Play("Ghost_Attack_Right");
-                    //          }
-                    isAttacking = false;
-                }
+                //if(isAttacking) {
+                    //wait for animation then move
+                //    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
+                isAttacking = false;
+                //}
                 moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
@@ -118,7 +114,7 @@ public class EnemyAI : MonoBehaviour
                 walking = false;
                 isChasing = false;
                 isAttacking = true;
-                transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
+                //transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
                 attack();
             } else {
                 Debug.Log(("Undefined State"));
@@ -226,7 +222,10 @@ if (distanceToPlayer > inSightDistance) {//out of range
 
     public void attack() {
         //isAttacking = true;
-        //animatorSetting();
+        //
+        walking = false;
+        isChasing = false;
+        animatorSetting();
         if (enableAudio && !skelsword.isPlaying){
             skelsword.Play();
         }

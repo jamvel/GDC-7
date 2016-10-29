@@ -93,7 +93,8 @@ public class FlyingEnemyAI : MonoBehaviour {
             if (distanceToPlayer > projectileRange) {
                 //keep roaming
                 //Debug.Log("Moving to point: " + currentPosition.x+", "+currentPosition.y);
-                randomMovement();
+                //randomMovement();
+                //movement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
                 //shootProjectile();
@@ -141,6 +142,23 @@ public class FlyingEnemyAI : MonoBehaviour {
         }
     }
 
+    public void movement() {
+        if((transform.position.x == currentPosition.x)&&((transform.position.y == currentPosition.y))) {       
+            if(currentPosition == possiblePositions[0]) {
+                currentPosition = possiblePositions[1];
+            }else if(currentPosition == possiblePositions[1]) {
+                currentPosition = possiblePositions[2];
+            } else if (currentPosition == possiblePositions[2]) {
+                currentPosition = possiblePositions[3];
+            } else if (currentPosition == possiblePositions[3]) {
+                currentPosition = possiblePositions[0];
+            }
+        }else {
+            moveEnemy(currentPosition);
+        }
+    }
+
+
     public Vector2 nextPoint() {
         return possiblePositions[Random.Range(0, possiblePositions.Length)];
     }
@@ -186,13 +204,16 @@ public class FlyingEnemyAI : MonoBehaviour {
 
     public void rotateGhost() {
         var lookPos = target.position - transform.position;
-        //lookPos.y = 0;
         var rotation = Quaternion.LookRotation(lookPos);
         rotation.y = 0;
         rotation.x = 0;
+        float angle = rotation.eulerAngles.z;
+        if ((angle > 35)&&(angle < 90)) {
+            rotation.z = 0.2025f;// change 30 to quaternion
+        } else if ((angle < 325)&&(angle > 270)) {
+            rotation.z = -0.2025f;// change -30 to quaternion
+        }
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
-        //rotation.y = 0;
-        //rotation.x = 0;
     }
 
     public void animatorSetting() {
