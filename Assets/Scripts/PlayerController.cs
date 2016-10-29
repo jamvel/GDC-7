@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public bool airControl = true;
 
 	public AudioClip[] effects;
-    private AudioSource walk, sword; 
+    private AudioSource walk, sword, ballfire;
     public bool enableAudio = true;
 
 	public GameObject fireball; //prefab to fireball
@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour {
 			walk.volume = 0.5f;
 			sword = gameObject.AddComponent<AudioSource>();
 			sword.clip = effects[3];
+            ballfire = gameObject.AddComponent<AudioSource>();
+            ballfire.clip = effects[4];
+            ballfire.volume = 0.1f;
         }
         else if(effects.Length == 0){
 			enableAudio = false;
@@ -112,6 +115,7 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1")){
             animator.SetBool("IsAttack", true);
             if (enableAudio && !sword.isPlaying){
+                sword.volume = 0.35f;
                 sword.Play();
             }
             Debug.Log ("attack");
@@ -129,12 +133,14 @@ public class PlayerController : MonoBehaviour {
             //fireball.GetComponent<Projectile> ().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
             //Debug.Log(ev_fireball.magnitude* ev_fireball.directionVector);
             if (direct) {
+                ballfire.Play();
                 ev_fireball.directionVector = new Vector2(1, 0);
                 fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
                 Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
                 Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.identity);
             }
             else {
+                ballfire.Play();
                 ev_fireball.directionVector = new Vector2(-1, 0);
                 fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
                 Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
