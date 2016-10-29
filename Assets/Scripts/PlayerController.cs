@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetButton("Fire1")){
             animator.SetBool("IsAttack", true);
             if (enableAudio && !sword.isPlaying){
                 sword.volume = 0.35f;
