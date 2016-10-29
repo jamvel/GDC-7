@@ -25,7 +25,7 @@ GameObject:
   - 50: {fileID: 50000011351635456}
   - 61: {fileID: 61000011853600628}
   m_Layer: 0
-  m_Name: Arrow Left
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
