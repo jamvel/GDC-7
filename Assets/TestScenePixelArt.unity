@@ -955,6 +955,7 @@ MonoBehaviour:
   enemyStopDistance: 0.45
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
+  enemyWalkAgain: 1
   effects:
   - {fileID: 8300000, guid: dd89a4512df198940852d9fa66f83119, type: 3}
   - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
