@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
     private bool isAttacking = false;
 
     private Animator animator;
+    private Animation animation;
 
     private Vector2 startCoordinates;
     private Vector2 higherLeftBound;
@@ -44,6 +45,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        animation = this.GetComponent<Animation>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
 
@@ -77,7 +79,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update() {
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        isAttacking = false;
+        //isAttacking = false;
         isChasing = false;
         if (enableAudio){
 			if (skelwalk.isPlaying && (!walking)){
@@ -100,7 +102,15 @@ public class EnemyAI : MonoBehaviour
                 //start running after the enemy
                 walking = true;
                 isChasing = true;
-                isAttacking = false;
+                if(isAttacking) {
+                    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
+
+                    //wait then move
+                    //          if(animation.IsPlaying("Ghost_Attack_Right")) {
+                    //              animation.Play("Ghost_Attack_Right");
+                    //          }
+                    isAttacking = false;
+                }
                 moveEnemy(target);
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
@@ -186,6 +196,7 @@ if (distanceToPlayer > inSightDistance) {//out of range
 
     public void patrol() {
         //walk to the bound indicated
+        isAttacking = false;
         if (walkingToLeftBound) {
             if (checkBoundDistance(leftBound)) {
                 //start walking to the right
@@ -219,6 +230,7 @@ if (distanceToPlayer > inSightDistance) {//out of range
         if (enableAudio && !skelsword.isPlaying){
             skelsword.Play();
         }
+        //finish attack then walk
         //deal damage to player
     }
 

@@ -1082,7 +1082,6 @@ GameObject:
   - 61: {fileID: 495874185}
   - 95: {fileID: 495874184}
   - 114: {fileID: 495874183}
-  - 114: {fileID: 495874186}
   - 114: {fileID: 495874190}
   m_Layer: 12
   m_Name: Flying Enemy
@@ -1138,40 +1137,6 @@ BoxCollider2D:
   m_Offset: {x: 0.018597841, y: 0.002072215}
   serializedVersion: 2
   m_Size: {x: 0.36203456, y: 0.6526971}
---- !u!114 &495874186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495874182}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25dda770fa13a943b7cb029c3c6c31e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 613746950}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  topRightBound: {fileID: 1452490890}
-  topLeftBound: {fileID: 955711646}
-  bottomRightBound: {fileID: 1738582559}
-  bottomLeftBound: {fileID: 585256115}
-  fireball: {fileID: 0}
-  fireballVector: {x: 0, y: 0}
-  emmiterFireball: {fileID: 0}
-  movementSpeed: 0.8
-  projectileRange: 3
-  dashRange: 1
-  enemyStopDistance: 0.3
-  changeDirectionInSeconds: 5
-  precisionOfEnemyToBounds: 0.26
-  possiblePositions:
-  - {x: -1.5, y: 1}
-  - {x: 2, y: 1}
-  - {x: -1.5, y: -1}
-  - {x: 2, y: -1}
-  fireRate: 0
 --- !u!50 &495874187
 Rigidbody2D:
   serializedVersion: 2
@@ -3225,10 +3190,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 613746950}
   updateRate: 5
+  seeker: {fileID: 0}
+  rigidBody: {fileID: 0}
   speed: 0.5
   fMode: 0
   pathEnded: 0
   nextDistance: 3
+  currentDistance: 0
+  searchingPlayer: 0
+  sDirect: 1
+  animator: {fileID: 0}
 --- !u!212 &1080457733
 SpriteRenderer:
   m_ObjectHideFlags: 0
