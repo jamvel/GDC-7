@@ -35,15 +35,17 @@ public class FlyingEnemyAI : MonoBehaviour {
     public float fireRate;
 
     private float distanceToPlayer;
+
     private bool searchingPlayer = false;
     private bool isChasing;
     private bool isAttacking;
 
     private float time;
+    private int currentPos = 0;
 
     private float nextFire;
-    private Vector2 previousPosition;
-    private Vector2 currentPosition;
+    private Vector3 previousPosition;
+    private Vector3 currentPosition;
     private Vector2 tempPosition;
 
     void Start() {
@@ -56,22 +58,21 @@ public class FlyingEnemyAI : MonoBehaviour {
 
     void Update() {
         distanceToPlayer = Vector2.Distance(target.position, transform.position);
-        animatorSetting();
         if (SearchForPlayer()) { //player is in the ghost bounds
-            /*
+            searchingPlayer = true;
             if (distanceToPlayer > projectileRange) {
                 //out of range
-                //roam randomly in box
+                //roam randomly
                 isChasing = false;
                 isAttacking = false;
-                randomMovement();
+                movement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //look at the player
                 //shoot projectiles
                 isChasing = false;
                 isAttacking = false;
                 //dont move and shoot projectile
-                //shootProjectile();
+                shootProjectile();
             } else if ((distanceToPlayer <= dashRange) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
                 //and dash into him
@@ -85,21 +86,22 @@ public class FlyingEnemyAI : MonoBehaviour {
             } else {
                 Debug.Log(("Undefined State"));
             }
-            */
+            
         } else {
+            searchingPlayer = false;
             isChasing = false;
             isAttacking = false;
             //patrol and throw bolts
             if (distanceToPlayer > projectileRange) {
                 //keep roaming
-                //Debug.Log("Moving to point: " + currentPosition.x+", "+currentPosition.y);
-                //randomMovement();
-                //movement();
+                movement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
                 //shootProjectile();
             }
         }
+        animatorSetting();
+
     }
 
     public bool SearchForPlayer() {
@@ -118,6 +120,7 @@ public class FlyingEnemyAI : MonoBehaviour {
 
     //need to check that it is not out of bounds, if it is out of bounds send back to box
     //need to check if it stayed in the same position for a certain period of time
+    /*
     public void randomMovement() {
         time += Time.deltaTime;
         var bound = outOfBounds();
@@ -141,26 +144,39 @@ public class FlyingEnemyAI : MonoBehaviour {
             moveEnemy(topLeftBound.position);
         }
     }
+    */
 
     public void movement() {
-        if((transform.position.x == currentPosition.x)&&((transform.position.y == currentPosition.y))) {       
-            if(currentPosition == possiblePositions[0]) {
-                currentPosition = possiblePositions[1];
-            }else if(currentPosition == possiblePositions[1]) {
-                currentPosition = possiblePositions[2];
-            } else if (currentPosition == possiblePositions[2]) {
-                currentPosition = possiblePositions[3];
-            } else if (currentPosition == possiblePositions[3]) {
-                currentPosition = possiblePositions[0];
+        if(transform.position == currentPosition) {
+            currentPos++;
+            if (currentPos == possiblePositions.Length) {
+                currentPos = 0;
             }
-        }else {
+            previousPosition = currentPosition;
+            currentPosition = possiblePositions[currentPos];
+        }
+
+        time += Time.deltaTime;
+        if (time > changeDirectionInSeconds) {
+            time = 0;
+            currentPos++;
+            if (currentPos == possiblePositions.Length) {
+                currentPos = 0;
+            }
+            previousPosition = currentPosition;
+            currentPosition = possiblePositions[currentPos];
+        }
+
+        if ((transform.position.x == currentPosition.x)&&((transform.position.y == currentPosition.y))) {
+            //currentPos++;
+            if (currentPos == possiblePositions.Length) {
+                currentPos = 0;
+            }
+            previousPosition = currentPosition;
+            currentPosition = possiblePositions[currentPos];
+        } else {
             moveEnemy(currentPosition);
         }
-    }
-
-
-    public Vector2 nextPoint() {
-        return possiblePositions[Random.Range(0, possiblePositions.Length)];
     }
 
     public int outOfBounds() {
