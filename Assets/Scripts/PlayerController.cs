@@ -62,12 +62,14 @@ public class PlayerController : MonoBehaviour {
             toLand = false;
         }
         var horizontal = Input.GetAxis("Horizontal");
-        Move(horizontal);
+       
         if (horizontal > 0){//walk right
+            Move(horizontal);
             direct = true;
             animator.SetInteger("Direction", 1);
             WalkSound();
         }else if (horizontal < 0){//walk left
+            Move(horizontal);
             direct = false;
             animator.SetInteger("Direction", 2);
             WalkSound();
@@ -118,7 +120,6 @@ public class PlayerController : MonoBehaviour {
                 sword.volume = 0.35f;
                 sword.Play();
             }
-            Debug.Log ("attack");
 		}else{
             animator.SetBool("IsAttack", false);
         }
@@ -164,7 +165,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Move(float horizontalInput){
-		if(!airControl && !isGround){
+        if (!airControl && !isGround){
             return;
 		}
         Vector2 moveVelocity = playerRigidBody.velocity;
