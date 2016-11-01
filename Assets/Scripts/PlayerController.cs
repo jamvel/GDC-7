@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour {
             animator.SetInteger("Direction", 2);
             WalkSound();
         }else{//not moving
+            playerRigidBody.velocity = new Vector2(0, playerRigidBody.velocity.y); //update to fix player moving slowly without input
             if (direct){//look right
                 animator.SetInteger("Direction", 0);
             }else if (!direct) {//look left
