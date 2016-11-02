@@ -6,11 +6,13 @@ public class Player : MonoBehaviour {
     public float maxHealth = 100f;
     public float currentHealth = 100f;
     public float mana = 100f;
+    public int coins;
     [HideInInspector] public Magic magicType;
     public Canvas UI_Canvas;
 
     private RectTransform healthbarRectTransform;
     private Text healthRatioText;
+    private Text coinCounter;
 
     private SpriteRenderer sr;
     private Rigidbody2D rb;
@@ -27,6 +29,8 @@ public class Player : MonoBehaviour {
 
         healthbarRectTransform = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("HealthBar").gameObject.GetComponent<RectTransform>(); //find healthbar
         healthRatioText = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("RatioText_HealthBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
+        coinCounter = UI_Canvas.transform.Find("Counter_Parent").gameObject.transform.Find("Counter").gameObject.GetComponent<Text>(); //find counter text
+
         updateHealthBar();
         grunt = gameObject.AddComponent<AudioSource>();
         grunt.volume = 0.1f;
@@ -55,6 +59,11 @@ public class Player : MonoBehaviour {
         updateHealthBar();
         StartCoroutine(changeSpriteColor());
         
+    }
+
+    public void updateCoinCounter(int value) { //takes increment as parameter
+        coins += value;
+        coinCounter.text = value.ToString("D2");
     }
 
     private IEnumerator changeSpriteColor() {
