@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.35f;
 
-    private float waitBetweenAttack = 200f;
+    private float waitBetweenAttack = 300f;
     private float currentWaitTime;
 
     public float enemyWalkAgain = 0.6f;
@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
     
     void Start()
     {
-        currentWaitTime = 250;//on detaction attack player immediately
+        currentWaitTime = 300;//on detaction attack player immediately
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
@@ -86,6 +86,7 @@ public class EnemyAI : MonoBehaviour
 
             if (distanceToPlayer > inChasingDistance) {//out of range
                 //patrol the platform
+                currentWaitTime = 300;
                 isWalking = true;
                 searchingPlayer = false;
                 isAttacking = false;
@@ -93,6 +94,7 @@ public class EnemyAI : MonoBehaviour
                 patrol();
              } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
+                currentWaitTime = 300;
                 isWalking = true;
                 isChasing = true;
                 searchingPlayer = true;

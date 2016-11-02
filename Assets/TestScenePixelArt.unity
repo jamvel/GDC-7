@@ -876,6 +876,25 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 415165376}
+    - target: {fileID: 114000012897550992, guid: 368ca00050bdd7648879206bce8a200a,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.862069
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012897550992, guid: 368ca00050bdd7648879206bce8a200a,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012897550992, guid: 368ca00050bdd7648879206bce8a200a,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012367048862, guid: 368ca00050bdd7648879206bce8a200a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 368ca00050bdd7648879206bce8a200a, type: 2}
   m_IsPrefabParent: 0
@@ -4133,7 +4152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1517879500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,10 +4164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf4e9ba2f8a2e045af2cc65599f2027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   target: {fileID: 0}
   impactEffect: {fileID: 0}
   damageToGive: 0
+  effects:
+  - {fileID: 8300000, guid: f56fbff119fb93842918954fee372d67, type: 3}
 --- !u!50 &1517879501
 Rigidbody2D:
   serializedVersion: 2
