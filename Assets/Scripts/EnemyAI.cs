@@ -20,6 +20,10 @@ public class EnemyAI : MonoBehaviour
 
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.35f;
+
+    private float waitBetweenAttack = 200f;
+    private float currentWaitTime;
+
     public float enemyWalkAgain = 0.6f;
 
 	public AudioClip[] effects;
@@ -44,6 +48,7 @@ public class EnemyAI : MonoBehaviour
     
     void Start()
     {
+        currentWaitTime = 250;//on detaction attack player immediately
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
@@ -102,13 +107,23 @@ public class EnemyAI : MonoBehaviour
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
                 //start attacking
-                isWalking = false;
-                isChasing = false;
-                isAttacking = true;
-
-                searchingPlayer = true;
                 positionToAttackIn();
-                attack();
+                if(currentWaitTime > waitBetweenAttack) {
+                    isWalking = false;
+                    isChasing = false;
+                    isAttacking = true;
+                    searchingPlayer = true;
+                    attack();
+                    currentWaitTime = 0;
+                } else {//wait for next attack
+                    isWalking = false;
+                    isChasing = false;
+                    isAttacking = false;
+                    searchingPlayer = true;
+                    currentWaitTime++;
+                }
+                //                StartCoroutine(wait());
+
             } else {
                 isWalking = false;
                 isChasing = false;
@@ -219,7 +234,17 @@ if (distanceToPlayer > inSightDistance) {//out of range
         if (enableAudio && !skelsword.isPlaying){
             skelsword.Play();
         }
+        //Debug.Log("Attacking");
+        //check if collider hit with player
         //deal damage to player
+
+        //wait for seconds to make another sword swing
+    }
+
+    IEnumerator wait() {
+        Debug.Log("Before :"+Time.time);
+        yield return new WaitForSeconds(waitBetweenAttack);
+        Debug.Log("After :"+Time.time);
     }
 
     public void animatorSetting() {
