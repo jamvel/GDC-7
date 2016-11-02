@@ -7,6 +7,7 @@ TagManager:
   - EnemyText
   - Enemy
   - Coin
+  - Lava
   layers:
   - Default
   - TransparentFX
@@ -47,11 +48,14 @@ TagManager:
   - name: Background
     uniqueID: 1093696345
     locked: 0
-  - name: Foreground
+  - name: Foreground1
     uniqueID: 1859086223
     locked: 0
-  - name: Characters
+  - name: Characters_Foreground
     uniqueID: 3940858523
+    locked: 0
+  - name: Foreground2
+    uniqueID: 4104253367
     locked: 0
   - name: UI
     uniqueID: 771169021

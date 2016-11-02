@@ -9,43 +9,43 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013371978998}
+  m_RootGameObject: {fileID: 1000013710257282}
   m_IsPrefabParent: 1
---- !u!1 &1000013371978998
+--- !u!1 &1000013710257282
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010757093470}
-  - 212: {fileID: 212000011818195576}
+  - 4: {fileID: 4000013732043354}
+  - 212: {fileID: 212000010016930062}
   m_Layer: 0
-  m_Name: Floor Tile
+  m_Name: Floor Floating Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000010757093470
+--- !u!4 &4000013732043354
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013371978998}
+  m_GameObject: {fileID: 1000013710257282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.34510398, y: -2.275086, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!212 &212000011818195576
+--- !u!212 &212000010016930062
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013371978998}
+  m_GameObject: {fileID: 1000013710257282}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -67,9 +67,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1093696345
+  m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: feaa3c4073448ae4b8435666cb9dcba1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6f7ec3281fa5adc4dbf522b679570694, type: 3}
+  m_Color: {r: 0.7411765, g: 0.64705884, b: 0.54509807, a: 1}
   m_FlipX: 0
   m_FlipY: 0
