@@ -923,6 +923,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013882292592, guid: 368ca00050bdd7648879206bce8a200a,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d3917ef90be147a4085f7708f4aca8a8, type: 3}
+    - target: {fileID: 82000013882292592, guid: 368ca00050bdd7648879206bce8a200a,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013882292592, guid: 368ca00050bdd7648879206bce8a200a,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 368ca00050bdd7648879206bce8a200a, type: 2}
   m_IsPrefabParent: 0
@@ -5041,6 +5056,16 @@ Prefab:
     - target: {fileID: 1000010590164280, guid: ff401265bad775540882bbd0b187dd19, type: 2}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000011795292236, guid: ff401265bad775540882bbd0b187dd19,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e5f914273cd7eae4a89c9deb7bf78824, type: 3}
+    - target: {fileID: 82000011795292236, guid: ff401265bad775540882bbd0b187dd19,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff401265bad775540882bbd0b187dd19, type: 2}
