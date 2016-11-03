@@ -285,6 +285,86 @@ AnimationClip:
     path: SwordPiece
     classID: 61
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.125
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.25
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.375
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.5
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.625
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.875
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1.125
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.x
+    path: Enemy Health Bar
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.441
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1.125
+        value: 0.441
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: Enemy Health Bar
+    classID: 224
+    script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
@@ -374,6 +454,18 @@ AnimationClip:
       attribute: 413499720
       script: {fileID: 0}
       classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2331089103
+      attribute: 1460864421
+      script: {fileID: 0}
+      classID: 224
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2331089103
+      attribute: 538195251
+      script: {fileID: 0}
+      classID: 224
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping:
@@ -841,6 +933,86 @@ AnimationClip:
     attribute: localEulerAnglesRaw.z
     path: SwordPiece
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.125
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.25
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.375
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.5
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.625
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.75
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.875
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1.125
+        value: -0.3059641
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.x
+    path: Enemy Health Bar
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.441
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1.125
+        value: 0.441
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: Enemy Health Bar
+    classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
