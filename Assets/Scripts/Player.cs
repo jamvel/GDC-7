@@ -19,8 +19,8 @@ public class Player : MonoBehaviour {
     private Transform tr;
 
     private int i;
-    public AudioClip[] grunts;
-    public AudioSource grunt;
+    public AudioClip[] grunts, coin;
+    public AudioSource grunt, coinsound;
     // Use this for initialization
     void Start () {
         sr = GetComponent<SpriteRenderer>();
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour {
         coinCounter = UI_Canvas.transform.Find("Counter_Parent").gameObject.transform.Find("Counter").gameObject.GetComponent<Text>(); //find counter text
 
         updateHealthBar();
+        coinsound = gameObject.AddComponent<AudioSource>();
         grunt = gameObject.AddComponent<AudioSource>();
         grunt.volume = 0.1f;
     }
@@ -64,6 +65,9 @@ public class Player : MonoBehaviour {
     public void updateCoinCounter(int value) { //takes increment as parameter
         coins += value;
         coinCounter.text = value.ToString("D2");
+        i = Random.Range(0, 4);
+        coinsound.clip = coin[i];
+        coinsound.Play();
     }
 
     private IEnumerator changeSpriteColor() {

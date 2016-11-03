@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour {
     public float speed = 4.0f;
     private Transform target = null;
 
-    void Update() {
+    public void Update() {
         if (target != null) {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
@@ -19,9 +19,8 @@ public class Coin : MonoBehaviour {
         
     }
     void OnTriggerEnter2D(Collider2D c) {
-        if(c.gameObject.tag == "Player") {
+        if (c.gameObject.tag == "Player") {
             target = c.gameObject.transform;
         }
     }
-
 }
