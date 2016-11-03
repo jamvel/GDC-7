@@ -64,7 +64,7 @@ public class Player : MonoBehaviour {
 
     public void updateCoinCounter(int value) { //takes increment as parameter
         coins += value;
-        coinCounter.text = value.ToString("D2");
+        coinCounter.text = coins.ToString("D2");
         i = Random.Range(0, 4);
         coinsound.clip = coin[i];
         coinsound.Play();
