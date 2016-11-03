@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012994054292}
   - 212: {fileID: 212000013398086226}
+  - 61: {fileID: 61000011516676036}
   m_Layer: 0
   m_Name: Wall Tile End
   m_TagString: Untagged
@@ -33,13 +34,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013204401262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.208933, y: -2.7335536, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.885997, y: 1.3169785, z: -0.025390625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000011516676036
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013204401262}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.0029659271, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.7093557, y: 1}
 --- !u!212 &212000013398086226
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -70,6 +85,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3fb5914863bc7c64d9c42ce283d1b927, type: 3}
-  m_Color: {r: 0.7411765, g: 0.64705884, b: 0.54509807, a: 1}
+  m_Color: {r: 0.81960785, g: 0.8235294, b: 0.84313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
