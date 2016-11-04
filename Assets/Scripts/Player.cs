@@ -7,8 +7,10 @@ public class Player : MonoBehaviour {
     public float currentHealth = 100f;
     public float mana = 100f;
     public int coins;
-    [HideInInspector] public Magic magicType;
     public Canvas UI_Canvas;
+
+    /*Perks & Curses*/
+    public bool fireball_1; //true if ability is fireball1
 
     private RectTransform healthbarRectTransform;
     private Text healthRatioText;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour {
         coinsound.clip = coin[i];
         coinsound.Play();
     }
+
 
     private IEnumerator changeSpriteColor() {
         Color original = new Color(255,255,255,255);
