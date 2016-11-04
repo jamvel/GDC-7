@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class CameraColliders : MonoBehaviour {
-	void OnTriggerEnter2D(Collider2D c){
+    public bool isVertical;
+    void OnTriggerEnter2D(Collider2D c){
 		Debug.Log ("Anchored to GameObject "+c.name);
-		Camera.main.GetComponent<CameraFollow> ().Anchor(gameObject.GetComponent<BoxCollider2D>(),"vertical");
-
-		//check collider name or tag to identify if vertical or horizontal
-
+        if (isVertical) {
+            Camera.main.GetComponent<CameraFollow>().Anchor(gameObject.GetComponent<BoxCollider2D>(), "vertical");
+        }
+        else {
+            Camera.main.GetComponent<CameraFollow>().Anchor(gameObject.GetComponent<BoxCollider2D>(), "horizontal");
+        }
 	}
 }
