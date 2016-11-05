@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Coin
   - Lava
+  - Platform
   layers:
   - Default
   - TransparentFX

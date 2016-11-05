@@ -168,6 +168,8 @@ public class PlayerController : MonoBehaviour {
 		}else{
 			isGround = false;
 		}
+        //OnTriggerStay();
+        //OnTriggerExit();
 	}
 
 	public void Move(float horizontalInput){

@@ -72,4 +72,23 @@ public class MovingPlatform : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
 
+    public void OnCollisionStay2D(Collision2D col) {
+        if(col.gameObject.tag == "Player") {
+            col.transform.parent = this.gameObject.transform;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D col) {
+        col.transform.parent = null;
+    }
+    
+    //need to get collider that player is standing on
+    //cannot input them manually - cost inefficient
+    //must get current platform user is on
+    //check if possible to create a new layer - moving platform
+    //easier to define from platform and a moving paltform
+    
+
+
+
 }
