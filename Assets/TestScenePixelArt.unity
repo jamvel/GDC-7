@@ -763,7 +763,7 @@ RectTransform:
   m_Father: {fileID: 62399706}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -990,7 +990,7 @@ GameObject:
   - 4: {fileID: 448859595}
   - 212: {fileID: 448859594}
   - 95: {fileID: 448859593}
-  - 114: {fileID: 448859596}
+  - 58: {fileID: 448859596}
   m_Layer: 14
   m_Name: Chest
   m_TagString: Untagged
@@ -1055,25 +1055,26 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448859592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.252, y: -0.944, z: 0}
+  m_LocalPosition: {x: 2.92, y: -0.944, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
---- !u!114 &448859596
-MonoBehaviour:
+--- !u!58 &448859596
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448859592}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
-  delegates: []
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.7824116
 --- !u!4 &450687336 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011503308346, guid: 2153cea7dd6bdbd4ea0a9f1b06f20b88,
@@ -1100,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &495600074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,7 +1186,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 1
-  inChasingDistance: 1.25
+  inChasingDistance: 0.75
   enemyStopDistance: 0.45
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
@@ -1789,7 +1790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &672626019
 Transform:
   m_ObjectHideFlags: 0
@@ -1969,7 +1970,7 @@ RectTransform:
   m_Father: {fileID: 1071184252}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

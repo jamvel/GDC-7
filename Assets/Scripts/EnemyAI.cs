@@ -146,42 +146,7 @@ public class EnemyAI : MonoBehaviour
     public void positionToAttackIn() {
         currentPosition = transform.position;
     }
-
-
-    /*
-if (distanceToPlayer > inSightDistance) {//out of range
-    walking = true;
-    searchingPlayer = false;
-    isAttacking = false;
-    isChasing = false;
-    patrol();
-} else if ((distanceToPlayer <= inSightDistance) && (distanceToPlayer > inChasingDistance)) {
-    //look at the player
-    //do not move
-    walking = false;
-    isChasing = false;
-    isAttacking = false;
-    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
-} else if((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
-    //start running after the enemy
-    walking = true;
-    isChasing = true;
-    isAttacking = false;
-    moveEnemy(target);
-} else if (distanceToPlayer <= enemyStopDistance) {
-    //come to a stop     
-    //start attacking
-    walking = false;
-    isChasing = false;
-    animatorSetting();
-    transform.position = Vector2.MoveTowards(transform.position, transform.position, 0);
-    attack();
-} else {
-    Debug.Log(("Undefined State"));
-}
-*/
-
-
+    
     //check if player is in the same platform as the enemy
     public bool SearchForPlayer(){
         if ((Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask))||
