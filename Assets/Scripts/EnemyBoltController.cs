@@ -22,6 +22,7 @@ public class EnemyBoltController : MonoBehaviour {
         bolt = gameObject.AddComponent<AudioSource>();
         bolt.clip = effects[0];
         bolt.volume = 0.01f;
+        bolt.spatialBlend = 1;
 
         if (target.transform.position.x < transform.position.x) {
             bolt.Play();
