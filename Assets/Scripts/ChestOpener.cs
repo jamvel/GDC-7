@@ -19,7 +19,7 @@ public class ChestOpner : MonoBehaviour {
     void Update () {
         //check if in range to open
         if(SearchForPlayer()) {
-            if (Input.GetButton("Fire1")) {
+            if (Input.GetKey(KeyCode.F)) {
                 animator.SetBool("Opened", true);
             } else {
                 animator.SetBool("Opened", false);
