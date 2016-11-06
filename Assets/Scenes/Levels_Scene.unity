@@ -1155,7 +1155,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 103982560}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Platform_Bound_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5068,7 +5068,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484706067}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Top_Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5634,7 +5634,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 526700260}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Right_Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8684,7 +8684,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 811078342}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Bottom_Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9515,9 +9515,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 923660301}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platforms
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13110,7 +13110,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1282076771}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Platform_Bounds_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19350,7 +19350,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1896267551}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Left_Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20592,7 +20592,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2006019415}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Platform_Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
