@@ -9,11 +9,14 @@ public class ChestOpener : MonoBehaviour {
 
     private Animator animator;
     private bool isOpen = false;
-
+    public AudioClip open;
+    private AudioSource chest;
     // Use this for initialization
     void Start () {
         animator = this.GetComponent<Animator>();
         animator.SetInteger("Opened", 0);
+        chest = gameObject.AddComponent<AudioSource>();
+        chest.clip = open;
     }
 
     // Update is called once per frame
@@ -21,6 +24,7 @@ public class ChestOpener : MonoBehaviour {
         //check if in range to open
         if (SearchForPlayer() && !isOpen) {
             if (Input.GetKey(KeyCode.DownArrow)) {
+                chest.Play();
                 isOpen = true;
                 animator.SetInteger("Opened", 1);
             }

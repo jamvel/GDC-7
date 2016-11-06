@@ -1095,6 +1095,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+  open: {fileID: 8300000, guid: ec1e9e8073f8f0546893a1cd93417468, type: 3}
 --- !u!111 &448859598
 Animation:
   m_ObjectHideFlags: 0
