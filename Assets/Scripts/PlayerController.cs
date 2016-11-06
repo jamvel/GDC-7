@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask playerMask;
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
+    public bool invertedControls = false;
 
 	public AudioClip[] effects;
     private AudioSource walk, sword, ballfire;
@@ -67,13 +68,24 @@ public class PlayerController : MonoBehaviour {
        
         if (horizontal > 0){//walk right
             Move(horizontal);
-            direct = true;
-            animator.SetInteger("Direction", 1);
+            if (invertedControls) {
+                direct = false;
+                animator.SetInteger("Direction", 2);
+            }else {
+                direct = true;
+                animator.SetInteger("Direction", 1);
+            }
             WalkSound();
         }else if (horizontal < 0){//walk left
             Move(horizontal);
-            direct = false;
-            animator.SetInteger("Direction", 2);
+            if (invertedControls) {
+                direct = true;
+                animator.SetInteger("Direction", 1);
+            }
+            else {
+                direct = false;
+                animator.SetInteger("Direction", 2);
+            }
             WalkSound();
         }else{//not moving
             playerRigidBody.velocity = new Vector2(0, playerRigidBody.velocity.y); //update to fix player moving slowly without input
@@ -176,6 +188,9 @@ public class PlayerController : MonoBehaviour {
         if (!airControl && !isGround){
             return;
 		}
+        if (invertedControls) {
+            horizontalInput = -horizontalInput;
+        }
         Vector2 moveVelocity = playerRigidBody.velocity;
 		moveVelocity.x = horizontalInput * speed;
 		playerRigidBody.velocity = moveVelocity;
