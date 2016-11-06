@@ -992,6 +992,7 @@ GameObject:
   - 95: {fileID: 448859593}
   - 58: {fileID: 448859596}
   - 114: {fileID: 448859597}
+  - 111: {fileID: 448859598}
   m_Layer: 14
   m_Name: Chest
   m_TagString: Untagged
@@ -1094,6 +1095,20 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!111 &448859598
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448859592}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8221fe12d6d8bbd4782fb12dfc6bb487, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &450687336 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011503308346, guid: 2153cea7dd6bdbd4ea0a9f1b06f20b88,
