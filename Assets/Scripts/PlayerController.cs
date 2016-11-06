@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour {
     public void FixedUpdate (){
         Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
 		Debug.DrawLine(playerTransform.position,tagRightTransform.position);
-		if(Physics2D.Linecast(playerTransform.position,tagLeftTransform.position,playerMask) || 
+		if(Physics2D.Linecast(playerTransform.position,tagLeftTransform.position,playerMask) && 
 			Physics2D.Linecast(playerTransform.position,tagRightTransform.position,playerMask)){ //Ground Check
 			isGround = true;
 		}else{
