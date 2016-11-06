@@ -507,7 +507,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -104.524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 74.557495}
   m_Children: []
   m_Father: {fileID: 1812799019}
   m_RootOrder: 4
@@ -991,6 +991,7 @@ GameObject:
   - 212: {fileID: 448859594}
   - 95: {fileID: 448859593}
   - 58: {fileID: 448859596}
+  - 114: {fileID: 448859597}
   m_Layer: 14
   m_Name: Chest
   m_TagString: Untagged
@@ -1058,7 +1059,9 @@ Transform:
   m_LocalPosition: {x: 2.92, y: -0.944, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 657314506}
+  - {fileID: 1772445096}
   m_Father: {fileID: 0}
   m_RootOrder: 21
 --- !u!58 &448859596
@@ -1072,9 +1075,25 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
-  m_Radius: 0.7824116
+  m_Radius: 0.25528812
+--- !u!114 &448859597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448859592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159f0233450b3b44e990d6d8dbc34c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftMost: {fileID: 657314506}
+  rightMost: {fileID: 1772445096}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &450687336 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011503308346, guid: 2153cea7dd6bdbd4ea0a9f1b06f20b88,
@@ -1769,6 +1788,34 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &657314505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 657314506}
+  m_Layer: 14
+  m_Name: Leftmost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &657314506
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 657314505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.354, y: -0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 448859595}
+  m_RootOrder: 0
 --- !u!1 &672626018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5077,6 +5124,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff401265bad775540882bbd0b187dd19, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1772445095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1772445096}
+  m_Layer: 14
+  m_Name: Rightmost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1772445096
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772445095}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.345, y: -0.242, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 448859595}
+  m_RootOrder: 1
 --- !u!1 &1779162782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5547,6 +5622,11 @@ Prefab:
       propertyPath: coin.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: f766cc70ed009c24aa040a4486cba443, type: 3}
+    - target: {fileID: 61000012386920738, guid: 2f1fcccae6d08e248bf5c98b7d14b45a,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
   m_IsPrefabParent: 0

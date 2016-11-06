@@ -15,8 +15,8 @@ public class EnemyAI : MonoBehaviour
     public LayerMask playerMask;
 
     public float speed = 1.0f;
-    public float inChasingDistance = 1.25f;
-    public float enemyStopDistance = 0.5f;
+    public float inChasingDistance = 0.75f;
+    public float enemyStopDistance = 0.45f;
 
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.35f;
