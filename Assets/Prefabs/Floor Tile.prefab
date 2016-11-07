@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010757093470}
   - 212: {fileID: 212000011818195576}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor Tile
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

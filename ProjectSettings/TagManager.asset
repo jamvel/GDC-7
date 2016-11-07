@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Lava
   - Platform
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Projectile Player
   - Interactables
   - Coins
-  - 
-  - 
+  - Lava
+  - Wall
   - 
   - 
   - 
