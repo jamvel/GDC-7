@@ -21,6 +21,7 @@ public class CameraFollow : MonoBehaviour {
 	private Rigidbody2D rb;
 	private BoxCollider2D westCameraBoxCollider,eastCameraBoxCollider,northCameraBoxCollider, southCameraBoxCollider;
 	private Vector2 relativePosition;
+    private Quaternion currentRotation;
     private bool anchorHorziontal = false;
     private bool anchorVertical = false;// true - horizontal , false - vertical
 
@@ -37,6 +38,8 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	void Start(){
+        currentRotation = this.transform.rotation;
+
         tagAnchor = target.transform.Find("tag_anchor");
 		tagAnchor.position = new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY);
 
@@ -154,7 +157,7 @@ public class CameraFollow : MonoBehaviour {
 		* South Camera Object 
 		* 
 		*/
-        /*southCameraObject = new GameObject("SouthCameraObject");
+        southCameraObject = new GameObject("SouthCameraObject");
         southCameraObject.layer = LayerMask.NameToLayer("Camera");
         southCameraObject.transform.parent = parentObject.transform;
         southCameraObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height/2-Screen.height/2, 0));
@@ -171,12 +174,18 @@ public class CameraFollow : MonoBehaviour {
         southCameraBoxCollider.size = new Vector2(0.1f, Camera.main.orthographicSize * 2f * Camera.main.aspect-0.3f);
         southCameraBoxCollider.offset = new Vector2(vCameraSnapOffset - 0.1f, 0);
         southCameraBoxCollider.isTrigger = true;
-        southCameraBoxCollider.enabled = true;*/
-
+        southCameraBoxCollider.enabled = true;
+        southCameraObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update (){
+        //set active horizontal objects north or south
+        if(this.transform.rotation != currentRotation) {
+            currentRotation = this.transform.rotation;
+            SetActiveHorizontalObjects();
+        }
+        
 		//Update Anchor Positions
 		relativePosition = Camera.main.WorldToScreenPoint(new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY));
 		tagAnchor.position = new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY);
@@ -203,36 +212,7 @@ public class CameraFollow : MonoBehaviour {
 
         if (anchorVertical || anchorHorziontal){
             if(anchorVertical && anchorHorziontal) {
-                if (HAnchorSide() == true) { //west anchor
-                    if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) > Vector2.Distance(target.position, eastAnchor.transform.position)) {
-                        Debug.Log("Unanchored");
-                        DampOutOnUnAnchor();
-                        anchorVertical = false;
-                    }
-                }else { //east anchor
-                    if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) < Vector2.Distance(target.position, eastAnchor.transform.position)) {
-                        Debug.Log("Unanchored");
-                        DampOutOnUnAnchor();
-                        anchorVertical = false;
-                    }
-                }
-
-                if (VAnchorSide() == true) { //north anchor
-                    if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 0.6f) {
-                        Debug.Log("Unanchored");
-                        //DampOutOnUnAnchor();
-                        anchorHorziontal = false;
-                    }
-                }
-
-
-            }else{
-                if (anchorVertical == true) {
-                    Vector3 point = Camera.main.WorldToViewportPoint(target.position);
-                    Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-                    delta.y += verticalOffset;
-                    Vector3 destination = new Vector3(transform.position.x, transform.position.y + delta.y, transform.position.z);
-                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                if (this.transform.rotation.z == 0) {
                     if (HAnchorSide() == true) { //west anchor
                         if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) > Vector2.Distance(target.position, eastAnchor.transform.position)) {
                             Debug.Log("Unanchored");
@@ -247,6 +227,76 @@ public class CameraFollow : MonoBehaviour {
                             anchorVertical = false;
                         }
                     }
+                }else { //rotation z == 180
+                    if (HAnchorSide() == true) { //east anchor
+                        if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) > Vector2.Distance(target.position, westAnchor.transform.position)) {
+                            Debug.Log("Unanchored");
+                            DampOutOnUnAnchor();
+                            anchorVertical = false;
+                        }
+                    }
+                    else { //west anchor
+                        if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) < Vector2.Distance(target.position, westAnchor.transform.position)) {
+                            Debug.Log("Unanchored");
+                            DampOutOnUnAnchor();
+                            anchorVertical = false;
+                        }
+                    }
+                }
+            
+
+                if (this.transform.rotation.z == 0) { //north anchor
+                    if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 0.6f) {
+                        Debug.Log("Unanchored");
+                        anchorHorziontal = false;
+                    }
+                }
+                else {
+                    if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 0.6f) {
+                        Debug.Log("Unanchored");
+                        anchorHorziontal = false;
+                    }
+                }
+
+
+            }else{
+                if (anchorVertical == true) {
+                    Vector3 point = Camera.main.WorldToViewportPoint(target.position);
+                    Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+                    delta.y += verticalOffset;
+                    Vector3 destination = new Vector3(transform.position.x, transform.position.y + delta.y, transform.position.z);
+                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                    if (this.transform.rotation.z == 0) {
+                        if (HAnchorSide() == true) { //west anchor
+                            if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) > Vector2.Distance(target.position, eastAnchor.transform.position)) {
+                                Debug.Log("Unanchored");
+                                DampOutOnUnAnchor();
+                                anchorVertical = false;
+                            }
+                        }
+                        else { //east anchor
+                            if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) < Vector2.Distance(target.position, eastAnchor.transform.position)) {
+                                Debug.Log("Unanchored");
+                                DampOutOnUnAnchor();
+                                anchorVertical = false;
+                            }
+                        }
+                    }else { //rotation z == 180
+                        if (HAnchorSide() == true) { //east anchor
+                            if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) > Vector2.Distance(target.position, westAnchor.transform.position)) {
+                                Debug.Log("Unanchored");
+                                DampOutOnUnAnchor();
+                                anchorVertical = false;
+                            }
+                        }
+                        else { //west anchor
+                            if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) < Vector2.Distance(target.position, westAnchor.transform.position)) {
+                                Debug.Log("Unanchored");
+                                DampOutOnUnAnchor();
+                                anchorVertical = false;
+                            }
+                        }
+                    }
                 }
 
                 if (anchorHorziontal == true) {
@@ -254,17 +304,17 @@ public class CameraFollow : MonoBehaviour {
                     Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
                     Vector3 destination = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
                     transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-                    if (VAnchorSide() == true) { //north anchor
+
+                    if (this.transform.rotation.z == 0) { //north anchor
                         if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 0.6f) {
                             Debug.Log("Unanchored");
-                            //DampOutOnUnAnchor();
                             anchorHorziontal = false;
                         }
-                    }
-                    else { //south anchor
-                        Debug.Log("Unanchored");
-                        //DampOutOnUnAnchor();
-                        anchorHorziontal = false;
+                    } else { //south anchor
+                        if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 0.6f) {
+                            Debug.Log("Unanchored");
+                            anchorHorziontal = false;
+                        }
                     }
                 }
             }
@@ -292,12 +342,6 @@ public class CameraFollow : MonoBehaviour {
 		}
 	}
 
-    private bool VAnchorSide() { //true - north , false - south
-        //float distanceToNorth = Vector2.Distance(target.position, northWall.position);
-        //float distanceToSouth = Vector2.Distance(target.position, southWall.position);
-        return true;
-    }
-
 
     private void DampOutOnUnAnchor(){
 		Vector3 point = Camera.main.WorldToViewportPoint (target.position);
@@ -305,6 +349,18 @@ public class CameraFollow : MonoBehaviour {
 		Vector3 destination = transform.position + delta;
 		transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, 0.9f);
 	}
+
+
+    private void SetActiveHorizontalObjects() {
+        if (transform.rotation.z == 0) {
+            northCameraObject.SetActive(true);
+            southCameraObject.SetActive(false);
+        }
+        else { // z == +- 180
+            northCameraObject.SetActive(false);
+            southCameraObject.SetActive(true);
+        }
+    }
 
     private void autoFix() {
         /*if (westCameraBoxCollider.IsTouching(westWall.gameObject.GetComponent<BoxCollider2D>())) {
