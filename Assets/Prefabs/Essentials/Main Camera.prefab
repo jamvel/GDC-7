@@ -205,7 +205,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010590164280}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162ef0a6d87c22241bc92a56e119800c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cb8fe1b44f6ced40bfdbd820ea735f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _selectedColorBlindType: 1
