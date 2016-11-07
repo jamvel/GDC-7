@@ -3844,6 +3844,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 384970986}
+  - 65: {fileID: 384970987}
   m_Layer: 0
   m_Name: Camera_Walls
   m_TagString: Untagged
@@ -3867,6 +3868,18 @@ Transform:
   - {fileID: 1758376647}
   m_Father: {fileID: 1112939406}
   m_RootOrder: 1
+--- !u!65 &384970987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384970985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &396501877
 Prefab:
   m_ObjectHideFlags: 0
@@ -4374,7 +4387,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012051115944, guid: b2019439e177b8b4084be7f3a72d9014, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4000012051115944, guid: b2019439e177b8b4084be7f3a72d9014, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4601,9 +4614,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: bcacf39fa58fa400e840cffe085e5ddd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 12.268436, y: 0.48058403}
+  m_Offset: {x: 12.26672, y: 0.48828363}
   serializedVersion: 2
-  m_Size: {x: 1.0020008, y: 0.28247988}
+  m_Size: {x: 0.97856903, y: 0.25904703}
 --- !u!1001 &432571295
 Prefab:
   m_ObjectHideFlags: 0
@@ -14301,6 +14314,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1307667800}
+  - 61: {fileID: 1307667801}
   m_Layer: 0
   m_Name: Platform_4
   m_TagString: Untagged
@@ -14322,6 +14336,20 @@ Transform:
   - {fileID: 746048717}
   m_Father: {fileID: 1483440950}
   m_RootOrder: 3
+--- !u!61 &1307667801
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307667799}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: bcacf39fa58fa400e840cffe085e5ddd, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 19.63469, y: -1.3478857}
+  serializedVersion: 2
+  m_Size: {x: 0.9843292, y: 0.27256835}
 --- !u!4 &1313754368 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011497006042, guid: 12b37bc114853c045aa3dd29a96af145,
@@ -19851,9 +19879,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: bcacf39fa58fa400e840cffe085e5ddd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 9.70779, y: 1.9382637}
+  m_Offset: {x: 9.700001, y: 1.9592088}
   serializedVersion: 2
-  m_Size: {x: 1.9983845, y: 0.28255415}
+  m_Size: {x: 1.9983845, y: 0.25117612}
 --- !u!4 &1808834848 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011497006042, guid: 12b37bc114853c045aa3dd29a96af145,
