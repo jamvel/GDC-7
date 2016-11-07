@@ -25,6 +25,9 @@ public class FlyingEnemyAI : MonoBehaviour {
     private Rigidbody2D rigidBody;
     private Animator animator;
 
+    private EmmiterVector ev_fireball;
+
+
     public float movementSpeed = 0.8f;
     public float projectileRange;
     public float dashRange;
@@ -40,6 +43,8 @@ public class FlyingEnemyAI : MonoBehaviour {
     private bool isChasing;
     private bool isAttacking;
 
+    private bool direct;
+
     private float time;
     private int currentPos = 0;
 
@@ -52,6 +57,7 @@ public class FlyingEnemyAI : MonoBehaviour {
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
+        ev_fireball = emmiterFireball.GetComponent<EmmiterVector>();
         time = 0;
         currentPosition = possiblePositions[0];
     }
@@ -71,6 +77,7 @@ public class FlyingEnemyAI : MonoBehaviour {
                 //shoot projectiles
                 isChasing = false;
                 isAttacking = false;
+                Debug.Log("Distance:" + distanceToPlayer);
                 //dont move and shoot projectile
                 shootProjectile();
             } else if ((distanceToPlayer <= dashRange) && (distanceToPlayer > enemyStopDistance)) {
@@ -97,8 +104,14 @@ public class FlyingEnemyAI : MonoBehaviour {
                 movement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
-                //shootProjectile();
+                shootProjectile();
             }
+        }
+        var relativePoint = transform.InverseTransformPoint(target.position);
+        if (relativePoint.x < 0.0) {//chasing to the left
+            direct = false;
+        } else {//chaing to the right
+            direct = true;
         }
         animatorSetting();
 
@@ -202,16 +215,23 @@ public class FlyingEnemyAI : MonoBehaviour {
         if (Time.time > nextFire) {
             nextFire = Time.time + fireRate;
 
-            fireball.GetComponent<Projectile>().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector>().directionVector; //speed + dir
-            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, emmiterFireball.GetComponent<Transform>().rotation);
+            //fireball.GetComponent<Projectile>().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector>().directionVector; //speed + dir
+            //Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, emmiterFireball.GetComponent<Transform>().rotation);
 
-            //Shoot = Instantiate(fireball, transform.position, transform.rotation);
-            //Shoot.AddForce(transform.forward * 5000);
-
-            //clone = Instantiate(projectile, transform.position, transform.rotation);
-            //clone.velocity = transform.TransformDirection(Vector3(0, 0, speed));
+            //need to rotate the projectile to the direciton of the player
+            if (direct) {
+                    ev_fireball.directionVector = new Vector2(1, 0);
+                    fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                    //Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                    Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
+                } else {
+                    ev_fireball.directionVector = new Vector2(-1, 0);
+                    fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                    //Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                    Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
+                }
+            }
         }
-    }
 
     public void dashToPlayer(Transform objective) {
         float step = movementSpeed * Time.deltaTime;
