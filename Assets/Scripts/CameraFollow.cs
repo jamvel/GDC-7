@@ -93,7 +93,7 @@ public class CameraFollow : MonoBehaviour {
 		westCameraObject.AddComponent<CameraColliders> ();
         westCameraObject.GetComponent<CameraColliders>().isVertical = true;
 
-		westCameraBoxCollider = westCameraObject.AddComponent<BoxCollider2D> ();
+        westCameraBoxCollider = westCameraObject.AddComponent<BoxCollider2D> ();
 		westCameraBoxCollider.size = new Vector2 (0.1f, Camera.main.orthographicSize * 2f-0.3f);
 		westCameraBoxCollider.offset = new Vector2 (-hCameraSnapOffset, 0);
 		westCameraBoxCollider.isTrigger = true;
@@ -322,7 +322,10 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	public void Anchor(BoxCollider2D temp , string anchorType){
-		if(anchorType == "horizontal"){
+        if (Vector2.Distance(this.gameObject.transform.position, target.transform.position) > 4.0f || Vector2.Distance(this.gameObject.transform.position, target.transform.position) < -4.0f) {
+            return;
+        }
+        if (anchorType == "horizontal"){
             this.anchorHorziontal = true;
 		}else if(anchorType == "vertical"){
             this.anchorVertical = true;
@@ -331,6 +334,18 @@ public class CameraFollow : MonoBehaviour {
 		}
 
 	}
+
+    public void MoveCameraTo(Vector3 newpos) {
+        lockCamera = true;
+        this.gameObject.transform.position = newpos;
+        lockCamera = false;
+    }
+
+    public void UnAnchorCamera() {
+        if(anchorVertical== true) {
+            anchorVertical = false;
+        }
+    }
 
 	private bool HAnchorSide(){ //true - west , false - east
 		float distanceToWest = Vector2.Distance (target.position, westWall.position);
