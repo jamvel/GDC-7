@@ -5502,7 +5502,7 @@ MonoBehaviour:
     m_Bits: 256
   speed: 1
   inChasingDistance: 1.25
-  enemyStopDistance: 0.45
+  enemyStopDistance: 0.35
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
   enemyWalkAgain: 1

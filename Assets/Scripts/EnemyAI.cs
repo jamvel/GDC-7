@@ -94,7 +94,7 @@ public class EnemyAI : MonoBehaviour
                 patrol();
              } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
-                currentWaitTime = 300;
+                currentWaitTime = 225;
                 isWalking = true;
                 isChasing = true;
                 searchingPlayer = true;
