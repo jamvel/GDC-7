@@ -1228,7 +1228,7 @@ MonoBehaviour:
   enemyWalkAgain: 1
   effects:
   - {fileID: 8300000, guid: 72d2b145ec0d41143860ed6b927aa77d, type: 3}
-  - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
+  - {fileID: 8300000, guid: d0444c060a21ebf46aa7b3337621ff96, type: 3}
   enableAudio: 1
 --- !u!212 &495600079
 SpriteRenderer:
@@ -1304,7 +1304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &495874183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   enemyWalkAgain: 1
   effects:
   - {fileID: 8300000, guid: 49a464bc336438745851c4451e04a0e9, type: 3}
-  - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
+  - {fileID: 8300000, guid: e6b0b42a3c5324646806ccbf5a8cfbf2, type: 3}
   enableAudio: 1
 --- !u!212 &672626025
 SpriteRenderer:
@@ -2334,7 +2334,7 @@ RectTransform:
   m_Father: {fileID: 1632953076}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4446,7 +4446,7 @@ RectTransform:
   m_Father: {fileID: 1792212454}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5397,7 +5397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1812799019
 Transform:
   m_ObjectHideFlags: 0
@@ -5508,7 +5508,7 @@ MonoBehaviour:
   enemyWalkAgain: 1
   effects:
   - {fileID: 8300000, guid: 051ed6ad91f99e14d986528b3cf13644, type: 3}
-  - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
+  - {fileID: 8300000, guid: 2471d6cca9425cf448efab3bcea1a574, type: 3}
   enableAudio: 1
 --- !u!212 &1812799025
 SpriteRenderer:
@@ -5926,7 +5926,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d5a28c431ba0f9f4db772bb82bde71b7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f92be4e90faf3a14db793b4448e8119b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
