@@ -27,7 +27,6 @@ public class FlyingEnemyAI : MonoBehaviour {
 
     private EmmiterVector ev_fireball;
 
-
     public float movementSpeed = 0.8f;
     public float projectileRange;
     public float dashRange;
@@ -52,6 +51,7 @@ public class FlyingEnemyAI : MonoBehaviour {
     private Vector3 previousPosition;
     private Vector3 currentPosition;
     private Vector2 tempPosition;
+    private GameObject emitter;
 
     void Start() {
         animator = this.GetComponent<Animator>();
@@ -60,6 +60,7 @@ public class FlyingEnemyAI : MonoBehaviour {
         ev_fireball = emmiterFireball.GetComponent<EmmiterVector>();
         time = 0;
         currentPosition = possiblePositions[0];
+        emitter = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
     }
 
     void Update() {
@@ -218,7 +219,18 @@ public class FlyingEnemyAI : MonoBehaviour {
             //fireball.GetComponent<Projectile>().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector>().directionVector; //speed + dir
             //Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, emmiterFireball.GetComponent<Transform>().rotation);
 
+            /*
             //need to rotate the projectile to the direciton of the player
+            var lookPos = target.position - transform.position;
+            var rotation = Quaternion.LookRotation(lookPos);
+            float angle = rotation.eulerAngles.z;
+            if ((angle > 35) && (angle < 90)) {
+                rotation.z = 0.2025f;// change 30 to quaternion
+            } else if ((angle < 325) && (angle > 270)) {
+                rotation.z = -0.2025f;// change -30 to quaternion
+            }
+            */
+
             if (direct) {
                     ev_fireball.directionVector = new Vector2(1, 0);
                     fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
