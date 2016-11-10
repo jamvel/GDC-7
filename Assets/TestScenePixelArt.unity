@@ -763,7 +763,7 @@ RectTransform:
   m_Father: {fileID: 62399706}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1136,7 +1136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &495600074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,8 +1149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 100
+  maxHealth: 100
+  currentHealth: 100
+  health: 100
+  damage: 20
 --- !u!95 &495600075
 Animator:
   serializedVersion: 3
@@ -1317,6 +1319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
   health: 0
   damage: 0
 --- !u!95 &495874184
@@ -1886,6 +1890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
   health: 0
   damage: 0
 --- !u!95 &672626021
@@ -2453,7 +2459,7 @@ GameObject:
   - 114: {fileID: 948606826}
   - 223: {fileID: 948606825}
   m_Layer: 12
-  m_Name: Enemy Health Bar
+  m_Name: Enemy_Health_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3904,6 +3910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
   health: 0
   damage: 100
 --- !u!1 &1289232511
@@ -5298,6 +5306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
   health: 0
   damage: 0
 --- !u!95 &1812799021
