@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
 
     private Animator animator;
 
-    private Vector2 startCoordinates;
+    //private Vector2 startCoordinates;
     private Vector2 currentPosition;
     private Vector2 higherLeftBound;
     private Vector2 higherRightBound;
@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour
         higherLeftBound = new Vector2 (leftBound.position.x, leftBound.position.y+0.5f);
         higherRightBound = new Vector2(rightBound.position.x, rightBound.position.y+0.5f);
 
-        startCoordinates = GetComponent<Transform>().position;
+        //startCoordinates = GetComponent<Transform>().position;
 
 		if(effects.Length > 0 && enableAudio == true){
 			skelwalk = gameObject.AddComponent<AudioSource>();

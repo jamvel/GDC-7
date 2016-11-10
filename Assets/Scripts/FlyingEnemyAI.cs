@@ -60,7 +60,7 @@ public class FlyingEnemyAI : MonoBehaviour {
         ev_fireball = emmiterFireball.GetComponent<EmmiterVector>();
         time = 0;
         currentPosition = possiblePositions[0];
-        emitter = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+        emitter = this.gameObject.transform.GetChild(0).gameObject;
     }
 
     void Update() {
@@ -78,7 +78,6 @@ public class FlyingEnemyAI : MonoBehaviour {
                 //shoot projectiles
                 isChasing = false;
                 isAttacking = false;
-                Debug.Log("Distance:" + distanceToPlayer);
                 //dont move and shoot projectile
                 shootProjectile();
             } else if ((distanceToPlayer <= dashRange) && (distanceToPlayer > enemyStopDistance)) {
@@ -216,34 +215,21 @@ public class FlyingEnemyAI : MonoBehaviour {
         if (Time.time > nextFire) {
             nextFire = Time.time + fireRate;
 
-            //fireball.GetComponent<Projectile>().velocityVector = fireballVector + emmiterFireball.GetComponent<EmmiterVector>().directionVector; //speed + dir
-            //Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, emmiterFireball.GetComponent<Transform>().rotation);
-
-            /*
-            //need to rotate the projectile to the direciton of the player
-            var lookPos = target.position - transform.position;
-            var rotation = Quaternion.LookRotation(lookPos);
-            float angle = rotation.eulerAngles.z;
-            if ((angle > 35) && (angle < 90)) {
-                rotation.z = 0.2025f;// change 30 to quaternion
-            } else if ((angle < 325) && (angle > 270)) {
-                rotation.z = -0.2025f;// change -30 to quaternion
-            }
-            */
+            //speed currently dynamically changing
+            var lookPosX = target.position.x - transform.position.x;
+            var lookPosY = target.position.y - transform.position.y;
 
             if (direct) {
-                    ev_fireball.directionVector = new Vector2(1, 0);
-                    fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-                    //Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
-                    Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
-                } else {
-                    ev_fireball.directionVector = new Vector2(-1, 0);
-                    fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-                    //Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
-                    Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
-                }
+                ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
+                fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir       
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z));
+            } else {
+                ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
+                fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, -transform.rotation.eulerAngles.z));
             }
         }
+    }
 
     public void dashToPlayer(Transform objective) {
         float step = movementSpeed * Time.deltaTime;
