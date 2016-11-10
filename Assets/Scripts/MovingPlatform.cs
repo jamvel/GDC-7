@@ -11,11 +11,15 @@ public class MovingPlatform : MonoBehaviour {
 
     private bool movingLeft = false;
 
-    
+
+    public Rigidbody2D rigidbody;
+
     // Use this for initialization
     void Start () {
 
-	}
+      //  rigidbody = this.GetComponent<Rigidbody2D>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,8 +72,14 @@ public class MovingPlatform : MonoBehaviour {
     }
 
     public void movePlatform(Transform objective) {
+
         float step = speedOfPlatform * Time.deltaTime;
+        //rigidbody.AddForce(transform.position, ForceMode.Acceleration);
+        //rigidbody.AddForce(Vector2.right);
+        //rigidbody.MovePosition(transform.position + transform.forward);
+        //transform.Translate(Vector3.forward * Time.deltaTime);
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+        //Debug.Log("write something here");
     }
 
     public void OnCollisionStay2D(Collision2D col) {
