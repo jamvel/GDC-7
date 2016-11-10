@@ -3918,6 +3918,7 @@ GameObject:
   - 212: {fileID: 1289232513}
   - 61: {fileID: 1289232512}
   - 114: {fileID: 1289232515}
+  - 50: {fileID: 1289232516}
   m_Layer: 10
   m_Name: Moving Platform
   m_TagString: Untagged
@@ -4000,6 +4001,24 @@ MonoBehaviour:
   rightBound: {fileID: 53883211}
   precisionOfPlatformToBounds: 0.35
   speedOfPlatform: 1.5
+  rigidbody: {fileID: 0}
+--- !u!50 &1289232516
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289232511}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1292574508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,7 +6158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2039709405
 Transform:
   m_ObjectHideFlags: 0
