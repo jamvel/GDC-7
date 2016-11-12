@@ -37,7 +37,7 @@ GameObject:
   - 61: {fileID: 61000010289001426}
   - 114: {fileID: 114000012052459876}
   m_Layer: 0
-  m_Name: Node_E
+  m_Name: NodeE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
