@@ -12,13 +12,11 @@ public class MovingPlatform : MonoBehaviour {
     private bool movingLeft = false;
 
 
-    public Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbody;
 
     // Use this for initialization
     void Start () {
-
         rigidbody = this.GetComponent<Rigidbody2D>();
-
     }
 	
 	// Update is called once per frame
