@@ -17,7 +17,7 @@ public class MovingPlatform : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-      //  rigidbody = this.GetComponent<Rigidbody2D>();
+        rigidbody = this.GetComponent<Rigidbody2D>();
 
     }
 	
@@ -76,9 +76,13 @@ public class MovingPlatform : MonoBehaviour {
         float step = speedOfPlatform * Time.deltaTime;
         //rigidbody.AddForce(transform.position, ForceMode.Acceleration);
         //rigidbody.AddForce(Vector2.right);
+
+        transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+        rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime);
+
         //rigidbody.MovePosition(transform.position + transform.forward);
         //transform.Translate(Vector3.forward * Time.deltaTime);
-        transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+        //transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
         //Debug.Log("write something here");
     }
 
