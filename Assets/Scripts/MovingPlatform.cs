@@ -71,11 +71,14 @@ public class MovingPlatform : MonoBehaviour {
 
     public void movePlatform(Transform objective) {
 
-        float step = speedOfPlatform * Time.deltaTime;
+        //float step = speedOfPlatform * Time.deltaTime;
         //rigidbody.AddForce(transform.position, ForceMode.Acceleration);
         //rigidbody.AddForce(Vector2.right);
 
-        transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+        float step = speedOfPlatform * Time.smoothDeltaTime;
+
+        //transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+        transform.position = Vector2.Lerp(transform.position, objective.position, step);
         rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime);
 
         //rigidbody.MovePosition(transform.position + transform.forward);
