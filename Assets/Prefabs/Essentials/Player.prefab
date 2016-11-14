@@ -73,6 +73,7 @@ GameObject:
   - 61: {fileID: 61000012386920738}
   - 95: {fileID: 95000010395649984}
   - 114: {fileID: 114000010044765022}
+  - 58: {fileID: 58000014180822284}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -181,8 +182,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011405945804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: -1.086, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.07, y: -3.42, z: 0}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013838203664}
@@ -254,7 +255,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010278324248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.218, y: -0.651, z: 0}
+  m_LocalPosition: {x: -0.104, y: -0.564, z: 0}
   m_LocalScale: {x: 1.1363636, y: 1.1363636, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -267,7 +268,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012473745812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.219, y: -0.648, z: 0}
+  m_LocalPosition: {x: 0.065, y: -0.554, z: 0}
   m_LocalScale: {x: 1.1363636, y: 1.1363636, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -290,6 +291,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58000014180822284
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011405945804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.03, y: -0.4}
+  serializedVersion: 2
+  m_Radius: 0.13638054
 --- !u!61 &61000011098868502
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -299,11 +314,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.082867146, y: -0.06577551}
+  m_Offset: {x: 0.08286701, y: -0.07098292}
   serializedVersion: 2
-  m_Size: {x: 0.014818035, y: 0.84215605}
+  m_Size: {x: 0.022848897, y: 0.86200297}
 --- !u!61 &61000012386920738
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -315,9 +330,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.03872324, y: -0.06523407}
+  m_Offset: {x: -0.033050604, y: -0.005083254}
   serializedVersion: 2
-  m_Size: {x: 0.28795, y: 0.84}
+  m_Size: {x: 0.19659548, y: 0.7055591}
 --- !u!61 &61000012757860816
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -327,11 +342,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.16255689, y: -0.0681299}
+  m_Offset: {x: -0.16255684, y: -0.06913219}
   serializedVersion: 2
-  m_Size: {x: 0.022848904, y: 0.8307581}
+  m_Size: {x: 0.02284891, y: 0.8287531}
 --- !u!61 &61000014217401224
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -377,11 +392,15 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   mana: 100
+  coins: 0
   UI_Canvas: {fileID: 0}
+  fireball_1: 0
   grunts:
   - {fileID: 8300000, guid: c245df87fccec3a4fa9653c7fb08d67f, type: 3}
   - {fileID: 8300000, guid: 701d1391f5a40f8449769dd35345f99d, type: 3}
+  coin: []
   grunt: {fileID: 0}
+  coinsound: {fileID: 0}
 --- !u!114 &114000010199142014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -401,6 +420,8 @@ MonoBehaviour:
   tagGroundLeft: {fileID: 1000010278324248}
   tagGroundRight: {fileID: 1000012473745812}
   airControl: 1
+  invertedControls: 0
+  isFalling: 0
   effects:
   - {fileID: 8300000, guid: 7f347333001d9d643b7667cec3b967e4, type: 3}
   - {fileID: 8300000, guid: 6a6b29eeaf0cda64eb7eb2d3cea7b4bd, type: 3}
@@ -410,6 +431,7 @@ MonoBehaviour:
   enableAudio: 1
   fireball: {fileID: 1000013017164654, guid: bdfee4ab6a1fe45ed907ec92fd269d98, type: 2}
   emmiterFireball: {fileID: 1000013241347714}
+  isGround: 0
 --- !u!114 &114000011664532062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -507,7 +529,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1859086223
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6bc6621b765c0ee4a8e33ba6c91153e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

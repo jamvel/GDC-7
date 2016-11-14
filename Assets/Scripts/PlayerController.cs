@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject tagGroundLeft,tagGroundRight;
 	public bool airControl = true;
     public bool invertedControls = false;
+    public bool isFalling = false;
 
 	public AudioClip[] effects;
     private AudioSource walk, sword, ballfire;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     private EmmiterVector ev_fireball;
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
-    private bool isGround = false;
+    public bool isGround = false;
     private bool toLand = false;
     private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
@@ -54,7 +55,14 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
         //Horizontal Movement
-        if(!isGround){
+        if (playerRigidBody.velocity.y < -0.5) {
+            isFalling = true;
+        }
+        else {
+            isFalling = false;
+        }
+
+        if (!isGround){
             toLand = true;
         }
 

@@ -12,15 +12,15 @@ public class MovingPlatform : MonoBehaviour {
     private bool movingLeft = false;
 
 
-    private Rigidbody2D rigidbody;
+    //private Rigidbody2D rigidbody;
 
     // Use this for initialization
     void Start () {
-        rigidbody = this.GetComponent<Rigidbody2D>();
+        //rigidbody = this.GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (movingLeft) {
             if (checkBoundDistance(leftBound)) {
                 //start walking to the right
@@ -71,19 +71,19 @@ public class MovingPlatform : MonoBehaviour {
 
     public void movePlatform(Transform objective) {
 
-        //float step = speedOfPlatform * Time.deltaTime;
+        float step = speedOfPlatform * Time.deltaTime;
         //rigidbody.AddForce(transform.position, ForceMode.Acceleration);
         //rigidbody.AddForce(Vector2.right);
 
-        float step = speedOfPlatform * Time.smoothDeltaTime;
+        //float step = speedOfPlatform * Time.smoothDeltaTime;
 
         //transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
-        transform.position = Vector2.Lerp(transform.position, objective.position, step);
-        rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime);
+       // transform.position = Vector2.Lerp(transform.position, objective.position, step);
+        //rigidbody.MovePosition(transform.position + Vector3.forward * Time.deltaTime);
 
         //rigidbody.MovePosition(transform.position + transform.forward);
         //transform.Translate(Vector3.forward * Time.deltaTime);
-        //transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+        transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
         //Debug.Log("write something here");
     }
 

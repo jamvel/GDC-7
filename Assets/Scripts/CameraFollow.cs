@@ -7,10 +7,13 @@ public class CameraFollow : MonoBehaviour {
 	public float hCameraSnapOffset = 2.5f;
 	public float vCameraSnapOffset = 2.5f;
 	public float dampTime = 0.15f;
+    public float dampTime2 = 0.45f;
 	public float verticalOffset = 0f;
-	public bool lockCamera = false;
+    public float deltaY = 1f;
+    public bool lockCamera = false;
     public Transform target;
-    public Transform westWall, eastWall, northWall;
+    public Transform westWall, eastWall;
+   
 
 	[HideInInspector]public bool isAnchored = false;
 
@@ -24,8 +27,15 @@ public class CameraFollow : MonoBehaviour {
     private Quaternion currentRotation;
     private bool anchorHorziontal = false;
     private bool anchorVertical = false;// true - horizontal , false - vertical
+    private PlayerController pc;
+    private float lastVerticalOffset;
+    private RaycastHit2D hit;
+    private LayerMask hitMask;
+    private Vector3 hitVector;
+    private Transform refGround;
+    private GameObject platform;
 
-	void Awake(){
+    void Awake(){
 		//init checks
 		if(LayerMask.NameToLayer("Camera") == -1){
 			Debug.LogError ("Layer 'Camera' not found");
@@ -38,18 +48,23 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	void Start(){
+        pc = target.GetComponent<PlayerController>();
+        hitMask = pc.playerMask;
+
         currentRotation = this.transform.rotation;
 
         tagAnchor = target.transform.Find("tag_anchor");
 		tagAnchor.position = new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY);
 
-		/*
+        
+
+        /*
 		 * 
 		 * Camera Anchors
 		 * 
 		 */
 
-		anchors = new GameObject ("AnchorsParent");
+        anchors = new GameObject ("AnchorsParent");
 		anchors.transform.parent = Camera.main.transform;
 
 		westAnchor = new GameObject ("WestAnchor");
@@ -71,8 +86,8 @@ public class CameraFollow : MonoBehaviour {
 		southAnchor.transform.position = Camera.main.ScreenToWorldPoint (new Vector2 (relativePosition.x, 0));
 
 
-		//Camera Object Parents
-		parentObject = new GameObject("Parent");
+        //Camera Object Parents
+        parentObject = new GameObject("Parent");
 		parentObject.transform.parent = Camera.main.transform;
 
 		/**
@@ -176,18 +191,32 @@ public class CameraFollow : MonoBehaviour {
         southCameraBoxCollider.isTrigger = true;
         southCameraBoxCollider.enabled = true;
         southCameraObject.SetActive(false);
+
+        transform.position = new Vector3(tagAnchor.position.x, tagAnchor.position.y + verticalOffset, transform.position.z);
+        lastVerticalOffset = verticalOffset;
+
     }
 
     // Update is called once per frame
     void Update (){
+        hit = Physics2D.Raycast(target.position, -Vector2.up,Mathf.Infinity,hitMask);
+        if (hit.transform != null) { //update hit vector if tag is not lava or spikes
+            hitVector = new Vector3(hit.point.x, hit.point.y, transform.position.z);
+        }
+
         //set active horizontal objects north or south
         if(this.transform.rotation != currentRotation) {
             currentRotation = this.transform.rotation;
             SetActiveHorizontalObjects();
         }
-        
-		//Update Anchor Positions
-		relativePosition = Camera.main.WorldToScreenPoint(new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY));
+
+        if(lastVerticalOffset != verticalOffset) {
+            transform.position = new Vector3(tagAnchor.position.x, tagAnchor.position.y + verticalOffset, transform.position.z);
+            lastVerticalOffset = verticalOffset;
+        }
+
+        //Update Anchor Positions
+        relativePosition = Camera.main.WorldToScreenPoint(new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY));
 		tagAnchor.position = new Vector2 (target.position.x+vAnchorColliderOffsetX, target.position.y+hAnchorColliderOffsetY);
 
 		westAnchor.transform.position = Camera.main.ScreenToWorldPoint (new Vector2 (0, relativePosition.y));
@@ -195,20 +224,53 @@ public class CameraFollow : MonoBehaviour {
 		northAnchor.transform.position = Camera.main.ScreenToWorldPoint (new Vector2 (relativePosition.x, Screen.height));
 		southAnchor.transform.position = Camera.main.ScreenToWorldPoint (new Vector2 (relativePosition.x, 0));
 
-		Debug.DrawLine(tagAnchor.position,westAnchor.transform.position);
+        Debug.DrawLine(tagAnchor.position,westAnchor.transform.position);
 		Debug.DrawLine(tagAnchor.position,eastAnchor.transform.position);
 		Debug.DrawLine(tagAnchor.position,northAnchor.transform.position);
 		Debug.DrawLine(tagAnchor.position,southAnchor.transform.position);
 
+
 		if (!(anchorVertical || anchorHorziontal) && !lockCamera) {
-			if (target) {
-				Vector3 point = Camera.main.WorldToViewportPoint (target.position);
-				Vector3 delta = target.position - Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, point.z));
-				delta.y += verticalOffset;
-				Vector3 destination = transform.position + delta;
-				transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, dampTime);
-			}
-		}
+            if (refGround == null) {
+                refGround = hit.transform;
+            }
+
+            if(hit.transform != null) { //update platform if tag is not lava or spikes
+                platform = hit.transform.gameObject;
+            }
+
+
+            if (transform.position != hitVector && hit.transform != null) {
+                Vector3 delta = hitVector - transform.position;
+                if (!pc.isGround && !pc.isFalling) {
+                    Vector3 destination = new Vector3(hitVector.x + delta.x, transform.position.y, transform.position.z);
+                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                }else{
+                    if(hit.transform.gameObject.tag == "Lava") {
+                        if (hit.distance < 2.0f) {
+                            Vector3 destination = new Vector3(hitVector.x + delta.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                            refGround = hit.transform;
+                        }
+                        else { }
+                    }else {
+                        if(platform.GetComponent<MovingPlatform>() != null) {
+                            Vector3 destination = new Vector3(hitVector.x + delta.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity,dampTime2);
+                            refGround = hit.transform;
+                        }else {
+                            Vector3 destination = new Vector3(hitVector.x + delta.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                            refGround = hit.transform;
+                        }
+                        
+                    }
+                    
+                   // Debug.Log(refGround.transform.position.y);
+                }
+            }
+
+        }
 
         if (anchorVertical || anchorHorziontal){
             if(anchorVertical && anchorHorziontal) {
@@ -261,11 +323,38 @@ public class CameraFollow : MonoBehaviour {
 
             }else{
                 if (anchorVertical == true) {
-                    Vector3 point = Camera.main.WorldToViewportPoint(target.position);
-                    Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-                    delta.y += verticalOffset;
-                    Vector3 destination = new Vector3(transform.position.x, transform.position.y + delta.y, transform.position.z);
-                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                    if (transform.position != hitVector && hit.transform != null) {
+                        Vector3 delta = hitVector - transform.position;
+                        if (!pc.isGround && !pc.isFalling) {
+                            Vector3 destination = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                        }
+                        else {
+                            if (hit.transform.gameObject.tag == "Lava") {
+                                if (hit.distance < 2.0f) {
+                                    Vector3 destination = new Vector3(transform.position.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                                    refGround = hit.transform;
+                                }
+                                else { }
+                            }
+                            else {
+                                if (platform.GetComponent<MovingPlatform>() != null) {
+                                    Vector3 destination = new Vector3(transform.position.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime2);
+                                    refGround = hit.transform;
+                                }
+                                else {
+                                    Vector3 destination = new Vector3(transform.position.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                                    refGround = hit.transform;
+                                }
+
+                            }
+
+                        }
+                    }
+
                     if (this.transform.rotation.z == 0) {
                         if (HAnchorSide() == true) { //west anchor
                             if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) > Vector2.Distance(target.position, eastAnchor.transform.position)) {
@@ -300,18 +389,45 @@ public class CameraFollow : MonoBehaviour {
                 }
 
                 if (anchorHorziontal == true) {
-                    Vector3 point = Camera.main.WorldToViewportPoint(target.position);
-                    Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-                    Vector3 destination = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
-                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                    if (transform.position != hitVector && hit.transform != null) {
+                        Vector3 delta = hitVector - transform.position;
+                        if (!pc.isGround && !pc.isFalling) {
+                            Vector3 destination = new Vector3(hitVector.x + delta.x, transform.position.y, transform.position.z);
+                            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                        }
+                        else {
+                            if (hit.transform.gameObject.tag == "Lava") {
+                                if (hit.distance < 2.0f) {
+                                    Vector3 destination = new Vector3(hitVector.x + delta.x, transform.position.y, transform.position.z);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                                    refGround = hit.transform;
+                                }
+                                else { }
+                            }
+                            else {
+                                if (platform.GetComponent<MovingPlatform>() != null) {
+                                    Vector3 destination = new Vector3(hitVector.x + delta.x, transform.position.y, transform.position.z);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime2);
+                                    refGround = hit.transform;
+                                }
+                                else {
+                                    Vector3 destination = new Vector3(hitVector.x + delta.x, transform.position.y, transform.position.z);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+                                    refGround = hit.transform;
+                                }
+
+                            }
+
+                        }
+                    }
 
                     if (this.transform.rotation.z == 0) { //north anchor
-                        if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 0.6f) {
+                        if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 1.5f) {
                             Debug.Log("Unanchored");
                             anchorHorziontal = false;
                         }
                     } else { //south anchor
-                        if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 0.6f) {
+                        if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 1.5f) {
                             Debug.Log("Unanchored");
                             anchorHorziontal = false;
                         }

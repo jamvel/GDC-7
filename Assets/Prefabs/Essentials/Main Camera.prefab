@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010590164280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.792, y: -3.08, z: -10}
+  m_LocalPosition: {x: 5.11, y: -1.98, z: -10}
   m_LocalScale: {x: 0.58711624, y: 0.6094438, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -95,7 +95,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 1.65
+  orthographic size: 2.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb8fe1b44f6ced40bfdbd820ea735f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedColorBlindType: 1
+  _selectedColorBlindType: 0
 --- !u!114 &114000013797863342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,13 +224,14 @@ MonoBehaviour:
   hAnchorColliderOffsetY: 0
   hCameraSnapOffset: 0
   vCameraSnapOffset: 0
-  dampTime: 0.15
-  verticalOffset: 0.6
+  dampTime: 0.45
+  dampTime2: 2.5
+  verticalOffset: 2.8
+  deltaY: 1.5
   lockCamera: 0
   target: {fileID: 0}
   westWall: {fileID: 0}
   eastWall: {fileID: 0}
-  northWall: {fileID: 0}
   isAnchored: 0
 --- !u!124 &124000013751579846
 Behaviour:
