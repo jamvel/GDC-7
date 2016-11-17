@@ -202,6 +202,7 @@ public class CameraFollow : MonoBehaviour {
         hit = Physics2D.Raycast(target.position, -Vector2.up,Mathf.Infinity,hitMask);
         if (hit.transform != null) { //update hit vector if tag is not lava or spikes
             hitVector = new Vector3(hit.point.x, hit.point.y, transform.position.z);
+            //Debug.Log(hit.transform.gameObject);
         }
 
         //set active horizontal objects north or south
@@ -229,17 +230,15 @@ public class CameraFollow : MonoBehaviour {
 		Debug.DrawLine(tagAnchor.position,northAnchor.transform.position);
 		Debug.DrawLine(tagAnchor.position,southAnchor.transform.position);
 
+        if (refGround == null) {
+            refGround = hit.transform;
+        }
 
-		if (!(anchorVertical || anchorHorziontal) && !lockCamera) {
-            if (refGround == null) {
-                refGround = hit.transform;
-            }
+        if (hit.transform != null) { //update platform if tag is not lava or spikes
+            platform = hit.transform.gameObject;
+        }
 
-            if(hit.transform != null) { //update platform if tag is not lava or spikes
-                platform = hit.transform.gameObject;
-            }
-
-
+        if (!(anchorVertical || anchorHorziontal) && !lockCamera) {
             if (transform.position != hitVector && hit.transform != null) {
                 Vector3 delta = hitVector - transform.position;
                 if (!pc.isGround && !pc.isFalling) {
