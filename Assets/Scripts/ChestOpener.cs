@@ -3,10 +3,13 @@ using System.Collections;
 
 public class ChestOpener : MonoBehaviour {
 
+    public int numberOfCoins = 1;
     public Transform leftMost;
     public Transform rightMost;
     public LayerMask playerMask;
+    public GameObject coin;
 
+    private EmmiterVector emmiterCoin;
     private Animator animator;
     private bool isOpen = false;
     public AudioClip open;
@@ -16,6 +19,7 @@ public class ChestOpener : MonoBehaviour {
         animator = this.GetComponent<Animator>();
         animator.SetInteger("Opened", 0);
         chest = gameObject.AddComponent<AudioSource>();
+        emmiterCoin = this.GetComponent<EmmiterVector>();
         chest.clip = open;
     }
 
@@ -27,6 +31,12 @@ public class ChestOpener : MonoBehaviour {
                 chest.Play();
                 isOpen = true;
                 animator.SetInteger("Opened", 1);
+                Vector3 coinPos = emmiterCoin.GetComponent<Transform>().position;
+                coinPos.x = coinPos.x + 0.5f;//+1
+                for (int i = 0; i < numberOfCoins; i++) {
+                    Instantiate(coin, coinPos, emmiterCoin.GetComponent<Transform>().rotation);
+                    coinPos.x = coinPos.x + (0.25f * -1);
+                }
             }
         }
 
