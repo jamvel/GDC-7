@@ -460,13 +460,18 @@ public class CameraFollow : MonoBehaviour {
         if(anchorType == "North Wall") {
             northCameraCollider = true;
             this.anchorHorziontal = true;
+            this.velocity = new Vector3(velocity.x, 0, 0);
         }else if(anchorType == "West Wall") {
             westCameraCollider = true;
             this.anchorVertical = true;
-        }else if(anchorType == "East Wall"){
+            this.velocity = new Vector3(0, velocity.y, 0);
+        }
+        else if(anchorType == "East Wall"){
             eastCameraCollider = true;
             this.anchorVertical = true;
-        }else {
+            this.velocity = new Vector3(0, velocity.y, 0);
+        }
+        else {
             Debug.LogError("Incorrect anchor type found in Anchor method parameters");
         }
 	}
