@@ -54,11 +54,18 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void Update(){
+        //check for ground every frame
+        if (Physics2D.Linecast(playerTransform.position, tagLeftTransform.position, playerMask) ||
+            Physics2D.Linecast(playerTransform.position, tagRightTransform.position, playerMask)) { //Ground Check
+            isGround = true;
+        } else {
+            isGround = false;
+        }
+
         //Horizontal Movement
         if (playerRigidBody.velocity.y < -0.5) {
             isFalling = true;
-        }
-        else {
+        } else {
             isFalling = false;
         }
 
@@ -178,21 +185,22 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-
+    /*
     public void FixedUpdate (){
-        Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
-		Debug.DrawLine(playerTransform.position,tagRightTransform.position);
-		if(Physics2D.Linecast(playerTransform.position,tagLeftTransform.position,playerMask) || 
-			Physics2D.Linecast(playerTransform.position,tagRightTransform.position,playerMask)){ //Ground Check
-			isGround = true;
-		}else{
-			isGround = false;
-		}
+        //Debug.DrawLine(playerTransform.position,tagLeftTransform.position);
+		//Debug.DrawLine(playerTransform.position,tagRightTransform.position);
+        if (Physics2D.Linecast(playerTransform.position, tagLeftTransform.position, playerMask) ||
+            Physics2D.Linecast(playerTransform.position, tagRightTransform.position, playerMask)) { //Ground Check
+            isGround = true;
+        } else {
+            isGround = false;
+        }
         //OnTriggerStay();
         //OnTriggerExit();
 	}
+    */
 
-	public void Move(float horizontalInput){
+    public void Move(float horizontalInput){
         if (!airControl && !isGround){
             return;
 		}
