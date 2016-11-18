@@ -42598,6 +42598,14 @@ Prefab:
       propertyPath: m_Radius
       value: 0.11
       objectReference: {fileID: 0}
+    - target: {fileID: 4000010918626970, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013231477326, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
   m_IsPrefabParent: 0

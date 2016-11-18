@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000014166992348}
   - 95: {fileID: 95000010642772378}
   - 114: {fileID: 114000010022578532}
+  - 61: {fileID: 61000010952704680}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -42,6 +43,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000010952704680
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013763598328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!95 &95000010642772378
 Animator:
   serializedVersion: 3
