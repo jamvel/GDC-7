@@ -12,7 +12,6 @@ public class CameraFollow : MonoBehaviour {
     public float deltaY = 1f;
     public bool lockCamera = false;
     public Transform target;
-    public Transform westWall, eastWall;
    
 
 	[HideInInspector]public bool isAnchored = false;
@@ -27,7 +26,11 @@ public class CameraFollow : MonoBehaviour {
     private Quaternion currentRotation;
     private bool anchorHorziontal = false;
     private bool anchorVertical = false;// true - horizontal , false - vertical
-    private PlayerController pc;
+    private bool northCameraCollider = false;
+    private bool southCameraCollider = false;
+    private bool eastCameraCollider = false;
+    private bool westCameraCollider = false;
+   private PlayerController pc;
     private float lastVerticalOffset;
     private RaycastHit2D hit;
     private LayerMask hitMask;
@@ -199,6 +202,7 @@ public class CameraFollow : MonoBehaviour {
 
     // Update is called once per frame
     void Update (){
+        Debug.Log("n - "+northCameraCollider+" w -"+westCameraCollider+" e - "+eastCameraCollider);
         hit = Physics2D.Raycast(target.position, -Vector2.up,Mathf.Infinity,hitMask);
         if (hit.transform != null) { //update hit vector if tag is not lava or spikes
             hitVector = new Vector3(hit.point.x, hit.point.y, transform.position.z);
@@ -279,6 +283,7 @@ public class CameraFollow : MonoBehaviour {
                             Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
+                            westCameraCollider = false;
                         }
                     }
                     else { //east anchor
@@ -286,6 +291,7 @@ public class CameraFollow : MonoBehaviour {
                             Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
+                            eastCameraCollider = false;
                         }
                     }
                 }else { //rotation z == 180
@@ -294,6 +300,7 @@ public class CameraFollow : MonoBehaviour {
                             Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
+                            eastCameraCollider = false;
                         }
                     }
                     else { //west anchor
@@ -301,6 +308,7 @@ public class CameraFollow : MonoBehaviour {
                             Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
+                            westCameraCollider = false;
                         }
                     }
                 }
@@ -310,12 +318,14 @@ public class CameraFollow : MonoBehaviour {
                     if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 0.6f) {
                         Debug.Log("Unanchored");
                         anchorHorziontal = false;
+                        northCameraCollider = false;
                     }
                 }
                 else {
                     if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 0.6f) {
                         Debug.Log("Unanchored");
                         anchorHorziontal = false;
+                        northCameraCollider = false;
                     }
                 }
 
@@ -360,6 +370,7 @@ public class CameraFollow : MonoBehaviour {
                                 Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
+                                westCameraCollider = false;
                             }
                         }
                         else { //east anchor
@@ -367,6 +378,7 @@ public class CameraFollow : MonoBehaviour {
                                 Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
+                                eastCameraCollider = false;
                             }
                         }
                     }else { //rotation z == 180
@@ -375,6 +387,7 @@ public class CameraFollow : MonoBehaviour {
                                 Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
+                                eastCameraCollider = false;
                             }
                         }
                         else { //west anchor
@@ -382,6 +395,7 @@ public class CameraFollow : MonoBehaviour {
                                 Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
+                                westCameraCollider = false;
                             }
                         }
                     }
@@ -424,11 +438,13 @@ public class CameraFollow : MonoBehaviour {
                         if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 1.5f) {
                             Debug.Log("Unanchored");
                             anchorHorziontal = false;
+                            northCameraCollider = false;
                         }
                     } else { //south anchor
                         if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 1.5f) {
                             Debug.Log("Unanchored");
                             anchorHorziontal = false;
+                            northCameraCollider = false;
                         }
                     }
                 }
@@ -440,15 +456,26 @@ public class CameraFollow : MonoBehaviour {
         if (Vector2.Distance(this.gameObject.transform.position, target.transform.position) > 4.0f || Vector2.Distance(this.gameObject.transform.position, target.transform.position) < -4.0f) {
             return;
         }
-        if (anchorType == "horizontal"){
-            this.anchorHorziontal = true;
-		}else if(anchorType == "vertical"){
-            this.anchorVertical = true;
-		}else{
-			Debug.LogError("Incorrect anchor type found in Anchor method parameters");
-		}
 
+        if(anchorType == "North Wall") {
+            northCameraCollider = true;
+            this.anchorHorziontal = true;
+            this.velocity = new Vector3(velocity.x, 0, 0);
+        }else if(anchorType == "West Wall") {
+            westCameraCollider = true;
+            this.anchorVertical = true;
+            this.velocity = new Vector3(0, velocity.y, 0);
+        }
+        else if(anchorType == "East Wall"){
+            eastCameraCollider = true;
+            this.anchorVertical = true;
+            this.velocity = new Vector3(0, velocity.y, 0);
+        }
+        else {
+            Debug.LogError("Incorrect anchor type found in Anchor method parameters");
+        }
 	}
+
 
     public void MoveCameraTo(Vector3 newpos) {
         lockCamera = true;
@@ -463,13 +490,11 @@ public class CameraFollow : MonoBehaviour {
     }
 
 	private bool HAnchorSide(){ //true - west , false - east
-		float distanceToWest = Vector2.Distance (target.position, westWall.position);
-		float distanceToEast = Vector2.Distance (target.position,eastWall.position);
-		if(distanceToWest > distanceToEast){
-			return false;
-		}else{
-			return true;
-		}
+        if(westCameraCollider == true) {
+            return true;
+        }else{
+            return false;
+        }
 	}
 
 

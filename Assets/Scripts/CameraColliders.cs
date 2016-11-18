@@ -5,17 +5,6 @@ public class CameraColliders : MonoBehaviour {
     public bool isVertical;
     void OnTriggerEnter2D(Collider2D c){
 		Debug.Log ("Anchored to GameObject "+c.name);
-        if (isVertical) {
-                Camera.main.GetComponent<CameraFollow>().Anchor(gameObject.GetComponent<BoxCollider2D>(), "vertical");
-        }
-        else {
-            //if horizontal
-            if(c.name == "North Wall" || c.name == "South Wall") {
-                Camera.main.GetComponent<CameraFollow>().Anchor(gameObject.GetComponent<BoxCollider2D>(), "horizontal");
-            }
-            
-        }
+        Camera.main.GetComponent<CameraFollow>().Anchor(gameObject.GetComponent<BoxCollider2D>(), c.name);
 	}
-
-
 }
