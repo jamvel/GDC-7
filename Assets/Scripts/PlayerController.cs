@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 
         if (toLand && isGround){
             if (enableAudio){
-                AudioSource.PlayClipAtPoint(effects[2], transform.position,0.25f);
+                AudioSource.PlayClipAtPoint(effects[2], transform.position,0.2f);
             }
             toLand = false;
         }
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump")){ //vertical
             if (isGround){
 				if(enableAudio){
-					AudioSource.PlayClipAtPoint(effects[1], transform.position);
+					AudioSource.PlayClipAtPoint(effects[1], transform.position, 0.85f);
 				}
                 animator.SetBool("IsJump", true);
                 playerRigidBody.velocity = jumpVelocity * Vector2.up;

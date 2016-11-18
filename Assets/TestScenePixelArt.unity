@@ -1427,7 +1427,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
-  open: {fileID: 8300000, guid: ec1e9e8073f8f0546893a1cd93417468, type: 3}
+  open: {fileID: 8300000, guid: 65643698a9d78f04a8ef4dffb7475a83, type: 3}
 --- !u!111 &448859598
 Animation:
   m_ObjectHideFlags: 0
@@ -5871,6 +5871,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010199142014, guid: 2f1fcccae6d08e248bf5c98b7d14b45a,
+        type: 2}
+      propertyPath: effects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fe05a5d13456f54d931b4276377d7eb, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
   m_IsPrefabParent: 0
