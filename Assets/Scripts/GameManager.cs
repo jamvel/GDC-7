@@ -7,16 +7,6 @@ using System;
 
 public class GameManager : MonoBehaviour {
 	
-   public class MagicNode {
-        public string id;
-        public List<Magic> list;
-
-        public MagicNode(string id, List<Magic> list) {
-            this.id = id;
-            this.list = list;
-        }
-    }
-
     /*
 	 * There can only be on Game manager during runtime
 	 * Game manager loads into Scene_0 on Start of game
@@ -26,11 +16,12 @@ public class GameManager : MonoBehaviour {
     public GameObject player; //assign player to game object for tracking
 
 	public static GameManager instance;
-    public static List<MagicNode> magicDB;
     [HideInInspector] public bool canPause; //boolean to check if player can pause game
     [HideInInspector] public bool paused;
+    public Perk []perks;
     public Canvas UI_Canvas;
-
+    public int nodeIndex = 0;
+    
     private bool deathScreen = false;
     private PlayerController controller;
     private Player playerScript;
@@ -53,7 +44,6 @@ public class GameManager : MonoBehaviour {
 
 	void Start(){
         //SceneManager.LoadScene("Menu_Scene"); //Load Menu Scene
-        magicDB = buildMagicDatabase();
 
         controller = player.GetComponent<PlayerController>();
         playerScript = player.GetComponent<Player>();
@@ -110,17 +100,8 @@ public class GameManager : MonoBehaviour {
         deathOverlay.SetActive(false);
     }
 
-    List<MagicNode> buildMagicDatabase() {
-        List<MagicNode> db = new List<MagicNode>();
-        /*
-         * Magic Item[0] : Fireball
-         * Level 0
-         *  - Level 1
-         */
-        db.Add(new MagicNode("fireball",new List<Magic>())); //add new Magic Node
-        db[0].list.Add(new Magic(0, 25, 10)); //level 0
-        db[0].list.Add(new Magic(1, 35, 25)); //level 1
-        return db;
+    private void buildPerks() {
+
     }
-		
+	
 }

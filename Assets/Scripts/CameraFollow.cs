@@ -12,9 +12,13 @@ public class CameraFollow : MonoBehaviour {
     public float deltaY = 1f;
     public bool lockCamera = false;
     public Transform target;
-   
-
-	[HideInInspector]public bool isAnchored = false;
+  
+	[HideInInspector]public bool anchorHorziontal = false;
+    [HideInInspector]public bool anchorVertical = false;// true - horizontal , false - vertical
+    [HideInInspector]public bool northCameraCollider = false;
+    [HideInInspector]public bool southCameraCollider = false;
+    [HideInInspector]public bool eastCameraCollider = false;
+    [HideInInspector]public bool westCameraCollider = false;
 
     private Transform tagAnchor;
 	private Vector3 velocity = Vector3.zero;
@@ -24,13 +28,8 @@ public class CameraFollow : MonoBehaviour {
 	private BoxCollider2D westCameraBoxCollider,eastCameraBoxCollider,northCameraBoxCollider, southCameraBoxCollider;
 	private Vector2 relativePosition;
     private Quaternion currentRotation;
-    private bool anchorHorziontal = false;
-    private bool anchorVertical = false;// true - horizontal , false - vertical
-    private bool northCameraCollider = false;
-    private bool southCameraCollider = false;
-    private bool eastCameraCollider = false;
-    private bool westCameraCollider = false;
-   private PlayerController pc;
+
+    private PlayerController pc;
     private float lastVerticalOffset;
     private RaycastHit2D hit;
     private LayerMask hitMask;
@@ -195,14 +194,13 @@ public class CameraFollow : MonoBehaviour {
         southCameraBoxCollider.enabled = true;
         southCameraObject.SetActive(false);
 
-        transform.position = new Vector3(tagAnchor.position.x, tagAnchor.position.y + verticalOffset, transform.position.z);
+        //transform.position = new Vector3(tagAnchor.position.x, tagAnchor.position.y + verticalOffset, transform.position.z);
         lastVerticalOffset = verticalOffset;
-
     }
 
     // Update is called once per frame
     void Update (){
-        Debug.Log("n - "+northCameraCollider+" w -"+westCameraCollider+" e - "+eastCameraCollider);
+        //Debug.Log("n - "+northCameraCollider+" w -"+westCameraCollider+" e - "+eastCameraCollider);
         hit = Physics2D.Raycast(target.position, -Vector2.up,Mathf.Infinity,hitMask);
         if (hit.transform != null) { //update hit vector if tag is not lava or spikes
             hitVector = new Vector3(hit.point.x, hit.point.y, transform.position.z);
@@ -275,7 +273,7 @@ public class CameraFollow : MonoBehaviour {
 
         }
 
-        if (anchorVertical || anchorHorziontal){
+        if ((anchorVertical || anchorHorziontal) && !lockCamera){
             if(anchorVertical && anchorHorziontal) {
                 if (this.transform.rotation.z == 0) {
                     if (HAnchorSide() == true) { //west anchor
@@ -315,14 +313,14 @@ public class CameraFollow : MonoBehaviour {
             
 
                 if (this.transform.rotation.z == 0) { //north anchor
-                    if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 0.6f) {
+                    if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 2.6f) {
                         Debug.Log("Unanchored");
                         anchorHorziontal = false;
                         northCameraCollider = false;
                     }
                 }
                 else {
-                    if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 0.6f) {
+                    if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 2.6f) {
                         Debug.Log("Unanchored");
                         anchorHorziontal = false;
                         northCameraCollider = false;
@@ -420,7 +418,7 @@ public class CameraFollow : MonoBehaviour {
                             else {
                                 if (platform.GetComponent<MovingPlatform>() != null) {
                                     Vector3 destination = new Vector3(hitVector.x + delta.x, transform.position.y, transform.position.z);
-                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime2);
+                                    transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
                                     refGround = hit.transform;
                                 }
                                 else {
@@ -435,13 +433,13 @@ public class CameraFollow : MonoBehaviour {
                     }
 
                     if (this.transform.rotation.z == 0) { //north anchor
-                        if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 1.5f) {
+                        if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 2.6f) {
                             Debug.Log("Unanchored");
                             anchorHorziontal = false;
                             northCameraCollider = false;
                         }
                     } else { //south anchor
-                        if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 1.5f) {
+                        if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 2.6f) {
                             Debug.Log("Unanchored");
                             anchorHorziontal = false;
                             northCameraCollider = false;
@@ -453,14 +451,14 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	public void Anchor(BoxCollider2D temp , string anchorType){
-        if (Vector2.Distance(this.gameObject.transform.position, target.transform.position) > 4.0f || Vector2.Distance(this.gameObject.transform.position, target.transform.position) < -4.0f) {
+        if (Vector2.Distance(this.gameObject.transform.position, target.transform.position) > 6.0f || Vector2.Distance(this.gameObject.transform.position, target.transform.position) < -6.0f) {
             return;
         }
 
         if(anchorType == "North Wall") {
             northCameraCollider = true;
             this.anchorHorziontal = true;
-            this.velocity = new Vector3(velocity.x, 0, 0);
+            this.velocity = new Vector3(0, 0, 0);
         }else if(anchorType == "West Wall") {
             westCameraCollider = true;
             this.anchorVertical = true;
@@ -478,9 +476,14 @@ public class CameraFollow : MonoBehaviour {
 
 
     public void MoveCameraTo(Vector3 newpos) {
-        lockCamera = true;
+        //lockCamera = true;
+        westCameraCollider = false;
+        eastCameraCollider = false;
+        northCameraCollider = false;
+        anchorHorziontal = false;
+        anchorVertical = false;
         this.gameObject.transform.position = newpos;
-        lockCamera = false;
+        //lockCamera = false;
     }
 
     public void UnAnchorCamera() {

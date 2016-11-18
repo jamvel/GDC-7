@@ -26,6 +26,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000011584482430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011572259374}
+  m_Layer: 0
+  m_Name: Player_Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012793590310
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +58,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000011572259374
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011584482430}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28, y: -0.32, z: 0.03125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012449934332}
+  m_RootOrder: 1
 --- !u!4 &4000012449934332
 Transform:
   m_ObjectHideFlags: 1
@@ -50,11 +78,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012793590310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.93, y: -2.152, z: 0.16699219}
+  m_LocalPosition: {x: 57.27, y: 1.93, z: 0.16699219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012639295388}
+  - {fileID: 4000011572259374}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000012639295388
@@ -64,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010222238458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.99, y: 0.56, z: -10}
+  m_LocalPosition: {x: -6.48, y: -0.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -81,9 +110,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.13244486, y: 0.00000009126961}
+  m_Offset: {x: 0.13244438, y: 0.8696796}
   serializedVersion: 2
-  m_Size: {x: 0.23477122, y: 1}
+  m_Size: {x: 0.23477122, y: 3.546896}
 --- !u!114 &114000012052459876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,5 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fea6b0683bab84bb124b7fa496c231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelID: 0
   toNode: {fileID: 0}
   isWest: 0
+  isNorth: 1
+  camSpawn: {fileID: 0}
+  playerSpawn: {fileID: 0}
