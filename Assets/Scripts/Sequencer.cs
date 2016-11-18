@@ -51,10 +51,8 @@ public class Sequencer : MonoBehaviour {
                 shoot();
             }
             on = true;
-            //Debug.Log("Going Up");
         } else {//wait
             on = false;
-            //Debug.Log("Waiting");
         }
         tool.clip = tools[0];
         tool.spatialBlend = 1;
@@ -68,13 +66,24 @@ public class Sequencer : MonoBehaviour {
         if(x) { //if projectile is going up/down
             //Debug.Log("Shooting North/ South");
         }else { //projectile is going left/right
-            //Debug.Log("Shooting Left/ Right");
-            //rigidBody.velocity = new Vector2(speedOfProjectile, rigidBody.velocity.y);
-
+            //if shooting more than 1 arrow from the same emmiter
+            //current implementaiton doesnt allow for more than 3 arrows
             arrow.GetComponent<Projectile>().velocityVector = arrowVector + emmiterArrow.GetComponent<EmmiterVector>().directionVector; //speed + dir
             Instantiate(arrow, emmiterArrow.GetComponent<Transform>().position, emmiterArrow.GetComponent<Transform>().rotation);
+            if(numberOfProjectiles == 2) {
+                Vector3 newPos1 = emmiterArrow.GetComponent<Transform>().position;
+                newPos1.y = newPos1.y + 0.2f;
+                Instantiate(arrow, newPos1, emmiterArrow.GetComponent<Transform>().rotation);
+            } else if(numberOfProjectiles == 3) {
+                Vector3 newPos1 = emmiterArrow.GetComponent<Transform>().position;
+                Vector3 newPos2 = emmiterArrow.GetComponent<Transform>().position;
+                newPos2.y = newPos2.y - 0.2f;
+                newPos1.y = newPos1.y + 0.2f;
+                Instantiate(arrow, newPos2, emmiterArrow.GetComponent<Transform>().rotation);
+                Instantiate(arrow, newPos1, emmiterArrow.GetComponent<Transform>().rotation);
+            }
+
+
         }
-        
-        //Debug.Log("Shooting");
     }
 }
