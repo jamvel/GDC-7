@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
     public bool isGround = false;
+    private bool attack = false;
     private bool toLand = false;
     private bool direct = true; // flag used to check which direction the player is looking at (left or right horizontally)
     private Animator animator;
@@ -80,7 +81,9 @@ public class PlayerController : MonoBehaviour {
             toLand = false;
         }
         var horizontal = Input.GetAxis("Horizontal");
-       
+        if(attack) {
+            horizontal = 0;
+        }
         if (horizontal > 0){//walk right
             Move(horizontal);
             if (invertedControls) {
@@ -145,12 +148,14 @@ public class PlayerController : MonoBehaviour {
         }
 
 		if(Input.GetButton("Fire1")){
+            attack = true;
             animator.SetBool("IsAttack", true);
             if (enableAudio && !sword.isPlaying){
                 sword.volume = 0.35f;
                 sword.Play();
             }
 		}else{
+            attack = false;
             animator.SetBool("IsAttack", false);
         }
 
