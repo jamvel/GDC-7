@@ -59,13 +59,22 @@ public class FlyingEnemyAI : MonoBehaviour {
         target = GameObject.FindWithTag("Player").transform;
         ev_fireball = emmiterFireball.GetComponent<EmmiterVector>();
         time = 0;
+
+        //modifiying the array of vectors to be with respect of the start position
+        for (int i = 0; i < possiblePositions.Length; i++){
+            possiblePositions[i].x = transform.position.x + possiblePositions[i].x;
+            possiblePositions[i].y = transform.position.y + possiblePositions[i].y;
+
+        }
         currentPosition = possiblePositions[0];
+
         emitter = this.gameObject.transform.GetChild(0).gameObject;
     }
 
     void Update() {
         distanceToPlayer = Vector2.Distance(target.position, transform.position);
         if (SearchForPlayer()) { //player is in the ghost bounds
+            Debug.Log("Player Is in Ghost Bounds");
             searchingPlayer = true;
             if (distanceToPlayer > projectileRange) {
                 //out of range
@@ -104,6 +113,7 @@ public class FlyingEnemyAI : MonoBehaviour {
                 movement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
+                Debug.Log("Shooting");
                 shootProjectile();
             }
         }
@@ -162,7 +172,7 @@ public class FlyingEnemyAI : MonoBehaviour {
 
         //check might be incorrect, goes to player when he is 4 levels away
     public void movement() {
-        if(transform.position == currentPosition) {
+        if (transform.position == currentPosition) {
             currentPos++;
             if (currentPos == possiblePositions.Length) {
                 currentPos = 0;
