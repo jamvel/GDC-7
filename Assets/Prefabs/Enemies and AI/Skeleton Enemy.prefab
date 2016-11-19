@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013653073434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5669999, y: -0.06999999, z: 0}
+  m_LocalPosition: {x: 5.215473, y: -0.49751663, z: -0.16699219}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -486,7 +486,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 1
-  inChasingDistance: 0.65
+  inChasingDistance: 1
   enemyStopDistance: 0.45
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
