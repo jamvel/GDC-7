@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
 
     private float waitBetweenAttack = 300f;
     private float currentWaitTime;
+    private int waitFrames;
 
     public float enemyWalkAgain = 0.6f;
 
@@ -87,30 +88,41 @@ public class EnemyAI : MonoBehaviour
             if (distanceToPlayer > inChasingDistance) {//out of range
                 //patrol the platform
                 currentWaitTime = 300;
-                isWalking = true;
                 searchingPlayer = false;
-                isAttacking = false;
                 isChasing = false;
-                patrol();
+
+                if (isAttacking) {//check if enemy was attacking
+                    waitFrames++;
+                    transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
+                    if (waitFrames > 55) { //wait for 50 frames, then move again towards the enemy
+                        isAttacking = false;
+                        isWalking = false;
+                        waitFrames = 0;
+                    }
+                } else {
+                    isWalking = true;
+                    patrol();
+                }
              } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
-                currentWaitTime = 225;
-                isWalking = true;
+                currentWaitTime = 275;
                 isChasing = true;
                 searchingPlayer = true;
                 if (isAttacking) {//check if enemy was attacking
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
                     if(distanceToPlayer > enemyWalkAgain) { //check how far the player got to walk again
                         isAttacking = false;
+                        isWalking = false;
                     }
                 } else {
+                    isWalking = true;
                     moveEnemy(target);
                 }
             } else if (distanceToPlayer <= enemyStopDistance) {
                 //come to a stop     
                 //start attacking
                 positionToAttackIn();
-                if(currentWaitTime > waitBetweenAttack) {
+                if(currentWaitTime >= waitBetweenAttack) {
                     isWalking = false;
                     isChasing = false;
                     isAttacking = true;
@@ -120,12 +132,10 @@ public class EnemyAI : MonoBehaviour
                 } else {//wait for next attack
                     isWalking = false;
                     isChasing = false;
-                    isAttacking = false;
+                    //isAttacking = true;
                     searchingPlayer = true;
                     currentWaitTime++;
                 }
-                //                StartCoroutine(wait());
-
             } else {
                 isWalking = false;
                 isChasing = false;
@@ -159,7 +169,6 @@ public class EnemyAI : MonoBehaviour
 
     public void moveEnemy(Transform objective){
         WalkSound();
-        isAttacking = false;
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
