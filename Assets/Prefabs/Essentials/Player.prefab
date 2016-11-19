@@ -74,6 +74,7 @@ GameObject:
   - 95: {fileID: 95000010395649984}
   - 114: {fileID: 114000010044765022}
   - 58: {fileID: 58000014180822284}
+  - 58: {fileID: 58000012628057208}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -169,7 +170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011657012096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.022, y: 0, z: 0}
   m_LocalScale: {x: 1.075, y: 0.96250004, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -182,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011405945804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.07, y: -3.42, z: 0}
+  m_LocalPosition: {x: 0.98, y: -3.54, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -242,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011109272376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.024, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -291,6 +292,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58000012628057208
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011405945804}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.03, y: -0.4}
+  serializedVersion: 2
+  m_Radius: 0.13638054
 --- !u!58 &58000014180822284
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -304,7 +319,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: -0.03, y: -0.4}
   serializedVersion: 2
-  m_Radius: 0.13638054
+  m_Radius: 0.11
 --- !u!61 &61000011098868502
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -398,7 +413,12 @@ MonoBehaviour:
   grunts:
   - {fileID: 8300000, guid: c245df87fccec3a4fa9653c7fb08d67f, type: 3}
   - {fileID: 8300000, guid: 701d1391f5a40f8449769dd35345f99d, type: 3}
-  coin: []
+  coin:
+  - {fileID: 8300000, guid: 910adbcdb23ed05458030b42355b0064, type: 3}
+  - {fileID: 8300000, guid: feea711f186317f4f97b6d0e27231804, type: 3}
+  - {fileID: 8300000, guid: e2fe501ac18cc164ca268ce3a48466a7, type: 3}
+  - {fileID: 8300000, guid: f766cc70ed009c24aa040a4486cba443, type: 3}
+  - {fileID: 8300000, guid: 60fa65e5231557248930a92ed3513f5e, type: 3}
   grunt: {fileID: 0}
   coinsound: {fileID: 0}
 --- !u!114 &114000010199142014
@@ -425,7 +445,7 @@ MonoBehaviour:
   effects:
   - {fileID: 8300000, guid: 7f347333001d9d643b7667cec3b967e4, type: 3}
   - {fileID: 8300000, guid: 6a6b29eeaf0cda64eb7eb2d3cea7b4bd, type: 3}
-  - {fileID: 8300000, guid: 159887c1168aabf42a577ebbba29bb08, type: 3}
+  - {fileID: 8300000, guid: 4fe05a5d13456f54d931b4276377d7eb, type: 3}
   - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
   - {fileID: 8300000, guid: b7be0a7dde0c9bb48a2aab9606cdc6e1, type: 3}
   enableAudio: 1
