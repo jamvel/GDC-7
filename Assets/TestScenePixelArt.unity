@@ -1599,7 +1599,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 1
-  inChasingDistance: 0.75
+  inChasingDistance: 0.65
   enemyStopDistance: 0.45
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
