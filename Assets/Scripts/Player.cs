@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     private int i;
     public AudioClip[] grunts, coin;
     public AudioSource grunt, coinsound;
+
     // Use this for initialization
     void Start () {
         sr = GetComponent<SpriteRenderer>();
