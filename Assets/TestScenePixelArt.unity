@@ -534,9 +534,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 179126909}
   - 61: {fileID: 179126910}
+  - 50: {fileID: 179126912}
+  - 114: {fileID: 179126911}
   m_Layer: 12
   m_Name: SwordPiece
-  m_TagString: Untagged
+  m_TagString: DamagePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -550,7 +552,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -61.751003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 83.68201}
   m_Children: []
   m_Father: {fileID: 495600080}
   m_RootOrder: 4
@@ -568,6 +570,35 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &179126911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179126908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa033564a4834b41a072d3ec663c3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+--- !u!50 &179126912
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179126908}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &215814931
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +969,7 @@ RectTransform:
   m_Father: {fileID: 62399706}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1481,7 +1512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &495600074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5876,6 +5907,15 @@ Prefab:
       propertyPath: effects.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 4fe05a5d13456f54d931b4276377d7eb, type: 3}
+    - target: {fileID: 61000014217401224, guid: 2f1fcccae6d08e248bf5c98b7d14b45a,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010000520154, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
   m_IsPrefabParent: 0

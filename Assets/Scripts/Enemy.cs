@@ -17,12 +17,6 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rb;
     private Transform tr;
 
-    /*public void DamageEnemy (int damage) {
-        enemyStats.health -= damage;
-        if(enemyStats.health <=0) {
-            killEnemy(this);
-        }
-    }*/
     void Start(){
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -37,22 +31,6 @@ public class Enemy : MonoBehaviour {
         float healthRatio = currentHealth / maxHealth;
         healthbarRectTransform.localScale = new Vector3(healthRatio, 1, 1);
         //healthRatioText.text = (healthRatio * 100).ToString() + "/" + maxHealth;
-    }
-
-    public void updateHealthBar(Damage dmg) { //updates current health and health bar
-        i = Random.Range(0, 2);
-
-        if (dmg.isRight) {
-            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
-            Debug.Log("Enemy hit the player from the right");
-        } else {
-            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
-            Debug.Log("Enemy hit the player from the left");
-        }
-        currentHealth -= dmg.damage;
-        updateHealthBar();
-        StartCoroutine(changeSpriteColor());
-
     }
     
     private IEnumerator changeSpriteColor() {

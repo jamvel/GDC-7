@@ -10,6 +10,7 @@ TagManager:
   - Lava
   - Platform
   - Wall
+  - DamagePiece
   layers:
   - Default
   - TransparentFX
