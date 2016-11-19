@@ -4871,16 +4871,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224000013107438792, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000013107438792, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
         type: 2}
       propertyPath: target
@@ -4898,52 +4888,23 @@ Prefab:
       objectReference: {fileID: 1841781627}
     - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
         type: 2}
-      propertyPath: bottomLeftBound
-      value: 
-      objectReference: {fileID: 1447779695}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
       propertyPath: bottomRightBound
       value: 
       objectReference: {fileID: 1926769587}
-    - target: {fileID: 1000013146078396, guid: cab2bacbfc6a0f4409309629cfbfe941, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
         type: 2}
-      propertyPath: projectileRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+      propertyPath: bottomLeftBound
+      value: 
+      objectReference: {fileID: 1447779695}
+    - target: {fileID: 224000013107438792, guid: cab2bacbfc6a0f4409309629cfbfe941,
         type: 2}
-      propertyPath: possiblePositions.Array.data[1].x
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+    - target: {fileID: 224000013107438792, guid: cab2bacbfc6a0f4409309629cfbfe941,
         type: 2}
-      propertyPath: possiblePositions.Array.data[1].y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
-      propertyPath: possiblePositions.Array.data[2].x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
-      propertyPath: possiblePositions.Array.data[2].y
+      propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
-      propertyPath: possiblePositions.Array.data[3].x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
-        type: 2}
-      propertyPath: possiblePositions.Array.data[3].y
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cab2bacbfc6a0f4409309629cfbfe941, type: 2}
@@ -21677,7 +21638,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 656199047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.53, y: 1.38, z: 0}
+  m_LocalPosition: {x: -7.9, y: 1.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -57702,11 +57663,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.65
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.55
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.z

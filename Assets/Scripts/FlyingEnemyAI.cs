@@ -28,6 +28,7 @@ public class FlyingEnemyAI : MonoBehaviour {
     private EmmiterVector ev_fireball;
 
     public float movementSpeed = 0.8f;
+    public float dashSpeed = 1f;
     public float projectileRange;
     public float dashRange;
     public float enemyStopDistance;
@@ -39,18 +40,19 @@ public class FlyingEnemyAI : MonoBehaviour {
     private float distanceToPlayer;
 
     private bool searchingPlayer = false;
-    private bool isChasing;
+    private bool isChasing = false;
     private bool isAttacking;
 
     private bool direct;
 
     private float time;
     private int currentPos = 0;
+    private int waitFrame = 0;
 
     private float nextFire;
     private Vector3 previousPosition;
     private Vector3 currentPosition;
-    private Vector2 tempPosition;
+    private Vector3 reachLocation;
     private GameObject emitter;
 
     void Start() {
@@ -74,36 +76,25 @@ public class FlyingEnemyAI : MonoBehaviour {
     void Update() {
         distanceToPlayer = Vector2.Distance(target.position, transform.position);
         if (SearchForPlayer()) { //player is in the ghost bounds
-            Debug.Log("Player Is in Ghost Bounds");
-            searchingPlayer = true;
-            if (distanceToPlayer > projectileRange) {
-                //out of range
-                //roam randomly
-                isChasing = false;
-                isAttacking = false;
-                movement();
-            } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
-                //look at the player
-                //shoot projectiles
-                isChasing = false;
-                isAttacking = false;
-                //dont move and shoot projectile
-                shootProjectile();
-            } else if ((distanceToPlayer <= dashRange) && (distanceToPlayer > enemyStopDistance)) {
-                //start running after the enemy
-                //and dash into him
+            if(isChasing) {//if was chasing 
+                if (transform.position == reachLocation) {//check if reached last known location
+                    waitFrame++;
+                    transform.position = Vector2.MoveTowards(transform.position, reachLocation, 0);
+                    if(waitFrame > 70) {
+                        waitFrame = 0;
+                        isChasing = false;  //reached last known location
+                        Debug.Log("Ghost Reached Location");
+                    }
+                } else {
+                    Debug.Log("Moving");
+                    dashToPlayer(reachLocation);
+                }
+            }else {//player just entered enemy bounds
+                reachLocation = target.position;
+                Debug.Log("New Location: " + reachLocation);
                 isChasing = true;
-                isAttacking = false;
-                dashToPlayer(target);
-            } else if (distanceToPlayer <= enemyStopDistance) {
-                isChasing = false;
-                isAttacking = true;
-                dashToPlayer(target);
-            } else {
-                Debug.Log(("Undefined State"));
             }
-            
-        } else {
+        } else { //player is not in bounds
             searchingPlayer = false;
             isChasing = false;
             isAttacking = false;
@@ -113,7 +104,6 @@ public class FlyingEnemyAI : MonoBehaviour {
                 movement();
             } else if ((distanceToPlayer <= projectileRange) && (distanceToPlayer > dashRange)) {
                 //shoot projectile
-                Debug.Log("Shooting");
                 shootProjectile();
             }
         }
@@ -169,8 +159,7 @@ public class FlyingEnemyAI : MonoBehaviour {
     }
     */
 
-
-        //check might be incorrect, goes to player when he is 4 levels away
+        
     public void movement() {
         if (transform.position == currentPosition) {
             currentPos++;
@@ -243,9 +232,9 @@ public class FlyingEnemyAI : MonoBehaviour {
         }
     }
 
-    public void dashToPlayer(Transform objective) {
-        float step = movementSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
+    public void dashToPlayer(Vector3 objective) {
+        float step = dashSpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, objective, step);
     }
 
     public void rotateGhost() {
@@ -290,19 +279,6 @@ public class FlyingEnemyAI : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, objective, step);
     }
     
-    /*
-    public bool inAttackRange() {
-        if(distanceToPlayer < rangeToAttackProjectile ) {
-            //can start throwing projectile attacks
-            return true;
-        }else {
-            //keep patrolling
-            //bouncing between bounds
-            return false;
-        }
-    }
-    */
-
     public bool checkBoundDistance(Transform bound) {
         if ((Vector2.Distance(bound.position, transform.position)) <= precisionOfEnemyToBounds) {
             return true;

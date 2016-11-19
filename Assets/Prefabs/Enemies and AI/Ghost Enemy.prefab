@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013146078396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -19.58, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -433,12 +433,13 @@ MonoBehaviour:
   - {x: 1.5, y: 1.5}
   - {x: 1.5, y: 0}
   movementSpeed: 1
-  projectileRange: 1
+  dashSpeed: 1.5
+  projectileRange: 2.2
   dashRange: 0.5
   enemyStopDistance: 0.26
   changeDirectionInSeconds: 1.5
   precisionOfEnemyToBounds: 0.26
-  fireRate: 5
+  fireRate: 100
 --- !u!114 &114000013266649278
 MonoBehaviour:
   m_ObjectHideFlags: 1
