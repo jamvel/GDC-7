@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013146078396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.594681, y: 1.3844848, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -429,11 +429,11 @@ MonoBehaviour:
   emmiterFireball: {fileID: 1000010283753678}
   possiblePositions:
   - {x: 0, y: 0}
-  - {x: 2, y: 2}
-  - {x: 0, y: 2}
-  - {x: 2, y: 0}
+  - {x: 0, y: 1.5}
+  - {x: 1.5, y: 1.5}
+  - {x: 1.5, y: 0}
   movementSpeed: 1
-  projectileRange: 4
+  projectileRange: 1
   dashRange: 0.5
   enemyStopDistance: 0.26
   changeDirectionInSeconds: 1.5
