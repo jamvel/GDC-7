@@ -159,6 +159,8 @@ public class FlyingEnemyAI : MonoBehaviour {
     }
     */
 
+
+        //check might be incorrect, goes to player when he is 4 levels away
     public void movement() {
         if(transform.position == currentPosition) {
             currentPos++;
