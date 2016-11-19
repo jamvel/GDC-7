@@ -7,12 +7,20 @@ public class Enemy : MonoBehaviour {
     public float currentHealth = 100f;
     public float health;
     public float damage;
+    public Slider healthBar;
+
+    public int numberOfCoins = 1;
+    public GameObject coin;
+    private EmmiterVector emmiterCoin;
+
+
     //public Canvas UI_Canvas;
 
     private SpriteRenderer sr;
     private RectTransform healthbarRectTransform;
     private Text healthRatioText;
 
+    private int counter =0 ;
     private int i;
     private Rigidbody2D rb;
     private Transform tr;
@@ -24,7 +32,30 @@ public class Enemy : MonoBehaviour {
         healthbarRectTransform = transform.Find("Enemy_Health_Bar").gameObject.transform.Find("Fill Area").gameObject.transform.Find("Fill").gameObject.GetComponent<RectTransform>(); //find healthbar
         //healthRatioText = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("RatioText_HealthBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
         updateHealthBar();
+        emmiterCoin = this.GetComponent<EmmiterVector>();
 
+    }
+
+    void Update() {
+        counter++;
+    }
+
+    public void Damage(float dam) {
+        //if(counter > 100) {
+            counter = 0;
+            health = health - dam/*20*/;
+            healthBar.value = health;
+            if (health <= 0) {
+                Destroy(this.gameObject);
+
+                Vector3 coinPos = emmiterCoin.GetComponent<Transform>().position;
+                coinPos.x = coinPos.x + 0.5f;//+1
+                for (int i = 0; i < numberOfCoins; i++) {
+                    Instantiate(coin, coinPos, emmiterCoin.GetComponent<Transform>().rotation);
+                    coinPos.x = coinPos.x + (0.25f * -1);
+                }
+            }
+       // }
     }
 
     public void updateHealthBar() {

@@ -22,7 +22,7 @@ public class EnemyBars : MonoBehaviour
             //die
         }
     }
-
+    /*
     void Heal(int heal, int i)
     {
         health = health + heal;
@@ -34,7 +34,7 @@ public class EnemyBars : MonoBehaviour
         {
             healthBar[i].value = 100;
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
