@@ -24,9 +24,10 @@ GameObject:
   - 114: {fileID: 114000011480204764}
   - 50: {fileID: 50000011351635456}
   - 61: {fileID: 61000011853600628}
+  - 114: {fileID: 114000011006738940}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: DamagePiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +88,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityVector: {x: -6, y: 0}
+--- !u!114 &114000011006738940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013301154060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa033564a4834b41a072d3ec663c3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!114 &114000011480204764
 MonoBehaviour:
   m_ObjectHideFlags: 1
