@@ -4908,12 +4908,42 @@ Prefab:
       objectReference: {fileID: 1926769587}
     - target: {fileID: 1000013146078396, guid: cab2bacbfc6a0f4409309629cfbfe941, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
         type: 2}
       propertyPath: projectileRange
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+        type: 2}
+      propertyPath: possiblePositions.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+        type: 2}
+      propertyPath: possiblePositions.Array.data[1].y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+        type: 2}
+      propertyPath: possiblePositions.Array.data[2].x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+        type: 2}
+      propertyPath: possiblePositions.Array.data[2].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+        type: 2}
+      propertyPath: possiblePositions.Array.data[3].x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013240729124, guid: cab2bacbfc6a0f4409309629cfbfe941,
+        type: 2}
+      propertyPath: possiblePositions.Array.data[3].y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cab2bacbfc6a0f4409309629cfbfe941, type: 2}
