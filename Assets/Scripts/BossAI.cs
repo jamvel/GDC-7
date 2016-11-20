@@ -11,6 +11,7 @@ public class BossAI : MonoBehaviour {
     public float inChasingDistance = 0.75f;
     public float enemyStopDistance = 0.45f;
     public float fireTime = 5f;//number of frames to wait before shooting again
+    public float projectileSpeed = 2f;
 
     public float stop = 0.4f;
 
@@ -203,7 +204,7 @@ public class BossAI : MonoBehaviour {
 
         if (walkingToLeftBound) {
             ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
-            fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir       
+            fireball.GetComponent<Projectile>().velocityVector = projectileSpeed * ev_fireball.directionVector; //speed * dir       
             if (relativePoint.x < 0.0) {//chasing to the left
                 Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, -rotateBolt()));
             } else {//chaing to the right

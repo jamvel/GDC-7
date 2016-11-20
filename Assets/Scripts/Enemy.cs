@@ -19,8 +19,10 @@ public class Enemy : MonoBehaviour {
     private SpriteRenderer sr;
     private RectTransform healthbarRectTransform;
     private Text healthRatioText;
+    private Animator animator;
 
     private int counter =0 ;
+    private int deathCounter = 0;
     private int i;
     private Rigidbody2D rb;
     private Transform tr;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
+        animator = this.GetComponent<Animator>();
         healthbarRectTransform = transform.Find("Enemy_Health_Bar").gameObject.transform.Find("Fill Area").gameObject.transform.Find("Fill").gameObject.GetComponent<RectTransform>(); //find healthbar
         //healthRatioText = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("RatioText_HealthBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
         updateHealthBar();
@@ -38,16 +41,12 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         counter++;
-    }
-
-    public void Damage(float dam) {
-        //if(counter > 100) {
-            counter = 0;
-            health = health - dam/*20*/;
-            healthBar.value = health;
-            if (health <= 0) {
+        deathCounter++;
+        if (health <= 0) {
+            deathCounter++;
+            animator.SetBool("IsDeath", true);
+            if (deathCounter > 120) {//wait 120 frames
                 Destroy(this.gameObject);
-
                 Vector3 coinPos = emmiterCoin.GetComponent<Transform>().position;
                 coinPos.x = coinPos.x + 0.5f;//+1
                 for (int i = 0; i < numberOfCoins; i++) {
@@ -55,7 +54,15 @@ public class Enemy : MonoBehaviour {
                     coinPos.x = coinPos.x + (0.25f * -1);
                 }
             }
-       // }
+        }else {
+            deathCounter = 0;
+        }
+    }
+
+    public void Damage(float dam) {
+        counter = 0;
+        health = health - dam/*20*/;
+        healthBar.value = health;
     }
 
     public void updateHealthBar() {
