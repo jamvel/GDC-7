@@ -72797,8 +72797,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
-  speed: 2
-  inChasingDistance: 2
+  speed: 1
+  inChasingDistance: 1.5
   enemyStopDistance: 0.45
   fireTime: 55
   stop: 0.4

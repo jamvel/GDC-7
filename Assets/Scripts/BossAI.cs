@@ -94,6 +94,7 @@ public class BossAI : MonoBehaviour {
             //move towards the player
             searchingPlayer = true;
             animatorSetting();
+
             if (distanceToPlayer > inChasingDistance) {//out of range
                 //patrol the platform
                 currentWaitTime = 300;
@@ -109,8 +110,25 @@ public class BossAI : MonoBehaviour {
                         waitFrameAttack = 0;
                     }
                 } else {
-                    isWalking = true;
-                    patrol();
+                    //shoot while patrolling on same platform
+                    waitFrameMagic++;
+                    //if (distanceToPlayer < enemyPatrolRange) {//in shooting range                 
+                    if (!isMagic) {
+                        if (waitFrameMagic > fireTime) {
+                            waitFrameMagic = 0;
+                            isMagic = true;
+                            isWalking = false;
+                            shootProjectile();
+                        }
+                        isMagic = false;
+                        isWalking = true;
+                        patrol();
+                    }
+                    //} else {//keep walking until reaching shooting range or player is on same playform
+                    //    isMagic = false;
+                    //    isWalking = true;
+                    //    patrol();
+                    //}
                 }
             } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
@@ -157,8 +175,7 @@ public class BossAI : MonoBehaviour {
             isChasing = false;
             isAttacking = false;
             waitFrameMagic++;
-            if (distanceToPlayer < enemyShootRange) {//in shooting range 
-                
+            if (distanceToPlayer < enemyShootRange) {//in shooting range                 
                 if (!isMagic) {
                     if (waitFrameMagic > fireTime) {
                         waitFrameMagic = 0;
@@ -182,15 +199,25 @@ public class BossAI : MonoBehaviour {
     public void shootProjectile() {
         var lookPosX = target.position.x - transform.position.x;
         var lookPosY = target.position.y - transform.position.y;
-        Debug.Log(rotateBolt());
+        var relativePoint = transform.InverseTransformPoint(target.position);
+
         if (walkingToLeftBound) {
             ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
             fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir       
-            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, -rotateBolt()));
+            if (relativePoint.x < 0.0) {//chasing to the left
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, -rotateBolt()));
+            } else {//chaing to the right
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, rotateBolt()));
+            }
         } else {
             ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
             fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, rotateBolt()));
+            if (relativePoint.x < 0.0) {//chasing to the left
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(180, 180, rotateBolt()));
+            } else {//chaing to the right
+                Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, rotateBolt()));
+            }
+
         }
     }
 
