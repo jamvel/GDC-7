@@ -65,7 +65,22 @@ public class Sequencer : MonoBehaviour {
         //create direction to give to the projectiles and damage ....   
         if(x) { //if projectile is going up/down
             //Debug.Log("Shooting North/ South");
-        }else { //projectile is going left/right
+            arrow.GetComponent<Projectile>().velocityVector = arrowVector + emmiterArrow.GetComponent<EmmiterVector>().directionVector; //speed + dir
+            Instantiate(arrow, emmiterArrow.GetComponent<Transform>().position, emmiterArrow.GetComponent<Transform>().rotation);
+
+            if (numberOfProjectiles == 2) {
+                Vector3 newPos1 = emmiterArrow.GetComponent<Transform>().position;
+                newPos1.x = newPos1.x + 0.2f;
+                Instantiate(arrow, newPos1, emmiterArrow.GetComponent<Transform>().rotation);
+            } else if (numberOfProjectiles == 3) {
+                Vector3 newPos1 = emmiterArrow.GetComponent<Transform>().position;
+                Vector3 newPos2 = emmiterArrow.GetComponent<Transform>().position;
+                newPos2.x = newPos2.x - 0.2f;
+                newPos1.x = newPos1.x + 0.2f;
+                Instantiate(arrow, newPos2, emmiterArrow.GetComponent<Transform>().rotation);
+                Instantiate(arrow, newPos1, emmiterArrow.GetComponent<Transform>().rotation);
+            }
+        } else { //projectile is going left/right
             //if shooting more than 1 arrow from the same emmiter
             //current implementaiton doesnt allow for more than 3 arrows
             arrow.GetComponent<Projectile>().velocityVector = arrowVector + emmiterArrow.GetComponent<EmmiterVector>().directionVector; //speed + dir
