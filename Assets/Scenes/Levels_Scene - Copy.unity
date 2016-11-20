@@ -61443,11 +61443,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 336.49
+      value: 339.41
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.13
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -72802,9 +72802,8 @@ MonoBehaviour:
   enemyStopDistance: 0.45
   fireTime: 55
   stop: 0.4
-  precisionOfEnemyToBounds: 0.35
   enemyWalkAgain: 0.6
-  shootRange: 4
+  enemyShootRange: 3
   fireball: {fileID: 1000014214353690, guid: 6206c4c9c897c4d448a8ef083f5ae68a, type: 2}
   fireballVector: {x: 0, y: 0}
   emmiterFireball: {fileID: 711442279}

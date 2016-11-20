@@ -10,18 +10,17 @@ public class BossAI : MonoBehaviour {
     public float speed = 1.0f;
     public float inChasingDistance = 0.75f;
     public float enemyStopDistance = 0.45f;
-    public float fireTime = 55f;//number of frames to wait before shooting again
+    public float fireTime = 5f;//number of frames to wait before shooting again
 
     public float stop = 0.4f;
-    public float precisionOfEnemyToBounds = 0.35f;
 
     private float waitBetweenAttack = 300f;
     private float currentWaitTime;
     private int waitFrameAttack;
-    private int waitFrameMagic;
+    private int waitFrameMagic = 60;
 
     public float enemyWalkAgain = 0.6f;
-    public float shootRange = 3f;
+    public float enemyShootRange = 3f;
 
     private EmmiterVector ev_fireball;
     public GameObject fireball; //prefab to fireball
@@ -154,30 +153,22 @@ public class BossAI : MonoBehaviour {
                 Debug.Log(("Undefined State"));
             }
         } else { // player is on a different platform from user --- patrol function
-
-
             searchingPlayer = false;
             isChasing = false;
             isAttacking = false;
-            if(distanceToPlayer < shootRange) {//in shooting range 
-                //Debug.Log()
-                if(isMagic) {
+            waitFrameMagic++;
+            if (distanceToPlayer < enemyShootRange) {//in shooting range 
+                
+                if (!isMagic) {
                     if (waitFrameMagic > fireTime) {
                         waitFrameMagic = 0;
                         isMagic = true;
                         isWalking = false;
                         shootProjectile();
-                    } else {
-                        waitFrameMagic++;
-                        isMagic = false;
-                        isWalking = true;
-                        patrol();
                     }
-                }else {
-                    waitFrameMagic = 0;
-                    isMagic = true;
-                    isWalking = false;
-                    shootProjectile();
+                    isMagic = false;
+                    isWalking = true;
+                    patrol();
                 }
             } else {//keep walking until reaching shooting range or player is on same playform
                 isMagic = false;
@@ -189,22 +180,31 @@ public class BossAI : MonoBehaviour {
     }
 
     public void shootProjectile() {
-        //speed currently dynamically changing
         var lookPosX = target.position.x - transform.position.x;
         var lookPosY = target.position.y - transform.position.y;
-
+        Debug.Log(rotateBolt());
         if (walkingToLeftBound) {
             ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
             fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir       
-            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
+            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, -rotateBolt()));
         } else {
             ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
             fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
+            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, rotateBolt()));
         }
-   }
+    }
 
-public void positionToAttackIn() {
+    public float rotateBolt() {
+        var lookPos = target.position - transform.position;
+        var rotation = Quaternion.LookRotation(lookPos);
+        rotation.y = 0;
+        rotation.x = 0;
+        float angle = rotation.eulerAngles.z;
+        //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
+        return angle;
+    }
+
+    public void positionToAttackIn() {
         currentPosition = transform.position;
     }
 
@@ -225,7 +225,7 @@ public void positionToAttackIn() {
     }
 
     public bool checkBoundDistance(Transform bound) {
-        if ((Vector2.Distance(bound.position, transform.position)) <= precisionOfEnemyToBounds) {
+        if ((Vector2.Distance(bound.position, transform.position)) <= stop) {
             return true;
         } else {
             return false;
