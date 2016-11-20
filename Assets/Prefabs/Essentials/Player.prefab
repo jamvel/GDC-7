@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011405945804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.32, y: -3, z: 0}
+  m_LocalPosition: {x: 339.41, y: -1.28, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -468,7 +468,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6e1adea7f7246dd48bb9dac53135777b, type: 3}
   - {fileID: 8300000, guid: b7be0a7dde0c9bb48a2aab9606cdc6e1, type: 3}
   enableAudio: 1
-  fireball: {fileID: 1000013017164654, guid: bdfee4ab6a1fe45ed907ec92fd269d98, type: 2}
+  fireball: {fileID: 1000010802371356, guid: 2db7bd97d0db46f4fa459b504fd2d4ae, type: 2}
   emmiterFireball: {fileID: 1000013241347714}
   isGround: 0
 --- !u!114 &114000011664532062
@@ -618,7 +618,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012541773868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 0.00386261, y: 0.00386261, z: 0.00386261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

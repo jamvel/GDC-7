@@ -61478,11 +61478,6 @@ Prefab:
       propertyPath: UI_Canvas
       value: 
       objectReference: {fileID: 283888835}
-    - target: {fileID: 224000010485342314, guid: 2f1fcccae6d08e248bf5c98b7d14b45a,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
   m_IsPrefabParent: 0
@@ -72823,10 +72818,10 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 500
   health: 500
-  damage: 30
-  healthBar: {fileID: 0}
-  numberOfCoins: 1
-  coin: {fileID: 0}
+  damage: 25
+  healthBar: {fileID: 567538650}
+  numberOfCoins: 25
+  coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
 --- !u!95 &2127607215
 Animator:
   serializedVersion: 3
