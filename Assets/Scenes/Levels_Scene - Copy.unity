@@ -16643,6 +16643,53 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010726912674, guid: 0334e2e57b8bc744fb4f8c1b484b10dc,
     type: 2}
   m_PrefabInternal: {fileID: 551422419}
+--- !u!1 &551536385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 551536386}
+  - 114: {fileID: 551536387}
+  m_Layer: 0
+  m_Name: Node_Boss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551536386
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551536385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 144.05531, y: 8.56, z: 45.03125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+--- !u!114 &551536387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551536385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fea6b0683bab84bb124b7fa496c231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelID: -1
+  toNode: []
+  isWest: 0
+  isNorth: 0
+  toBoss: 1
+  camSpawn: {fileID: 0}
+  playerSpawn: {fileID: 0}
 --- !u!1 &551580384
 GameObject:
   m_ObjectHideFlags: 0
@@ -31097,6 +31144,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1611076465}
     m_Modifications:
+    - target: {fileID: 114000012052459876, guid: 0a3b9ab5ce78b1e4091dfa5ada06e90e,
+        type: 2}
+      propertyPath: toNode.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4000012449934332, guid: 0a3b9ab5ce78b1e4091dfa5ada06e90e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 25.23
@@ -31141,6 +31193,11 @@ Prefab:
     - target: {fileID: 114000012052459876, guid: 0a3b9ab5ce78b1e4091dfa5ada06e90e,
         type: 2}
       propertyPath: toNode.Array.data[0]
+      value: 
+      objectReference: {fileID: 449371972}
+    - target: {fileID: 114000012052459876, guid: 0a3b9ab5ce78b1e4091dfa5ada06e90e,
+        type: 2}
+      propertyPath: toNode.Array.data[1]
       value: 
       objectReference: {fileID: 449371972}
     m_RemovedComponents: []
