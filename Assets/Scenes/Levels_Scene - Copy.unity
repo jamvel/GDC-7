@@ -51928,7 +51928,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536951653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5304303, y: 1.0540514, z: -0.16699219}
+  m_LocalPosition: {x: -0.104, y: -0.564, z: -0.16699219}
   m_LocalScale: {x: 1.1363636, y: 1.1363636, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -61423,11 +61423,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 339.39
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -72776,6 +72776,7 @@ MonoBehaviour:
   inChasingDistance: 1.5
   enemyStopDistance: 0.45
   fireTime: 55
+  projectileSpeed: 2
   stop: 0.4
   enemyWalkAgain: 0.6
   enemyShootRange: 3
