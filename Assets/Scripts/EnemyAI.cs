@@ -81,6 +81,12 @@ public class EnemyAI : MonoBehaviour
 		}
 
         if (SearchForPlayer()){ //player is in the same platform as skeleton
+            var relativePoint = transform.InverseTransformPoint(target.position);
+            if (relativePoint.x < 0.0) {//chasing to the left
+                walkingToLeftBound = true;
+            } else {
+                walkingToLeftBound = false;
+            }
             //move towards the player
             searchingPlayer = true;
             animatorSetting();
@@ -101,6 +107,7 @@ public class EnemyAI : MonoBehaviour
                     }
                 } else {
                     isWalking = true;
+                    Debug.Log("Player on same level");
                     patrol();
                 }
              } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {

@@ -10,15 +10,23 @@ public class BossAI : MonoBehaviour {
     public float speed = 1.0f;
     public float inChasingDistance = 0.75f;
     public float enemyStopDistance = 0.45f;
+    public float fireTime = 55f;//number of frames to wait before shooting again
 
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.35f;
 
     private float waitBetweenAttack = 300f;
     private float currentWaitTime;
-    private int waitFrames;
+    private int waitFrameAttack;
+    private int waitFrameMagic;
 
     public float enemyWalkAgain = 0.6f;
+    public float shootRange = 3f;
+
+    private EmmiterVector ev_fireball;
+    public GameObject fireball; //prefab to fireball
+    public Vector2 fireballVector;
+    public GameObject emmiterFireball; //actual emmiter
 
     public AudioClip[] effects;
     private AudioSource skelwalk, skelsword;
@@ -32,6 +40,7 @@ public class BossAI : MonoBehaviour {
     private bool isWalking = true;
     private bool isChasing = false;
     private bool isAttacking = false;
+    private bool isMagic = false;
 
     private Animator animator;
 
@@ -39,6 +48,9 @@ public class BossAI : MonoBehaviour {
     private Vector2 currentPosition;
     private Vector2 higherLeftBound;
     private Vector2 higherRightBound;
+    private GameObject emitter;
+
+
     void Start() {
         currentWaitTime = 300;//on detaction attack player immediately
         animator = this.GetComponent<Animator>();
@@ -47,6 +59,8 @@ public class BossAI : MonoBehaviour {
 
         higherLeftBound = new Vector2(leftBound.position.x, leftBound.position.y + 0.5f);
         higherRightBound = new Vector2(rightBound.position.x, rightBound.position.y + 0.5f);
+        ev_fireball = emmiterFireball.GetComponent<EmmiterVector>();
+        emitter = this.gameObject.transform.GetChild(0).gameObject;
 
         //startCoordinates = GetComponent<Transform>().position;
 
@@ -71,10 +85,16 @@ public class BossAI : MonoBehaviour {
         }
 
         if (SearchForPlayer()) { //player is in the same platform as skeleton
+            //to change which bound enemy should go to once player is out of range
+            var relativePoint = transform.InverseTransformPoint(target.position);
+            if (relativePoint.x < 0.0) {//chasing to the left
+                walkingToLeftBound = true;
+            }else {
+                walkingToLeftBound = false;
+            }
             //move towards the player
             searchingPlayer = true;
             animatorSetting();
-
             if (distanceToPlayer > inChasingDistance) {//out of range
                 //patrol the platform
                 currentWaitTime = 300;
@@ -82,12 +102,12 @@ public class BossAI : MonoBehaviour {
                 isChasing = false;
 
                 if (isAttacking) {//check if enemy was attacking
-                    waitFrames++;
+                    waitFrameAttack++;
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
-                    if (waitFrames > 55) { //wait for 50 frames, then move again towards the enemy
+                    if (waitFrameAttack > 55) { //wait for 50 frames, then move again towards the enemy
                         isAttacking = false;
                         isWalking = false;
-                        waitFrames = 0;
+                        waitFrameAttack = 0;
                     }
                 } else {
                     isWalking = true;
@@ -134,16 +154,56 @@ public class BossAI : MonoBehaviour {
                 Debug.Log(("Undefined State"));
             }
         } else { // player is on a different platform from user --- patrol function
+
             searchingPlayer = false;
-            isWalking = true;
             isChasing = false;
             isAttacking = false;
-            patrol();
+            if(distanceToPlayer < shootRange) {//in shooting range 
+                //Debug.Log()
+                if(isMagic) {
+                    if (waitFrameMagic > fireTime) {
+                        waitFrameMagic = 0;
+                        isMagic = true;
+                        isWalking = false;
+                        shootProjectile();
+                    } else {
+                        waitFrameMagic++;
+                        isMagic = false;
+                        isWalking = true;
+                        patrol();
+                    }
+                }else {
+                    waitFrameMagic = 0;
+                    isMagic = true;
+                    isWalking = false;
+                    shootProjectile();
+                }
+            } else {//keep walking until reaching shooting range or player is on same playform
+                isMagic = false;
+                isWalking = true;
+                patrol();
+            }
         }
         animatorSetting();
     }
 
-    public void positionToAttackIn() {
+    public void shootProjectile() {
+        //speed currently dynamically changing
+        var lookPosX = target.position.x - transform.position.x;
+        var lookPosY = target.position.y - transform.position.y;
+
+        if (walkingToLeftBound) {
+            ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
+            fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir       
+            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
+        } else {
+            ev_fireball.directionVector = new Vector2(lookPosX, lookPosY);
+            fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+            Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
+        }
+   }
+
+public void positionToAttackIn() {
         currentPosition = transform.position;
     }
 
@@ -214,24 +274,32 @@ public class BossAI : MonoBehaviour {
     }
 
     public void animatorSetting() {
+        var relativePoint = transform.InverseTransformPoint(target.position);
         if (!searchingPlayer) {//patrolling the platform
-            //player is not in sight
+            //player is not on same platform
             animator.SetBool("IsAttack", false);
-
-            if (walkingToLeftBound) {//walking left
-                animator.SetInteger("Sdirection", 2);
-            } else {//walking right
-                animator.SetInteger("Sdirection", 1);
+            if(isMagic) {//shoot bolts to player
+                animator.SetBool("IsMagic", true);
+            } else {//just patrol the area
+                animator.SetBool("IsMagic", false);
+                if (walkingToLeftBound) {//walking left
+                    animator.SetInteger("Sdirection", 2);
+                } else {//walking right
+                    animator.SetInteger("Sdirection", 1);
+                }
             }
         } else {//going to do actions as regards to the player position
-            var relativePoint = transform.InverseTransformPoint(target.position);
             if (isChasing) {//chasing enemy
                 if (relativePoint.x < 0.0) {//chasing to the left
                     animator.SetInteger("Sdirection", 2);
                 } else {//chaing to the right
                     animator.SetInteger("Sdirection", 1);
                 }
-            } else {//looking at enemy // soon to attack
+            } else {//looking at enemy // soon to attack 
+
+
+
+                //might need to change states below
                 if (isAttacking) {//attacking 
                     animator.SetBool("IsAttack", true);
                 } else {//looking at player
