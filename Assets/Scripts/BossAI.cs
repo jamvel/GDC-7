@@ -155,6 +155,7 @@ public class BossAI : MonoBehaviour {
             }
         } else { // player is on a different platform from user --- patrol function
 
+
             searchingPlayer = false;
             isChasing = false;
             isAttacking = false;
