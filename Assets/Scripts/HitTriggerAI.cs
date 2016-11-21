@@ -10,7 +10,7 @@ public class HitTriggerAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D c) {
         //things that deal damage to enemy
-        if (counter > 150){//to only receive one hit at a time instead of multiple hits from one single attack
+        if (counter > 35){//to only receive one hit at a time instead of multiple hits from one single attack
             counter = 0;
 
             if (c.tag == "PlayerSword") {
