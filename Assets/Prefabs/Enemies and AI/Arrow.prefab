@@ -21,7 +21,6 @@ GameObject:
   - 4: {fileID: 4000012315028666}
   - 212: {fileID: 212000011321414894}
   - 114: {fileID: 114000010122384150}
-  - 114: {fileID: 114000011480204764}
   - 50: {fileID: 50000011351635456}
   - 61: {fileID: 61000011853600628}
   - 114: {fileID: 114000011006738940}
@@ -87,7 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b633a57ab83345aaaf62d7b456ed9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityVector: {x: -6, y: 0}
+  timeToTravel: 2.5
+  velocityVector: {x: 0, y: -5}
 --- !u!114 &114000011006738940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,19 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
---- !u!114 &114000011480204764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013301154060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9f24fbad5d04b6eae371c684cdcf5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 0
-  directionVector: {x: -1, y: 0}
 --- !u!212 &212000011321414894
 SpriteRenderer:
   m_ObjectHideFlags: 1

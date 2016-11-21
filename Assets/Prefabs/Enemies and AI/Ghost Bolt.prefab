@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b633a57ab83345aaaf62d7b456ed9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToTravel: 3
   velocityVector: {x: 2.0026612, y: 2.7200556}
 --- !u!212 &212000011065029392
 SpriteRenderer:
