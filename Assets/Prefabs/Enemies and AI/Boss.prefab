@@ -99,7 +99,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010972995438}
   - 61: {fileID: 61000013245018654}
-  - 50: {fileID: 50000010614169296}
   - 114: {fileID: 114000011905807494}
   m_Layer: 12
   m_Name: SwordPiece
@@ -239,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014005259562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.035309, y: -1.51, z: 0.099609375}
+  m_LocalPosition: {x: 4.1466427, y: -3.1629794, z: 0.099609375}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -264,23 +263,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012837031222}
   m_RootOrder: 4
---- !u!50 &50000010614169296
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012228865678}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!50 &50000011886573352
 Rigidbody2D:
   serializedVersion: 2
