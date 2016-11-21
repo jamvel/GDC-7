@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     private Transform tr;
 
-    private int counter = 0;
+    //private int counter = 0;
     private int i;
     public AudioClip[] grunts, coin;
     public AudioSource grunt, coinsound;
@@ -40,10 +40,10 @@ public class Player : MonoBehaviour {
         grunt = gameObject.AddComponent<AudioSource>();
         grunt.volume = 0.1f;
     }
-    
+    /*
     void Update() {
         counter++;//increment the counter each frame
-    }
+    }*/
 
     public void updateHealthBar() {
         float healthRatio = currentHealth / maxHealth;
@@ -55,8 +55,8 @@ public class Player : MonoBehaviour {
         i = Random.Range(0, 2);
         grunt.clip = grunts[i];
         grunt.Play();
-        if(counter > 100) {//to only receive one hit at a time instead of multiple hits from one single attack
-            counter = 0;
+        //if(counter > 150) {//to only receive one hit at a time instead of multiple hits from one single attack
+        //    counter = 0;
             if (dmg.isRight) {
                 tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
                 Debug.Log("Enemy hit the player from the right");
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
             updateHealthBar();
             StartCoroutine(changeSpriteColor());
 
-        }
+        //}
         
         
     }

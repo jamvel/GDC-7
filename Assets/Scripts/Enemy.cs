@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour {
     private Text healthRatioText;
     private Animator animator;
 
+    private int hitcounter = 0;
     private int counter =0 ;
     private int deathCounter = 0;
     private int i;
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         counter++;
+        hitcounter++;
         deathCounter++;
         if (health <= 0) {
             deathCounter++;
@@ -74,18 +76,19 @@ public class Enemy : MonoBehaviour {
         i = Random.Range(0, 2);
         //grunt.clip = grunts[i];
         //grunt.Play();
-
-        if (dmg.isRight) {
-            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
-            Debug.Log("Player hit the enemy from the right");
-        } else {
-            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
-            Debug.Log("Player hit the enemy from the left");
+        if (hitcounter > 100000){
+            hitcounter = 0;
+            if (dmg.isRight) {
+                tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
+                Debug.Log("Player hit the enemy from the right");
+            } else {
+                tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
+                Debug.Log("Player hit the enemy from the left");
+            }
+            currentHealth -= dmg.damage;
+            updateHealthBar();
+            StartCoroutine(changeSpriteColor());
         }
-        currentHealth -= dmg.damage;
-        updateHealthBar();
-        StartCoroutine(changeSpriteColor());
-
     }
 
     private IEnumerator changeSpriteColor() {
