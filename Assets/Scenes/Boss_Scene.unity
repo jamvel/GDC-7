@@ -945,7 +945,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214564316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1, y: 0.1, z: 50}
+  m_LocalPosition: {x: 2.1, y: 0.94, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1932,6 +1932,11 @@ Prefab:
       propertyPath: m_Name
       value: Caged_Skeleton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010483501056, guid: bbd43aef4013d8845bc3912a7ba0e4a0,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
   m_IsPrefabParent: 0
@@ -2585,6 +2590,10 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010972995438, guid: 6579d6cb8d0269c46915d12d25867087, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -40.172
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6579d6cb8d0269c46915d12d25867087, type: 2}
@@ -3782,6 +3791,53 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010365192284, guid: 25f65d29348e6804fa929f78bb3281f5,
     type: 2}
   m_PrefabInternal: {fileID: 914596080}
+--- !u!1001 &933285382
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010044765022, guid: 2f1fcccae6d08e248bf5c98b7d14b45a,
+        type: 2}
+      propertyPath: UI_Canvas
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &978729071
 Prefab:
   m_ObjectHideFlags: 0
@@ -4047,6 +4103,11 @@ Prefab:
     - target: {fileID: 1000014027966316, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
       propertyPath: m_Name
       value: Caged_Skeleton (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010483501056, guid: bbd43aef4013d8845bc3912a7ba0e4a0,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
@@ -4594,7 +4655,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1162646224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 335.58, y: -2.0644236, z: -0.099609375}
+  m_LocalPosition: {x: -4.9, y: -2.0644236, z: -0.099609375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -5993,6 +6054,11 @@ Prefab:
       propertyPath: m_Name
       value: Caged_Skeleton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010483501056, guid: bbd43aef4013d8845bc3912a7ba0e4a0,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
   m_IsPrefabParent: 0
@@ -6265,6 +6331,11 @@ Prefab:
     - target: {fileID: 1000014027966316, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
       propertyPath: m_Name
       value: Caged_Skeleton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010483501056, guid: bbd43aef4013d8845bc3912a7ba0e4a0,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
@@ -7895,6 +7966,11 @@ Prefab:
     - target: {fileID: 4000011631469864, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.29728
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010483501056, guid: bbd43aef4013d8845bc3912a7ba0e4a0,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbd43aef4013d8845bc3912a7ba0e4a0, type: 2}
