@@ -89,7 +89,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f56fbff119fb93842918954fee372d67, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToTravel: 4
-  velocityVector: {x: -2.9100256, y: -0.7424332}
+  velocityVector: {x: -2.9621215, y: 3.6666033}
 --- !u!114 &114000011215802568
 MonoBehaviour:
   m_ObjectHideFlags: 1
