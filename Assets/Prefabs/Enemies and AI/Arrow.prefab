@@ -26,7 +26,7 @@ GameObject:
   - 114: {fileID: 114000011006738940}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: DamagePiece
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b633a57ab83345aaaf62d7b456ed9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToTravel: 2.5
+  timeToTravel: 2.75
   velocityVector: {x: 0, y: -5}
 --- !u!114 &114000011006738940
 MonoBehaviour:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa033564a4834b41a072d3ec663c3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
 --- !u!212 &212000011321414894
 SpriteRenderer:
   m_ObjectHideFlags: 1

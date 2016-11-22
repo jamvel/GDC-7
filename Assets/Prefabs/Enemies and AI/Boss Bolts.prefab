@@ -28,7 +28,7 @@ GameObject:
   - 114: {fileID: 114000011215802568}
   m_Layer: 0
   m_Name: Boss Bolts
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b633a57ab83345aaaf62d7b456ed9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToTravel: 3
+  timeToTravel: 4
   velocityVector: {x: -2.065171, y: -0.018109418}
 --- !u!114 &114000011215802568
 MonoBehaviour:

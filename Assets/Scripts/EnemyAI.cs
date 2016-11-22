@@ -20,10 +20,10 @@ public class EnemyAI : MonoBehaviour
 
     public float stop = 0.4f;
     public float precisionOfEnemyToBounds = 0.35f;
+    public float timeToWait = 2f;
 
     private float waitBetweenAttack = 300f;
     private float currentWaitTime;
-    private int waitFrames;
 
     public float enemyWalkAgain = 0.6f;
 
@@ -46,7 +46,8 @@ public class EnemyAI : MonoBehaviour
     private Vector2 currentPosition;
     private Vector2 higherLeftBound;
     private Vector2 higherRightBound;
-    
+    private bool coStarted = false;
+
     void Start()
     {
         currentWaitTime = 300;//on detaction attack player immediately
@@ -98,16 +99,16 @@ public class EnemyAI : MonoBehaviour
                 isChasing = false;
 
                 if (isAttacking) {//check if enemy was attacking
-                    waitFrames++;
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
-                    if (waitFrames > 55) { //wait for 50 frames, then move again towards the enemy
-                        isAttacking = false;
-                        isWalking = false;
-                        waitFrames = 0;
+                        if (!coStarted) {
+                            StartCoroutine(DestroyAfterSeconds());
+                            coStarted = true;
+                        animatorSetting();
                     }
+
                 } else {
                     isWalking = true;
-                    Debug.Log("Player on same level");
+                    isAttacking = false;
                     patrol();
                 }
              } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
@@ -118,9 +119,13 @@ public class EnemyAI : MonoBehaviour
                 if (isAttacking) {//check if enemy was attacking
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
                     if(distanceToPlayer > enemyWalkAgain) { //check how far the player got to walk again
-                        isAttacking = false;
-                        isWalking = false;
+                        if(!coStarted) {
+                            StartCoroutine(DestroyAfterSeconds());
+                            coStarted = true;
+                            animatorSetting();
+                        }
                     }
+
                 } else {
                     isWalking = true;
                     moveEnemy(target);
@@ -129,6 +134,7 @@ public class EnemyAI : MonoBehaviour
                 //come to a stop     
                 //start attacking
                 positionToAttackIn();
+                coStarted = false;
                 if(currentWaitTime >= waitBetweenAttack) {
                     isWalking = false;
                     isChasing = false;
@@ -151,6 +157,7 @@ public class EnemyAI : MonoBehaviour
                 Debug.Log(("Undefined State"));
             }
         } else { // player is on a different platform from user --- patrol function
+
             searchingPlayer = false;
             isWalking = true;
             isChasing = false;
@@ -158,6 +165,12 @@ public class EnemyAI : MonoBehaviour
             patrol();
         }
         animatorSetting();
+    }
+
+    IEnumerator DestroyAfterSeconds() {
+        yield return new WaitForSeconds(timeToWait);
+        isAttacking = false;
+        isWalking = false;
     }
 
     public void positionToAttackIn() {

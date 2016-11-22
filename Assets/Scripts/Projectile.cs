@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour {
         emmiterArrow = GetComponent<EmmiterVector>();
         rb = GetComponent<Rigidbody2D> ();
 		rb.velocity = velocityVector;
-        StartCoroutine(DestroyAfterSecords());
+        StartCoroutine(DestroyAfterSeconds());
     }
 
     void Update() {
@@ -23,7 +23,13 @@ public class Projectile : MonoBehaviour {
         }
     }
 
-    IEnumerator DestroyAfterSecords() {
+    void OnTriggerEnter2D(Collider2D c) {
+        if (c.gameObject.tag == "Player") {
+            Destroy(gameObject);
+        }
+    }
+
+    IEnumerator DestroyAfterSeconds() {
         yield return new WaitForSeconds(timeToTravel);
         canDestory = true;
     }

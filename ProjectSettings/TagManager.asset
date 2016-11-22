@@ -12,6 +12,8 @@ TagManager:
   - Wall
   - DamagePiece
   - PlayerSword
+  - Projectile
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
