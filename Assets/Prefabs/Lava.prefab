@@ -23,6 +23,7 @@ GameObject:
   - 95: {fileID: 95000011045127274}
   - 82: {fileID: 82000010158520998}
   - 114: {fileID: 114000011468272384}
+  - 61: {fileID: 61000011427798438}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Lava
@@ -65,14 +66,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010133183692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0986567, y: -2.0232658, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.810036, y: 0.018314242, z: -0.029424816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010518577524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000011427798438
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010133183692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.29627228}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.40745544}
 --- !u!82 &82000010158520998
 AudioSource:
   m_ObjectHideFlags: 1
