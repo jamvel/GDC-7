@@ -81,8 +81,23 @@ public class UI_Respawn : MonoBehaviour {
     }
     public void select(int id) {
         selectedId = id;
-        if(id == 2) {
-            if(GameManager.instance.coins >= re_roll_cost) {
+        if(id == 0) {
+            GameManager.instance.LoadLevelScene();
+        }
+
+        if (id == 1) {
+            if (GameManager.instance.coins >= tier2_cost) { 
+                //can purchase
+
+            }else {
+                StartCoroutine(ShowError());
+            }
+
+        }
+
+        if (id == 2) {
+
+            if (GameManager.instance.coins >= re_roll_cost) {
                 GameManager.instance.coins -= re_roll_cost;
                 RandomSelect();
             }else {
@@ -91,7 +106,6 @@ public class UI_Respawn : MonoBehaviour {
             
         }
         Debug.Log(selectedId);
-        //select[0] -> perk_1/curse_1...
     }
     
 
@@ -128,4 +142,4 @@ public class UI_Respawn : MonoBehaviour {
         errorText.gameObject.SetActive(false);
     }
 
-    }
+}
