@@ -11,6 +11,7 @@ public class UI_Respawn : MonoBehaviour {
     public int re_roll_cost = 150;
 
     public Canvas UI_Canvas;
+    public GameObject Loading_Panel;
     public Text cost_Tier2_Text;
     public Text cost_Reroll_Text;
     public Text errorText;
@@ -88,6 +89,7 @@ public class UI_Respawn : MonoBehaviour {
     public void select(int id) {
         selectedId = id;
         if(id == 0) {
+            Loading_Panel.SetActive(true);
             GameManager.instance.LoadLevelScene();
         }
 
