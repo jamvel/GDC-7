@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011549517844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8568025, y: 0.05767092, z: 0}
+  m_LocalPosition: {x: 24.449997, y: -5.5911875, z: -0.078125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -71,11 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45501390dd92e24bad879af20336a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalNumber: 1
-  totalNumberOfIntervals: 1
-  waitSeconds: 1
+  intervalNumber: 2
+  totalNumberOfIntervals: 2
+  waitSeconds: 4
   waitRate: 1
-  numberOfProjectiles: 2
+  numberOfProjectiles: 3
   speedOfProjectile: 1
   x: 0
   tools:

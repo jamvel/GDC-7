@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013293401886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.806, y: -0.38320526, z: 0}
+  m_LocalPosition: {x: -17.267761, y: -4.2617264, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -367,6 +367,7 @@ MonoBehaviour:
   enemyStopDistance: 0.35
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
+  timeToWait: 2
   enemyWalkAgain: 1
   effects:
   - {fileID: 8300000, guid: 051ed6ad91f99e14d986528b3cf13644, type: 3}
@@ -386,7 +387,7 @@ MonoBehaviour:
   maxHealth: 150
   currentHealth: 150
   health: 150
-  damage: 15
+  damage: 7
   healthBar: {fileID: 114000013466386094}
   numberOfCoins: 7
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
@@ -401,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa033564a4834b41a072d3ec663c3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 7
 --- !u!114 &114000012967199144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -567,7 +568,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010313786042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.00386261, y: 0.00386261, z: 0.00386261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
