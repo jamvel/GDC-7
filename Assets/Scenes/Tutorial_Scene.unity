@@ -165,7 +165,7 @@ GameObject:
   - 4: {fileID: 15600384}
   - 114: {fileID: 15600386}
   - 58: {fileID: 15600385}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue2_In_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -911,7 +911,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 177893186}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1871,7 +1871,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.17
+      value: -16.84
       objectReference: {fileID: 0}
     - target: {fileID: 4000012215189884, guid: 2f1fcccae6d08e248bf5c98b7d14b45a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1948,7 +1948,7 @@ GameObject:
   - 4: {fileID: 346751256}
   - 58: {fileID: 346751258}
   - 114: {fileID: 346751257}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue3_Out_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2410,7 +2410,7 @@ GameObject:
   - 4: {fileID: 490597366}
   - 58: {fileID: 490597368}
   - 114: {fileID: 490597367}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue3_In_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2663,7 +2663,7 @@ GameObject:
   - 4: {fileID: 562600236}
   - 58: {fileID: 562600235}
   - 114: {fileID: 562600237}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Dialogue1_Out_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3094,7 +3094,7 @@ GameObject:
   - 4: {fileID: 601759253}
   - 58: {fileID: 601759252}
   - 114: {fileID: 601759251}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Dialogue1_In_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6452,7 +6452,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1469035488}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6939,7 +6939,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1542377394}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7797,7 +7797,7 @@ GameObject:
   - 4: {fileID: 1683136905}
   - 114: {fileID: 1683136907}
   - 58: {fileID: 1683136906}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue2_Out_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8426,7 +8426,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1793986272}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dialogue_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
