@@ -14,6 +14,7 @@ TagManager:
   - PlayerSword
   - Projectile
   - PlayerProjectile
+  - Feet
   layers:
   - Default
   - TransparentFX
