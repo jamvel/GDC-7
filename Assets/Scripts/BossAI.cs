@@ -28,8 +28,8 @@ public class BossAI : MonoBehaviour {
     public Vector2 fireballVector;
     public GameObject emmiterFireball; //actual emmiter
 
-    public AudioClip[] effects;
-    private AudioSource skelwalk, skelsword;
+    public AudioClip[] bossEffects;
+    private AudioSource bosswalk, bosssword;
     public bool enableAudio = true;
 
     private float distanceToPlayer = 0;
@@ -64,13 +64,13 @@ public class BossAI : MonoBehaviour {
 
         //startCoordinates = GetComponent<Transform>().position;
 
-        if (effects.Length > 0 && enableAudio == true) {
-            skelwalk = gameObject.AddComponent<AudioSource>();
-            skelwalk.clip = effects[0];
-            skelwalk.spatialBlend = 1;
-            skelsword = gameObject.AddComponent<AudioSource>();
-            skelsword.clip = effects[1];
-        } else if (effects.Length == 0) {
+        if (bossEffects.Length > 0 && enableAudio == true) {
+            bosswalk = gameObject.AddComponent<AudioSource>();
+            bosswalk.clip = bossEffects[0];
+            bosswalk.spatialBlend = 1;
+            bosssword = gameObject.AddComponent<AudioSource>();
+            bosssword.clip = bossEffects[1];
+        } else if (bossEffects.Length == 0) {
             enableAudio = false;
         }
     }
@@ -79,8 +79,8 @@ public class BossAI : MonoBehaviour {
     void Update() {
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
         if (enableAudio) {
-            if (skelwalk.isPlaying && (!isWalking)) {
-                skelwalk.Stop(); //stop walking sound if stopped moving
+            if (bosswalk.isPlaying && (!isWalking)) {
+                bosswalk.Stop(); //stop walking sound if stopped moving
             }
         }
 
@@ -286,8 +286,8 @@ public class BossAI : MonoBehaviour {
     }
 
     public void attack() {
-        if (enableAudio && !skelsword.isPlaying) {
-            skelsword.Play();
+        if (enableAudio && !bosssword.isPlaying) {
+            bosssword.Play();
         }
         //Debug.Log("Attacking");
         //check if collider hit with player
@@ -345,8 +345,8 @@ public class BossAI : MonoBehaviour {
 
     public void WalkSound() {
         if (enableAudio) {
-            if (!skelwalk.isPlaying) {
-                skelwalk.Play();
+            if (!bosswalk.isPlaying) {
+                bosswalk.Play();
             }
         }
     }
