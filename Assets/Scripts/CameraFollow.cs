@@ -256,7 +256,7 @@ public class CameraFollow : MonoBehaviour {
                         else { }
                     }else {
                         if(platform.GetComponent<MovingPlatform>() != null) {
-                            Vector3 destination = new Vector3(hitVector.x + delta.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                            Vector3 destination = new Vector3(hitVector.x + delta.x, hitVector.y + delta.y + (0.5f*verticalOffset), transform.position.z);
                             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity,dampTime2);
                             refGround = hit.transform;
                         }else {
@@ -347,7 +347,7 @@ public class CameraFollow : MonoBehaviour {
                             }
                             else {
                                 if (platform.GetComponent<MovingPlatform>() != null) {
-                                    Vector3 destination = new Vector3(transform.position.x, hitVector.y + delta.y + verticalOffset, transform.position.z);
+                                    Vector3 destination = new Vector3(transform.position.x, hitVector.y + delta.y + (0.5f * verticalOffset), transform.position.z);
                                     transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime2);
                                     refGround = hit.transform;
                                 }
