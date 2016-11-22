@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour {
 		}
 		instance = this;
 		DontDestroyOnLoad(gameObject);
-	}
+        Application.targetFrameRate = 60;
+    }
 
 	void Start(){
         //SceneManager.LoadScene("Menu_Scene"); //Load Menu Scene
