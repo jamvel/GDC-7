@@ -487,11 +487,11 @@ MonoBehaviour:
     m_Bits: 256
   speed: 1
   inChasingDistance: 1
-  enemyStopDistance: 0.3
+  enemyStopDistance: 0.4
   stop: 0.4
   precisionOfEnemyToBounds: 0.35
   timeToWait: 2
-  enemyWalkAgain: 0.5
+  enemyWalkAgain: 0.9
   effects:
   - {fileID: 8300000, guid: 72d2b145ec0d41143860ed6b927aa77d, type: 3}
   - {fileID: 8300000, guid: d0444c060a21ebf46aa7b3337621ff96, type: 3}

@@ -101,7 +101,7 @@ public class EnemyAI : MonoBehaviour
                 if (isAttacking) {//check if enemy was attacking
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
                         if (!coStarted) {
-                            StartCoroutine(DestroyAfterSeconds());
+                            StartCoroutine(WaitSeconds());
                             coStarted = true;
                         animatorSetting();
                     }
@@ -120,7 +120,7 @@ public class EnemyAI : MonoBehaviour
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
                     if(distanceToPlayer > enemyWalkAgain) { //check how far the player got to walk again
                         if(!coStarted) {
-                            StartCoroutine(DestroyAfterSeconds());
+                            StartCoroutine(WaitSeconds());
                             coStarted = true;
                             animatorSetting();
                         }
@@ -157,18 +157,28 @@ public class EnemyAI : MonoBehaviour
                 Debug.Log(("Undefined State"));
             }
         } else { // player is on a different platform from user --- patrol function
-
             searchingPlayer = false;
-            isWalking = true;
             isChasing = false;
-            isAttacking = false;
-            patrol();
+            if (isAttacking) {//check if enemy was attacking
+                transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
+                if (!coStarted) {
+                    StartCoroutine(WaitSeconds());
+                    coStarted = true;
+                    animatorSetting();
+                }
+
+            } else {
+                isWalking = true;
+                isAttacking = false;
+                animatorSetting();
+                patrol();
+            }
         }
         animatorSetting();
     }
 
-    IEnumerator DestroyAfterSeconds() {
-        yield return new WaitForSeconds(timeToWait);
+    IEnumerator WaitSeconds() {
+        yield return new WaitForSeconds(0.5f);
         isAttacking = false;
         isWalking = false;
     }
