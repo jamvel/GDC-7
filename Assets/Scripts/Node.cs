@@ -11,14 +11,14 @@ public class Node : MonoBehaviour {
     [HideInInspector]public Transform playerSpawn;
 
     void Start() {
-        if (toNode != null) {
+        if (toNode.Length != 0 && toNode[GameManager.instance.nodeIndex] != null) {
             camSpawn = toNode[GameManager.instance.nodeIndex].transform.FindChild("Camera_Spawn");
             playerSpawn = toNode[GameManager.instance.nodeIndex].transform.FindChild("Player_Spawn");
         }
     }
 
     void OnTriggerEnter2D(Collider2D c) {
-        if(toNode.Length == 0 || toNode == null) {
+        if(toNode.Length == 0 || toNode[GameManager.instance.nodeIndex] == null) {
             return;
         }
 

@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System;
 
 public class GameManager : MonoBehaviour {
 	
@@ -18,10 +18,15 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
     [HideInInspector] public bool canPause; //boolean to check if player can pause game
     [HideInInspector] public bool paused;
-    public Perk []perks;
+
+    public Perk []perks_tier1;
+    public Perk[] perks_tier2;
+    public Curse[] curses;
+
     public Canvas UI_Canvas;
     public int nodeIndex = 0;
-    
+    public int coins = 0;
+
     private bool deathScreen = false;
     private PlayerController controller;
     private Player playerScript;
@@ -35,7 +40,8 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
 		if(instance != null && instance != this) {
-			DestroyImmediate(gameObject);
+            Debug.Log("Destroy");
+			DestroyImmediate(this);
 			return;
 		}
 		instance = this;
@@ -58,6 +64,9 @@ public class GameManager : MonoBehaviour {
         
         canPause = true;
         paused = false;
+
+        //DontDestroyOnLoad(player);
+        //DontDestroyOnLoad(UI_Canvas);
 	}
 
     void Update() {
@@ -100,8 +109,44 @@ public class GameManager : MonoBehaviour {
         deathOverlay.SetActive(false);
     }
 
-    private void buildPerks() {
+    public void AssignObjects(GameObject newPlayer,Canvas newCanvas) {
+        player = newPlayer;
+        controller = player.GetComponent<PlayerController>();
+        playerScript = player.GetComponent<Player>();
 
+        UI_Canvas = newCanvas;
+        playerScript.UI_Canvas = UI_Canvas; //set UI Canvas in player script
+        pauseMenu = UI_Canvas.transform.Find("Pause_Menu").gameObject;
+        audioSlider = pauseMenu.transform.Find("AudioSlider").gameObject;
+        deathOverlay = UI_Canvas.transform.Find("Death_Overlay").gameObject;
     }
-	
+
+    public void LoadLevelScene() {
+        StartCoroutine(LoadNewScene(3,3));
+    }
+
+    public void LoadRespawnScene() {
+        StartCoroutine(LoadNewScene(3,2));
+    }
+
+    IEnumerator LoadNewScene(float time , int index) {
+        // This line waits for 3 seconds before executing the next line in the coroutine.
+        yield return new WaitForSeconds(time);
+
+        // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
+        AsyncOperation async = SceneManager.LoadSceneAsync(index,LoadSceneMode.Single);
+
+        // While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
+        while (!async.isDone) {
+            yield return null;
+        }
+        if (async.isDone) {
+            Debug.Log("Load done");
+            if (index != 2) {
+                AssignObjects(GameObject.Find("Player").gameObject, GameObject.Find("UI_Canvas_Main").GetComponent<Canvas>());
+            }
+        }
+        
+    }
+
 }

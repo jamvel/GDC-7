@@ -5,15 +5,16 @@ using System.Collections;
 public class Player : MonoBehaviour {
     public float maxHealth = 100f;
     public float currentHealth = 100f;
-    public float mana = 100f;
+    public float maxMax = 100f;
+    public float currentMana = 100f;
     public int coins;
     public Canvas UI_Canvas;
 
     /*Perks & Curses*/
     public bool fireball_1; //true if ability is fireball1
 
-    private RectTransform healthbarRectTransform;
-    private Text healthRatioText;
+    private RectTransform healthbarRectTransform,manabarRectTransform;
+    private Text healthRatioText,manaRatioText;
     private Text coinCounter;
 
     private SpriteRenderer sr;
@@ -33,9 +34,15 @@ public class Player : MonoBehaviour {
 
         healthbarRectTransform = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("HealthBar").gameObject.GetComponent<RectTransform>(); //find healthbar
         healthRatioText = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("RatioText_HealthBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
-        coinCounter = UI_Canvas.transform.Find("Counter_Parent").gameObject.transform.Find("Counter").gameObject.GetComponent<Text>(); //find counter text
+       
 
         updateHealthBar();
+
+        manabarRectTransform = UI_Canvas.transform.Find("MagicBar_Background").gameObject.transform.Find("MagicBar").gameObject.GetComponent<RectTransform>(); //find mana bar
+        manaRatioText = UI_Canvas.transform.Find("MagicBar_Background").gameObject.transform.Find("RatioText_MagicBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
+
+        coinCounter = UI_Canvas.transform.Find("Counter_Parent").gameObject.transform.Find("Counter").gameObject.GetComponent<Text>(); //find counter text
+
         coinsound = gameObject.AddComponent<AudioSource>();
         grunt = gameObject.AddComponent<AudioSource>();
         grunt.volume = 0.1f;
@@ -44,6 +51,10 @@ public class Player : MonoBehaviour {
     void Update() {
         counter++;//increment the counter each frame
     }*/
+
+    public void updateManaBar() {
+        //float manaRation = 
+    }
 
     public void updateHealthBar() {
         float healthRatio = currentHealth / maxHealth;
@@ -75,6 +86,7 @@ public class Player : MonoBehaviour {
 
     public void updateCoinCounter(int value) { //takes increment as parameter
         coins += value;
+        GameManager.instance.coins += value; //update value in gamemanger
         coinCounter.text = coins.ToString("D2");
         i = Random.Range(0, 4);
         coinsound.clip = coin[i];
