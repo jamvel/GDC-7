@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -85,7 +86,7 @@ public class UI_Respawn : MonoBehaviour {
                 GameManager.instance.coins -= re_roll_cost;
                 RandomSelect();
             }else {
-                errorText.gameObject.SetActive(true);
+                StartCoroutine(ShowError());
             }
             
         }
@@ -121,4 +122,10 @@ public class UI_Respawn : MonoBehaviour {
         return val;
     }
 
-}
+    IEnumerator ShowError() {
+        errorText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        errorText.gameObject.SetActive(false);
+    }
+
+    }
