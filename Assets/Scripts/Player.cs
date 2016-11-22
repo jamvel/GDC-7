@@ -34,7 +34,6 @@ public class Player : MonoBehaviour {
 
         healthbarRectTransform = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("HealthBar").gameObject.GetComponent<RectTransform>(); //find healthbar
         healthRatioText = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("RatioText_HealthBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
-       
 
         updateHealthBar();
 
@@ -66,22 +65,17 @@ public class Player : MonoBehaviour {
         i = Random.Range(0, 2);
         grunt.clip = grunts[i];
         grunt.Play();
-        //if(counter > 150) {//to only receive one hit at a time instead of multiple hits from one single attack
-        //    counter = 0;
-            if (dmg.isRight) {
-                tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
-                Debug.Log("Enemy hit the player from the right");
-            } else {
-                tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
-                Debug.Log("Enemy hit the player from the left");
-            }
-            currentHealth -= dmg.damage;
-            updateHealthBar();
-            StartCoroutine(changeSpriteColor());
 
-        //}
-        
-        
+        if (dmg.isRight) {
+            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
+            Debug.Log("Enemy hit the player from the right");
+        } else {
+            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
+            Debug.Log("Enemy hit the player from the left");
+        }
+        currentHealth -= dmg.damage;
+        updateHealthBar();
+        StartCoroutine(changeSpriteColor());        
     }
 
     public void updateCoinCounter(int value) { //takes increment as parameter
