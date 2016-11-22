@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa033564a4834b41a072d3ec663c3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 5
 --- !u!114 &114000011969482882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,10 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  health: 100
-  damage: 5
+  maxHealth: 80
+  currentHealth: 80
+  health: 80
+  damage: 1
   healthBar: {fileID: 114000013009360356}
   numberOfCoins: 3
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
