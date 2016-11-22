@@ -166,7 +166,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
-  open: {fileID: 8300000, guid: 65643698a9d78f04a8ef4dffb7475a83, type: 3}
+  open: {fileID: 8300000, guid: ec1e9e8073f8f0546893a1cd93417468, type: 3}
 --- !u!114 &114000014082526776
 MonoBehaviour:
   m_ObjectHideFlags: 1
