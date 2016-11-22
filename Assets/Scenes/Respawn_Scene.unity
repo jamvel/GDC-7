@@ -156,6 +156,7 @@ MonoBehaviour:
   - name: 
     desc: c5
     img: {fileID: 0}
+  click: {fileID: 8300000, guid: 875134bdf27b52945b98562a6c6bdde9, type: 3}
   UI_Canvas: {fileID: 905892101}
   nodeIndex: 0
   coins: 0
@@ -1596,6 +1597,7 @@ MonoBehaviour:
   cost_Reroll_Text: {fileID: 489372045}
   errorText: {fileID: 952825914}
   evtSystemRef: {fileID: 1260741142}
+  click: {fileID: 8300000, guid: ca95637cf32ef194fa0a3634e3ef8c36, type: 3}
 --- !u!224 &1046957067
 RectTransform:
   m_ObjectHideFlags: 0

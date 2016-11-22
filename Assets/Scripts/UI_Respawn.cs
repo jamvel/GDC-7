@@ -28,6 +28,9 @@ public class UI_Respawn : MonoBehaviour {
 
     int selectedId = 0;
 
+    public AudioClip click;
+    private AudioSource badClick;
+
     List<int> selectedCurses = new List<int>();
 
     void Awake() {
@@ -55,6 +58,9 @@ public class UI_Respawn : MonoBehaviour {
         cost_Tier2_Text.text = tier2_cost.ToString();
         cost_Reroll_Text.text = re_roll_cost.ToString();
         RandomSelect();
+
+        badClick = gameObject.AddComponent<AudioSource>();
+        badClick.clip = click;
     }
 
     void RandomSelect() {
@@ -86,10 +92,10 @@ public class UI_Respawn : MonoBehaviour {
         }
 
         if (id == 1) {
-            if (GameManager.instance.coins >= tier2_cost) { 
+            if (GameManager.instance.coins >= tier2_cost) {
                 //can purchase
-
-            }else {
+            }
+            else {
                 StartCoroutine(ShowError());
             }
 
@@ -137,6 +143,7 @@ public class UI_Respawn : MonoBehaviour {
     }
 
     IEnumerator ShowError() {
+        badClick.Play();
         errorText.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
         errorText.gameObject.SetActive(false);

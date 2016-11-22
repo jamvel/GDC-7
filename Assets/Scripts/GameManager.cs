@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour {
     public Perk[] perks_tier2;
     public Curse[] curses;
 
+    public AudioClip click;
+    private AudioSource buttonClick;
+
     public Canvas UI_Canvas;
     public int nodeIndex = 0;
     public int coins = 0;
@@ -66,9 +69,11 @@ public class GameManager : MonoBehaviour {
         canPause = true;
         paused = false;
 
+        buttonClick = gameObject.AddComponent<AudioSource>();
+        buttonClick.clip = click;
         //DontDestroyOnLoad(player);
         //DontDestroyOnLoad(UI_Canvas);
-	}
+    }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape) && canPause ) {
@@ -123,6 +128,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoadLevelScene() {
+        buttonClick.Play();
         StartCoroutine(LoadNewScene(3,3));
     }
 
