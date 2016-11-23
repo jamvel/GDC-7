@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
     public GameObject camera1;
     public GameObject camera2;
     public bool loadLock = false;
+    public EventSystem evtSystemRef;
+    public Button option1_button;
 
     void Awake() {
         if(GameManager.instance != null) {
             Destroy(GameManager.instance.gameObject);
+        }
+    }
+
+    void Update() {
+        if (evtSystemRef.currentSelectedGameObject == null) {
+            evtSystemRef.SetSelectedGameObject(option1_button.gameObject);
         }
     }
 
