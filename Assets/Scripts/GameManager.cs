@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
@@ -160,8 +159,9 @@ public class GameManager : MonoBehaviour {
         else if(index == 2) { //airControl
             player.GetComponent<PlayerController>().airControl = false;
         }else if(index == 3) {
-            //acid
-        }else {
+            player.GetComponent<PlayerController>().invertedControls = true;
+        }
+        else {
             //do nothing
         }
     }
@@ -169,13 +169,16 @@ public class GameManager : MonoBehaviour {
     public void AssignPerk(int index) {
         if (tier) { //tier1
             if(index == 0) {
-                player.GetComponent<PlayerController>().speed += player.GetComponent<PlayerController>().speed * 0.2f;
+                player.GetComponent<PlayerController>().speed += player.GetComponent<PlayerController>().speed * 0.15f;
             }
             else if(index == 1) {
                 player.GetComponent<PlayerController>().jumpVelocity += player.GetComponent<PlayerController>().jumpVelocity * 0.2f;
             }
             else if(index == 2) {
                 //fireballx3
+            }
+            else {
+                
             }
         }
         else { //tier2
@@ -189,7 +192,10 @@ public class GameManager : MonoBehaviour {
                 playerScript.updateHealthBar();
             }
             else if (index == 2) {
-                //increase damage
+                player.gameObject.transform.Find("SwordPiece").GetComponent<DamageDealer>().damage += 15;
+            }
+            else {
+
             }
         }
     }
@@ -203,6 +209,10 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(LoadNewScene(2,2));
     }
 
+    public void LoadBossScene() {
+        StartCoroutine(LoadNewScene(2, 4));
+    }
+
     public void SetPerk(bool tier,int index) {
         this.tier = tier;
         perk = index;
@@ -213,6 +223,10 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator LoadNewScene(float time, int index) {
+        if(SceneManager.GetActiveScene().buildIndex == 1) {
+            curse = -1;
+            perk = -1;
+        }
         if (!loadLock) {
             loadLock = true;
             // This line waits for 3 seconds before executing the next line in the coroutine.
@@ -228,7 +242,7 @@ public class GameManager : MonoBehaviour {
             if (async.isDone) {
                 Debug.Log("Load done");
                 if (index != 2) {
-                    AssignObjects(GameObject.Find("Player").gameObject, GameObject.Find("UI_Canvas_Main").GetComponent<Canvas>(),GameObject.Find("Camera2").gameObject);
+                    AssignObjects(GameObject.Find("Player").gameObject, GameObject.Find("UI_Canvas_Main").GetComponent<Canvas>(), GameObject.Find("Camera2").gameObject);
                     AssignCurse(curse);
                     AssignPerk(perk);
                     Debug.Log("PerkTier -> " + tier);

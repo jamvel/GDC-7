@@ -13,7 +13,7 @@ public class Tutorial_Trigger : MonoBehaviour {
                 canvas.SetActive(false);
                 camera1.gameObject.SetActive(false);
                 camera2.gameObject.SetActive(true);
-                GameManager.instance.LoadRespawnScene(); //change to boss scene
+                GameManager.instance.LoadLevelScene();
             }
         }
     }

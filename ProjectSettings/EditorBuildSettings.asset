@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Respawn_Scene.unity
   - enabled: 1
     path: Assets/Scenes/Levels_Scene - Copy.unity
+  - enabled: 1
+    path: Assets/Scenes/Boss_Scene.unity
