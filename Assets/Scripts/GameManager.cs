@@ -169,22 +169,27 @@ public class GameManager : MonoBehaviour {
     public void AssignPerk(int index) {
         if (tier) { //tier1
             if(index == 0) {
-
-            }else if(index == 1) {
-
-            }else if(index == 2) {
-
+                player.GetComponent<PlayerController>().speed += player.GetComponent<PlayerController>().speed * 0.2f;
+            }
+            else if(index == 1) {
+                player.GetComponent<PlayerController>().jumpVelocity += player.GetComponent<PlayerController>().jumpVelocity * 0.2f;
+            }
+            else if(index == 2) {
+                //fireballx3
             }
         }
         else { //tier2
             if (index == 0) {
-
+                playerScript.maxMana = 150;
+                playerScript.currentMana = playerScript.maxMana;
             }
             else if (index == 1) {
-
+                playerScript.maxHealth = 150;
+                playerScript.currentHealth = 150;
+                playerScript.updateHealthBar();
             }
             else if (index == 2) {
-
+                //increase damage
             }
         }
     }
@@ -225,6 +230,7 @@ public class GameManager : MonoBehaviour {
                 if (index != 2) {
                     AssignObjects(GameObject.Find("Player").gameObject, GameObject.Find("UI_Canvas_Main").GetComponent<Canvas>(),GameObject.Find("Camera2").gameObject);
                     AssignCurse(curse);
+                    AssignPerk(perk);
                     Debug.Log("PerkTier -> " + tier);
                     Debug.Log("Perk -> " + perk);
                     Debug.Log("Curse -> " + curse);

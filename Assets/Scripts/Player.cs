@@ -55,13 +55,13 @@ public class Player : MonoBehaviour {
        public void updateManaBar() {
         float manaRatio = currentMana / maxMana;
         manabarRectTransform.localScale = new Vector3(manaRatio, 1, 1);
-        manaRatioText.text = (manaRatio * 100).ToString() + "/" + maxMana;
+        manaRatioText.text = (currentMana).ToString() + "/" + maxMana;
      }
 
     public void updateHealthBar() {
         float healthRatio = currentHealth / maxHealth;
         healthbarRectTransform.localScale = new Vector3(healthRatio, 1, 1);
-        healthRatioText.text = (healthRatio * 100).ToString()+"/"+maxHealth;
+        healthRatioText.text = (currentHealth).ToString()+"/"+maxHealth;
     }
     
     public void updateHealthBar(Damage dmg) { //updates current health and health bar

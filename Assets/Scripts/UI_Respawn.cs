@@ -107,7 +107,11 @@ public class UI_Respawn : MonoBehaviour {
 
         if (id == 1) {
             if (GameManager.instance.coins >= tier2_cost) {
-                //can purchase
+                Loading_Panel.SetActive(true);
+                GameManager.instance.SetPerk(false, perk_2);
+                GameManager.instance.SetCurse(curse_2);
+
+                GameManager.instance.LoadLevelScene();
             }
             else {
                 StartCoroutine(ShowError());

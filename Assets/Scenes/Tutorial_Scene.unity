@@ -7587,6 +7587,9 @@ MonoBehaviour:
   - name: 
     desc: 'Trip  of  a  life  time  :   woah!'
     img: {fileID: 21300000, guid: f8d2260620b0a784f9f192f4ecc25617, type: 3}
+  - name: 
+    desc: 'Curse  Free   :   You  are  free  of  any  curses'
+    img: {fileID: 21300000, guid: 2da29ca7a1099473fbf2cba648eab459, type: 3}
   click: {fileID: 0}
   UI_Canvas: {fileID: 1473663391}
   nodeIndex: 0
@@ -7594,6 +7597,7 @@ MonoBehaviour:
   tier: 0
   perk: 0
   curse: 0
+  dialogue_UIRespawn: 0
 --- !u!4 &1544769423
 Transform:
   m_ObjectHideFlags: 0
