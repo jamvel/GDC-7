@@ -6,10 +6,6 @@ public class ButtonManager : MonoBehaviour {
 
     private bool paused = false;
 
-    void Update(){
-
-    }
-
     public void exitButton(){
         Application.Quit();
     }

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject fireball; //prefab to fireball
 	public GameObject emmiterFireball; //actual emmiter
 
+    public int fireball_cost;
+
     private EmmiterVector ev_fireball;
     private Transform playerTransform,tagLeftTransform, tagRightTransform;
 	private Rigidbody2D playerRigidBody;
@@ -169,19 +171,22 @@ public class PlayerController : MonoBehaviour {
             //fireball.GetComponent<Projectile> ().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
             //Debug.Log(ev_fireball.magnitude* ev_fireball.directionVector);
             if (player.fireball_1) {
-                if (direct) {
-                    ballfire.Play();
-                    ev_fireball.directionVector = new Vector2(1, 0);
-                    fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-                    Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
-                    Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
-                }
-                else {
-                    ballfire.Play();
-                    ev_fireball.directionVector = new Vector2(-1, 0);
-                    fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-                    Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
-                    Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
+                if (player.currentMana >= fireball_cost) {
+                    if (direct) {
+                        ballfire.Play();
+                        ev_fireball.directionVector = new Vector2(1, 0);
+                        fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                        Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                        Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
+                    }
+                    else {
+                        ballfire.Play();
+                        ev_fireball.directionVector = new Vector2(-1, 0);
+                        fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
+                        Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                        Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
+                    }
+                    player.currentMana -= fireball_cost;
                 }
             }
            

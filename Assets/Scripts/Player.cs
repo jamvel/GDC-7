@@ -5,7 +5,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
     public float maxHealth = 100f;
     public float currentHealth = 100f;
-    public float maxMax = 100f;
+    public float maxMana = 100f;
     public float currentMana = 100f;
     public int coins;
     public Canvas UI_Canvas;
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 
     //private int counter = 0;
     private int i;
+    public bool updateOnce = false;
     public AudioClip[] grunts, coin;
     public AudioSource grunt, coinsound;
 
@@ -46,14 +47,16 @@ public class Player : MonoBehaviour {
         grunt = gameObject.AddComponent<AudioSource>();
         grunt.volume = 0.1f;
     }
-    /*
+    
     void Update() {
-        counter++;//increment the counter each frame
-    }*/
-
-    public void updateManaBar() {
-        //float manaRation = 
+        updateManaBar();
     }
+
+       public void updateManaBar() {
+        float manaRatio = currentMana / maxMana;
+        manabarRectTransform.localScale = new Vector3(manaRatio, 1, 1);
+        manaRatioText.text = (manaRatio * 100).ToString() + "/" + maxMana;
+     }
 
     public void updateHealthBar() {
         float healthRatio = currentHealth / maxHealth;

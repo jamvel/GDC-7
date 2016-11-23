@@ -15,6 +15,7 @@ public class UI_Respawn : MonoBehaviour {
     public Text cost_Tier2_Text;
     public Text cost_Reroll_Text;
     public Text errorText;
+    public Image image_perk1, image_perk2, image_curse1, image_curse2;
 
     private GameObject option1;
     private GameObject option2;
@@ -72,11 +73,17 @@ public class UI_Respawn : MonoBehaviour {
         perk_2 = Random.Range(0, GameManager.instance.perks_tier2.Length); //select 2nd perk
         option2_button.GetComponent<UI_Respawn_OnSelect>().perk_id = perk_2;
 
+        image_perk1.sprite = GameManager.instance.perks_tier1[perk_1].img;
+        image_perk2.sprite = GameManager.instance.perks_tier2[perk_2].img;
+
         curse_1 = UniqueRandomInt(0, GameManager.instance.curses.Length, selectedCurses);
         option1_button.GetComponent<UI_Respawn_OnSelect>().curse_id = curse_1;
 
         curse_2 = UniqueRandomInt(0, GameManager.instance.curses.Length, selectedCurses);
         option2_button.GetComponent<UI_Respawn_OnSelect>().curse_id = curse_2;
+
+        image_curse1.sprite = GameManager.instance.curses[curse_1].img;
+        image_curse2.sprite = GameManager.instance.curses[curse_2].img;
 
         selectedCurses.Clear();
     }
@@ -114,7 +121,10 @@ public class UI_Respawn : MonoBehaviour {
                 GameManager.instance.coins -= re_roll_cost;
                 RandomSelect();
             }else {
-                StartCoroutine(ShowError());
+                if (!errorText.IsActive()) {
+                    StartCoroutine(ShowError());
+                }
+                
             }
             
         }
@@ -125,7 +135,8 @@ public class UI_Respawn : MonoBehaviour {
     public void ChangePerk(int id,bool tier) { //called by UI_Respawn_OnSelect , true - tier1 , false -tier2
         if (tier) {
             perk_text.text = GameManager.instance.perks_tier1[id].desc;
-        }else {
+        }
+        else {
             perk_text.text = GameManager.instance.perks_tier2[id].desc;
         }
         

@@ -1183,6 +1183,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbfe918790654134692f712bfd8879b5, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &865658262 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011589661342, guid: dbfe918790654134692f712bfd8879b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 865658261}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &865658263 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011336724434, guid: dbfe918790654134692f712bfd8879b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 865658261}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &872022874
 Prefab:
   m_ObjectHideFlags: 0
@@ -1708,6 +1720,10 @@ MonoBehaviour:
   cost_Tier2_Text: {fileID: 1365990992}
   cost_Reroll_Text: {fileID: 489372045}
   errorText: {fileID: 952825914}
+  image_perk1: {fileID: 865658263}
+  image_perk2: {fileID: 1621265302}
+  image_curse1: {fileID: 865658262}
+  image_curse2: {fileID: 1621265301}
   evtSystemRef: {fileID: 1260741142}
   click: {fileID: 8300000, guid: ca95637cf32ef194fa0a3634e3ef8c36, type: 3}
 --- !u!224 &1046957067
@@ -3455,6 +3471,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbfe918790654134692f712bfd8879b5, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1621265301 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011589661342, guid: dbfe918790654134692f712bfd8879b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1621265300}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1621265302 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011336724434, guid: dbfe918790654134692f712bfd8879b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1621265300}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1633781441
 GameObject:
   m_ObjectHideFlags: 0

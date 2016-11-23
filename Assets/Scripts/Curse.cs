@@ -5,5 +5,5 @@ using System.Collections;
 public class Curse {
     public string name;
     public string desc;
-    public Image img;
+    public Sprite img;
 }
