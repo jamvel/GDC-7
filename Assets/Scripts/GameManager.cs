@@ -121,8 +121,13 @@ public class GameManager : MonoBehaviour {
         }  
         deathScreen = false;
         UI_Canvas.gameObject.SetActive(false);
-        Camera2.SetActive(true);
+        if(Camera2 != null) {
+            Camera2.SetActive(true);
+        }
+
         LoadRespawnScene();
+  
+        
         /*
          * To Load spawn after death
          */

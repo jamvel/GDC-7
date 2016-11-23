@@ -19,6 +19,9 @@ public class MainMenu : MonoBehaviour {
             camera2.SetActive(true);
             StartCoroutine(LoadTutorialScene());
         }
+        if(select == 1) {
+            Application.Quit();
+        }
     }
 
     IEnumerator LoadTutorialScene() {
