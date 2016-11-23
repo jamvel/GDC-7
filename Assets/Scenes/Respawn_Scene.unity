@@ -1175,6 +1175,11 @@ Prefab:
       propertyPath: tier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013391516554, guid: dbfe918790654134692f712bfd8879b5,
+        type: 2}
+      propertyPath: trans
+      value: 
+      objectReference: {fileID: 8300000, guid: e5ef263de417e2f4fb69f05507f8f4d7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbfe918790654134692f712bfd8879b5, type: 2}
   m_IsPrefabParent: 0
@@ -3232,6 +3237,7 @@ MonoBehaviour:
   curse_id: 0
   perk_tier: 0
   isReroll: 1
+  trans: {fileID: 8300000, guid: e5ef263de417e2f4fb69f05507f8f4d7, type: 3}
 --- !u!114 &1612712390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3441,6 +3447,11 @@ Prefab:
       propertyPath: m_Text
       value: xxx
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013391516554, guid: dbfe918790654134692f712bfd8879b5,
+        type: 2}
+      propertyPath: trans
+      value: 
+      objectReference: {fileID: 8300000, guid: e5ef263de417e2f4fb69f05507f8f4d7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbfe918790654134692f712bfd8879b5, type: 2}
   m_IsPrefabParent: 0

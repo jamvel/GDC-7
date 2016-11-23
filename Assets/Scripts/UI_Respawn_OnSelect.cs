@@ -8,8 +8,18 @@ public class UI_Respawn_OnSelect : MonoBehaviour,ISelectHandler {
     public int curse_id;
     public bool perk_tier;
     public bool isReroll;
+
+    public AudioClip trans;
+    private AudioSource transition;
     //Do this when the selectable UI object is selected.
+
+    void Start(){
+        transition = gameObject.AddComponent<AudioSource>();
+        transition.clip = trans;
+    }
+
     public void OnSelect(BaseEventData eventData) {
+        transition.Play();
         if (isReroll) {
             UI_Respawn.instance.OnSelectedReroll();
         }else {
