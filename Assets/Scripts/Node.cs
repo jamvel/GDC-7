@@ -24,7 +24,7 @@ public class Node : MonoBehaviour {
 
         if(c.gameObject.tag == "Player") {
             if (toNode[GameManager.instance.nodeIndex].GetComponent<Node>().toBoss) {
-                Debug.Log("to Boss scene");
+                GameManager.instance.LoadBossScene();
             }else {
                 Camera.main.GetComponent<CameraFollow>().lockCamera = true;
 
