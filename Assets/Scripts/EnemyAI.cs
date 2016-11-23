@@ -7,8 +7,7 @@ using System.Collections;
  * Otherwise if the enemy is not on the platform the enemy will move from one bound to another
  * 
  */
-public class EnemyAI : MonoBehaviour
-{
+public class EnemyAI : MonoBehaviour {
     public Transform target;
     public Transform rightBound;
     public Transform leftBound;
@@ -27,12 +26,12 @@ public class EnemyAI : MonoBehaviour
 
     public float enemyWalkAgain = 0.6f;
 
-	public AudioClip[] effects;
-	private AudioSource skelwalk, skelsword;
-	public bool enableAudio = true;
+    public AudioClip[] effects;
+    private AudioSource skelwalk, skelsword;
+    public bool enableAudio = true;
 
     private float distanceToPlayer = 0;
-    
+
     private Rigidbody2D rigidBody;
     private bool searchingPlayer = false;
     private bool walkingToLeftBound = true;
@@ -48,40 +47,38 @@ public class EnemyAI : MonoBehaviour
     private Vector2 higherRightBound;
     private bool coStarted = false;
 
-    void Start()
-    {
+    void Start() {
         currentWaitTime = 300;//on detaction attack player immediately
         animator = this.GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
 
-        higherLeftBound = new Vector2 (leftBound.position.x, leftBound.position.y+0.5f);
-        higherRightBound = new Vector2(rightBound.position.x, rightBound.position.y+0.5f);
+        higherLeftBound = new Vector2(leftBound.position.x, leftBound.position.y + 0.5f);
+        higherRightBound = new Vector2(rightBound.position.x, rightBound.position.y + 0.5f);
 
         //startCoordinates = GetComponent<Transform>().position;
 
-		if(effects.Length > 0 && enableAudio == true){
-			skelwalk = gameObject.AddComponent<AudioSource>();
-			skelwalk.clip = effects[0];
+        if (effects.Length > 0 && enableAudio == true) {
+            skelwalk = gameObject.AddComponent<AudioSource>();
+            skelwalk.clip = effects[0];
             skelwalk.spatialBlend = 1;
             skelsword = gameObject.AddComponent<AudioSource>();
             skelsword.clip = effects[1];
+        } else if (effects.Length == 0) {
+            enableAudio = false;
         }
-        else if(effects.Length == 0){
-			enableAudio = false;
-		}
     }
 
 
     void Update() {
         distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        if (enableAudio){
-			if (skelwalk.isPlaying && (!isWalking)){
-				skelwalk.Stop(); //stop walking sound if stopped moving
-			}
-		}
+        if (enableAudio) {
+            if (skelwalk.isPlaying && (!isWalking)) {
+                skelwalk.Stop(); //stop walking sound if stopped moving
+            }
+        }
 
-        if (SearchForPlayer()){ //player is in the same platform as skeleton
+        if (SearchForPlayer()) { //player is in the same platform as skeleton
             var relativePoint = transform.InverseTransformPoint(target.position);
             if (relativePoint.x < 0.0) {//chasing to the left
                 walkingToLeftBound = true;
@@ -100,9 +97,9 @@ public class EnemyAI : MonoBehaviour
 
                 if (isAttacking) {//check if enemy was attacking
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
-                        if (!coStarted) {
-                            StartCoroutine(WaitSeconds());
-                            coStarted = true;
+                    if (!coStarted) {
+                        StartCoroutine(WaitSeconds());
+                        coStarted = true;
                         animatorSetting();
                     }
 
@@ -111,15 +108,15 @@ public class EnemyAI : MonoBehaviour
                     isAttacking = false;
                     patrol();
                 }
-             } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
+            } else if ((distanceToPlayer <= inChasingDistance) && (distanceToPlayer > enemyStopDistance)) {
                 //start running after the enemy
                 currentWaitTime = 275;
                 isChasing = true;
                 searchingPlayer = true;
                 if (isAttacking) {//check if enemy was attacking
                     transform.position = Vector2.MoveTowards(transform.position, currentPosition, 0);
-                    if(distanceToPlayer > enemyWalkAgain) { //check how far the player got to walk again
-                        if(!coStarted) {
+                    if (distanceToPlayer > enemyWalkAgain) { //check how far the player got to walk again
+                        if (!coStarted) {
                             StartCoroutine(WaitSeconds());
                             coStarted = true;
                             animatorSetting();
@@ -135,7 +132,7 @@ public class EnemyAI : MonoBehaviour
                 //start attacking
                 positionToAttackIn();
                 coStarted = false;
-                if(currentWaitTime >= waitBetweenAttack) {
+                if (currentWaitTime >= waitBetweenAttack) {
                     isWalking = false;
                     isChasing = false;
                     isAttacking = true;
@@ -186,27 +183,27 @@ public class EnemyAI : MonoBehaviour
     public void positionToAttackIn() {
         currentPosition = transform.position;
     }
-    
+
     //check if player is in the same platform as the enemy
-    public bool SearchForPlayer(){
-        if ((Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask))||
+    public bool SearchForPlayer() {
+        if ((Physics2D.Linecast(transform.position, leftBound.position, playerMask) || Physics2D.Linecast(transform.position, rightBound.position, playerMask)) ||
             (Physics2D.Linecast(transform.position, higherLeftBound, playerMask) || Physics2D.Linecast(transform.position, higherRightBound, playerMask))) { //Bound of platform check
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public void moveEnemy(Transform objective){
+    public void moveEnemy(Transform objective) {
         WalkSound();
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, objective.position, step);
     }
 
     public bool checkBoundDistance(Transform bound) {
-        if((Vector2.Distance(bound.position,transform.position)) <= precisionOfEnemyToBounds) {
+        if ((Vector2.Distance(bound.position, transform.position)) <= precisionOfEnemyToBounds) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -237,7 +234,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void attack() {
-        if (enableAudio && !skelsword.isPlaying){
+        if (enableAudio && !skelsword.isPlaying) {
             skelsword.Play();
         }
         //Debug.Log("Attacking");
@@ -248,13 +245,13 @@ public class EnemyAI : MonoBehaviour
     }
 
     IEnumerator wait() {
-        Debug.Log("Before :"+Time.time);
+        Debug.Log("Before :" + Time.time);
         yield return new WaitForSeconds(waitBetweenAttack);
-        Debug.Log("After :"+Time.time);
+        Debug.Log("After :" + Time.time);
     }
 
     public void animatorSetting() {
-        if(!searchingPlayer) {//patrolling the platform
+        if (!searchingPlayer) {//patrolling the platform
             //player is not in sight
             animator.SetBool("IsAttack", false);
 
@@ -263,7 +260,7 @@ public class EnemyAI : MonoBehaviour
             } else {//walking right
                 animator.SetInteger("Sdirection", 1);
             }
-        }else {//going to do actions as regards to the player position
+        } else {//going to do actions as regards to the player position
             var relativePoint = transform.InverseTransformPoint(target.position);
             if (isChasing) {//chasing enemy
                 if (relativePoint.x < 0.0) {//chasing to the left
@@ -271,10 +268,10 @@ public class EnemyAI : MonoBehaviour
                 } else {//chaing to the right
                     animator.SetInteger("Sdirection", 1);
                 }
-            }else {//looking at enemy // soon to attack
-                if(isAttacking) {//attacking 
+            } else {//looking at enemy // soon to attack
+                if (isAttacking) {//attacking 
                     animator.SetBool("IsAttack", true);
-                }else {//looking at player
+                } else {//looking at player
                     animator.SetBool("IsAttack", false);
                     if (relativePoint.x > 0.0) {//looking at the right
                         animator.SetInteger("Sdirection", 0);
@@ -285,12 +282,12 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
-		
-	public void WalkSound(){
-		if(enableAudio){
-			if (!skelwalk.isPlaying){
-				skelwalk.Play();
-			}
-		}
-	}
+
+    public void WalkSound() {
+        if (enableAudio) {
+            if (!skelwalk.isPlaying) {
+                skelwalk.Play();
+            }
+        }
+    }
 }

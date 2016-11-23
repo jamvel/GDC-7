@@ -89,7 +89,7 @@ public class BossAI : MonoBehaviour {
             var relativePoint = transform.InverseTransformPoint(target.position);
             if (relativePoint.x < 0.0) {//chasing to the left
                 walkingToLeftBound = true;
-            }else {
+            } else {
                 walkingToLeftBound = false;
             }
             //move towards the player
@@ -307,7 +307,7 @@ public class BossAI : MonoBehaviour {
         if (!searchingPlayer) {//patrolling the platform
             //player is not on same platform
             animator.SetBool("IsAttack", false);
-            if(isMagic) {//shoot bolts to player
+            if (isMagic) {//shoot bolts to player
                 animator.SetBool("IsMagic", true);
             } else {//just patrol the area
                 animator.SetBool("IsMagic", false);

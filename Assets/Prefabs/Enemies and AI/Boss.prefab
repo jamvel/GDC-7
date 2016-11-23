@@ -461,6 +461,8 @@ MonoBehaviour:
   healthBar: {fileID: 114000011483338446}
   numberOfCoins: 25
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
+  death: {fileID: 8300000, guid: 0764595081d1a1744b08ced5ff7b61f4, type: 3}
+  deathSound: {fileID: 0}
 --- !u!114 &114000011483338446
 MonoBehaviour:
   m_ObjectHideFlags: 1
