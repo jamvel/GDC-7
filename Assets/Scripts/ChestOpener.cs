@@ -27,7 +27,7 @@ public class ChestOpener : MonoBehaviour {
     void Update () {
         //check if in range to open
         if (SearchForPlayer() && !isOpen) {
-            if (Input.GetKey(KeyCode.DownArrow)) {
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
                 chest.Play();
                 isOpen = true;
                 animator.SetInteger("Opened", 1);
