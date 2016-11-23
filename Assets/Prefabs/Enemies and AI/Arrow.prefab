@@ -86,8 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b633a57ab83345aaaf62d7b456ed9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToTravel: 2.75
-  velocityVector: {x: 0, y: -5}
+  timeToTravel: 20
+  fromPlayer: 0
+  velocityVector: {x: -6, y: 0}
 --- !u!114 &114000011006738940
 MonoBehaviour:
   m_ObjectHideFlags: 1

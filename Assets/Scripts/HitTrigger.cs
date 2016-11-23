@@ -7,7 +7,6 @@ public class HitTrigger : MonoBehaviour {
     private bool cannotCheck = false;
 
     void OnTriggerEnter2D(Collider2D c) {
-        Debug.Log("Collsion with: " + c.tag);
         if (!cannotCheck) {
             if (c.tag == "Lava") {
                 cannotCheck = true;

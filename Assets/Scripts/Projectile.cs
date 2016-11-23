@@ -2,36 +2,39 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
-    public float timeToTravel = 0f;
+    public bool fromPlayer = false;
 
     [HideInInspector]
 	public Vector2 velocityVector;
 	private Rigidbody2D rb;
     private EmmiterVector emmiterArrow;
-    private bool canDestory = false;
 
     void Start () {
         emmiterArrow = GetComponent<EmmiterVector>();
         rb = GetComponent<Rigidbody2D> ();
 		rb.velocity = velocityVector;
-        StartCoroutine(DestroyAfterSeconds());
     }
-
-    void Update() {
-        if (canDestory) {
-            Destroy(gameObject);
-        }
-    }
-
+    
     void OnTriggerEnter2D(Collider2D c) {
-        if (c.gameObject.tag == "Player") {
-            Destroy(gameObject);
+        if(fromPlayer) {
+            if (c.gameObject.tag == "Enemy") {
+                Destroy(gameObject);
+            }else if (c.gameObject.tag == "Wall") {
+                Destroy(gameObject);
+            }
+        } else {
+            if (c.gameObject.tag == "Player") {
+                Destroy(gameObject);
+            } else if (c.gameObject.tag == "Wall") {
+                Destroy(gameObject);
+            } else if (c.gameObject.tag == "Floor") {
+                Destroy(gameObject);
+            } else if (c.gameObject.tag == "Lava") {
+                Destroy(gameObject);
+            } else if (c.gameObject.tag == "Entry") {
+                Destroy(gameObject);
+            }
         }
-    }
-
-    IEnumerator DestroyAfterSeconds() {
-        yield return new WaitForSeconds(timeToTravel);
-        canDestory = true;
     }
 
     void OnBecameInvisible() {

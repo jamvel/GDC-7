@@ -7,23 +7,20 @@ public class Enemy : MonoBehaviour {
     public float currentHealth = 100f;
     public float health;
     public float damage;
+    public float waitDeathTime = 0.3f;
     public Slider healthBar;
 
     public int numberOfCoins = 1;
     public GameObject coin;
     private EmmiterVector emmiterCoin;
 
-
-    //public Canvas UI_Canvas;
-
     private SpriteRenderer sr;
     private RectTransform healthbarRectTransform;
     private Text healthRatioText;
     private Animator animator;
+    private bool check = false;
+    private bool killEnemyCheck = false;
 
-    //private int hitcounter = 0;
-    private int counter =0 ;
-    private int deathCounter = 0;
     private int i;
     private Rigidbody2D rb;
     private Transform tr;
@@ -34,35 +31,33 @@ public class Enemy : MonoBehaviour {
         tr = GetComponent<Transform>();
         animator = this.GetComponent<Animator>();
         healthbarRectTransform = transform.Find("Enemy_Health_Bar").gameObject.transform.Find("Fill Area").gameObject.transform.Find("Fill").gameObject.GetComponent<RectTransform>(); //find healthbar
-        //healthRatioText = UI_Canvas.transform.Find("HealthBar_Background").gameObject.transform.Find("RatioText_HealthBar").gameObject.GetComponent<Text>(); //find ratio text for health bar
         updateHealthBar();
         emmiterCoin = this.GetComponent<EmmiterVector>();
 
     }
 
     void Update() {
-        counter++;
-        //hitcounter++;
-        deathCounter++;
-        if (health <= 0) {
-            deathCounter++;
-            animator.SetBool("IsDeath", true);
-            if (deathCounter > 120) {//wait 120 frames
-                Destroy(this.gameObject);
-                Vector3 coinPos = emmiterCoin.GetComponent<Transform>().position;
-                coinPos.x = coinPos.x + 0.5f;//+1
-                for (int i = 0; i < numberOfCoins; i++) {
-                    Instantiate(coin, coinPos, emmiterCoin.GetComponent<Transform>().rotation);
-                    coinPos.x = coinPos.x + (0.25f * -1);
-                }
+        if(check) {
+            check = false;
+            if (health <= 0) {
+                animator.SetBool("IsDeath", true);
+                StartCoroutine(waitSeconds(waitDeathTime));
+
             }
-        }else {
-            deathCounter = 0;
+        }
+        if(killEnemyCheck) {
+            Destroy(this.gameObject);
+            Vector3 coinPos = emmiterCoin.GetComponent<Transform>().position;
+            coinPos.x = coinPos.x + 0.5f;//+1
+            for (int i = 0; i < numberOfCoins; i++) {
+                Instantiate(coin, coinPos, emmiterCoin.GetComponent<Transform>().rotation);
+                coinPos.x = coinPos.x + (0.25f * -1);
+            }
         }
     }
 
     public void Damage(float dam) {
-        counter = 0;
+        check = true;
         health = health - dam/*20*/;
         healthBar.value = health;
     }
@@ -74,19 +69,14 @@ public class Enemy : MonoBehaviour {
 
     public void updateHealthBar(Damage dmg) { //updates current health and health bar
         i = Random.Range(0, 2);
-        //grunt.clip = grunts[i];
-        //grunt.Play();
-//        if (hitcounter > 100){
-//            hitcounter = 0;
-            if (dmg.isRight) {
-                tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
-            } else {
-                tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
-            }
-            currentHealth -= dmg.damage;
-            updateHealthBar();
-            StartCoroutine(changeSpriteColor());
-//        }
+        if (dmg.isRight) {
+            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
+        } else {
+            tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
+        }
+        currentHealth -= dmg.damage;
+        updateHealthBar();
+        StartCoroutine(changeSpriteColor());
     }
 
     private IEnumerator changeSpriteColor() {
@@ -98,5 +88,10 @@ public class Enemy : MonoBehaviour {
 
     public static void killEnemy(Enemy enemy) {
         Destroy(enemy.gameObject);
+    }
+
+    IEnumerator waitSeconds(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        killEnemyCheck = true;
     }
 }
