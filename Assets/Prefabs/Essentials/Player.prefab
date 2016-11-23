@@ -76,7 +76,6 @@ GameObject:
   - 95: {fileID: 95000010395649984}
   - 114: {fileID: 114000010044765022}
   - 58: {fileID: 58000014180822284}
-  - 58: {fileID: 58000012628057208}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -97,6 +96,22 @@ GameObject:
   m_Layer: 8
   m_Name: right_hitTrigger
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000012033356978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010678530264}
+  - 58: {fileID: 58000010505894428}
+  m_Layer: 8
+  m_Name: PlayerFeet
+  m_TagString: Feet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013241347714
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +180,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000010678530264
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012033356978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012215189884}
+  m_RootOrder: 8
 --- !u!4 &4000010918626970
 Transform:
   m_ObjectHideFlags: 1
@@ -185,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011405945804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 339.41, y: -1.28, z: 0}
+  m_LocalPosition: {x: 4.708, y: -14.9304, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -197,6 +225,7 @@ Transform:
   - {fileID: 4000013231477326}
   - {fileID: 4000012225222704}
   - {fileID: 224000010485342314}
+  - {fileID: 4000010678530264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000012225222704
@@ -311,27 +340,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58000012628057208
+--- !u!58 &58000010505894428
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011405945804}
-  m_Enabled: 0
+  m_GameObject: {fileID: 1000012033356978}
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -0.03, y: -0.4}
   serializedVersion: 2
-  m_Radius: 0.13638054
+  m_Radius: 0.11
 --- !u!58 &58000014180822284
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011405945804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -350,9 +379,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.08286701, y: -0.07098292}
+  m_Offset: {x: 0.0828671, y: -0.07595069}
   serializedVersion: 2
-  m_Size: {x: 0.022848897, y: 0.86200297}
+  m_Size: {x: 0.022848897, y: 0.87194055}
 --- !u!61 &61000012386920738
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -378,9 +407,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.16255684, y: -0.06913219}
+  m_Offset: {x: -0.16255695, y: -0.07365499}
   serializedVersion: 2
-  m_Size: {x: 0.02284891, y: 0.8287531}
+  m_Size: {x: 0.02284891, y: 0.8377975}
 --- !u!61 &61000014217401224
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -425,10 +454,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  mana: 100
+  maxMax: 100
+  currentMana: 100
   coins: 0
   UI_Canvas: {fileID: 0}
-  fireball_1: 0
+  fireball_1: 1
   grunts:
   - {fileID: 8300000, guid: c245df87fccec3a4fa9653c7fb08d67f, type: 3}
   - {fileID: 8300000, guid: 701d1391f5a40f8449769dd35345f99d, type: 3}
