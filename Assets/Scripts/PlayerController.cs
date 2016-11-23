@@ -176,14 +176,14 @@ public class PlayerController : MonoBehaviour {
                         ballfire.Play();
                         ev_fireball.directionVector = new Vector2(1, 0);
                         fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-                        Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                        //Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
                         Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
                     }
                     else {
                         ballfire.Play();
                         ev_fireball.directionVector = new Vector2(-1, 0);
                         fireball.GetComponent<Projectile>().velocityVector = ev_fireball.magnitude * ev_fireball.directionVector; //speed * dir
-                        Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
+                        //Debug.Log(fireball.GetComponent<Projectile>().velocityVector);
                         Instantiate(fireball, emmiterFireball.GetComponent<Transform>().position, Quaternion.Euler(0, 180, 0));
                     }
                     player.currentMana -= fireball_cost;

@@ -19,7 +19,7 @@ public class UI_Respawn_Dialogue : MonoBehaviour {
     }
 
     IEnumerator DialogueTimer(float time1,float time2 , float time3 , string[] dialogue) {
-        Debug.Log("here");
+        //Debug.Log("here");
         dialogue_panel.transform.FindChild("Text").GetComponent<Text>().text = dialogue[0];
         yield return new WaitForSeconds(time1);
         dialogue_panel.transform.FindChild("Text").GetComponent<Text>().text = dialogue[1];

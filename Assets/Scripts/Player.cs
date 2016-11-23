@@ -71,10 +71,10 @@ public class Player : MonoBehaviour {
 
         if (dmg.isRight) {
             tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x - 0.6f, tr.position.y), 0.5f);
-            Debug.Log("Enemy hit the player from the right");
+            //Debug.Log("Enemy hit the player from the right");
         } else {
             tr.position = Vector2.Lerp(tr.position, new Vector2(tr.position.x + 0.6f, tr.position.y), 0.5f);
-            Debug.Log("Enemy hit the player from the left");
+            //Debug.Log("Enemy hit the player from the left");
         }
         currentHealth -= dmg.damage;
         updateHealthBar();

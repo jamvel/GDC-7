@@ -83,15 +83,15 @@ public class FlyingEnemyAI : MonoBehaviour {
                     if(waitFrame > 70) {
                         waitFrame = 0;
                         isChasing = false;  //reached last known location
-                        Debug.Log("Ghost Reached Location");
+                        //Debug.Log("Ghost Reached Location");
                     }
                 } else {
-                    Debug.Log("Moving");
+                    //Debug.Log("Moving");
                     dashToPlayer(reachLocation);
                 }
             }else {//player just entered enemy bounds
                 reachLocation = target.position;
-                Debug.Log("New Location: " + reachLocation);
+                //Debug.Log("New Location: " + reachLocation);
                 isChasing = true;
             }
         } else { //player is not in bounds

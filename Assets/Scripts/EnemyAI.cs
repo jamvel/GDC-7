@@ -151,7 +151,7 @@ public class EnemyAI : MonoBehaviour {
                 isChasing = false;
                 isAttacking = false;
                 searchingPlayer = false;
-                Debug.Log(("Undefined State"));
+                //Debug.Log(("Undefined State"));
             }
         } else { // player is on a different platform from user --- patrol function
             searchingPlayer = false;
@@ -245,9 +245,9 @@ public class EnemyAI : MonoBehaviour {
     }
 
     IEnumerator wait() {
-        Debug.Log("Before :" + Time.time);
+        //Debug.Log("Before :" + Time.time);
         yield return new WaitForSeconds(waitBetweenAttack);
-        Debug.Log("After :" + Time.time);
+        //Debug.Log("After :" + Time.time);
     }
 
     public void animatorSetting() {

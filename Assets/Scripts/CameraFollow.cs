@@ -227,10 +227,10 @@ public class CameraFollow : MonoBehaviour {
 		northAnchor.transform.position = Camera.main.ScreenToWorldPoint (new Vector2 (relativePosition.x, Screen.height));
 		southAnchor.transform.position = Camera.main.ScreenToWorldPoint (new Vector2 (relativePosition.x, 0));
 
-        Debug.DrawLine(tagAnchor.position,westAnchor.transform.position);
-		Debug.DrawLine(tagAnchor.position,eastAnchor.transform.position);
-		Debug.DrawLine(tagAnchor.position,northAnchor.transform.position);
-		Debug.DrawLine(tagAnchor.position,southAnchor.transform.position);
+        //Debug.DrawLine(tagAnchor.position,westAnchor.transform.position);
+		//Debug.DrawLine(tagAnchor.position,eastAnchor.transform.position);
+		//Debug.DrawLine(tagAnchor.position,northAnchor.transform.position);
+		//Debug.DrawLine(tagAnchor.position,southAnchor.transform.position);
 
         if (refGround == null) {
             refGround = hit.transform;
@@ -278,7 +278,7 @@ public class CameraFollow : MonoBehaviour {
                 if (this.transform.rotation.z == 0) {
                     if (HAnchorSide() == true) { //west anchor
                         if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) > Vector2.Distance(target.position, eastAnchor.transform.position)) {
-                            Debug.Log("Unanchored");
+                            //Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             westCameraCollider = false;
@@ -287,7 +287,7 @@ public class CameraFollow : MonoBehaviour {
                     }
                     else { //east anchor
                         if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) < Vector2.Distance(target.position, eastAnchor.transform.position)) {
-                            Debug.Log("Unanchored");
+                            //Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             eastCameraCollider = false;
@@ -297,7 +297,7 @@ public class CameraFollow : MonoBehaviour {
                 }else { //rotation z == 180
                     if (HAnchorSide() == true) { //east anchor
                         if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) > Vector2.Distance(target.position, westAnchor.transform.position)) {
-                            Debug.Log("Unanchored");
+                            //Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             eastCameraCollider = false;
@@ -306,7 +306,7 @@ public class CameraFollow : MonoBehaviour {
                     }
                     else { //west anchor
                         if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) < Vector2.Distance(target.position, westAnchor.transform.position)) {
-                            Debug.Log("Unanchored");
+                            //Debug.Log("Unanchored");
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             westCameraCollider = false;
@@ -318,14 +318,14 @@ public class CameraFollow : MonoBehaviour {
 
                 if (this.transform.rotation.z == 0) { //north anchor
                     if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 2.6f) {
-                        Debug.Log("Unanchored");
+                        //Debug.Log("Unanchored");
                         anchorHorziontal = false;
                         northCameraCollider = false;
                     }
                 }
                 else {
                     if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 2.6f) {
-                        Debug.Log("Unanchored");
+                        //Debug.Log("Unanchored");
                         anchorHorziontal = false;
                         northCameraCollider = false;
                     }
@@ -378,7 +378,7 @@ public class CameraFollow : MonoBehaviour {
                         }
                         else { //east anchor
                             if (Vector2.Distance(tagAnchor.position, westAnchor.transform.position) < Vector2.Distance(target.position, eastAnchor.transform.position)) {
-                                Debug.Log("Unanchored");
+                                //Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 eastCameraCollider = false;
@@ -388,7 +388,7 @@ public class CameraFollow : MonoBehaviour {
                     }else { //rotation z == 180
                         if (HAnchorSide() == true) { //east anchor
                             if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) > Vector2.Distance(target.position, westAnchor.transform.position)) {
-                                Debug.Log("Unanchored");
+                                //Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 eastCameraCollider = false;
@@ -397,7 +397,7 @@ public class CameraFollow : MonoBehaviour {
                         }
                         else { //west anchor
                             if (Vector2.Distance(tagAnchor.position, eastAnchor.transform.position) < Vector2.Distance(target.position, westAnchor.transform.position)) {
-                                Debug.Log("Unanchored");
+                                //Debug.Log("Unanchored");
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 westCameraCollider = false;
@@ -442,13 +442,13 @@ public class CameraFollow : MonoBehaviour {
 
                     if (this.transform.rotation.z == 0) { //north anchor
                         if (Vector2.Distance(tagAnchor.position, southAnchor.transform.position) < 2.6f) {
-                            Debug.Log("Unanchored");
+                            //Debug.Log("Unanchored");
                             anchorHorziontal = false;
                             northCameraCollider = false;
                         }
                     } else { //south anchor
                         if (Vector2.Distance(tagAnchor.position, northAnchor.transform.position) < 2.6f) {
-                            Debug.Log("Unanchored");
+                            //Debug.Log("Unanchored");
                             anchorHorziontal = false;
                             northCameraCollider = false;
                         }
