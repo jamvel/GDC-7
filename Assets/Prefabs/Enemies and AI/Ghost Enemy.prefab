@@ -527,9 +527,12 @@ MonoBehaviour:
   currentHealth: 100
   health: 100
   damage: 20
+  waitDeathTime: 0.3
   healthBar: {fileID: 114000013312162536}
   numberOfCoins: 5
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
+  death: {fileID: 8300000, guid: 0764595081d1a1744b08ced5ff7b61f4, type: 3}
+  deathSound: {fileID: 0}
 --- !u!212 &212000011336534160
 SpriteRenderer:
   m_ObjectHideFlags: 1

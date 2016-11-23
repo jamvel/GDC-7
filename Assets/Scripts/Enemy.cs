@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rb;
     private Transform tr;
 
+    public AudioClip death;
+    public AudioSource deathSound;
+
     void Start(){
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +36,9 @@ public class Enemy : MonoBehaviour {
         healthbarRectTransform = transform.Find("Enemy_Health_Bar").gameObject.transform.Find("Fill Area").gameObject.transform.Find("Fill").gameObject.GetComponent<RectTransform>(); //find healthbar
         updateHealthBar();
         emmiterCoin = this.GetComponent<EmmiterVector>();
-
+        deathSound = gameObject.AddComponent<AudioSource>();
+        deathSound.clip = death;
+        deathSound.volume = 0.1f;
     }
 
     void Update() {
@@ -60,6 +65,11 @@ public class Enemy : MonoBehaviour {
         check = true;
         health = health - dam/*20*/;
         healthBar.value = health;
+        if (healthBar.value <= 0) {
+            if (!deathSound.isPlaying){
+                deathSound.Play();
+            }
+        }
     }
 
     public void updateHealthBar() {

@@ -130,6 +130,7 @@ GameObject:
   - 95: {fileID: 95000010395649984}
   - 114: {fileID: 114000010044765022}
   - 58: {fileID: 58000014180822284}
+  - 58: {fileID: 58000012389588806}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -169,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012064314586
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011405945804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.32, y: -17.11, z: 0}
+  m_LocalPosition: {x: 4.708, y: -14.9304, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -462,6 +463,20 @@ CircleCollider2D:
   m_Offset: {x: -0.03, y: -0.4}
   serializedVersion: 2
   m_Radius: 0.11
+--- !u!58 &58000012389588806
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011405945804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.03, y: -0.4}
+  serializedVersion: 2
+  m_Radius: 0.11
 --- !u!58 &58000014180822284
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -579,6 +594,7 @@ MonoBehaviour:
   coins: 0
   UI_Canvas: {fileID: 0}
   fireball_1: 1
+  updateOnce: 0
   grunts:
   - {fileID: 8300000, guid: c245df87fccec3a4fa9653c7fb08d67f, type: 3}
   - {fileID: 8300000, guid: 701d1391f5a40f8449769dd35345f99d, type: 3}
