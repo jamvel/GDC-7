@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour {
     public int perk;
     public int curse;
 
+    public bool dialogue_UIRespawn = false;
+
     private bool loadLock = false;
     private bool deathScreen = false;
     private PlayerController controller;
@@ -166,10 +168,24 @@ public class GameManager : MonoBehaviour {
 
     public void AssignPerk(int index) {
         if (tier) { //tier1
+            if(index == 0) {
 
+            }else if(index == 1) {
+
+            }else if(index == 2) {
+
+            }
         }
         else { //tier2
+            if (index == 0) {
 
+            }
+            else if (index == 1) {
+
+            }
+            else if (index == 2) {
+
+            }
         }
     }
 
