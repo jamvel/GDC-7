@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour {
     public int nodeIndex = 0;
     public int coins = 0;
 
+    public bool tier; //true - tier1 , false -tier2
+    public int perk;
+    public int curse;
+
     private bool deathScreen = false;
     private PlayerController controller;
     private Player playerScript;
@@ -127,6 +131,24 @@ public class GameManager : MonoBehaviour {
         deathOverlay = UI_Canvas.transform.Find("Death_Overlay").gameObject;
     }
 
+    public void AssignCurse(int index) {
+        if(index == 0) { //rotate 180
+            GameObject Camera =  GameObject.Find("Main Camera");
+            Camera.transform.rotation = Quaternion.Euler(0, 0, 180);
+        }else if(index == 1) { //colour blind
+            GameObject Cam = GameObject.Find("Main Camera");
+            Cam.GetComponent<RenderWithShader>().enabled = true;
+        }
+        else if(index == 2) { //airControl
+            player.GetComponent<PlayerController>().airControl = false;
+
+        }else if(index == 3) {
+
+        }else {
+            //do nothing
+        }
+    }
+
     public void LoadLevelScene() {
         buttonClick.Play();
         StartCoroutine(LoadNewScene(3,3));
@@ -134,6 +156,15 @@ public class GameManager : MonoBehaviour {
 
     public void LoadRespawnScene() {
         StartCoroutine(LoadNewScene(3,2));
+    }
+
+    public void SetPerk(bool tier,int index) {
+        this.tier = tier;
+        perk = index;
+    }
+
+    public void SetCurse(int index) {
+        curse = index;
     }
 
     IEnumerator LoadNewScene(float time , int index) {
@@ -151,6 +182,10 @@ public class GameManager : MonoBehaviour {
             Debug.Log("Load done");
             if (index != 2) {
                 AssignObjects(GameObject.Find("Player").gameObject, GameObject.Find("UI_Canvas_Main").GetComponent<Canvas>());
+                AssignCurse(curse);
+                Debug.Log("PerkTier -> " +tier);
+                Debug.Log("Perk -> " + perk);
+                Debug.Log("Curse -> " + curse);
             }
         }
         

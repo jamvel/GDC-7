@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour {
     public bool dialogueIn;
     public GameObject dialogue_panel;
     public string dialogue;
-    public Image dialogue_img; //to set
+    public Sprite dialogue_img; //to set
     public float timer = 0f;
     public bool isTriggered = false;
 
@@ -19,6 +19,9 @@ public class DialogueTrigger : MonoBehaviour {
                 }else {
                     if (dialogueIn) {
                         dialogue_panel.transform.FindChild("Text").GetComponent<Text>().text = dialogue;
+                        if(dialogue_img != null) {
+                            dialogue_panel.transform.FindChild("Image").GetComponent<Image>().sprite = dialogue_img;
+                        }
                         dialogue_panel.SetActive(true);
                     }
                     else {

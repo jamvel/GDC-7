@@ -19,6 +19,8 @@ public class UI_Respawn : MonoBehaviour {
     private GameObject option1;
     private GameObject option2;
 
+    private int perk_1, perk_2, curse_1, curse_2;
+
     private Button option1_button;
     private Button option2_button;
     private Text perk_text;
@@ -65,15 +67,15 @@ public class UI_Respawn : MonoBehaviour {
     }
 
     void RandomSelect() {
-        int perk_1 = Random.Range(0, GameManager.instance.perks_tier1.Length); //select 1st perk
+        perk_1 = Random.Range(0, GameManager.instance.perks_tier1.Length); //select 1st perk
         option1_button.GetComponent<UI_Respawn_OnSelect>().perk_id = perk_1;
-        int perk_2 = Random.Range(0, GameManager.instance.perks_tier2.Length); //select 2nd perk
+        perk_2 = Random.Range(0, GameManager.instance.perks_tier2.Length); //select 2nd perk
         option2_button.GetComponent<UI_Respawn_OnSelect>().perk_id = perk_2;
 
-        int curse_1 = UniqueRandomInt(0, GameManager.instance.curses.Length, selectedCurses);
+        curse_1 = UniqueRandomInt(0, GameManager.instance.curses.Length, selectedCurses);
         option1_button.GetComponent<UI_Respawn_OnSelect>().curse_id = curse_1;
 
-        int curse_2 = UniqueRandomInt(0, GameManager.instance.curses.Length, selectedCurses);
+        curse_2 = UniqueRandomInt(0, GameManager.instance.curses.Length, selectedCurses);
         option2_button.GetComponent<UI_Respawn_OnSelect>().curse_id = curse_2;
 
         selectedCurses.Clear();
@@ -90,6 +92,9 @@ public class UI_Respawn : MonoBehaviour {
         selectedId = id;
         if(id == 0) {
             Loading_Panel.SetActive(true);
+            GameManager.instance.SetPerk(true,perk_1);
+            GameManager.instance.SetCurse(curse_1);
+  
             GameManager.instance.LoadLevelScene();
         }
 
