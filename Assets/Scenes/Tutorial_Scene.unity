@@ -7375,9 +7375,6 @@ MonoBehaviour:
   - name: 
     desc: 'Kangaroo   :   You  can  jump  further'
     img: {fileID: 21300000, guid: 6872348088afc504c814e15e33ae6b83, type: 3}
-  - name: 
-    desc: 'Fireball x3  :  Why  fire  one  fireball  when  you  can  fire  3'
-    img: {fileID: 21300000, guid: 792b6613e5386734a9638d3e9e19de34, type: 3}
   perks_tier2:
   - name: 
     desc: 'Sorcerer    :   Your  mana  is  increased'
@@ -7386,7 +7383,7 @@ MonoBehaviour:
     desc: 'Walking  Tank    :   Your  health  is  increased'
     img: {fileID: 21300000, guid: f0e16d6681fe7ec469fbed995d0a2639, type: 3}
   - name: 
-    desc: 'Warrior    :   You  deal  more  damage  to  enemies'
+    desc: 'Warrior    :   You  deal  more  melee  damage  to  enemies'
     img: {fileID: 21300000, guid: 3a8b2d5925207f2478bd40f1ec1190e8, type: 3}
   curses:
   - name: 
@@ -7399,11 +7396,11 @@ MonoBehaviour:
     desc: 'A  Rock  in  Mid-air  :   You  cannot  control  yourself  when in air'
     img: {fileID: 21300000, guid: abfc78af75e279441b2e752a866f21d7, type: 3}
   - name: 
-    desc: 'Trip  of  a  life  time  :   woah!'
-    img: {fileID: 21300000, guid: f8d2260620b0a784f9f192f4ecc25617, type: 3}
+    desc: 'Inverted   :   Your  input  keys  are  inverted'
+    img: {fileID: 21300000, guid: c971ede253108714593f99e34a61ac47, type: 3}
   - name: 
     desc: 'Curse  Free   :   You  are  free  of  any  curses'
-    img: {fileID: 21300000, guid: 2da29ca7a1099473fbf2cba648eab459, type: 3}
+    img: {fileID: 21300000, guid: 322bdbf28f7cb9448ba9e26809f01d75, type: 3}
   click: {fileID: 0}
   UI_Canvas: {fileID: 1473663391}
   nodeIndex: 0
@@ -9426,7 +9423,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951055028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.03, y: -26.46, z: -10}
+  m_LocalPosition: {x: -8.03, y: -29.46, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour {
 		instance = this;
 		DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
+        Screen.lockCursor = true;
     }
 
 	void Start(){
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour {
                     paused = false;
                     pauseMenu.SetActive(false);
                     Time.timeScale = 1;
+                    AudioListener.volume = 1;
                 }
                 else {
                     paused = true;
@@ -174,9 +176,6 @@ public class GameManager : MonoBehaviour {
             else if(index == 1) {
                 player.GetComponent<PlayerController>().jumpVelocity += player.GetComponent<PlayerController>().jumpVelocity * 0.2f;
             }
-            else if(index == 2) {
-                //fireballx3
-            }
             else {
                 
             }
@@ -203,6 +202,7 @@ public class GameManager : MonoBehaviour {
     public void LoadLevelScene() {
         buttonClick.Play();
         StartCoroutine(LoadNewScene(3,3));
+        coins = 0;
     }
 
     public void LoadRespawnScene() {
@@ -223,7 +223,8 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator LoadNewScene(float time, int index) {
-        if(SceneManager.GetActiveScene().buildIndex == 1) {
+        nodeIndex = Random.Range(0, 4); //random paths
+        if (SceneManager.GetActiveScene().buildIndex == 1) {
             curse = -1;
             perk = -1;
         }

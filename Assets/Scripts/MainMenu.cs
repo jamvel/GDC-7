@@ -6,6 +6,13 @@ public class MainMenu : MonoBehaviour {
     public GameObject camera1;
     public GameObject camera2;
     public bool loadLock = false;
+
+    void Awake() {
+        if(GameManager.instance != null) {
+            Destroy(GameManager.instance.gameObject);
+        }
+    }
+
     public void click(int select) {
         if(select == 0) {
             camera1.SetActive(false);
