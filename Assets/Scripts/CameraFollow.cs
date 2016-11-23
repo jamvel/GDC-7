@@ -282,6 +282,7 @@ public class CameraFollow : MonoBehaviour {
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             westCameraCollider = false;
+                            eastCameraCollider = false;
                         }
                     }
                     else { //east anchor
@@ -290,6 +291,7 @@ public class CameraFollow : MonoBehaviour {
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             eastCameraCollider = false;
+                            westCameraCollider = false;
                         }
                     }
                 }else { //rotation z == 180
@@ -299,6 +301,7 @@ public class CameraFollow : MonoBehaviour {
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             eastCameraCollider = false;
+                            westCameraCollider = false;
                         }
                     }
                     else { //west anchor
@@ -307,6 +310,7 @@ public class CameraFollow : MonoBehaviour {
                             DampOutOnUnAnchor();
                             anchorVertical = false;
                             westCameraCollider = false;
+                            eastCameraCollider = false;
                         }
                     }
                 }
@@ -369,6 +373,7 @@ public class CameraFollow : MonoBehaviour {
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 westCameraCollider = false;
+                                eastCameraCollider = false;
                             }
                         }
                         else { //east anchor
@@ -377,6 +382,7 @@ public class CameraFollow : MonoBehaviour {
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 eastCameraCollider = false;
+                                westCameraCollider = false;
                             }
                         }
                     }else { //rotation z == 180
@@ -386,6 +392,7 @@ public class CameraFollow : MonoBehaviour {
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 eastCameraCollider = false;
+                                westCameraCollider = false;
                             }
                         }
                         else { //west anchor
@@ -394,6 +401,7 @@ public class CameraFollow : MonoBehaviour {
                                 DampOutOnUnAnchor();
                                 anchorVertical = false;
                                 westCameraCollider = false;
+                                eastCameraCollider = false;
                             }
                         }
                     }
