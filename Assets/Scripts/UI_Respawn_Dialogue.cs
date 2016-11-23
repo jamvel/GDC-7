@@ -14,7 +14,7 @@ public class UI_Respawn_Dialogue : MonoBehaviour {
         if (!GameManager.instance.dialogue_UIRespawn) {
             GameManager.instance.dialogue_UIRespawn = true;
             dialogue_panel.SetActive(true);
-            StartCoroutine(DialogueTimer(5,6,7, dialogue));
+            StartCoroutine(DialogueTimer(7,9,9, dialogue));
         }
     }
 
