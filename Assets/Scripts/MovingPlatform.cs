@@ -55,10 +55,7 @@ public class MovingPlatform : MonoBehaviour {
     }
 
     public void OnCollisionStay2D(Collision2D col) {
-        Debug.Log(col.gameObject.tag);
-        
-        if (col.gameObject.tag == "Feet") {
-            Debug.Log("Feet");
+        if (col.gameObject.tag == "Player") {
             col.transform.parent = this.gameObject.transform;
         }   
     }

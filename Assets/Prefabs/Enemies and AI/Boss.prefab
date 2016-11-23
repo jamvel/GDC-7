@@ -420,9 +420,10 @@ MonoBehaviour:
   speed: 1
   inChasingDistance: 1.5
   enemyStopDistance: 0.45
-  fireTime: 70
+  waitTimeBetweenFire: 1.5
   projectileSpeed: 2
   stop: 0.4
+  fireTime: 70
   enemyWalkAgain: 0.6
   enemyShootRange: 3
   fireball: {fileID: 1000010173903466, guid: 21f414ac1d51d8d488a2b72106029fe1, type: 2}
@@ -452,10 +453,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2586d1e615a2cae4684ebdcf9b67e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  health: 100
-  damage: 7
+  maxHealth: 200
+  currentHealth: 200
+  health: 200
+  damage: 10
+  waitDeathTime: 0.3
   healthBar: {fileID: 114000011483338446}
   numberOfCoins: 25
   coin: {fileID: 1000011360397490, guid: afb7b63612deac1489420b45267f173b, type: 2}
